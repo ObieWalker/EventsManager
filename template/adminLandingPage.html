@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>User Dashboard</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+                <link rel="stylesheet" href ="css/style.css">
+</head>
+
+<body>
+
+<nav class="indigo">
+
+  <div class="nav-wrapper">
+
+    <a href="index.html" class="brand-logo" style="padding-left: 20px">The Events Manager</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<div class="tabMenu">
+
+    <li class="center no-padding">
+      <div class="blue darken-2 white-text" style="height: 70px;">
+        <div class="row">
+          <!--profile picture of user placeholder-->
+            <a href="#!">
+            <div style="padding: 30px;" class="grey lighten-3 col s12 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">person</i>
+              <span class="indigo-text text-lighten-1"><h5>Admin</h5></span>
+          </div>
+        </a>
+      </div>
+    </div>
+    </li>
+
+  <button class="tablinks" onclick="openCity(event, 'addCenter')" id="defaultOpen">Add a Center</button>
+  <button class="tablinks" onclick="openCity(event, 'editCenter')">Change details of a Center</button>
+  <div id="dash_brands_header" class="collapsible-header waves-effect"><b><a class="waves-effect waves-light btn red"><i class="material-icons right">close</i>Log Out</a></b></div>
+</div>
+
+
+ <!--add center tab-->
+<div id="addCenter" class="tabcontent">
+<div class="container col s8" style="margin-top: 50px; text-align: center">
+     
+
+
+      <div class="container">
+       <div class="grey lighten-4" style="display: inline-block; width: 90%; padding: 0px 48px 20px 48px; border: 1px solid #EEE;">
+          <div class="row">
+              <div class="col s12">
+                  <h3 class="brand-logo col s12">Add Center</h3>
+              </div>
+          </div>
+
+          <div class="input-field col s12">
+               
+                <form class="col s14">
+                 <div class="input-field col s12">
+                  <i class="material-icons prefix"></i>
+                  <input id="name" type="text" class="validate">
+                  <label for="name">Center Name</label>
+                </div>
+
+
+                 <div class="input-field col s12">
+                  <i class="material-icons prefix"></i>
+                  <input id="name" type="text" class="validate">
+                  <label for="name">Center Location</label>
+                </div>
+
+                 <div class="input-field col s12">
+                  <i class="material-icons prefix"></i>
+                  <input id="email" type="email" class="validate">
+                  <label for="name">Center Capacity</label>
+                </div>
+
+                <div class = "row">
+                  <p>Center Facilities</p>
+                 <div class = "input-field col s12">
+                    <p>
+                       <input id = "alter" type = "checkbox"/>
+                       <label for = "alter">Alter/Stage</label>
+                    </p>
+
+                    <p>
+                       <input id = "projector" type = "checkbox"/>
+                       <label for = "projector">Projector</label>
+                    </p>
+
+                    <p>
+                       <input id = "security" type = "checkbox"/>
+                       <label for = "security">Ground Security</label>
+                    </p>
+                    
+                    <p>
+                       <input id = "backstage" type = "checkbox" />
+                       <label for = "backstage">Backstage</label>
+                    </p>
+                    
+                    <p>
+                       <input id = "multiExits" type = "checkbox" />
+                       <label for = "multiExits">Multiple Exits</label>
+                    </p>
+
+                    <p>
+                       <input id = "ac" type = "checkbox" />
+                       <label for = "ac">Air Conditioning system</label>
+                    </p>
+                     </div>
+                  </div>
+
+
+
+
+                  <a class="waves-effect waves-light btn right hoverable">
+                    <i class="large material-icons right">done</i>Add Center</a>
+          </form>
+        </div>
+        
+    </div>
+
+
+
+  </div>
+</div>
+  </div>
+<!--end of add center tab-->
+
+<div id="editCenter" class="tabcontent">
+
+    <div class="container col s8" style="margin-top: 50px; text-align: center">
+         
+
+
+          <div class="container">
+            <div class="grey lighten-4" style="display: inline-block; width: 90%; padding: 0px 48px 20px 48px; border: 1px solid #EEE;">
+              <div class="row">
+            
+                <div class="nav-wrapper">
+                  <div class="col s4">
+                    <h3 class="brand-logo col s8">All Centers</h3>
+                  </div>
+                </div>
+                  <table class="highlight">
+                <thead>
+                  <tr>
+                      <th>Center Name</th>
+                      <th>Capacity</th>
+                      <th>Facilities</th>
+                      <th> Edit</th>
+                      <th> Delete</th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Alvin Center</td>
+                    <td>235</td>
+                    <td>Air Condition, Alter</td>
+                    <td> <a class="btn-floating btn-large waves-effect waves-light red">
+                          <i class="material-icons">edit</i></a></td>
+                    <td><a class="btn-floating btn-large waves-effect waves-light red">
+                          <i class="material-icons">delete</i></a></td>
+                    </tr>
+                  <tr>
+                    <td>Ruby Halls</td>
+                    <td>135</td>
+                    <td>Stage, Backstage, Multiple Exits</td>
+                    <td> <a class="btn-floating btn-large waves-effect waves-light red">
+                          <i class="material-icons">edit</i></a></td>
+                    <td><a class="btn-floating btn-large waves-effect waves-light red">
+                          <i class="material-icons">delete</i></a></td>
+                  </tr>
+                  <tr>
+                   <td>JakaBoy View</td>
+                    <td>65</td>
+                    <td></td>
+                    <td> <a class="btn-floating btn-large waves-effect waves-light red">
+                          <i class="material-icons">edit</i></a></td>
+                    <td><a class="btn-floating btn-large waves-effect waves-light red">
+                          <i class="material-icons">delete</i></a></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+  <div class ="row">
+  <div class=col 4 style="height:300px; width:300px">
+    <div class="card small">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+        <p><a href="#"></a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class=col 4 style="height:300px; width:300px">
+    <div class="card small">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+        <p><a href="#"></a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class=col 4 style="height:300px; width:300px">
+    <div class="card small">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+        <p><a href="#"></a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+</div>
+
+<!--start of my events tab-->
+  <div id="myEvents" class="tabcontent">
+    <div class="container col s12" style="margin-top: 50px; text-align: center">
+      <div class="grey lighten-4" style="display: inline-block; width: 90%; padding: 0px 15px 20px 15px; border: 1px solid #EEE;">
+        <div class="row">
+        
+          <div class="nav-wrapper">
+            <div class="col s12">
+              <h3 class="brand-logo col s12">Booked Events</h3>
+            </div>
+          </div>
+        
+
+         <table class="highlight">
+          <thead>
+            <tr>
+              <th>Event Type</th>
+              <th>Center Name</th>
+              <th>Date</th>
+              <th>Capacity</th>
+              <th >Change</th>
+              <th> Delete</th>
+            </tr>
+          </thead>
+
+            <tbody>
+              <tr>
+                <td>Alvin</td>
+                <td>Eclai Halls</td>
+                <td>November 4th, 2020</td>
+                <td>235</td>
+                <td> <a class="btn-floating btn-large waves-effect waves-light red">
+                      <i class="material-icons">edit</i></a></td>
+                <td><a class="btn-floating btn-large waves-effect waves-light red">
+                      <i class="material-icons">delete</i></a></td>
+                </tr>
+              <tr>
+               <td>Stevo</td>
+                <td>Ruby Halls</td>
+                <td>January 4th, 2018</td>
+                <td>135</td>
+                <td> <a class="btn-floating btn-large waves-effect waves-light red">
+                      <i class="material-icons">edit</i></a></td>
+                <td><a class="btn-floating btn-large waves-effect waves-light red">
+                      <i class="material-icons">delete</i></a></td>
+              </tr>
+              <tr>
+               <td>JakaBoy</td>
+                <td>Park Scene</td>
+                <td>March 9th, 2018</td>
+                <td>65</td>
+                <td> <a class="btn-floating btn-large waves-effect waves-light red">
+                      <i class="material-icons">edit</i></a></td>
+                <td><a class="btn-floating btn-large waves-effect waves-light red">
+                      <i class="material-icons">delete</i></a></td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--end of my events tab-->
+
+
+  <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>           
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+
+  <script>
+    $(document).ready(function(){
+      $('ul.tabs').tabs();
+    });
+
+
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+
+     /* var slider = document.getElementById('test-slider');
+      noUiSlider.create(slider, {
+       start: [20, 80],
+       connect: true,
+       step: 1,
+       orientation: 'horizontal', // 'horizontal' or 'vertical'
+       range: {
+         'min': 0,
+         'max': 100
+       },
+       format: wNumb({
+         decimals: 0
+       })
+      });*/
+
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+      closeOnSelect: false // Close upon selecting a date,
+    });
+
+
+    
+     function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+     }
+
+  // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
+     
+  </body>
+</html> 
