@@ -1,12 +1,13 @@
 import express from 'express';
-import userController from '../controllers/eventController';
+import eventController from '../controllers/eventController';
+import centerController from '../controllers/centerController';
 
 
 const app = express.Router();
 
 //returns all events by date
 //I intend to use later for searching through filter
-app.get('/events', eventController.listEventsByDate)
+app.get('/events', https://medium.com/@obiwalker/my-experience-in-boot-camp-so-far-db1532973187
 //creates an event
 	 .post('/events', eventController.createEvent)
 //modifies an event
@@ -23,4 +24,6 @@ app.get('/centers', centerController.getCenters)
 	.post('centers', centerController.createCenter)
 	//modifies a center
 	.put('centers', centerController.modifyCenter)
+
+
 export default app;
