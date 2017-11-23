@@ -5,7 +5,8 @@
     "start:dev": "nodemon --exec npm run babel-node ./bin/www",
     "build": "babel src -d dist",
     "mocha": "mocha --compilers js:babel-core/register",
-    "test": "mocha --compilers js:babel-core/register --require babel"
+    "test": "mocha --compilers js:babel-core/register --require babel",
+    "lint" : "./node_modules/.bin/eslint"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
