@@ -1,5 +1,8 @@
 #### What does this PR do?
+TDD on my API endpoints
 It creates API endpoints and tests with dummy data
+incorporated eslint
+
 
 #### Description of Task to be completed?
 This is what precipitates the actual connection to a database.
