@@ -1,0 +1,55 @@
+{
+  "name": "event-manager",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "babel-watch server/app.js",
+    "start:dev": "nodemon --exec npm run babel-cli ./bin/www",
+    "build": "babel src -d dist",
+    "mocha": "mocha --compilers js:babel-core/register",
+    "test": "nyc reporter=html --reporter=text mocha ./server/tests/ --timeout 10000 --compilers js:babel-core/register",
+    "lint": "./node_modules/.bin/eslint"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "coveralls": "^3.0.0",
+    "debug": "~2.6.9",
+    "express": "^4.15.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "nyc": "^11.3.0",
+    "sequelize": "^2.0.0-rc1",
+    "sequelize-cli": "^3.1.0",
+    "serve-favicon": "~2.4.5",
+    "sqlite3": "^3.1.13"
+  },
+  "description": "testing api",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "Obi Walker",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "babel-watch": "^2.0.7",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "iojs": "^1.0.0",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1"
+  }
+}
