@@ -1,4 +1,6 @@
 # EventsManager
+<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
+
 https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop
 
 This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with venues.
