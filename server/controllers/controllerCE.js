@@ -1,5 +1,5 @@
-import {eventData} from '../models/dummyEvents';
-import {centerData} from '../models/dummyCenters';
+import {dummyEvents} from '../models/dummyEvents';
+import {dummyCenters} from '../models/dummyCenters';
 
 
 export default class Events {
@@ -13,7 +13,7 @@ export default class Events {
     const id = (dummyEvents[dummyEvents.length - 1].eventId) + 1;
     const newEvent = {
       eventId: id,
-      eventType: info.type
+      eventType: info.type,
       eventName: info.name,
       Location: info.location,
       guestNo: info.guestNo,
@@ -45,7 +45,7 @@ export default class Events {
     dummyEvents[matchedIndex].guestNo = data.guestNo;
     dummyEvents[matchedIndex].eventDate = data.date;
     dummyEvents[matchedIndex].facility = data.facility;
-    this.res.status(200).json(dummyEvents[dataIndex]);
+    this.res.status(200).json(dummyEvents[matchedIndex]);
   }  
 
   //get a centers details
@@ -55,7 +55,7 @@ export default class Events {
     this.res.status(200).json({val: matched});
   }
   addCenter(info) {
-    const id = (dummyCenters[dummyCenters.length - 1].eventId) + 1;
+    const id = (dummyCenters[dummyCenters.length - 1].centerId) + 1;
     const newCenter = {
       centerId: id,
       centerName : info.name,
@@ -65,7 +65,7 @@ export default class Events {
     };
     console.log(newCenter);
     dummyCenters.push(newCenter);
-    this.res.status(201).json({val: newEvent});    
+    this.res.status(201).json({val: newCenter});    
   }
   getAllCenters(){
     this.res.status(200).json({val: dummyCenters});
@@ -80,14 +80,11 @@ export default class Events {
   }
   deleteCenter(id){
     const matchedIndex = dummyCenters.findIndex(c => c.centerId === parseInt(id, 10));
-    dummyCenters[matchedIndex].centerName = data.name;
-    dummyCenters[matchedIndex].Location = data.location;
-    dummyCenters[matchedIndex].capacity = data.capacity;
-    dummyCenters[matchedIndex].facility = data.facility;
-
+    dummyCenters[matchedIndex].centerName = null;
+    dummyCenters[matchedIndex].Location = null;
+    dummyCenters[matchedIndex].capacity = null;
+    dummyCenters[matchedIndex].facility = null;
   }
-
-
 }
 
  

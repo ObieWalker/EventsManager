@@ -21,7 +21,7 @@ describe('Test endpoint', () => {
       chai.request(app)
         .post('/events')
         .send({
-        centerId: 1034,
+        centerId: 1011,
         centerName: 'sunset Villa',
         Location: 'Victoria Island, Lagos',
         capacity: 100,
@@ -33,14 +33,14 @@ describe('Test endpoint', () => {
     });
     it('Returns a event whose id has been sent', () => {
       chai.request(app)
-        .get('/events/65')
+        .get('/events/105')
         .end((err, res) => {
           expect(res).to.be.status(200);
         });
     });
     it('Returns the updated event as an object', () => {
       chai.request(app)
-        .put('/events/231')
+        .put('/events/103')
         .send({
         eventId: 231,
         eventType: 'Wedding',
@@ -73,9 +73,9 @@ describe('Test endpoint', () => {
 
     it('This will return an updated center', () => {
       chai.request(app)
-        .put('/centers/1034')
+        .put('/centers/1003')
         .send({
-        centerId: 1034,
+        centerId: 1003,
         centerName: 'sinset Ajegungun',
         Location: 'Victoria highland, Lagos',
         capacity: 10,
@@ -92,7 +92,7 @@ describe('Test endpoint', () => {
       chai.request(app)
         .post('/no-url')
         .send({
-        centerId: 1023,
+        centerId: 1011,
         centerName: 'sunset Villa',
         Location: 'Victoria Island, Lagos',
         capacity: 100,

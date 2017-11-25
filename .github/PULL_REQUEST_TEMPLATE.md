@@ -1,19 +1,17 @@
 #### What does this PR do?
-This will update the develop branch with the improved pages based on feedback
+This will update the develop branch with the cleaned up version of the API with dummy data
 
 #### Description of Task to be completed?
-Improve UI tmeplates
+Improve the API feature
 
 #### How should this be manually tested?
-User navigation
+Using mocha or testing endpoints using postman
 
 #### What are the relevant pivotal tracker stories?(if applicable)
-Create a login page for a user
-Create a sign up page for a user
-A user should be able to make bookings
-A user should be able to modify events
-A user should be able to view their bookings
-A user should be able to delete their bookings
-A user should be able to view all centers
-An admin should be able to modify center details
-An admin should be able to add a new center
+Make an API endpoint for a user to create an event
+Create an API endpoint for an admin to add a new center
+Create an API endpoints for a user to delete an event
+Create an API endpoint for an admin to modify details of a center
+Create an API endpoint for a user to modify an event
+Create an API endpoint for a user to get all the centers
+Create an API endpoint for a user to get all the details of a center

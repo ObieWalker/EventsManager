@@ -1,6 +1,7 @@
 import express from 'express';
-import Events from '../controllers/event';
-import Centers from '../controllers/center';
+import Events from '../controllers/controllerCE';
+import Centers from '../controllers/controllerCE';
+
 
 const app = express.Router();
 
