@@ -4,6 +4,10 @@
 
 https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop
 
+coveralls badge
+[![Coveralls github](https://img.shields.io/coveralls/github/jekyll/jekyll.svg)]()
+
+
 This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with venues.
 
 ## TECHNOLOGIES USED
