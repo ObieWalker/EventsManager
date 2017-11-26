@@ -11,6 +11,9 @@
     "coverage": "node node_modules/.bin/istanbul cover _mocha -- -R spec",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
+  "engines": {
+    "node": "6.11.0"
+  },
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
