@@ -50,9 +50,12 @@ export default class Events {
 
   //get a centers details
   getDetails(id) {
-    const matched = dummyEvents.filter(e => e.eventId === parseInt(id, 10));
-    console.log(matched);
-    this.res.status(200).json({val: matched});
+    // const matched = dummyCenters.filter(c => c.centerId === id);
+    // console.log(matched);
+    // this.res.status(200).json({val : matched});
+    const matchedIndex = dummyCenters.findIndex(c => c.centerId === parseInt(id,10));
+    console.log(matchedIndex)
+    this.res.status(200).json(dummyCenters[matchedIndex]);
   }
   addCenter(info) {
     const id = (dummyCenters[dummyCenters.length - 1].centerId) + 1;
@@ -72,6 +75,7 @@ export default class Events {
   }
   modifyCenter(id, info){
     const matchedIndex = dummyCenters.findIndex(c => c.centerId === parseInt(id,10));
+    console.log(matchedIndex)
     dummyCenters[matchedIndex].centerName = info.name;
     dummyCenters[matchedIndex].Location = info.location;
     dummyCenters[matchedIndex].capacity = info.capacity;
@@ -80,10 +84,8 @@ export default class Events {
   }
   deleteCenter(id){
     const matchedIndex = dummyCenters.findIndex(c => c.centerId === parseInt(id, 10));
-    dummyCenters[matchedIndex].centerName = null;
-    dummyCenters[matchedIndex].Location = null;
-    dummyCenters[matchedIndex].capacity = null;
-    dummyCenters[matchedIndex].facility = null;
+    dummyCenters.splice(matchedIndex, 1);
+    this.res.status(200).json({message: 'Your event has been deleted'});
   }
 }
 

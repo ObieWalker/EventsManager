@@ -43,8 +43,8 @@ app.get('/centers', (req, res, next) => {
 });
 //get center details
 app.get('/centers/:id', (req, res, next) => {
-	new Centers(req, res, next).getDetails(req.body);
-	console.log("The details of the center are: ")
+	new Centers(req, res, next).getDetails(req.params.id, req.body);
+	console.log("Here are the center details.")
 });
 //delete a center
 app.delete('/centers/:id', (req, res, next) => {
