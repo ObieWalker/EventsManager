@@ -1,5 +1,6 @@
 # EventsManager
 [![Maintainability](https://api.codeclimate.com/v1/badges/215078ce2fd0ee631fc5/maintainability)](https://codeclimate.com/github/ObieWalker/EventsManager/maintainability)
+
 [![Test Coverage](https://api.codeclimate.com/v1/badges/215078ce2fd0ee631fc5/test_coverage)](https://codeclimate.com/github/ObieWalker/EventsManager/test_coverage)
 
 [![Build Status](https://travis-ci.org/ObieWalker/EventsManager.svg?branch=ft-api-v2)](https://travis-ci.org/ObieWalker/EventsManager)
@@ -7,8 +8,7 @@ https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop
 
 [![Coverage Status](https://coveralls.io/repos/github/ObieWalker/EventsManager/badge.svg?branch=develop)](https://coveralls.io/github/ObieWalker/EventsManager?branch=develop)
 
-coveralls badge
-[![Coveralls github](https://img.shields.io/coveralls/github/jekyll/jekyll.svg)]()
+
 
 
 This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with venues.
