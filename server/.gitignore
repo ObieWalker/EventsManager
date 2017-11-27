@@ -1,1 +1,3 @@
 /node_modules
+/.github
+npm-debug.txt
