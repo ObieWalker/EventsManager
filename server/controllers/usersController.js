@@ -8,8 +8,8 @@ import app from '../app';
 const { Users } = models;
 
 // this will be used for the password encryption
-//this is the cost factor that can be any value
-const saltRound = 10;
+//this is the cost factor set to 2 raised to 13 just because
+const saltRound = 13;
 
 // conditions to sign in
 const signinConditions = {
@@ -28,7 +28,7 @@ const signupConditions = {
 
 
 //this will create a new user 
-const UserController = {
+const UsersController = {
   signup(req, res) {
     const validate = new validator(req.body, signupConditions);
 
@@ -39,17 +39,18 @@ const UserController = {
         },
       })
         .then((users) => {
-          // checks to see if user doesn't already exist
+          // checks to see if user already exist
           if (users.length > 0) {
             return res.status(400).json({
               message: 'User already exists'
             });
-          } // then it creates a new user
+          } // ensures both entries to password match
           if (req.body.password !== req.body.verifyPassword) {
           	//passwords must match 
             return res.status(400).json({ message: 'password did not match' });
-          }//password encrypt
+          }//password encrypt at 2 raised to power 13
           const myPassword = bcrypt.hashSync(req.body.password, saltRound);
+          //creates account
           return Users.create({
             firstname: req.body.firstname,
             lastname: req.body.lastname,
@@ -68,7 +69,7 @@ const UserController = {
   },
 
 
-  // attempt to sign in, checks against an account that doesn't exist
+  // attempt to sign in, checks to see if account exists
   signin(req, res) {
     const signinValidator = new validator(req.body, signinConditions);
     if (signinValidator.passes()) {
@@ -96,8 +97,7 @@ const UserController = {
   },
 
 
-  // not pertinent to my application but this
-  //will return all the registered users on my app
+  //returns one user that matches
   user(req, res) {
     return Users.findOne({
       where: {
@@ -112,9 +112,9 @@ const UserController = {
     }).catch(err => res.status(500).json({ Message: 'Error!!', Error: err }));
   },
 
-  //to see the user profile
+  //the user profile
   userProfile(req, res) {
-  	//we get the decoded id without querying with JWT
+  	//
     if (!req.decoded.id) {
       res.status(403).json({ message: 'You do not have the authorization to see this page' });
     }
@@ -130,7 +130,7 @@ const UserController = {
   updateProfile(req, res) {
     if (!req.decoded.id) {
       res.status(403).json({ message: 'Invalid request' });
-    }
+    }//change password
     if (req.body.newPassword && req.body.password === req.body.newPassword) {
       res.status(400).json({ message: 'password Must Differ' });
     }
@@ -139,7 +139,7 @@ const UserController = {
         email: req.decoded.user
       }
     }).then((user) => {
-    	//set new password to hash or empty string
+    	//set new password to hash or 
       const newPassword = req.body.newPassword ? bcrypt.hashSync(req.body.newPassword, saltRound) : '';
       user.update({
         firstname: req.body.firstname,
@@ -153,4 +153,4 @@ const UserController = {
   }
 };
 
-export default UserController;
+export default UsersController;

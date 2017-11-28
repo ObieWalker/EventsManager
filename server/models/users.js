@@ -1,4 +1,4 @@
-'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
     firstname: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     photo: {
       type:DataTypes.STRING,
     }
-    privileges: {
+    isAdmin: {
       DataTypes.BOOLEAN,
       defaultValue:0,
   },
@@ -44,11 +44,6 @@ module.exports = (sequelize, DataTypes) => {
     Users.hasMany(models.Centers, {
       foreignKey: 'userId',
       as: 'center',
-    });
-    Users.hasOne(models.Privilege, {
-      foreignKey: 'userId',
-      as: 'privilege'
-
     });
   }
  return Users;
