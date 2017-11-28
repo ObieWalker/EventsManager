@@ -1,6 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Events = sequelize.define('Events', {
+    userId: {
+      DataTypes.INTEGER,
+      allowNull:false,
+    },
+    centerId: {
+      DataTypes: INTEGER,
+      allowNull:false,
+    },
     eventtype: {
       DataTypes.STRING,
       allowNull:false,
