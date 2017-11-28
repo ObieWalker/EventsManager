@@ -1,4 +1,4 @@
-import validator from 'validatorjs';
+import validator from 'validator-js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import models from '../models';
@@ -31,7 +31,7 @@ const signupConditions = {
 const UsersController = {
   signup(req, res) {
     const validate = new validator(req.body, signupConditions);
-
+    //if rules and requirements are met
     if (validate.passes()) {
       return Users.findAll({
         where: {
@@ -141,12 +141,11 @@ const UsersController = {
     }).then((user) => {
     	//set new password to hash or 
       const newPassword = req.body.newPassword ? bcrypt.hashSync(req.body.newPassword, saltRound) : '';
-      user.update({
+      user.update({//not allowed to update email
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         username: req.body.username,
         password: newPassword || req.body.password,
-        aboutme: req.body.aboutme,
         photo: req.body.photo,
       }).then(() => res.status(200).json({ message: 'You have updated your profile', profile: user }));
     }).catch(err => res.status(500).json({ Error: err }));

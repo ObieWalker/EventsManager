@@ -2,23 +2,23 @@
 module.exports = (sequelize, DataTypes) => {
   var Events = sequelize.define('Events', {
     userId: {
-      DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull:false,
     },
     centerId: {
-      DataTypes: INTEGER,
+      type: DataTypes.INTEGER,
       allowNull:false,
     },
     eventtype: {
-      DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull:false,
     },
     eventdate: {
-      DataTypes.DATEONLY,
+      type: DataTypes.DATEONLY,
       allowNull:false,
     },
     guestno: {
-      DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
   });
@@ -29,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
     });
-    Events.belongsTo(models.Centers, {
-      foreignKey: 'centerId',
-      onDelete: 'CASCADE',
-    });
+    // Events.belongsTo(models.Centers, {
+    //   foreignKey: 'centerId',
+    //   onDelete: 'CASCADE',
+    // });
   };
   return Events;
 };

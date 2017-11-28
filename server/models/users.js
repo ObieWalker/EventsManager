@@ -30,9 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     photo: {
       type:DataTypes.STRING,
       allowNull: true,
-    }
+    },
     isAdmin: {
-      DataTypes.BOOLEAN,
+      type:DataTypes.BOOLEAN,
       defaultValue:0,
       allowNull: false,
   },
@@ -43,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
       as: 'event',
     });
+    //admin
     Users.hasMany(models.Centers, {
       foreignKey: 'userId',
       as: 'center',

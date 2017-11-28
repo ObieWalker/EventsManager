@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     location: {
       type: DataTypes.STRING,
       allowNull:false,
-    }.
-    address:{
+    },
+    address: {
       type: DataTypes.TEXT,
       allowNull:false,
     },
@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     capacity: {
       type:DataTypes.INTEGER,
       allowNull:false,
-    }
+    },
     bookstatus: {
-      DataTypes.BOOLEAN,
+      type:DataTypes.BOOLEAN,
       defaultValue:0,
       allowNull:false,
   },
