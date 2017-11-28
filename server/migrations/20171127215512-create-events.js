@@ -1,28 +1,31 @@
-'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('Events', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       eventtype: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       eventdate: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
+        allowNull: false,
       },
       guestno: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -42,6 +45,6 @@ module.exports = {
           as: 'centerId',
         },
       },
-    });
+    }),
   down: (queryInterface/*, Sequelize*/) => queryInterface.dropTable('Events'),
 };

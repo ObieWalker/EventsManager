@@ -10,11 +10,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false,
     }.
     address:{
-      type: DataTypes.CHAR,
+      type: DataTypes.TEXT,
       allowNull:false,
     },
     bookdate: {
       type: DataTypes.DATEONLY,
+      allowNull:true,
     },
     facility: {
       type:DataTypes.TEXT,
@@ -26,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     bookstatus: {
       DataTypes.BOOLEAN,
       defaultValue:0,
+      allowNull:false,
   },
  }); 
 

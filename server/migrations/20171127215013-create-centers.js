@@ -6,37 +6,42 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       centername: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       location: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       address: {
-        type: Sequelize.CHAR
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       bookdate: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
       },
       facility: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       capacity: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       bookstatus: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-    });
+    }),
   down: (queryInterface/*, Sequelize*/) => queryInterface.dropTable('Centers'),
 };
