@@ -1,17 +1,16 @@
 import validator from 'validatorjs';
-import bcrypt from 'bcrypt';
 import models from '../models';
 
 const {Centers} = models;
 
-const createConditions = {
+const createRules = {
 	centername: 'required',
 	location: 'required',
     address: 'required',
     capacity: 'required'
 };
 
-const editRules = {
+const modifyRules = {
 	centername: 'required',
 	location: 'required',
     address: 'required',
@@ -21,7 +20,7 @@ const editRules = {
 //const CentersController = {
     //create a center
     export const createCenter = (req, res)=>{
-		const centerValidator1 = new validator(req.body, createConditions);
+		const centerValidator1 = new validator(req.body, createRules);
 		//if this new instance matches the set conditions
 		if(centerValidator1.passes()){
 			return Centers.findOne({
@@ -47,7 +46,7 @@ const editRules = {
     }
 
     export const modifyCenter = (req, res) =>{
-        const centervalidate2 =  new validator(req.body, editRules);
+        const centervalidate2 =  new validator(req.body, modifyRules);
 		//if it is validated
 		if (centervalidate2.passes()) {
 			return Center.findOne({
