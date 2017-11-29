@@ -5,6 +5,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull:false,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+        as: 'userId',
+      },            
+    },
     location: {
       type: DataTypes.STRING,
       allowNull:false,
@@ -32,14 +40,14 @@ module.exports = (sequelize, DataTypes) => {
  }); 
 
     Centers.associate = (models) => {
-    Centers.hasMany(models.Users, {
-      foreignKey: 'centerId',
-      as: 'user',
-    });
-    Centers.hasMany(models.Events, {
-      foreignKey: 'centerId',
-      as: 'event',
-    });
+      Centers.belongsTo(models.Users, {
+        foreignKey: 'centerId',
+        as: 'user',
+      });
+      Centers.hasMany(models.Events, {
+        foreignKey: 'centerId',
+        as: 'event',
+      });
   }
  return Centers;
 };

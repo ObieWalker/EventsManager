@@ -8,9 +8,9 @@ const {Users} = models;
 const {sequelize} = models;
 //create rules 
 const createConditions = {
-	eventtype: 'required',
-	eventdate: 'required',
-	guestno: 'required'
+	eventtype: 'required|string',
+	eventdate: 'required|dateonly',
+	guestno: 'required|integer'
 };
 
 const editRules = {
@@ -21,7 +21,8 @@ const editRules = {
 
 //const EventsController = {
 	//create event
-	export const createEvent = (req, res)=>{
+export default class EventsController {
+	static createEvent(req, res) {
 		const eventValidator = new validator(req.body, createConditions);
 		//if this new instance matches the set conditions
 		//console.log("debug test 1")
@@ -48,7 +49,7 @@ const editRules = {
 		res.status(403).json({ message: errors });
 	}
 
-	export const editEvent = (req, res) =>{
+	static editEvent (req, res) {
 		const valivalidate =  new validator(req.body, editRules);
 		//if it is validated
 		if (valivalidate.passes()) {
@@ -89,12 +90,12 @@ const editRules = {
 		res.status(403).json({ message: errors });
 	}
 	
-	export const deleteEvent =(req, res)=>{
+	static deleteEvent(req, res) {
 		const eventHere = req.params.eventId;
 		
 			if (eventHere < 1) {
 			  return res.status(404).json({ message: 'Cannot find this event' });
-			}
+			} 
 			return Events.findById(eventHere).then((event) => {
 			  if (!event) {
 				res.status(404).json({ message: 'Sorry but we doubt you actually booked this event' });
@@ -110,7 +111,7 @@ const editRules = {
 		
 	}
 	//outputs all a users events
-	export const allUsersEvents = (req, res) =>{
+	static allUsersEvents (req, res) {
 		console.log("get all 1")
 		return Events.findAll({
 			where: {
@@ -133,7 +134,7 @@ const editRules = {
 		  }).catch(error => res.status(500).json({ error }));
 	}
 
-	export const allEvents = (req, res) => {
+	static allEvents (req, res) {
 		return Events.findAll({
 			order: [['eventdate', 'DESC']]
 		  }).then((events) => {
@@ -144,7 +145,4 @@ const editRules = {
 			res.status(404).json({ message: 'There are no events' });
 		  });
 	}
-
-
-
-//}
+}

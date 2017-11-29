@@ -29,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
     });
-    // Events.belongsTo(models.Centers, {
-    //   foreignKey: 'centerId',
-    //   onDelete: 'CASCADE',
-    // });
+    Events.belongsTo(models.Centers, {
+      foreignKey: 'centerId',
+      onDelete: 'CASCADE',
+    });
   };
   return Events;
 };

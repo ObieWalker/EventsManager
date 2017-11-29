@@ -26,10 +26,10 @@ const signupConditions = {
   verifyPassword: 'required|min:5',
 };
 
-
+export default class UsersController {
 //this will create a new user 
-const UsersController = {
-  signup(req, res) {
+//const UsersController = {
+  static signup(req, res) {
     const validate = new validator(req.body, signupConditions);
     //if rules and requirements are met
     if (validate.passes()) {
@@ -66,11 +66,11 @@ const UsersController = {
     }
     const errors = Object.values(validate.errors.errors).map(val => val[0]);
     res.status(400).json({ message: errors });
-  },
+  }
 
 
   // attempt to sign in, checks to see if account exists
-  signin(req, res) {
+  static signin(req, res) {
     const signinValidator = new validator(req.body, signinConditions);
     if (signinValidator.passes()) {
       return Users.findOne({
@@ -94,11 +94,11 @@ const UsersController = {
     }
     const errors = Object.values(signinValidator.errors.errors).map(val => val[0]);
     res.status(400).json({ message: errors });
-  },
+  }
 
 
   //returns one user that matches
-  user(req, res) {
+  static user(req, res) {
     return Users.findOne({
       where: {
         id: req.params.userId
@@ -110,10 +110,10 @@ const UsersController = {
       }
       res.status(200).json(user);
     }).catch(err => res.status(500).json({ Message: 'Error!!', Error: err }));
-  },
+  }
 
   //the user profile
-  userProfile(req, res) {
+  static userProfile(req, res) {
   	//
     if (!req.decoded.id) {
       res.status(403).json({ message: 'You do not have the authorization to see this page' });
@@ -124,10 +124,10 @@ const UsersController = {
       },
     }).then(user => res.status(200).json(user))
       .catch(err => res.status(500).json(err));
-  },
+  }
 
   //checks certain parameters before the put method
-  updateProfile(req, res) {
+  static updateProfile(req, res) {
     if (!req.decoded.id) {
       res.status(403).json({ message: 'Invalid request' });
     }//change password
@@ -150,6 +150,5 @@ const UsersController = {
       }).then(() => res.status(200).json({ message: 'You have updated your profile', profile: user }));
     }).catch(err => res.status(500).json({ Error: err }));
   }
-};
+}
 
-export default UsersController;

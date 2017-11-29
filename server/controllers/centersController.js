@@ -17,39 +17,55 @@ const modifyRules = {
     capacity: 'required'
 };
 
-//const CentersController = {
+class CentersController {
     //create a center
-    export const createCenter = (req, res)=>{
+    static createCenter (req, res){
 		const centerValidator1 = new validator(req.body, createRules);
-		//if this new instance matches the set conditions
+		// //if this new instance matches the set conditions
 		if(centerValidator1.passes()){
-			return Centers.findOne({
-				where: {centername: req.body.centername} 
-			}).then((center) => {
-				if(center) {
-					return res.status(400).json({ message: 'A center with this exact name already exists, please pick another for clarity for the end user' });
-				}
-			}).then(() => Centers.create({
-				centername: req.decoded.centername,
-				location: req.body.location,
-				address: req.body.address,
-                facility: req.body.facility,
-                capacity: req.body.capacity
-			})).then((center) =>{
-				 res.status(200).json({ message: 'The center has been added'});
-			}).catch((err) => {
-				res.status(400).json({message: 'Your request could not be processed'});
-			});
-		}
+		// 	return Centers.findOne({
+        //         where: {centername: req.body.centername}                                 
+		// 	}).then((center) => {
+		// 		if(center) {
+		// 			return res.status(400).json({ message: 'A center with this exact name already exists, please pick another for clarity for the end user' });
+		// 		} 
+        //     })
+        //     .then(() => Centers.create({
+		// 		centername: req.decoded.centername,
+		// 		location: req.body.location,
+		// 		address: req.body.address,
+        //         facility: req.body.facility,
+        //         capacity: req.body.capacity
+		// 	})).then((center) =>{
+		// 		 res.status(200).json({ message: 'The center has been added'});
+		// 	}).catch((err) => {
+		// 		res.status(400).json({message: 'Your request could not be processed'});
+		// 	});
+        // }
 		// const errors = Object.values(centerValidator1.errors.errors).map(val => val[0]);
-		// res.status(403).json({ message: errors });
+        // res.status(403).json({ message: errors });
+        
+        return Centers
+        .create({
+          centername: req.body.centername,
+          address: req.body.address,
+          facility: req.body.facility,
+          capacity: req.body.capacity,
+          location:req.body.location
+        })
+        .then(center => {
+            		 res.status(200).json({ message: 'The center has been added'});
+        })
+        .catch(error =>  {
+            		res.status(400).json({message: 'Your request could not be processed'});
+        });
+     }
     }
-
-    export const modifyCenter = (req, res) =>{
+    static modifyCenter (req, res){
         const centervalidate2 =  new validator(req.body, modifyRules);
 		//if it is validated
 		if (centervalidate2.passes()) {
-			return Center.findOne({
+			return Centers.findById(req.params.centerId, {
 				where : {
 					centername: req.params.centername,
 				},
@@ -86,10 +102,10 @@ const modifyRules = {
 		res.status(403).json({ message: errors });
     }
     
-    export const getAllCenters = (req, res) => {
+    static getAllCenters (req, res) {
         return Centers.findAll({
             order: [['centername', 'DESC']]
-          }).then((centeres) => {
+          }).then((centers) => {
             if (centers.length > 0) {
               if (req.query) {
                    return res.status(200).json({ message: 'Every registered center:', List: centers }); }
@@ -98,7 +114,7 @@ const modifyRules = {
           });
     }
 
-    export const getCenterDetails = (req, res) => {
+    static getCenterDetails (req, res){
         Centers.findOne({
             where: {
               id: req.params.recipeId,
@@ -113,7 +129,7 @@ const modifyRules = {
 
     }
 
-    export const deleteCenter = (req, res) => {
+    static deleteCenter (req, res) {
         const centerhere = req.params.recipeId;
         
             if (centerhere < 1) {
@@ -131,10 +147,5 @@ const modifyRules = {
               }
             })
               .catch(Error => res.status(500).json({ message: 'Server Error', Error }));
-          
-
     }
-	
-    
-
-
+}
