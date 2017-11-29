@@ -10,8 +10,16 @@ https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop
 
 
 
+### What the project does
+  - This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with appropriate venues.
+  - Features
 
-This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with venues.
+### Why the project is useful
+  - This project intends to handle the barriers associated with a user having to physically go to venues to enquire or call up the few venues  they might be aware of. A user can sit in the comfort of their houses with their requirements and make the best possible decision with respect to their limiting factors. 
+
+
+### Contributing to the project
+  - This is a solo project but I got a lot of help from my fellow boot-campers and LFA's.
 
 ## TECHNOLOGIES USED
 
@@ -20,7 +28,11 @@ This is an events manager application that will be used to connect users that co
   * Libraries: nodemon, Babel, eslint, etc.
   * Test: Mocha/Chai
 
+### How users can get started with the project
+  - Ensure you have a system with atleast 8GB RAM and follow the instructions below
+
 ## For installation
+* Clone the repo.
 * cd into the server folder
 * Run npm install to install all dependencies
 * Run npm run start to start the server
@@ -35,4 +47,4 @@ This is an events manager application that will be used to connect users that co
 }`
 
 ## Tests
-> To run tests, use `npm test`
+  - To run tests, use `npm test`
