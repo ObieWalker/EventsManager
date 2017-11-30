@@ -1,12 +1,12 @@
 var pg = require('pg');
 
 const pool = new pg.Pool({
-	user:'obiwalker',
+	user:process.env.DB_USER,
 	database: 'eventsmanager',
-	password: 'biskie',
+	password: process.env.DB_PASS,
 	name: 'eventmanager',
-	host: "127.0.0.1",
-    port: 5432,
+	host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     max: 100
 });
 

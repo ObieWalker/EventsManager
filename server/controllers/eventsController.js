@@ -57,8 +57,9 @@ export default class EventsController {
 			res.status(404).json({ message: 'Sorry but we doubt you actually booked this event' });
 			}
 			return event.destroy()
-			.then(res.status(200).json({ message: 'Your event has been deleted. Its gone' });
-			}) 	
+			.then(res.status(200).json({ message: 'Your event has been deleted. Its gone' })
+			);
+		})
 	}
 
 	//outputs all a users events

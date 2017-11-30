@@ -61,11 +61,4 @@ export default class validate {
         req.checkBody('eventdate', 'You think you are Marty Mcfly? Wanna go back to the past? Pick a future date').isAfter();
         req.checkBody('eventdate').toDate();
     }
-
-
-
-
-
-
-
 }

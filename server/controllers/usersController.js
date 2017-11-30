@@ -19,7 +19,7 @@ export default class UsersController {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       username: req.body.username,
-      password: myPassword,
+      password: req.body.password,
       email: req.body.email,
     })
     .then(user => res.status(200).json({
