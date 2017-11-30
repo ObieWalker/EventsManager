@@ -2,7 +2,6 @@ import express from 'express';
 import UsersController from '../controllers/usersController';
 import EventsController from '../controllers/eventsController';
 import CentersController from '../controllers/centersController';
-import validator from '../authenticate/validator';
 import validate from '../authenticate/validator';
 
 //not versioning our api
@@ -17,8 +16,6 @@ apiv1.post('/users/login', validate.signInValidator, UsersController.signin);
 
 //create a new event
 apiv1.post('/events', validate.createEventValidation, EventsController.createEvent);
-//return all events
-apiv1.get('/events', EventsController.allEvents);
 //return a users events
 apiv1.get('/users/:userId/events', EventsController.allUsersEvents);
 //modify an event

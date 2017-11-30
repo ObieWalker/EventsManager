@@ -24,7 +24,7 @@ export default class EventsController {
 			return Events.findById(req.params.id)
 			.then((event) =>{
 				if(!event) {
-					res.status(404).json({ message: 'Event does not exist within our records'});
+					res.status(404).json({ message:'Event does not exist within our records'});
 				}
 				return event.update({
 				  	centerId: req.body.centername,
@@ -53,15 +53,15 @@ export default class EventsController {
 	static deleteEvent(req, res) {
 		Events.findById(req.params.id)
 		.then((event) => {
-			if (!event) {
+      if (!event){
 			res.status(404).json({ message: 'Sorry but we doubt you actually booked this event' });
 			}
 			return event.destroy()
-			.then(res.status(200).json({ message: 'Your event has been deleted. Its gone' });
-			}) 	
+			.then(res.status(200).json({ message: 'Your event has been deleted. Its gone'}))
+		})
 	}
 
-	//outputs all a users events
+// outputs all a users events
 	static allUsersEvents (req, res) {
 		console.log("get all 1")
 		return Events.findAll({
