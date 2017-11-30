@@ -1,14 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Events = sequelize.define('Events', {
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull:false,
-    },
-    centerId: {
-      type: DataTypes.INTEGER,
-      allowNull:false,
-    },
     eventtype: {
       type: DataTypes.STRING,
       allowNull:false,
@@ -31,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Events.belongsTo(models.Centers, {
       foreignKey: 'centerId',
+      as: 'centers',
       onDelete: 'CASCADE',
     });
   };
