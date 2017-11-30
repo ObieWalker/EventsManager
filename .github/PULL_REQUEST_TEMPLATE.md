@@ -1,17 +1,16 @@
 #### What does this PR do?
-This will update the develop branch with the cleaned up version of the API with dummy data
+This adds the functionality of a real database connection and data to the app. 
+I have implemented 3 models, 3 migrations and the user controller adding json web tokens,
+ bcrypt and validator.
 
 #### Description of Task to be completed?
-Improve the API feature
+Implementing json web tokens and refactoring code to use real data from a database.
 
 #### How should this be manually tested?
-Using mocha or testing endpoints using postman
+At this juncture, it cannot be tested.
 
 #### What are the relevant pivotal tracker stories?(if applicable)
-Make an API endpoint for a user to create an event
-Create an API endpoint for an admin to add a new center
-Create an API endpoints for a user to delete an event
-Create an API endpoint for an admin to modify details of a center
-Create an API endpoint for a user to modify an event
-Create an API endpoint for a user to get all the centers
-Create an API endpoint for a user to get all the details of a center
+Implement sign in and sign out functionality using JSON web tokens.
+Integrate admin's privileges using JSON web tokens.
+Connect the application to a database using PostgreSQL.
+Reify the endpoints so that they implement real data from a database.
