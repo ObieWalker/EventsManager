@@ -22,7 +22,7 @@ apiv1.get('/events', EventsController.allEvents);
 //return a users events
 apiv1.get('/users/:userId/events', EventsController.allUsersEvents);
 //modify an event
-apiv1.put('/events/:id', EventsController.editEvent);
+apiv1.put('/events/:id', validate.createEventValidation, EventsController.editEvent);
 //delete an event
 apiv1.delete('/events/:id', EventsController.deleteEvent);
 
@@ -31,7 +31,7 @@ apiv1.delete('/events/:id', EventsController.deleteEvent);
 //add new center
 apiv1.post('/admin/centers', validate.createCenterValidation, CentersController.createCenter)
 //edit a center's details
-apiv1.put('/admin/centers/:id', CentersController.modifyCenter)
+apiv1.put('/admin/centers/:id', validate.createCenterValidation, CentersController.modifyCenter)
 //get all centers
 apiv1.get('/centers', CentersController.getAllCenters)
 //get center details

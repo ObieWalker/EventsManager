@@ -55,7 +55,11 @@ export default class validate {
     }
 
     static createEventValidation(req, res, next){
-        
+        req.checkBody('eventtype', 'The event type must be one of the options given or choose "other"').notEmpty();
+        req.checkBody('eventtype', 'Please just pick the closest match gad damn it').isAlpha();
+        req.checkBody('guestno', 'Your guest number must be a number above 2, surely you cannot be that friendless').isInt({gt: 2, lt: 4000000});
+        req.checkBody('eventdate', 'You think you are Marty Mcfly? Wanna go back to the past? Pick a future date').isAfter();
+        req.checkBody('eventdate').toDate();
     }
 
 
