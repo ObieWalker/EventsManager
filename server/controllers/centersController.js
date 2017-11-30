@@ -17,7 +17,7 @@ const modifyRules = {
     capacity: 'required'
 };
 
-class CentersController {
+export default class CentersController {
     //create a center
     static createCenter (req, res){
 		const centerValidator1 = new validator(req.body, createRules);

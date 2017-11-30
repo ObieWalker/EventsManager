@@ -19,8 +19,6 @@ const editRules = {
 	guestno: 'required'
 };
 
-//const EventsController = {
-	//create event
 export default class EventsController {
 	static createEvent(req, res) {
 		const eventValidator = new validator(req.body, createConditions);
