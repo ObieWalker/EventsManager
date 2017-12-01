@@ -1,10 +1,9 @@
 import jwt from 'jsonwebtoken';
 import app from '../app';
 
-
 export default class auth {
-  authenticate(req, res, next) {//token body and header
-    //moves to the next handler (middleware)
+  authenticate (req, res, next) { // token body and header
+    // moves to the next handler (middleware)
     const token = req.body.token || req.query.token || req.headers.token;
 
     if (req.url === '/users/signin' || req.url === '/users/signup') {
@@ -14,7 +13,7 @@ export default class auth {
         if (err) {
           return res.status(401).json({ message: 'Failed to authenticate user' });
         }
-        req.decoded = decoded;
+        req.decoded = decoded
         next();
       });
     } else {
@@ -22,7 +21,7 @@ export default class auth {
     }
   }
   // contoller to for methods not implemented
-   notImplemented(req, res) {
+  notImplemented (req, res) {
     res.status(405).json({ message: 'Method not implemented at the moment' });
   }
 };

@@ -12,10 +12,8 @@ apiv1.post('/users/login', UsersController.signin)
 
 // create a new event
 apiv1.post('/events', EventsController.createEvent);
-// return all events
-apiv1.get('/events', EventsController.allEvents);
 // return a users events
-apiv1.get('/users/:userId/events', EventsController.allUsersEvents);
+//apiv1.get('/users/:userId/events', EventsController.allUsersEvents);
 // modify an event
 apiv1.put('/events/:id', EventsController.editEvent);
 // delete an event
@@ -33,10 +31,3 @@ apiv1.get('/centers/:id', CentersController.getCenterDetails)
 apiv1.delete('/centers/:id', CentersController.deleteCenter)
 
 export default apiv1;
-
-
-
-
-
-
-

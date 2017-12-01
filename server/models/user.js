@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
     firstname: {
@@ -9,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull:false,
     },
-    username:{
+    username: {
       type: DataTypes.STRING,
       allowNull:false,
       unique: true,
@@ -23,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false,
       validate: {
         isEmail: {
-           msg: 'Not a valid email'
+          msg: 'Not a valid email'
         }
       }
     },
@@ -35,19 +34,19 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.BOOLEAN,
       defaultValue:0,
       allowNull: false,
-  },
- }); 
+    },
+  }); 
 
-    Users.associate = (models) => {
+  Users.associate = (models) => {
     Users.hasMany(models.Events, {
       foreignKey: 'userId',
       as: 'event',
     });
-    //admin
+    // admin
     Users.hasMany(models.Centers, {
       foreignKey: 'userId',
       as: 'center',
     });
   }
- return Users;
-};
+  return Users
+}

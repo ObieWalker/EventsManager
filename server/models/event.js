@@ -1,13 +1,21 @@
-'use strict';
+'use strict'
 module.exports = (sequelize, DataTypes) => {
   var Events = sequelize.define('Events', {
     userId: {
       type: DataTypes.INTEGER,
-      allowNull:false,
+      references: {
+        model: 'Users',
+        key: 'id',
+        as: 'userId',
+      },   
     },
     centerId: {
       type: DataTypes.INTEGER,
-      allowNull:false,
+      references: {
+        model: 'Centers',
+        key: 'id',
+        as: 'centerId',
+      },   
     },
     eventtype: {
       type: DataTypes.STRING,
@@ -22,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
   });
-
 
   Events.associate = (models) => {
     Events.belongsTo(models.Users, {

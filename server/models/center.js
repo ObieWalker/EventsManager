@@ -34,20 +34,20 @@ module.exports = (sequelize, DataTypes) => {
     },
     bookstatus: {
       type:DataTypes.BOOLEAN,
-      defaultValue:0,
+      defaultValue: 0,
       allowNull:false,
-  },
- }); 
+    },
+  }); 
 
-    Centers.associate = (models) => {
-      Centers.belongsTo(models.Users, {
-        foreignKey: 'centerId',
-        as: 'user',
-      });
-      Centers.hasMany(models.Events, {
-        foreignKey: 'centerId',
-        as: 'event',
-      });
+  Centers.associate = (models) => {
+    Centers.belongsTo(models.Users, {
+      foreignKey: 'userId',
+      as: 'user',
+    });
+    Centers.hasMany(models.Events, {
+      foreignKey: 'centerId',
+      as: 'event',
+    });
   }
- return Centers;
+  return Centers;
 };

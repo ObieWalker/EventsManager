@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => 
+  up: (queryInterface, Sequelize) =>
     queryInterface.createTable('Centers', {
       id: {
         allowNull: false,
@@ -13,8 +13,8 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id',
-          as: 'userId',
-        },     
+          as: 'userId'
+        }
       },
       centername: {
         type: Sequelize.STRING,
