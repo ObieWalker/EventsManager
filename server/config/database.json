@@ -1,0 +1,28 @@
+import db from 'db'
+
+{
+  "development": {
+    "username": "obiwalker",
+    "password": "biskie",
+    "database": "events-dev",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "obiwalker",
+    "password": "biskie",
+    "database": "events-test",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "obiwalker",
+    "password": "biskie",
+    "database": "events",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}
