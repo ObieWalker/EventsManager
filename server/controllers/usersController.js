@@ -1,13 +1,9 @@
 
 import jwt from 'jsonwebtoken'
-import express from 'express'
 import bcrypt from 'bcrypt'
 import models from '../models'
 
 const Users = models.Users
-
-const app = express()
-app.set('secret_key', secret.secret)
 
 // this will be used for the password encryption
 // this is the cost factor set to 2 raised to 13 just because
@@ -47,24 +43,39 @@ export default class UsersController {
       })
   }
 
-  // attempt to sign in, checks to see if account exists
   static signin (req, res) {
-    return Users.findOne({
-      where: {
-        email: req.body.email
-      },
+    Users.findOne({
+      where: { email: req.body.email }
     })
       .then((user) => {
         if (!user) {
-          return res.status(404).json({ message: 'User does not exist' });
-        } else if (!bcrypt.compareSync(req.body.password, user.get('password'))) {
-          res.status(403).json({ message: 'Wrong password' })
-        }
-        const token = jwt.sign({ id: user.id, user: user.email }, app.get('secret_key'), { expiresIn: 84000 })
-        res.status(200).json({ message: 'Login Successful!', 'User detail': user, Token: token })
-      })
-      .catch(err => res.status(500).json({
-        message: 'Your request was not Processed', err
-      }))
-  }
+          res.status(404).send({
+            success: false,
+            message: 'This account does not exist on our database'
+          })
+        } else if (user) {
+          bcrypt.compare(req.body.password, user.password, (err, hash) => {
+            if (!hash) { res.status(403).json({ message: 'Wrong password' });
+          } else if (hash) {
+                const payload = {
+                  firstname: user.firstname,
+                  lastname: user.lastname,
+                  email: user.email,
+                  firstname: user.firstname,
+                  lastname: user.lastname,
+                  id: user.id
+                };
+                const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
+                res.status(200).json({ message: 'Login Successful!', 'Your details are ': user, Token: token });
+              }
+            });
+          }
+        })
+        .catch((error) => {
+          res.status(400).send({
+            success: false,
+            error
+          });
+        });
+    }
 }

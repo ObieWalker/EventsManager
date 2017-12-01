@@ -1,27 +1,20 @@
-import jwt from 'jsonwebtoken';
-import app from '../app';
+import jwt from 'jsonwebtoken'
 
 export default class auth {
-  authenticate (req, res, next) { // token body and header
-    // moves to the next handler (middleware)
-    const token = req.body.token || req.query.token || req.headers.token;
+  authenticate (req, res, next) {
+    const token = req.body.token || req.query.token || req.headers.token
 
-    if (req.url === '/users/signin' || req.url === '/users/signup') {
-      next();
-    } else if (token) {
-      jwt.verify(token, app.get('secret_key'), (err, decoded) => {
+    if (token) {
+      jwt.verify(token, process.env.SECRET, (err, decoded) => {
         if (err) {
           return res.status(401).json({ message: 'Failed to authenticate user' });
         }
+        // the user data is stored
         req.decoded = decoded
-        next();
-      });
+        next()
+      })
     } else {
-      res.status(403).json({ message: 'No token, please sign in' });
+      res.status(403).json({ message: 'No token, please sign in' })
     }
-  }
-  // contoller to for methods not implemented
-  notImplemented (req, res) {
-    res.status(405).json({ message: 'Method not implemented at the moment' });
   }
 };

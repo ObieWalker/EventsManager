@@ -1,5 +1,4 @@
 import express from 'express'
-import dotenv from 'dotenv'
 import UsersController from '../controllers/usersController'
 import EventsController from '../controllers/eventsController'
 import CentersController from '../controllers/centersController'
@@ -11,12 +10,12 @@ const apiv1 = express.Router()
 apiv1.post('/users/', UsersController.signup)
 apiv1.post('/users/login', UsersController.signin)
 
-dotenv.config()
 // create a new event
 apiv1.post('/events', EventsController.createEvent)
 // return a users events
 //apiv1.get('/users/:userId/events', EventsController.allUsersEvents);
 // modify an event
+apiv1.get('/events/', EventsController.allEvents)
 apiv1.put('/events/:id', EventsController.editEvent)
 // delete an event
 apiv1.delete('/events/:id', EventsController.deleteEvent)

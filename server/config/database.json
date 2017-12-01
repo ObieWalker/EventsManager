@@ -1,27 +1,28 @@
 
 {
   "development": {
-    "username": "DB_USER",
-    "password": "DB_PASS",
+    "username": "obiwalker",
+    "password": "biskie",
     "database": "events-dev",
-    "host": "DB_HOST",
-    "port": "DB_PORT",
-    "dialect": "DB_DIALECT"
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
   },
   "test": {
-    "username": "DB_USER",
-    "password": "DB_PASS",
+    "username": "obiwalker",
+    "password": "biskie",
     "database": "events-test",
-    "host": "DB_HOST",
-    "port": "DB_PORT",
-    "dialect": "DB_DIALECT"
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
   },
   "production": {
-    "username": "DB_USER",
-    "password": "DB_PASS",
+    "use_env_variable": "DATABASE_URL",
+    "username": "obiwalker",
+    "password": "biskie",
     "database": "events",
-    "host": "DB_HOST",
-    "port": "DB_PORT",
-    "dialect": "DB_DIALECT"
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
   }
 }

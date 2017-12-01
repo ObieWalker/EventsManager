@@ -14,7 +14,7 @@ export default class EventsController {
       res.status(201).json({message: 'Your event has been booked'})
     }).catch((err) => {
       res.status(400).json({message: 'Your request could not be processed'});
-    });
+    })
   }
 
   static editEvent (req, res) {
@@ -49,13 +49,13 @@ export default class EventsController {
   }
 
   static deleteEvent (req, res) {
-    Events.findById(req.params.id)
+    return Events.findById(req.params.id)
       .then((center) => {
         if (!center) { // if no centers
-          return res.status(400).send({ message: 'No such center' })
+          return res.status(400).send({ message: 'No such event' })
         } // else remove
         return center.destroy()
-          .then(res.status(200).send({ message: 'The center has been deleted!' }))
+          .then(res.status(200).send({ message: 'The event has been cancelled' }))
           .catch(error => res.status(400).send(error))
       })
   }
@@ -66,7 +66,8 @@ export default class EventsController {
     }).then((events) => {
       if (events.length > 0) {
         if (req.query) {
-          return res.status(200).json({message: 'All the upcoming events:', List: events}); }
+          return res.status(200).json({message: 'All the upcoming events:', List: events})
+        }
       }
       res.status(404).json({ message: 'There are no events' })
     })

@@ -1,23 +1,32 @@
 import models from '../models';
 
 const Centers = models.Centers
+const Users = models.Users
 
 export default class CentersController {
-// create a center
+// create a center only if user is admin
   static createCenter (req, res) {
-    Centers.create({
-      centername: req.body.centername,
-      address: req.body.address,
-      facility: req.body.facility,
-      capacity: req.body.capacity,
-      location: req.body.location
+    Users.findOne({
+      where: {id: 1}
+    }).then((user) => {
+      if (!user.isAdmin) {
+        return res.status(403).json({message: 'You do not have the admin privileges to do this'})
+      } else {
+        Centers.create({
+          centername: req.body.centername,
+          address: req.body.address,
+          facility: req.body.facility,
+          capacity: req.body.capacity,
+          location: req.body.location
+        })
+          .then(center => {
+            res.status(200).json({message: 'The center has been added'})
+          })
+          .catch((error) =>  {
+            res.status(400).json({message: 'Your request could not be processed'});
+          })
+      }
     })
-      .then(center => {
-        res.status(200).json({message: 'The center has been added'});
-      })
-      .catch((error) =>  {
-        res.status(400).json({message: 'Your request could not be processed'});
-      });
   }
 
   static modifyCenter (req, res) {
