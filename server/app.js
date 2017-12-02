@@ -18,15 +18,21 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use('/', router)
-app.use('/events', router)
-app.use('/centers', router)
-app.use('/users', router)
+app.use('api/v1/events', router)
+app.use('api/v1/centers', router)
+app.use('api/v1/users', router)
 app.get('/', (req, res) => {
-  res.status(200).send('All the routes for Event Manager')
+  res.status(200).send('The Event Manager Portal says HI')
+})
+
+app.get('/*', (req, res) => {
+  // When there is an invalid request
+  res.status(404).json({error: {name: 'Error', message: 'Invalid URL Request'}
+  })
 })
 
 app.listen(port, () => {
-  console.log('Server running on port', port);
+  console.log('Server running on port', port)
 })
 
 export default app

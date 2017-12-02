@@ -21,13 +21,13 @@ export default class UsersController {
         if (users.length > 0) {
           return res.status(400).json({
             message: 'User already exists'
-          });
+          })
         } // ensures both entries to password match
         if (req.body.password !== req.body.verifyPassword) {
         // passwords must match
-          return res.status(400).json({ message: 'password did not match' });
+          return res.status(400).json({ message: 'password did not match' })
         } // password encrypt at 2 raised to power 13
-        const myPassword = bcrypt.hashSync(req.body.password, saltRound);
+        const myPassword = bcrypt.hashSync(req.body.password, saltRound)
         // creates account
         return Users.create({
           firstname: req.body.firstname,
@@ -36,7 +36,7 @@ export default class UsersController {
           password: myPassword,
           email: req.body.email
         })
-          .then(user => res.status(200).json({
+          .then(user => res.status(201).json({
             message: 'Your account has been created!', 'Your details': user
           }))
           .catch(err => res.status(500).json({ message: 'Server Error', Error: err }))
@@ -56,13 +56,12 @@ export default class UsersController {
         } else {
           bcrypt.compare(req.body.password, user.password, (err, hash) => {
             if (!hash) { res.status(403).json({ message: 'Wrong password' });
-          } else if (hash) {
+            } else if (hash) {
               const payload = {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 email: user.email,
-                firstname: user.firstname,
-                lastname: user.lastname,
+                username: user.username,
                 id: user.id
               };
               const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
@@ -75,7 +74,7 @@ export default class UsersController {
           res.status(400).send({
             success: false,
             error
-          });
-        });
+          })
+        })
     }
 }

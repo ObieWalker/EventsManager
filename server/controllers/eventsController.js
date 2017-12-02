@@ -58,11 +58,11 @@ export default class EventsController {
 
   static deleteEvent (req, res) {
     return Events.findById(req.params.id)
-      .then((center) => {
-        if (!center) { // if no centers
+      .then((event) => {
+        if (!event) { // if no centers
           return res.status(400).send({ message: 'No such event' })
         } // else remove
-        return center.destroy()
+        return event.destroy()
           .then(res.status(200).send({ message: 'The event has been cancelled' }))
           .catch(error => res.status(400).send(error))
       })
