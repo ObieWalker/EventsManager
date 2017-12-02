@@ -1,7 +1,6 @@
 import models from '../models'
 
 const Events = models.Events
-const Centers = models.Centers
 
 export default class EventsController {
   static createEvent (req, res) {

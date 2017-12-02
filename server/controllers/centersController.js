@@ -101,7 +101,7 @@ export default class CentersController {
   }
 
   static deleteCenter (req, res) {
-    Users.findById(req.decoded.id)
+    Users.findById(req.body.id)
       .then((user) => {
         if (!user.isAdmin) {
           return res.status(403).json({message: 'You do not have the admin privileges to do this'})

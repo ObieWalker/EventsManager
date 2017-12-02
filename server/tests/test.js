@@ -3,6 +3,7 @@ import chaiHttp from 'chai-http'
 import chai from 'chai'
 
 const expect = chai
+const should = chai.should()
 chai.use(chaiHttp)
 
 describe('Test endpoint', () => {
@@ -88,6 +89,45 @@ describe('Test endpoint', () => {
           expect(res).to.be.status(200)
         })
     })
+
+    it('Returns all centers', () => {
+      chai.request(app)
+        .get('/centers')
+        .end((err, res) => {
+          expect(res).to.be.status(200)
+        })
+    })
+
+    it('returns an error as center does not exist', () => {
+      chai.request(app)
+        .get('/centers/456')
+        .end((err, res) => {
+          expect(res).to.be.status(404)
+        })
+    })
+
+    it('Returns center with id=1', () => {
+      chai.request(app)
+        .get('/centers/1')
+        .end((err, res) => {
+          expect(res).to.be.status(200)
+        })
+    })
+
+    it('return an error as center does not exist', () => {
+      chai.request(app)
+        .delete('/centers/456')
+        .end((err, res) => {
+          expect(res).to.be.status(404)
+        })
+    })
+    it('deletes a center', () => {
+      chai.request(app)
+        .delete('/centers/1')
+        .end((err, res) => {
+          expect(res).to.be.status(200)
+        })
+    })
   })
 
   describe('Invalid URL', () => {
@@ -101,13 +141,13 @@ describe('Test endpoint', () => {
           facility: ['Projector', 'Stage']
         })
         .end((err, res) => {
-          expect(res).to.be.status(404);
+          expect(res).to.be.status(404)
         })
     })
   })
 
   describe('Registration', () => {
-    it('Registers new user', (done) => {
+    it('fail to register user', (done) => {
       chai.request(app)
         .post('/users')
         .send({
@@ -119,23 +159,25 @@ describe('Test endpoint', () => {
           verifyPassword: 'testingpw'
         })
         .end((err, res) => {
-          expect(res).to.be.status(201)
+          res.should.have.status(400)
+          done()
         })
     })
-  })
-
-  describe('Sign In', () => {
-    it ('signs in a user', (done) => {
+    it('password mismatch', (done) => {
       chai.request(app)
-        .post('users/login')
+        .post('/users')
         .send({
-          email: 'email@gmail.com',
-          password: 'password'
+          firstname: 'testname1',
+          lastname: 'testlastname',
+          email: 'testemail@gmail.com',
+          username: 'testuser',
+          password: 'testingpw',
+          verifyPassword: 'wrongpassword'
         })
         .end((err, res) => {
-          expect(res).to.be.status(200)
+          res.should.have.status(400)
+          done()
         })
     })
   })
-
 })
