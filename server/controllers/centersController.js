@@ -1,9 +1,7 @@
 import models from '../models'
-import Sequelize from 'sequelize'
 
 const Centers = models.Centers
 const Users = models.Users
-const Op = Sequelize.Op
 
 export default class CentersController {
 // create a center only if user is admin
@@ -17,7 +15,8 @@ export default class CentersController {
           address: req.body.address,
           facility: req.body.facility,
           capacity: req.body.capacity,
-          location: req.body.location
+          location: req.body.location,
+          bookstatus: req.body.bookstatus // to set availabiility of a center
         })
           .then(center => {
             res.status(200).json({message: 'The center has been added'})
@@ -55,7 +54,8 @@ export default class CentersController {
                   address: req.body.address,
                   facility: req.body.facility,
                   capacity: req.body.capacity,
-                  location: req.body.location
+                  location: req.body.location,
+                  bookstatus: req.body.bookstatus // to set if a center is available for booking
                 })
                   .then(() => {
                     center.reload().then(center => res.status(200).json({
@@ -97,6 +97,7 @@ export default class CentersController {
         }
         res.status(200).json(center)
       })
+      .catch(error => res.status(400).send(error))
   }
 
   static deleteCenter (req, res) {

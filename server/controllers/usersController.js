@@ -53,24 +53,24 @@ export default class UsersController {
             success: false,
             message: 'This account does not exist on our database'
           })
-        } else if (user) {
+        } else {
           bcrypt.compare(req.body.password, user.password, (err, hash) => {
             if (!hash) { res.status(403).json({ message: 'Wrong password' });
           } else if (hash) {
-                const payload = {
-                  firstname: user.firstname,
-                  lastname: user.lastname,
-                  email: user.email,
-                  firstname: user.firstname,
-                  lastname: user.lastname,
-                  id: user.id
-                };
-                const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
-                res.status(200).json({ message: 'Login Successful!', 'Your details are ': user, Token: token });
-              }
-            });
-          }
-        })
+              const payload = {
+                firstname: user.firstname,
+                lastname: user.lastname,
+                email: user.email,
+                firstname: user.firstname,
+                lastname: user.lastname,
+                id: user.id
+              };
+              const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
+              res.status(200).json({ message: 'Login Successful!', 'Your details are ': user, Token: token });
+            }
+          })
+        }
+       })
         .catch((error) => {
           res.status(400).send({
             success: false,
