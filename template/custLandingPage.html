@@ -19,8 +19,8 @@
     <a href="index.html" class="brand-logo" style="padding-left: 20px">The Events Manager</a>
     <ul class="right hide-on-med-and-down">
       <li><a href="index.html">Home</a></li>
-      <li><a href="login.html">About Us</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="index.html">Not my Account</a></li>
+      <li><a href="contact.html">File A complaint</a></li>
     </ul>
   </div>
 </nav>
@@ -47,7 +47,7 @@
   <button class="tablinks" onclick="openCity(event, 'bookEvent')" id="defaultOpen">Create a new Event</button>
   <button class="tablinks" onclick="openCity(event, 'allCenters')">View all Centers</button>
   <button class="tablinks" onclick="openCity(event, 'myEvents')">My Events</button>
-  <div id="dash_brands_header" class="collapsible-header waves-effect"><b><a class="waves-effect waves-light btn red"><i class="material-icons right">close</i>Log Out</a></b></div>
+  <div id="dash_brands_header" class="collapsible-header waves-effect"><b><a class="waves-effect waves-light btn red"><i class="material-icons right">exit_to_app</i>Log Out</a></b></div>
 </div>
 
 
@@ -58,10 +58,12 @@
 
 
   <div class="container">
-    <div class="grey lighten-4" style="display: inline-block; width: 90%; padding: 0px 48px 20px 48px; border: 1px solid #EEE;">
+
+    <div class="grey lighten-4" style="display: inline-block; position:relative; width: 90%; padding: 0px 48px 20px 48px; border: 1px solid #EEE;">
       <div class="row">
       
         <div class="nav-wrapper">
+
           <div class="col s12">
             <h3 class="brand-logo col s12">Booking Information</h3>
           </div>
@@ -71,12 +73,6 @@
       <div class="input-field col s12">
            
         <form class="col s14">
-          <div class="row">
-           <label for="idate">Estimated Number of Guests</label><br/>
-             <p class="range-field">
-               <input type="range" id="test5" min="1" max="1000" />            
-            </p>
-          </div>
 
 
           <div class="input-field col s12">
@@ -112,6 +108,14 @@
            <input type="text" class="datepicker">
             <label for="idate">Event Date</label>
           </div>
+
+          <div class="input-field col s12">
+           <label for="idate">Estimated Number of Guests</label><br/>
+             <p class="range-field">
+               <input type="range" id="test5" min="1" max="1000" />            
+            </p>
+          </div>
+
           <a class="waves-effect waves-light btn right hoverable indigo"><i class="large material-icons right">done</i>Make Booking</a>
         </form>
       </div>
@@ -123,9 +127,10 @@
   </div>
 <!--end of book event tab-->
 
-<div id="allCenters" class="tabcontent">
+<div id="allCenters" class="tabcontent" style="display:flex; align-items: center;">
 
   <div class ="row">
+
     <div class=col 4 style="height:300px; width:300px">
       <div class="card small">
         <div class="card-image waves-effect waves-block waves-light">
@@ -133,44 +138,59 @@
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-          <p><a href="#"></a></p>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-          <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
+    </div>
+  </div>
+
+ <div class=col 4 style="height:300px; width:300px">
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
         </div>
     </div>
   </div>
 
   <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
     </div>
   </div>
 
@@ -178,50 +198,65 @@
 
   <div class ="row">
   <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
+    </div>
+  </div>
+
+ <div class=col 4 style="height:300px; width:300px">
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
     </div>
   </div>
 
   <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
     </div>
   </div>
 
@@ -229,50 +264,65 @@
 
   <div class ="row">
   <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
     </div>
   </div>
 
   <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
     </div>
   </div>
 
-  <div class=col 4 style="height:300px; width:300px">
-    <div class="card small">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
-        <p><a href="#"></a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
-        <p>This is the Havana Lounge event center perfect for your special day. It is furnished with state of the art chairs, tables and fittings in pristine conditions making it one of the most sought after centers in the world.</p>
-      </div>
+ <div class=col 4 style="height:300px; width:300px">
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.wedding-spot.com/images/venues/350/Palm-Event-Center-Wedding-Pleasanton-CA-02_main.1396593932.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">The Havana Lounge<i class="material-icons right">more_vert</i></span>
+          <p style="font-size: 10px">This is the Havana Lounge event center perfect for your special day. It is furnished with quality fittings in pristine conditions making it one of the most sought after centers in the world.</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">The Havana Lounge<i class="material-icons right">close</i></span>
+          <p>Address: 1231, Bishop Oladele close, Iyana-Lekki.<br/>
+            Facilities: Alter, Ball Room, Stage and Backstage.<br/>
+            Capacity: ~350. <br/>
+            Location: Lekki, Lagos.<br/>
+            Availability: Currently holding events.
+          </p>
+        </div>
     </div>
   </div>
 
@@ -298,7 +348,7 @@
               <th>Event Type</th>
               <th>Center Name</th>
               <th>Date</th>
-              <th>Capacity</th>
+              <th>Guest est.</th>
               <th >Change</th>
               <th> Delete</th>
             </tr>
