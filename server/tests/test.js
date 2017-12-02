@@ -145,7 +145,7 @@ describe('Test endpoint', () => {
         })
     })
   })
-// I get expect is not a function as error
+// I get 'expect is not a function' as error
   // describe('Registration', () => {
   //   it('fail to register user', (done) => {
   //     chai.request(app)

@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import logger from 'morgan'
 import dotenv from 'dotenv'
 import router from './routes/v1'
+import expressValidator from 'express-validator'
 
 const port = process.env.PORT || 8080
 
@@ -16,18 +17,19 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: false
 }))
+app.use(expressValidator())
 
 app.use('/', router)
 app.use('api/v1/events', router)
 app.use('api/v1/centers', router)
 app.use('api/v1/users', router)
 app.get('/', (req, res) => {
-  res.status(200).send('The Event Manager Portal says HI')
+  res.status(200).send('The Event Manager Portal says HI 🙅')
 })
 
 app.get('/*', (req, res) => {
   // When there is an invalid request
-  res.status(404).json({error: {name: 'Error', message: 'Invalid URL Request'}
+  res.status(404).json({error: {name: 'Error', message: 'Invalid URL Request 🚫'}
   })
 })
 
