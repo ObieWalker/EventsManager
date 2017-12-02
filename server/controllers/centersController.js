@@ -6,7 +6,7 @@ const Users = models.Users
 export default class CentersController {
 // create a center only if user is admin
   static createCenter (req, res) {
-    Users.findById(req.decoded.id).then((user) => {
+    Users.findById(req.body.id).then((user) => {
       if (!user.isAdmin) {
         return res.status(403).json({message: 'You do not have the admin privileges to do this'})
       } else {
