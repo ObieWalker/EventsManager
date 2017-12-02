@@ -9,7 +9,7 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "obiwalker",
+    "username": "postgres",
     "password": "biskie",
     "database": "events-test",
     "host": "127.0.0.1",
