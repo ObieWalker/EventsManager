@@ -33,7 +33,7 @@ export default class CentersController {
 
   static modifyCenter (req, res) {
     // this ensure the id input isnt a string that cannot be converted eg. "five"
-    Users.findById(req.decoded.id)
+    Users.findById(req.body.id)
       .then((user) => {
         if (!user.isAdmin) {
           return res.status(403).json({message: 'You do not have the admin privileges to do this'})
