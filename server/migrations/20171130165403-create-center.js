@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) =>
     queryInterface.createTable('Centers', {
@@ -6,30 +6,30 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Users',
+          model: 'Centers',
           key: 'id',
           as: 'userId'
         }
       },
       centername: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       location: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       address: {
         type: Sequelize.TEXT,
-        allowNull: false,
+        allowNull: false
       },
       bookdate: {
-        type: Sequelize.DATEONLY,
+        type: Sequelize.DATEONLY
       },
       facility: {
         type: Sequelize.TEXT,

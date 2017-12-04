@@ -5,46 +5,46 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       firstname: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       lastname: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       username: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       password: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
-        isEmail: true,
+        isEmail: true
       },
       photo: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: true
       },
       isAdmin: {
         type: Sequelize.BOOLEAN,
-        allowNull: false,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-      },
+        type: Sequelize.DATE
+      }
     }),
   down: (queryInterface/*, Sequelize*/) => queryInterface.dropTable('Users'),
-};
+}

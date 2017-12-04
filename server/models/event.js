@@ -1,10 +1,10 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
-  var Events = sequelize.define('Events', {
+  const Event = sequelize.define('Event', {
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Users',
+        model: 'User',
         key: 'id',
         as: 'userId',
       },   
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     centerId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Centers',
+        model: 'Center',
         key: 'id',
         as: 'centerId',
       },   
@@ -31,15 +31,15 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  Events.associate = (models) => {
-    Events.belongsTo(models.Users, {
+  Event.associate = (models) => {
+    Event.belongsTo(models.User, {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
     });
-    Events.belongsTo(models.Centers, {
+    Event.belongsTo(models.Center, {
       foreignKey: 'centerId',
       onDelete: 'CASCADE',
     });
   };
-  return Events;
+  return Event;
 };

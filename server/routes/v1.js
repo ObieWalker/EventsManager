@@ -18,14 +18,14 @@ apiv1.post('/events', auth.authenticate, validator.createEventValidation, Events
 // apiv1.get('/users/:userId/events', EventsController.allUsersEvents);
 // modify an event
 apiv1.get('/events/', EventsController.allEvents)
-apiv1.put('/events/:id', auth.authenticate, EventsController.editEvent)
+apiv1.put('/events/:id', auth.authenticate, validator.createEventValidation, EventsController.editEvent)
 // delete an event
 apiv1.delete('/events/:id', auth.authenticate, EventsController.deleteEvent)
 
 // add new center
 apiv1.post('/centers', auth.authenticate, validator.createCenterValidation, CentersController.createCenter)
 // edit a center's details
-apiv1.put('/centers/:id', auth.authenticate, CentersController.modifyCenter)
+apiv1.put('/centers/:id', auth.authenticate, validator.createCenterValidation, CentersController.modifyCenter)
 // get all centers
 apiv1.get('/centers', CentersController.getAllCenters)
 // get center details

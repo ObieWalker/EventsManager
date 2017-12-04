@@ -13,7 +13,7 @@ export default class validate {
     req.checkBody('lastname', 'Please make sure your name is written with alphabets only').isAlpha()
     req.checkBody('username', 'Your user name cannot contain those characters!').isAlphanumeric()
 
-    const errors = req.validationErros()
+    const errors = req.validationErrors()
     if (errors) {
       res.send(errors)
       return

@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 module.exports = (sequelize, DataTypes) => {
-  const Centers = sequelize.define('Centers', {
+  const Center = sequelize.define('Center', {
     centername: {
       type: DataTypes.STRING,
       allowNull:false,
@@ -39,15 +39,15 @@ module.exports = (sequelize, DataTypes) => {
     },
   }); 
 
-  Centers.associate = (models) => {
-    Centers.belongsTo(models.Users, {
+  Center.associate = (models) => {
+    Center.belongsTo(models.User, {
       foreignKey: 'userId',
       as: 'user',
     });
-    Centers.hasMany(models.Events, {
+    Center.hasMany(models.Event, {
       foreignKey: 'centerId',
       as: 'event',
     });
   }
-  return Centers;
+  return Center;
 };

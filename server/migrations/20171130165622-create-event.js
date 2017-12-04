@@ -20,17 +20,17 @@ module.exports = {
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: Sequelize.DATE
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: Sequelize.DATE
     },
     userId: {
       type: Sequelize.INTEGER,
       onDelete: 'CASCADE',
       references: {
-        model: 'Users',
+        model: 'Events',
         key: 'id',
         as: 'userId'
       }
@@ -39,7 +39,7 @@ module.exports = {
       type: Sequelize.INTEGER,
       onDelete: 'CASCADE',
       references: {
-        model: 'Centers',
+        model: 'Events',
         key: 'id',
         as: 'centerId'
       }
