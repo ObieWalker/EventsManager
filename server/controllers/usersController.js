@@ -1,9 +1,9 @@
 
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
-import models from '../models'
+import { User } from '../models'
 
-const Users = models.Users
+const Users = User
 
 // this will be used for the password encryption
 // this is the cost factor set to 2 raised to 13 just because
@@ -37,7 +37,12 @@ export default class UsersController {
           email: req.body.email
         })
           .then(user => res.status(201).json({
-            message: 'Your account has been created!', 'Your details': user
+            message: 'Your account has been created!, Your details',
+            user: {
+              Firstname: user.firstname,
+              Lastname: user.lastname,
+              Email: user.email
+            }
           }))
           .catch(err => res.status(500).json({ message: 'Server Error', Error: err }))
       })
@@ -55,7 +60,7 @@ export default class UsersController {
           })
         } else {
           bcrypt.compare(req.body.password, user.password, (err, hash) => {
-            if (!hash) { res.status(403).json({ message: 'Wrong password' });
+            if (!hash) { res.status(403).json({ message: 'Wrong password' })
             } else if (hash) {
               const payload = {
                 firstname: user.firstname,
@@ -65,7 +70,7 @@ export default class UsersController {
                 id: user.id
               };
               const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
-              res.status(200).json({ message: 'Login Successful!', 'Your details are ': user, Token: token });
+              res.status(200).json({ message: 'Login Successful!', 'Your token is': token })
             }
           })
         }

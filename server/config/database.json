@@ -3,7 +3,7 @@
   "development": {
     "username": "obiwalker",
     "password": "biskie",
-    "database": "event1",
+    "database": "events-dev",
     "host": "127.0.0.1",
     "port": "5432",
     "dialect": "postgres"

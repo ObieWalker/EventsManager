@@ -1,6 +1,6 @@
-import models from '../models'
+import { Event } from '../models'
 
-const Events = models.Events
+const Events = Event
 
 export default class EventsController {
   static createEvent (req, res) {

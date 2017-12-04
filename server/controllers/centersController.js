@@ -1,7 +1,7 @@
-import models from '../models'
+import {Center, User} from '../models'
 
-const Centers = models.Centers
-const Users = models.Users
+const Centers = Center
+const Users = User
 
 export default class CentersController {
 // create a center only if user is admin
