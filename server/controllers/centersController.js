@@ -6,20 +6,21 @@ const Users = User
 export default class CentersController {
 // create a center only if user is admin
   static createCenter (req, res) {
-    Users.findById(req.body.id).then((user) => {
-      if (!user.isAdmin) {
+    Users.findById(req.decoded.id).then((user) => {
+      if (user.isAdmin === true) {
         return res.status(403).json({message: 'You do not have the admin privileges to do this'})
       } else {
         Centers.create({
-          centername: req.body.centername,
+          userId: req.decoded.id,
+          centerName: req.body.centerName,
           address: req.body.address,
           facility: req.body.facility,
           capacity: req.body.capacity,
-          location: req.body.location,
-          bookstatus: req.body.bookstatus // to set availabiility of a center
+          region: req.body.region,
+          isAvailable: req.body.isAvailable // to set availabiility of a center
         })
           .then(center => {
-            res.status(200).json({message: 'The center has been added'})
+            res.status(201).json({message: 'The center has been added'})
           })
           .catch((error) =>  {
             res.status(400).json({message: 'Your request could not be processed'})
@@ -33,9 +34,9 @@ export default class CentersController {
 
   static modifyCenter (req, res) {
     // this ensure the id input isnt a string that cannot be converted eg. "five"
-    Users.findById(req.body.id)
+    Users.findById(req.decoded.id)
       .then((user) => {
-        if (!user.isAdmin) {
+        if (user.isAdmin === true) {
           return res.status(403).json({message: 'You do not have the admin privileges to do this'})
         } else {
           let id = req.params.id
@@ -50,12 +51,13 @@ export default class CentersController {
                   return res.status(404).json({message: 'No center found'})
                 }
                 return center.update({
-                  centername: req.body.centername,
+                  userId: req.decoded.id,
+                  centerName: req.body.centerName,
                   address: req.body.address,
                   facility: req.body.facility,
                   capacity: req.body.capacity,
-                  location: req.body.location,
-                  bookstatus: req.body.bookstatus // to set if a center is available for booking
+                  region: req.body.region,
+                  isAvailable: req.body.isAvailable // to set if a center is available for booking
                 })
                   .then(() => {
                     center.reload().then(center => res.status(200).json({
@@ -74,7 +76,7 @@ export default class CentersController {
 
   static getAllCenters (req, res) {
     return Centers.findAll({
-      order: [['centername', 'DESC']]
+      order: [['centerName', 'DESC']]
     }).then((centers) => {
       if (centers.length > 0) {
         if (req.query) {
@@ -101,28 +103,27 @@ export default class CentersController {
   }
 
   static deleteCenter (req, res) {
-    Users.findById(req.body.id)
-      .then((user) => {
-        if (!user.isAdmin) {
-          return res.status(403).json({message: 'You do not have the admin privileges to do this'})
-        } else {
-          let id = req.params.id
-          try {
-            parseInt(id)
-          } catch (e) {
-            return res.status(400).json({message: 'There was an error with the input!'})
-          } finally {
-            Centers.findById(req.params.id)
-              .then((center) => {
-                if (!center) { // if no centers
-                  return res.status(400).send({ message: 'No such center' })
-                } // else remove
-                return center.destroy()
-                  .then(res.status(200).send({ message: 'The center has been deleted!' }))
-                  .catch(error => res.status(400).send(error))
-              })
-          }
+    Users.findById(req.decoded.id).then((user) => {
+      if (user.isAdmin === true) {
+        return res.status(403).json({message: 'You do not have the admin privileges to do this'})
+      } else {
+        let id = req.params.id
+        try {
+          parseInt(id)
+        } catch (e) {
+          return res.status(400).json({message: 'There was an error with the input!'})
+        } finally {
+          Centers.findById(id)
+            .then((center) => {
+              if (!center) { // if no centers
+                return res.status(400).send({ message: 'No such center' })
+              } // else remove
+              return center.destroy()
+                .then(res.status(200).send({ message: 'The center has been deleted!' }))
+                .catch(error => res.status(400).send(error))
+            })
         }
-      })
+      }
+    })
   }
 }

@@ -14,7 +14,7 @@ export default class UsersController {
     return Users.findAll({
       where: {
         email: req.body.email
-      },
+      }
     })
       .then((users) => {
         // checks to see if user already exist
@@ -30,8 +30,8 @@ export default class UsersController {
         const myPassword = bcrypt.hashSync(req.body.password, saltRound)
         // creates account
         return Users.create({
-          firstname: req.body.firstname,
-          lastname: req.body.lastname,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
           username: req.body.username,
           password: myPassword,
           email: req.body.email
@@ -39,8 +39,8 @@ export default class UsersController {
           .then(user => res.status(201).json({
             message: 'Your account has been created!, Your details',
             user: {
-              Firstname: user.firstname,
-              Lastname: user.lastname,
+              Firstname: user.firstName,
+              Lastname: user.lastName,
               Email: user.email
             }
           }))
@@ -63,8 +63,8 @@ export default class UsersController {
             if (!hash) { res.status(403).json({ message: 'Wrong password' })
             } else if (hash) {
               const payload = {
-                firstname: user.firstname,
-                lastname: user.lastname,
+                firstName: user.firstName,
+                lastName: user.lastName,
                 email: user.email,
                 username: user.username,
                 id: user.id

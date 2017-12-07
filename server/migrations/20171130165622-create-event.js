@@ -4,19 +4,19 @@ module.exports = {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: Sequelize.INTEGER
     },
-    eventtype: {
+    eventType: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    eventdate: {
+    eventDate: {
       type: Sequelize.DATEONLY,
-      allowNull: false,
+      allowNull: false
     },
-    guestno: {
+    guestNo: {
       type: Sequelize.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     createdAt: {
       allowNull: false,
@@ -43,7 +43,7 @@ module.exports = {
         key: 'id',
         as: 'centerId'
       }
-    },
+    }
   }),
-  down: (queryInterface /*, Sequelize*/) => queryInterface.dropTable('Events'),
-};
+  down: (queryInterface /*, Sequelize */) => queryInterface.dropTable('Events'),
+}

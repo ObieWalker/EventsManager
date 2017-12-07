@@ -16,11 +16,11 @@ module.exports = {
           as: 'userId'
         }
       },
-      centername: {
+      centerName: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      location: {
+      region: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -28,28 +28,24 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      bookdate: {
-        type: Sequelize.DATEONLY
-      },
       facility: {
-        type: Sequelize.TEXT,
-        allowNull: false,
+        type: Sequelize.TEXT
       },
       capacity: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
-      bookstatus: {
-        type: Sequelize.BOOLEAN,
+      isAvailable: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
+      }
     }),
-  down: (queryInterface/*, Sequelize*/) => queryInterface.dropTable('Centers'),
-};
+  down: (queryInterface /*, Sequelize */) => queryInterface.dropTable('Centers'),
+}
