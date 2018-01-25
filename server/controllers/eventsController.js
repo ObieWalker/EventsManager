@@ -13,12 +13,11 @@ export default class EventsController {
           }
         })
         return Events.create({
-         // userId: req.decoded.userId,
-         // centerId: req.decoded.centerId,
-          //centername: req.body.centername,
-          eventtype: req.body.eventtype,
-          eventdate: req.body.eventdate,
-          guestno: req.body.guestno
+          userId: req.decoded.userId,
+          centerName: req.body.centerName,
+          eventType: req.body.eventType,
+          eventDate: req.body.eventDate,
+          guestNo: req.body.guestNo
         }).then(event => {
           res.status(201).json({message: 'Your event has been booked'})
         }).catch((err) => {
@@ -34,11 +33,11 @@ export default class EventsController {
           res.status(404).json({message: 'Event does not exist within our records'})
         }
         return event.update({
-          centerId: req.decoded.centername,
+          centerName: req.body.centerName,
           userId: req.decoded.username,
-          eventtype: req.body.eventtype,
-          eventdate: req.body.eventdate,
-          guestno: req.body.guestno
+          eventType: req.body.eventType,
+          eventDate: req.body.eventDate,
+          guestNo: req.body.guestNo
         })
           .then(() => {
             event.reload().then(event => res.status(200).json({

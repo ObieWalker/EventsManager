@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         as: 'centerId'
       }
     },
+    centerName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     eventType: {
       type: DataTypes.STRING,
       allowNull: false
