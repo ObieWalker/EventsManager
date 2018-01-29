@@ -1,19 +1,34 @@
-import path from 'path'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+    template: './client/public/index.html',
+    filename: 'index.html',
+    inject: 'body'
+})
 
 module.exports = {
     entry: './client/src/index.js',
     output: {
-        path: path.resolve(__dirname, 'client/public'),
-        filename: 'js/bundle.js'
+        path: path.resolve('dist'),
+        filename: 'bundle.js'
     },
     module: {
-        rules: [
-            { test: /\.(js)$/, use: 'babel-loader'},
-            { test: /\.css$/, use: [ 'style-loader', 'css-loader']}
+        loaders: [
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.css$/, loader: 'style-loader' },
+            { test: /\.css$/, loader: 'css-loader', query: {
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]'
+                }
+            }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: 'public/index.html'
-    })]
+    plugins: [HtmlWebpackPluginConfig],
+        resolve: {
+        extensions: ['.js', '.css', '.jsx'],
+            modules: [
+                'node_modules'
+            ]
+    }
 }
