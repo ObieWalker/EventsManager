@@ -22,6 +22,11 @@ module.exports = {
                     localIdentName: '[name]__[local]___[hash:base64:5]'
                 }
             }
+            //,
+            // {
+            //     test: /\.s?css$/,
+            //     loaders: ['style-loader', 'css-loader', 'sass-loader']
+            // },
         ]
     },
     plugins: [HtmlWebpackPluginConfig],
