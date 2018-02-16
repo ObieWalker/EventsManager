@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import Home from './Home'
-import {Button, Icon} from 'react-materialize'
+import Main from './Main'
 
 
 
@@ -10,7 +9,7 @@ export default class App extends React.Component {
     return (
       <div style={{ textAlign: 'center' }}>
         
-        <Home />
+        <Main />
       </div>);
   }
 }

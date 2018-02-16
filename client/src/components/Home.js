@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Router from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Header1 from './Header1'
 import Carousel from './Carousel'
-//import Footer from './footer';
-//import Header from './header';
+import Footer from './Footer'
+import Testimonials from './Testimonials'
+import AuthModal from './AuthModal'
 //import Contact from './contact';
 //import CardBlock from './cards';
 //import { getCenters } from '../actions/center';
@@ -60,10 +62,14 @@ class Home extends Component {
 
         return (
             <div>
-            <Header1 />
-            <Carousel />
-
-
+                    <Header1 />
+                    <AuthModal />
+                    <Carousel />
+                    <br/> <br/>
+                    <Testimonials />
+                    <br/> <br/>
+                    <Footer />
+                
             </div>
         );
     }
