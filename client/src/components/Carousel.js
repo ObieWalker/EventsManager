@@ -34,7 +34,7 @@ class Carouselfunc extends Component {
                     <Slide
                         src="http://i67.tinypic.com/rj2usy.jpg"
                         title="Massive Dinner parties?"
-                        placement="top">
+                        placement="center">
                         We make sure you have peace of mind.
 	                </Slide>
                 </Slider>

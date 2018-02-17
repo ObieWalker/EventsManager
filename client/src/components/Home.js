@@ -8,6 +8,7 @@ import Carousel from './Carousel'
 import Footer from './Footer'
 import Testimonials from './Testimonials'
 import AuthModal from './AuthModal'
+import Login from './Login'
 //import Contact from './contact';
 //import CardBlock from './cards';
 //import { getCenters } from '../actions/center';
@@ -62,10 +63,9 @@ class Home extends Component {
 
         return (
             <div>
-                    <Header1 />
-                    <AuthModal />
+                    
                     <Carousel />
-                    <br/> <br/>
+                    <Login />
                     <Testimonials />
                     <br/> <br/>
                     <Footer />

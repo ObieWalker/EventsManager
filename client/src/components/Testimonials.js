@@ -6,6 +6,8 @@ import {Row, Col, CardPanel} from 'react-materialize'
 const Testimonials = () => (
 
     <div>
+        <br/><br/>
+        <h3>Testimonials</h3>
         <Row>
             <Col s={5} m={3}>
                 <CardPanel className="teal lighten-4 black-text">
