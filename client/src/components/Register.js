@@ -1,8 +1,12 @@
 import React, { Component, Button, Modal } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 
 
 
-class Signup extends Component {
+class Register extends Component {
+
 
     render() {
         return (
@@ -67,4 +71,4 @@ class Signup extends Component {
 }
 
 
-export default Signup;
+export default Register;

@@ -7,6 +7,7 @@ const Testimonials = () => (
 
     <div>
         <br/><br/>
+        <hr />
         <h3>Testimonials</h3>
         <Row>
             <Col s={5} m={3}>

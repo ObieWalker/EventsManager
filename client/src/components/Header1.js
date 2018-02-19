@@ -28,7 +28,7 @@ class Header1 extends Component {
                             <li><Link to="/contactus">Contact Us</Link></li>
                             <li><Link to="/"><Button >Log In</Button></Link></li>
                             {/* <li><HashLink to="#login" className="nav-link">SignUp</HashLink></li> */}
-                            <li><Link to="/signup"><Button >Register</Button></Link></li>
+                            <li><Link to="/register"><Button >Register</Button></Link></li>
                         </ul>
                     </div>
                 </nav>
