@@ -1,9 +1,8 @@
 import React, { Component, Button, Modal } from 'react';
-//import { HashLink } from "react-router-hash-scroll";
 
 
 
-class Udashboard extends Component {
+class Dashboard extends Component {
 
     render() {
         return (
@@ -13,4 +12,4 @@ class Udashboard extends Component {
         )
     }
 }
-export default Udashboard
+export default Dashboard
