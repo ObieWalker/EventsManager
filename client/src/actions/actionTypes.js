@@ -18,6 +18,6 @@ export const ADD_A_CENTER = 'add_a_center';
 
 export const GET_ALL_CENTERS = 'get_all_centers';
 
-export const EDIT_A_CENTER = 'edit_a_center';
+export const GET_CENTER_DETAILS = 'get_center_details'
 
-export const VIEW_A_CENTER = 'view_a_center';
+export const EDIT_A_CENTER = 'edit_a_center';

@@ -3,13 +3,11 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers/rootReducer';
 
-//export const API_URL = '/v1/';
-
-const loggerMiddleware = createLogger();
+const middleware = applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }));
 
 const Store = createStore(
     rootReducer,
-    applyMiddleware(thunkMiddleware, loggerMiddleware)
+    applyMiddleware(middleware)
 );
 
 export default Store;
