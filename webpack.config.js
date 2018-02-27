@@ -1,4 +1,5 @@
 const path = require('path');
+var webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: './client/public/index.html',
@@ -30,12 +31,25 @@ module.exports = {
             // },
         ]
     },
-    plugins: [HtmlWebpackPluginConfig],
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+            "Hammer": "hammerjs/hammer",
+            createDayLabel: "jquery",
+            createWeekdayLabel: "jquery",
+            activateOption: "jquery",
+            leftPosition: "jquery"
+        })
+    ]
+    [HtmlWebpackPluginConfig],
         resolve: {
         extensions: ['.js', '.css', '.jsx'],
             modules: [
                 'node_modules'
-            ]
+            ],
+            
     },
     devServer: {
         historyApiFallback: true

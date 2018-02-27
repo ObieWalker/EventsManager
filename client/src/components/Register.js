@@ -241,10 +241,11 @@ class Register extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(registerAction, dispatch)
-    };
-}
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         actions: bindActionCreators(registerAction, dispatch)
+//     };
+// }
+// export default connect(null, matchDispatchToProps)(Register);
 
-export default connect(null, matchDispatchToProps)(Register);
+export default Register;

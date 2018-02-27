@@ -8,6 +8,8 @@ export const ADD_EVENT = 'add_event';
 
 export const GET_ALL_EVENTS = 'get_all_events';
 
+export const GET_USER_EVENTS = 'get_user_events';
+
 export const GET_AN_EVENT = 'get_an_event';
 
 export const EDIT_AN_EVENT = 'edit_an_event';

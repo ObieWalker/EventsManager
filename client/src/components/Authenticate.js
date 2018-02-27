@@ -3,7 +3,7 @@ import { Button, Modal, Tabs, Tab } from 'react-materialize'
 
 
 
-class AuthModal extends Component {
+class Authenticate extends Component {
 
     render() {
         return (
@@ -56,4 +56,4 @@ class AuthModal extends Component {
 }
 
 
-export default AuthModal;
+export default Authenticate

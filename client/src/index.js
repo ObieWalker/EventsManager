@@ -8,15 +8,16 @@ import { Provider } from 'react-redux';
 // import thunkMiddleware from 'redux-thunk';
 //import { composeWithDevTools } from 'redux-devtools-extension';
 //import rootReducer from './reducers/rootReducer';
-import history from './history';
+import history from '../history'
 import registerServiceWorker from './registerServiceWorker';
 
-const store = configureStore()
+// const store = configureStore()
 
 ReactDOM.render(
-    <Provider store = {Store}>
-            <App />
-    </Provider>
+    // <Provider store = {Store}>
+    //         <App />
+    // </Provider>
+    <App />
     ,document.getElementById('root'));
 //registerServiceWorker();
 
