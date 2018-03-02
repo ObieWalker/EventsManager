@@ -4,9 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import getAllCentersAction from '../actions/actionTypes'
 import Search from './Search'
-import {Card, CardTitle, Row, Col} from 'react-materialize'
-
-
 
 class Centers extends Component {
     componentWillMount() {
@@ -14,22 +11,19 @@ class Centers extends Component {
         //     this.props.getAllCentersAction();
         // }
     }
+
+
     render() {
         return (
             <div>
                 <div >
                     <h3>All centers and details.</h3>
+                    <div className='center col s12 m6'>
                     <Search />
-                    <Row>
-                        <Col s={4} className='grid-example'>
-                            <Card header={<CardTitle reveal image={"http://i68.tinypic.com/dh5vk.jpg"} waves='light' />}
-                                title="Card Title"
-                                reveal={<p>This center is equipped with facilities like </p>}>
-                                <p><a href="#"></a></p>
-                            </Card>
-                        </Col>
-                    </Row>
-                
+                    </div>
+                    <div className="row">
+                        <CenterList centers={this.props.centers} />
+                    </div> 
                 </div>
             </div>
         );

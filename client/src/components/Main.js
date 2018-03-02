@@ -5,13 +5,15 @@ import Home from './Home';
 import Login from './Login'
 import Register from './Register'
 import ContactUs from './ContactUs'
+import Centers from './Centers'
 
 const Main = () => (
     <main>
         <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/register' component={Register} />
-            <Route path='/contactus' component={ContactUs} />         
+            <Route path='/contactus' component={ContactUs} />  
+                   
             {/* <Redirect to="/" /> */}
         </Switch>
     </main>

@@ -6,8 +6,9 @@ import classNames from 'classnames';
 import validator from 'validator';
 import editCenterActions from '../../actions/actionTypes'
 import getCenterDetailsAction from '../../actions/actionTypes'
+import Checkbox from './Checkbox';
 
-class EditCenter extends Component {
+class ModifyCenter extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,6 +21,9 @@ class EditCenter extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.updateCenter = this.updateCenter.bind(this);
+    }
+    componentDidMount() {
+        this.selectedCheckboxes = new Set();
     }
     componentDidMount() {
         this.props.actions.getCenterDetailsAction(parseInt(this.props.match.params.id, 10));
@@ -112,6 +116,36 @@ class EditCenter extends Component {
         if (this.formIsValid()) {
             this.props.editCenterActions(center, center.id);
         }
+    }
+
+    //checkbox code
+    toggleCheckbox(label) {
+        if (this.selectedCheckboxes.has(label)) {
+            this.selectedCheckboxes.delete(label);
+        } else {
+            this.selectedCheckboxes.add(label);
+        }
+    }
+
+    handleFormSubmit(formSubmitEvent) {
+        formSubmitEvent.preventDefault();
+
+    }
+
+    createCheckbox(label) {
+        (
+            <Checkbox
+                label={label}
+                handleCheckboxChange={this.toggleCheckbox}
+                key={label}
+            />
+        )
+    }
+
+    createCheckboxes() {
+        (
+            items.map(this.createCheckbox)
+        )
     }
     render() {
         const nameClasses = classNames('help-block', { 'has-error': !this.state.centerName.isValid });
@@ -263,4 +297,4 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators(Object.assign({}, singleCenterActions, centerActions), dispatch)
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(EditCenter);
+export default connect(mapStateToProps, mapDispatchToProps)(ModifyCenter);
