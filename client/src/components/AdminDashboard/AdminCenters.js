@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux';
+
 import getAllCentersAction from '../../actions/actionTypes'
 
 class AdminCenters extends Component {
 
-    componentWillMount() {
-        // if (this.props.centers.length === 0) {
-        //     this.props.getAllCentersAction();
-        // }
-    }
+    // componentWillMount() {
+    //     if (this.props.centers.length === 0) {
+    //         this.props.getAllCentersAction();
+    //     }
+    // }
 
 
     render() {
@@ -24,7 +26,7 @@ class AdminCenters extends Component {
                 </tr>
             </thead>
             <tbody>
-                {/* {this.props.} */}
+                {this.props.centers}
             </tbody>
             </table>
             </div>
@@ -32,4 +34,9 @@ class AdminCenters extends Component {
     }
 }
 
-export default AdminCenters;
+const mapStateToProps = state => {
+    return {
+        center: state.centers
+    }
+}
+export default connect(mapStateToProps)(AdminCenters);
