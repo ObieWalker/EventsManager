@@ -13,8 +13,8 @@ import addCenterAction from '../../actions/addCenterAction'
 
 
 class AddCenter extends Component {
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
     this.state = {
       name: { value: '', isValid: true, message: '' },
       address: { value: '', isValid: true, message: '' },
@@ -26,12 +26,13 @@ class AddCenter extends Component {
 
   
 
-    //     this.handleChange = this.handleChange.bind(this);
-    //     this.addCenter = this.addCenter.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.addCenter = this.addCenter.bind(this);
+        this.formIsValid = this.formIsValid.bind(this);
 
 
 
-    // }
+    }
 
     componentWillReceiveProps(nextProps) {
         //checks to see if props change and then sets a state

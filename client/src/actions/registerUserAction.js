@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { setAuthToken } from '../../helpers/setAuthToken'
 import { REGISTER_USER } from './actionTypes';
 
 const registerUserAsync = userInfo => ({
@@ -7,21 +7,18 @@ const registerUserAsync = userInfo => ({
     payload: userInfo
 })
 
-const registerUser = userInfo => (dispatch) => {
-    axios
-        .post('/users', userInfo)
+const registerUser = userInfo => (dispatch => {
+    console.log("tests api")
+    return axios.post('/api/v1/users', userInfo)
         .then((res) => {
-            localStorage.setItem('message', res.data.message);
-
-            const newUserDetails = {
-                firstName: res.data.firstName,
-                lastName: res.data.lastName,
-                username: res.data.username,
-                email: res.data.email,
-            };
-
+            console.log("test")
+            const { token, userInfo } = res.data
+            localStorage.setItem('jwtToken', token);
+            setAuthToken(token);
             dispatch(registerUserAsync(userInfo));
         })
         .catch(error => localStorage.setItem('message', error.response.data.message))
-}
+})
+
+
 export default registerUser;

@@ -63,7 +63,7 @@ class Home extends Component {
         return (
             <div>
                     
-                    <Carousel />
+                    {/* <Carousel /> */}
                     <Login />
                     <Testimonials />
                     <br/> <br/>

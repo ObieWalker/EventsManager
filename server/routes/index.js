@@ -9,7 +9,7 @@ import validator from '../middlewares/validator'
 const apiv1 = express.Router()
 
 // account creation and login
-apiv1.post('/users/', validator.signUpValidator, UsersController.signup)
+apiv1.post('/users', validator.signUpValidator, UsersController.signup)
 apiv1.post('/users/login', validator.signInValidator, UsersController.signin)
 
 // create a new event
@@ -33,4 +33,4 @@ apiv1.get('/centers/:id', CentersController.getCenterDetails)
 // delete a center
 apiv1.delete('/centers/:id', auth.authenticate, CentersController.deleteCenter)
 
-export default apiv1
+export default apiv1;

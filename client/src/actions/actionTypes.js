@@ -16,7 +16,7 @@ export const EDIT_AN_EVENT = 'edit_an_event';
 
 export const DELETE_AN_EVENT = 'delete_an_event';
 
-export const ADD_A_CENTER = 'add_a_center';
+export const ADD_CENTER = 'add_a_center';
 
 export const GET_ALL_CENTERS = 'get_all_centers';
 

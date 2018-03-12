@@ -116,9 +116,7 @@ class ModifyCenter extends Component {
         }
     }
 
-}
     render() {
-        
         return (
             <div className="container max-width-six-hundred">
                 <div className="card">
@@ -126,14 +124,14 @@ class ModifyCenter extends Component {
                         <h3 className="center-heading">Edit a Center</h3>
                     </div>
                     <form >
-                        <div className="row">
-
-                            
-                        </div>    
+                        <div className="row"> 
                             <label>
                                 Available:
                                     <input
-                                    name="isAvailable" type="checkbox" checked={this.state.isAvailable} onChange={this.handleChange} />
+                                    name="isAvailable" 
+                                    type="checkbox" 
+                                    checked={this.state.isAvailable} 
+                                    onChange={this.handleChange} />
                             </label>
                         </div>
 

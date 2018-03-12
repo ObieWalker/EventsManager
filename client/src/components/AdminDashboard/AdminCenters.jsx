@@ -22,7 +22,7 @@ class AdminCenters extends Component {
                     <th>Address</th>
                     <th>Region</th>
                     <th>Capacity</th>
-                    <th>Facilities (Comma Separated)</th>
+                    <th>Facilities (,)</th>
                 </tr>
             </thead>
             <tbody>

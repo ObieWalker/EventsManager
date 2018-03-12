@@ -1,11 +1,11 @@
 
 {
   "development": {
-    "username": "obiwalker",
-    "password": "biskie",
+    "username": "postgres",
+    "password": "password",
     "database": "events-dev",
     "host": "127.0.0.1",
-    "port": "5432",
+    "port": "5433",
     "dialect": "postgres"
   },
   "test": {

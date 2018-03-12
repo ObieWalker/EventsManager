@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 import { User } from '../models'
 
 const Users = User
-
+// const secret = "1234";
 // this will be used for the password encryption
 // this is the cost factor set to 2 raised to 13 just because
 const saltRound = 13
@@ -34,6 +34,7 @@ export default class UsersController {
           lastName: req.body.lastName,
           username: req.body.username,
           password: myPassword,
+          verifyPassword: myPassword,
           email: req.body.email
         })
           .then(user => res.status(201).json({
@@ -69,8 +70,8 @@ export default class UsersController {
                 username: user.username,
                 id: user.id
               };
-              const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
-              res.status(200).json({ message: 'Login Successful!', 'Your token is': token })
+              const token = jwt.sign(payload, "secret", { expiresIn: '24h' });
+              res.status(200).json({ message: 'Login Successful!', 'token': token })
             }
           })
         }

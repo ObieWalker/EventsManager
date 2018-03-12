@@ -1,10 +1,11 @@
 import { Event, Center } from '../models'
 
 const Events = Event
-//const Centers = Center
+const Centers = Center
 
 export default class EventsController {
   static createEvent (req, res) {
+    return Centers.findAll()
     return Events.findAll()
       .then((events) => {
         events.forEach(event => { // checks to see if there are any events with matching dates and centers
@@ -70,6 +71,7 @@ export default class EventsController {
   }
 
   static allEvents (req, res) {
+    if(Events.length>0){
     return Events.findAll({
       order: [['eventdate', 'DESC']]
     }).then((events) => {
@@ -79,6 +81,8 @@ export default class EventsController {
         }
       }
       res.status(404).json({ message: 'There are no events' })
-    })
+    })}
+    else{
+      res.status(404).json({ message: 'There are no events' })}
   }
 }
