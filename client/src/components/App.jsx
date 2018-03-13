@@ -21,7 +21,7 @@ export default class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <div>
+        <div style={{ textAlign: 'center' }}>	>
           <Header1 />
           <Switch>
             <Route exact path='/' component={Home} />
