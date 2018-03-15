@@ -1,36 +1,34 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-import { Router, Route, Switch, browserHistory } from 'react-router-dom';
-import history from '../../history'
+import { Router, Route, Switch } from 'react-router-dom';
+import history from '../../history';
+import Header1 from './Header1.jsx';
+import Home from './Home.jsx';
+import Register from './Register.jsx';
+import ContactUs from './ContactUs.jsx';
+import Centers from './Centers.jsx';
 
-import Main from './Main'
-import Header1 from './Header1'
-import Home from './Home';
-// import Login from './Login'
-import Register from './Register'
-import ContactUs from './ContactUs'
-import Centers from './Centers'
+import UDashboard from './UserDashboard/UDashboard.jsx';
+// import UTabMenu from './UserDashboard/UTabMenu';
 
-import UTabMenu from './UserDashboard/UTabMenu'
-import UDashboard from './UserDashboard/UDashboard'
-import AdminCenters from './AdminDashboard/AdminCenters'
-
+// import AdminCenters from './AdminDashboard/AdminCenters';
 
 
 export default class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <div style={{ textAlign: 'center' }}>	>
+        <div style={{ textAlign: 'center' }}>
           <Header1 />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/register' component={Register} />
-            <Route path='/contactus' component={ContactUs} /> 
+            <Route path='/contact-us' component={ContactUs} />
+            <Route path='/centers' component={Centers} />
+            <Route path='/user-dashboard' component={UDashboard} />
           </Switch>
         </div>
-      </Router> 
-    )
+      </Router>
+    );
   }
 }
-  
+

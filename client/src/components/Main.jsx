@@ -1,12 +1,12 @@
 import React from 'react';
-import {Route, Redirect, Switch } from 'react-router-dom';
+// import { Route, Redirect, Switch } from 'react-router-dom';
 
 // import AuthModal from './AuthModal'
 
 
 const Main = () => (
-    <main>
-        
-    </main>
+  <main>
+
+  </main>
 );
 export default Main;

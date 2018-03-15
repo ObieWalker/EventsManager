@@ -1,28 +1,29 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import logger from 'morgan'
-import expressValidator from 'express-validator'
+import express from 'express';
+import bodyParser from 'body-parser';
+import logger from 'morgan';
+import expressValidator from 'express-validator';
 import webpack from 'webpack';
+import cors from 'cors';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import path from 'path';
-import webpackConfigDev from '../webpack.config.dev'
+import webpackConfigDev from '../webpack.config.dev';
 import webpackConfigProd from '../webpack.config.prod';
 
-import router from './routes/index'
+import router from './routes/index';
 
-const app = express() // init express
+const app = express(); // init express
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8080;
 const env = process.env.NODE_ENV || 'development';
 app.use(expressValidator());
 
 // logs to console
-app.use(logger('dev'))
-app.use(bodyParser.json())
+app.use(logger('dev'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
-}))
+}));
 
 let compiler;
 if (env === 'production') {
@@ -50,6 +51,8 @@ if (env === 'production') {
   });
 }
 
+app.use(cors());
+
 app.use('/api/v1/', router);
 
 app.get('/*', (req, res) => {
@@ -65,6 +68,6 @@ app.use('/', express.static('build'));
 // })
 
 
-app.listen(port, () => console.log('Server running on port', port))
+app.listen(port, () => console.log('Server running on port', port));
 
-export default app
+export default app;

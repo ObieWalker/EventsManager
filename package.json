@@ -4,7 +4,7 @@
   "scripts": {
     "start": "babel-watch server/app.js",
     "build:dev:client": "webpack --progress --config webpack.config.dev.js",
-    "start:dev": "rm -rf build && export NODE_ENV=development && npm run build:dev:client && nodemon --watch server --exec babel-node -- server/app.js",
+    "start:dev": "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
     "dev": "webpack-dev-server --progress --colors --content-base=./client/public",
     "build": "babel src -d dist",
     "mocha": "mocha --compilers js:babel-core/register",
@@ -33,6 +33,7 @@
     "classnames": "^2.2.5",
     "compression-webpack-plugin": "^1.1.11",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
     "coveralls": "^3.0.0",
     "debug": "~2.6.9",
     "dotenv": "^4.0.0",
@@ -58,6 +59,7 @@
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.0",
+    "rc-pagination": "^1.15.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0",
@@ -85,6 +87,7 @@
     "uglifyjs-webpack-plugin": "^1.2.3",
     "url-loader": "^0.6.2",
     "validator": "^9.1.2",
+    "webpack": "^3.10.0",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.21.2",
     "webpack-merge": "^4.1.2"
@@ -117,7 +120,6 @@
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "style-loader": "^0.19.1",
-    "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
 }

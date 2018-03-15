@@ -1,12 +1,13 @@
-import { REGISTER_USER } from '../actions/actionTypes'
+import { REGISTER_USER } from '../actions/actionTypes';
 
 const registerReducer = (state = [], action) => {
-    switch (action.type) {
-        case REGISTER_USER:
-            return [action.payload, ...state];
-        default:
-            return state;
-    }
+  switch (action.type) {
+  case REGISTER_USER:
+    return [action.payload, ...state];
+  default:
+    return state;
+  }
 };
 
 export default registerReducer;
+

@@ -1,12 +1,12 @@
-import { LOGIN_USER } from '../actions/actionTypes'
+import { LOGIN_USER } from '../actions/actionTypes';
 
 const loginReducer = (state = [], action) => {
-    switch (action.type) {
-        case LOGIN_USER:
-            return [action.payload, ...state];
-        default:
-            return state;
-    }
+  switch (action.type) {
+  case LOGIN_USER:
+    return [action.payload, ...state];
+  default:
+    return state;
+  }
 };
 
 export default loginReducer;

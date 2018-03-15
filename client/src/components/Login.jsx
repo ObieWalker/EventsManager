@@ -1,147 +1,154 @@
-import React, { Component, Button, Modal } from 'react';
-import history from '../../history'
-import PropTypes from 'prop-types'
-//import { HashLink } from "react-router-hash-scroll";
+import React, { Component } from 'react';
+import toastr from 'toastr';
+
+import PropTypes from 'prop-types';
+// import { HashLink } from "react-router-hash-scroll";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import toastr from 'toastr'
-import signInValidator from '../../helpers/validators/signIn'
-import loginUserAction from '../actions/loginUserAction'
-import verifyToken from '../../helpers/verifyToken'
-
+// import history from '../../history';
+import signInValidator from '../../helpers/validators/signIn';
+import loginUserAction from '../actions/loginUserAction';
+import verifyToken from '../../helpers/verifyToken';
 
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            errors: {}
-          };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      errors: {}
+    };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleUserLogin = this.handleUserLogin.bind(this);
-        this.handleOnFocus = this.handleOnFocus.bind(this);
-        this.isValid = this.isValid.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleUserLogin = this.handleUserLogin.bind(this);
+    this.handleOnFocus = this.handleOnFocus.bind(this);
+    this.isValid = this.isValid.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  componentDidMount() {
+    // checks to see if user already has a verified token and redirects
+    if (verifyToken()) {
+      this.props.history.push('/dashboard');
+      // this.context.router.history.push('/contactus');
     }
+  }
 
-    handleChange(e) {
-        this.setState({[e.target.name]: e.target.value})
+  isValid() {
+    const { errors, isValid } = signInValidator(this.state);
+    if (!isValid) {
+      this.setState({ errors });
+      console.log(errors);
     }
-
-    componentDidMount() {
-        //checks to see if user already has a verified token and redirects
-        if (verifyToken()) {
-        //   this.props.history.push('/dashboard');
-        this.context.router.history.push('/contactus');
-        }
-    }
-
-    isValid() {
-        const { errors, isValid } = signInValidator(this.state);
-        if (!isValid) {
-          this.setState({ errors });
-          console.log(errors)
-        }
-        return isValid;
-    }
-    //show error when focused
-    handleOnFocus(event) {
-        this.setState({errors: Object.assign({},this.state.errors, {[event.target.name]: '',form: ''})});
-    }
+    return isValid;
+  }
+  // show error when focused
+  handleOnFocus(event) {
+    this.setState({
+      errors: Object.assign(
+        {},
+        this.state.errors, { [event.target.name]: '', form: '' }
+      )
+    });
+  }
 
 
-    handleUserLogin(e){
+  handleUserLogin(e) {
     e.preventDefault();
-    console.log("first")
+    console.log('first');
     const userDetails = {
-        email: this.state.email,
-        password: this.state.password,
-    }
+      email: this.state.email,
+      password: this.state.password,
+    };
     if (this.isValid()) {
-        console.log("it is valid")
-        this.setState({ errors: {}});
-        this.props.loginUserAction(userDetails)
-            .then(() => {
-                console.log("my props = ", this.props)
-                this.props.history.push('/register');
-                toastr.success('welcome back');
-            })
-            .catch(error => console.log(error))
+      console.log('it is valid');
+      this.setState({ errors: {} });
+      this.props.loginUserAction(userDetails)
+        .then(() => {
+          console.log('my props = ', this.props);
+          this.props.history.push('/user-dashboard');
+          toastr.success('welcome back');
+        })
+        .catch(error => console.log(error));
     }
-}
+  }
 
-    render() {
-        return (
-            <div>
-                <h5> Sign in to your account </h5>
-                <div  style={{ width: '40%', margin: "0 30%" }}>
-                    <form className="col s12">
-                        <div className='row'>
-                            <div className='input-field col s12'>
-                                <i className="material-icons prefix">contacts</i>
-                                <input 
-                                className='validate' 
-                                value={this.state.email.value}
-                                error={this.state.errors.email}
-                                onFocus={this.state.handleOnFocus}
-                                type='email' 
-                                name='email' 
-                                id='email' 
-                                onChange={this.handleChange}/>
-                                <label htmlFor='email'>Enter your email</label>
-                            </div>
-                        </div>
-
-                        <div className='row'>
-                            <div className='input-field col s12'>
-                                <i className="material-icons prefix">vpn_key</i>
-                                <input 
-                                className='validate' 
-                                value ={this.state.password.value}
-                                onFocus={this.state.handleOnFocus}
-                                type='password' 
-                                name='password' 
-                                id='password' 
-                                onChange={this.handleChange}/>
-                                <label htmlFor='password'>Enter your password</label>
-                            </div>
-                            {this.state.errors.password && <span>{this.state.errors.password}</span>}
-            
-                            <label style={{float: 'right'}}>
-                                <a className='red-text darken-3' href='#!'><b>Forgot Password?</b></a>
-                            </label>
-                        </div>
-
-                        <br />
-                        <center>
-                        <div className='row'>
-                                <button type='submit' 
-                                name='btn_login' 
-                                className='col s3 btn btn-large waves-effect indigo right'
-                                onClick={this.handleUserLogin}
-                                >Login</button>
-                            </div>
-                        </center>
-                    </form>
-                </div>
+  render() {
+    return (
+      <div>
+        <h5 style={{ fontFamily: 'serif', marginTop: '5%' }}>
+        Sign in to your account. </h5><br /> <br />
+        <div style={{ width: '40%', margin: '0 30%' }}>
+          <form className="col s12">
+            <div className='row'>
+              <div className='input-field col s12'>
+                <i className="material-icons prefix">contacts</i>
+                <input
+                  className='validate'
+                  value={this.state.email.value}
+                  error={this.state.errors.email}
+                  onFocus={this.state.handleOnFocus}
+                  type='email'
+                  name='email'
+                  id='email'
+                  onChange={this.handleChange}/>
+                <label htmlFor='email'>Enter your email</label>
+              </div>
             </div>
-        )
-    }
+
+            <div className='row'>
+              <div className='input-field col s12'>
+                <i className="material-icons prefix">vpn_key</i>
+                <input
+                  className='validate'
+                  value ={this.state.password.value}
+                  onFocus={this.state.handleOnFocus}
+                  type='password'
+                  name='password'
+                  id='password'
+                  onChange={this.handleChange}/>
+                <label htmlFor='password'>Enter your password</label>
+              </div>
+              {this.state.errors.password && <span>{this.state.errors.password}</span>}
+
+              <label style={{ float: 'right' }}>
+                <a className='red-text darken-3' href='#!'><b>Forgot Password?</b></a>
+              </label>
+            </div>
+
+            <br />
+            <center>
+              <div className='row'>
+                <button type='submit'
+                  name='btn_login'
+                  className='col s3 btn btn-large waves-effect indigo right'
+                  onClick={this.handleUserLogin}>Login</button>
+              </div>
+            </center>
+          </form>
+        </div>
+      </div>
+    );
+  }
 }
 
-Login.contextTypes = {
-    router: PropTypes.object.isRequired
+Login.propTypes = {
+  loginUserAction: PropTypes.func,
+  router: PropTypes.object.isRequired,
+  history: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-    loginUser: state.loginUser,
-  });
-  
-  const mapDispatchToProps = dispatch => bindActionCreators({
-    loginUserAction: loginUserAction,
-  }, dispatch);
+  loginUser: state.loginUser,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  loginUserAction,
+}, dispatch);
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

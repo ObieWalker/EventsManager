@@ -1,19 +1,15 @@
-import React, { Component, Button, Modal } from 'react';
-import TabMenu from './UTabMenu'
-import BookCenter from './BookCenter'
-import Header from './UHeader'
-
+import React, { Component } from 'react';
+import TabMenu from './UTabMenu.jsx';
+import BookCenter from './BookCenter.jsx';
 
 
 class UDashboard extends Component {
-
-    render() {
-        return (
-            <div>
-                <Header />
-                <TabMenu />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <TabMenu />
+      </div>
+    );
+  }
 }
-export default UDashboard
+export default UDashboard;
