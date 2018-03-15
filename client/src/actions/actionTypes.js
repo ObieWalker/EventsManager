@@ -1,6 +1,7 @@
 // user actions
 export const REGISTER_USER = 'register_user';
 export const LOGIN_USER = 'login_user';
+export const LOGOUT_USER = 'Logout_user';
 
 // center actions
 export const IS_CENTER_CREATING = 'IS_CENTER_CREATING';
