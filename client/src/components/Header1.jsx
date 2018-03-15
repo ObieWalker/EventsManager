@@ -29,11 +29,6 @@ class Header1 extends Component {
               { loggedIn ? <li><Link to="/"><Button >Log Out </Button></Link></li> :
                 <li><Link to="/register"><Button >Register</Button></Link></li>
               }
-              {/* {loggedIn ?  */}
-              {/* <li><Link to="/"><Button >Log Out</Button></Link></li>
-              <li><Link to="/"><Button >Log In</Button></Link></li>
-              <li><Link to="/register"><Button >Register</Button></Link></li> */}
-
             </ul>
           </div>
         </nav>

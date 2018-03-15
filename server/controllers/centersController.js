@@ -19,14 +19,14 @@ export default class CentersController {
         region: req.body.region,
         isAvailable: req.body.isAvailable // to set availabiility of a center
       })
-        .then((center) => {
+        .then(() => {
           res.status(201).json({ message: 'The center has been added' });
         })
-        .catch((error) => {
+        .catch(() => {
           res.status(400).json({ message: 'Your request could not be processed' });
         });
     })
-      .catch((error) => {
+      .catch(() => {
         res.status(403).json({ message: 'You do not have the admin rights to add a center' });
       });
   }
@@ -38,9 +38,10 @@ export default class CentersController {
         if (user.isAdmin === true) {
           return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
         }
-        const id = req.params.id;
+        const { id } = req.params;
+        // { id } = req.params
         try { // avoid user having a string input as id
-          parseInt(id);
+          parseInt(id, 10);
         } catch (e) {
           return res.status(400).json({ message: 'There was an error with the input!' });
         } finally {
@@ -59,10 +60,11 @@ export default class CentersController {
                 isAvailable: req.body.isAvailable // to set if a center is available for booking
               })
                 .then(() => {
-                  center.reload().then(center => res.status(200).json({
-                    message: 'The center has been modified',
-                    updated: center
-                  }));
+                  center.reload()
+                    .then(() => res.status(200).json({
+                      message: 'The center has been modified',
+                      updated: center
+                    }));
                 })
                 .catch((err) => {
                   res.status(500).json({ message: 'Could not update', error: err });
@@ -105,9 +107,9 @@ export default class CentersController {
       if (user.isAdmin === true) {
         return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
       }
-      const id = req.params.id;
+      const { id } = req.params;
       try {
-        parseInt(id);
+        parseInt(id, 10);
       } catch (e) {
         return res.status(400).json({ message: 'There was an error with the input!' });
       } finally {

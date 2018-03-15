@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import getAllCenters from '../actions/getAllCentersAction';
 import Search from './Search.jsx';
-import CenterList from './CenterList.jsx';
+import CenterList from './CenterCard.jsx';
 
 class Centers extends Component {
   constructor(props) {
