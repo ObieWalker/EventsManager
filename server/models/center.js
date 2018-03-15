@@ -32,7 +32,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
       allowNull: false
-    }
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
   });
 
   Center.associate = (models) => {

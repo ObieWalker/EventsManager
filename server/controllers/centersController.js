@@ -17,7 +17,8 @@ export default class CentersController {
         facility: req.body.facility,
         capacity: req.body.capacity,
         region: req.body.region,
-        isAvailable: req.body.isAvailable // to set availabiility of a center
+        isAvailable: req.body.isAvailable, // to set availabiility of a center
+        image: req.body.image
       })
         .then(() => {
           res.status(201).json({ message: 'The center has been added' });
@@ -57,7 +58,8 @@ export default class CentersController {
                 facility: req.body.facility,
                 capacity: req.body.capacity,
                 region: req.body.region,
-                isAvailable: req.body.isAvailable // to set if a center is available for booking
+                isAvailable: req.body.isAvailable, // to set a center available for booking
+                image: req.body.image
               })
                 .then(() => {
                   center.reload()

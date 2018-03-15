@@ -31,6 +31,7 @@
     "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",
     "classnames": "^2.2.5",
+    "cloudinary-react": "^1.0.6",
     "compression-webpack-plugin": "^1.1.11",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
