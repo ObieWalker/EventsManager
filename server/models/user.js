@@ -35,18 +35,18 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false,
       allowNull: false
     }
-  })
+  });
 
   User.associate = (models) => {
     User.hasMany(models.Event, {
       foreignKey: 'userId',
       as: 'event'
-    })
+    });
     // admin
     User.hasMany(models.Center, {
       foreignKey: 'userId',
       as: 'center'
-    })
-  }
-  return User
-}
+    });
+  };
+  return User;
+};
