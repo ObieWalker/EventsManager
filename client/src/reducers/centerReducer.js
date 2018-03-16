@@ -1,5 +1,6 @@
 import { ADD_CENTER, EDIT_A_CENTER } from '../actions/actionTypes';
 
+
 const centerReducer = (state = [], action) => {
   switch (action.type) {
   case ADD_CENTER:

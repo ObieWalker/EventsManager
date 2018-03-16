@@ -1,4 +1,4 @@
-import { Event, Center } from '../models';
+import { Event } from '../models';
 
 const Events = Event;
 // const Centers = Center;
@@ -9,7 +9,7 @@ export default class EventsController {
     return Events.findAll()
       .then((events) => {
         events.forEach((event) => { // checks to see if there are any events with matching dates and centers
-          if (event.eventdate === req.body.eventdate && event.centername === req.body.centername) {
+          if (event.eventDate === req.body.eventDate && event.centerName === req.body.centerName) {
             res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
           }
         });
@@ -19,9 +19,9 @@ export default class EventsController {
           eventType: req.body.eventType,
           eventDate: req.body.eventDate,
           guestNo: req.body.guestNo
-        }).then((event) => {
+        }).then(() => {
           res.status(201).json({ message: 'Your event has been booked' });
-        }).catch((err) => {
+        }).catch(() => {
           res.status(400).json({ message: 'Your request could not be processed' });
         });
       });
@@ -35,13 +35,13 @@ export default class EventsController {
         }
         return event.update({
           centerName: req.body.centerName,
-          userId: req.decoded.username,
+          userId: req.decoded.userId,
           eventType: req.body.eventType,
           eventDate: req.body.eventDate,
           guestNo: req.body.guestNo
         })
           .then(() => {
-            event.reload().then(event => res.status(200).json({
+            event.reload().then(() => res.status(200).json({
               message: 'Your event has been updated',
               updated: event
             }));

@@ -17,11 +17,11 @@ module.exports = {
           as: 'userId'
         }
       },
-      centerName: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      region: {
+      city: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -38,6 +38,10 @@ module.exports = {
       },
       isAvailable: {
         type: Sequelize.BOOLEAN
+      },
+      image: {
+        allowNull: true,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

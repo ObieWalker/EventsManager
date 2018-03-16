@@ -34,8 +34,8 @@ export default class validate {
   }
 
   static centerValidation(req, res, next) {
-    req.checkBody('centerName', 'Your center must have a name').notEmpty();
-    req.checkBody('region', 'You must enter a location').notEmpty();
+    req.checkBody('name', 'Your center must have a name').notEmpty();
+    req.checkBody('city', 'You must enter a location').notEmpty();
     req.checkBody('capacity', 'You have to enter the venue capacity').notEmpty();
     req.checkBody('address', 'You have to input an address').notEmpty();
     req.checkBody('capacity', 'The capacity must be an integer value above 10').isInt({ gt: 10, lt: 4000000 });

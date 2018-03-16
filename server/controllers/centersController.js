@@ -12,12 +12,13 @@ export default class CentersController {
       }
       Centers.create({
         userId: req.decoded.id,
-        centerName: req.body.centerName,
+        name: req.body.name,
         address: req.body.address,
         facility: req.body.facility,
         capacity: req.body.capacity,
-        region: req.body.region,
-        isAvailable: req.body.isAvailable // to set availabiility of a center
+        city: req.body.city,
+        isAvailable: req.body.isAvailable, // to set availabiility of a center
+        image: req.body.image
       })
         .then(() => {
           res.status(201).json({ message: 'The center has been added' });
@@ -52,12 +53,13 @@ export default class CentersController {
               }
               return center.update({
                 userId: req.decoded.id,
-                centerName: req.body.centerName,
+                name: req.body.name,
                 address: req.body.address,
                 facility: req.body.facility,
                 capacity: req.body.capacity,
-                region: req.body.region,
-                isAvailable: req.body.isAvailable // to set if a center is available for booking
+                city: req.body.city,
+                isAvailable: req.body.isAvailable, // to set a center available for booking
+                image: req.body.image
               })
                 .then(() => {
                   center.reload()
@@ -76,7 +78,7 @@ export default class CentersController {
 
   static getAllCenters(req, res) {
     return Centers.findAll({
-      order: [['centerName', 'DESC']]
+      order: [['name', 'DESC']]
     }).then((centers) => {
       if (centers.length > 0) {
         if (req.query) {

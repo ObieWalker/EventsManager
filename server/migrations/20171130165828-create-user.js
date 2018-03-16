@@ -29,10 +29,6 @@ module.exports = {
         unique: true,
         isEmail: true
       },
-      photo: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
       isAdmin: {
         type: Sequelize.BOOLEAN,
         allowNull: false

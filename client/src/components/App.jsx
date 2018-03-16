@@ -8,6 +8,7 @@ import ContactUs from './ContactUs.jsx';
 import Centers from './Centers.jsx';
 
 import UDashboard from './UserDashboard/UDashboard.jsx';
+import AdminDashboard from './AdminDashboard/Dashboard.jsx'
 // import UTabMenu from './UserDashboard/UTabMenu';
 
 // import AdminCenters from './AdminDashboard/AdminCenters';
@@ -25,6 +26,7 @@ export default class App extends Component {
             <Route path='/contact-us' component={ContactUs} />
             <Route path='/centers' component={Centers} />
             <Route path='/user-dashboard' component={UDashboard} />
+            <Route path='/admin' component={AdminDashboard} />
           </Switch>
         </div>
       </Router>
