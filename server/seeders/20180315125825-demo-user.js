@@ -1,11 +1,11 @@
-
+const bcrypt = require('bcrypt');
 
 module.exports = {
   up: queryInterface => queryInterface.bulkInsert('Users', [{
     firstName: 'admin',
     lastName: 'user',
     username: 'adminuser',
-    password: 'password',
+    password: bcrypt.hashSync('password', 3),
     email: 'adminuser@gmail.com',
     isAdmin: true,
     createdAt: new Date(),
@@ -15,7 +15,7 @@ module.exports = {
     firstName: 'obi',
     lastName: 'walker',
     username: 'obiwalker',
-    password: 'password',
+    password: bcrypt.hashSync('password', 3),
     email: 'obinnawalker@gmail.com',
     isAdmin: true,
     createdAt: new Date(),
@@ -31,23 +31,25 @@ module.exports = {
     'Centers',
     [{
       userId: 5,
-      centerName: 'The Place',
+      name: 'The Place',
       address: '23, Samson Street',
       facility: 'Swimming Pool, Projector, Parking',
       capacity: 150,
-      region: 'Victoria Island',
+      city: 'Victoria Island',
       isAvailable: true,
+      image: '',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       userId: 6,
-      centerName: 'Jangilova',
+      name: 'Jangilova',
       address: '1b, BamBam Street',
       facility: 'Back Stage, Mezanine',
       capacity: 200,
-      region: 'Lekki',
+      city: 'Lekki',
       isAvailable: true,
+      image: '',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {}
@@ -65,5 +67,5 @@ module.exports = {
     });
   })),
   down: queryInterface =>
-    queryInterface.bulkDelete('Users', null, {})
+    queryInterface.bulkDelete('Centers', null, {})
 };

@@ -115,7 +115,7 @@ https://obiewalker.github.io/EventsManager/  <<gh-pages>>
       <td>Add a center</td>
       <td>
       <pre>{
-      centername: 'The Coitus Club',
+      name: 'The Coitus Club',
       address: '17, Isaleko',
       location: 'Victoria Island',
       capacity: 300,
@@ -161,7 +161,7 @@ https://obiewalker.github.io/EventsManager/  <<gh-pages>>
       <td>Modify a center</td>
       <td>
       <pre>{
-      centername: 'The Virgin Club',
+      name: 'The Virgin Club',
       address: '18, Isaleko',
       location: 'Victoria Island',
       capacity: 301,

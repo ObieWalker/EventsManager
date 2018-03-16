@@ -17,11 +17,11 @@ module.exports = {
           as: 'userId'
         }
       },
-      centerName: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      region: {
+      city: {
         type: Sequelize.STRING,
         allowNull: false
       },

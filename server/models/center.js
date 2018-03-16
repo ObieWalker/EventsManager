@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Center = sequelize.define('Center', {
-    centerName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'userId'
       }
     },
-    region: {
+    city: {
       type: DataTypes.STRING,
       allowNull: false
     },

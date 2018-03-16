@@ -35,11 +35,11 @@ const addCenter = (center, imageUrl) => (
         'x-access-token': window.localStorage.jwtToken
       },
       centerInfo: {
-        centerName: center.centerName,
+        name: center.name,
         address: center.address,
         facility: center.facility,
         capacity: center.capacity,
-        region: center.region,
+        city: center.city,
         isAvailable: center.isAvailable,
         image: imageUrl
       }
