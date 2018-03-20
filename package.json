@@ -2,9 +2,11 @@
   "name": "event-manager",
   "version": "1.0.0",
   "scripts": {
-    "start": "babel-watch server/app.js",
+    "start": "webpack --mode production && node server/entry.js",
+    "build:dev": "webpack --mode development -w",
+    "start:dev": "nodemon server/entry.js",
     "build:dev:client": "webpack --progress --config webpack.config.dev.js",
-    "start:dev": "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
+    "start:dev2": "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
     "dev": "webpack-dev-server --progress --colors --content-base=./client/public",
     "build": "babel src -d dist",
     "mocha": "mocha --compilers js:babel-core/register",
@@ -90,7 +92,8 @@
     "uglifyjs-webpack-plugin": "^1.2.3",
     "url-loader": "^0.6.2",
     "validator": "^9.1.2",
-    "webpack": "^3.10.0",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.21.2",
     "webpack-merge": "^4.1.2"

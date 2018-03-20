@@ -19,7 +19,6 @@
 //       address: { value: '', isValid: true, message: '' },
 //       facility: { value: '', isValid: true, message: '' },
 //       city: { value: '', isValid: true, message: '' },
-//       isAvailable: { value: '', isValid: true, message: '' }
 //     };
 //     this.handleChange = this.handleChange.bind(this);
 //     this.updateCenter = this.updateCenter.bind(this);
@@ -38,7 +37,6 @@
 //         facility: Object.assign({}, this.state.facility, { value: nextProps.center.facility }),
 //         region: Object.assign({}, this.state.region, { value: nextProps.center.region }),
 //         capacity: Object.assign({}, this.state.capacity, { value: nextProps.center.capacity }),
-//         isAvailable: Object.assign({}, this.state.isAvailable, { value: nextProps.center.isAvailable }),
 //       });
 //     }
 //   }
@@ -107,7 +105,6 @@
 //       address: this.state.address.value,
 //       facility: this.state.facility.value,
 //       city: this.state.city.value,
-//       isAvailable: this.state.isAvailable.value,
 //     };
 //     if (this.formIsValid()) {
 //       this.props.editCenterActions(center, center.id);
@@ -123,14 +120,7 @@
 //           </div>
 //           <form >
 //             <div className="row">
-//               <label>
-//                                 Available:
-//                 <input
-//                   name="isAvailable"
-//                   type="checkbox"
-//                   checked={this.state.isAvailable}
-//                   onChange={this.handleChange} />
-//               </label>
+//              
 //             </div>
 
 
@@ -155,7 +145,6 @@
 //     capacity: PropTypes.number,
 //     city: PropTypes.string,
 //     facility: PropTypes.bool,
-//     isAvailable: PropTypes.bool
 //   }).isRequired,
 //   actions: PropTypes.objectOf(PropTypes.func).isRequired,
 //   match: PropTypes.shape({

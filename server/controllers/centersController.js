@@ -6,8 +6,9 @@ const Users = User;
 export default class CentersController {
 // create a center only if user is admin
   static createCenter(req, res) {
-    Users.findById(req.decoded.id).then((user) => {
-      if (user.isAdmin === true) {
+    console.log('up above ----->', req.body);
+    return Users.findById(req.decoded.id).then((user) => {
+      if (user.isAdmin !== true) {
         return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
       }
       Centers.create({
@@ -17,18 +18,17 @@ export default class CentersController {
         facility: req.body.facility,
         capacity: req.body.capacity,
         city: req.body.city,
-        isAvailable: req.body.isAvailable, // to set availabiility of a center
         image: req.body.image
       })
-        .then(() => {
-          res.status(201).json({ message: 'The center has been added' });
+        .then((center) => {
+          res.status(201).json({ message: 'The center has been added', center });
         })
-        .catch(() => {
-          res.status(400).json({ message: 'Your request could not be processed' });
+        .catch((error) => {
+          res.status(400).json({ message: 'Your request could not be processed', error: error.messsage });
         });
     })
-      .catch(() => {
-        res.status(403).json({ message: 'You do not have the admin rights to add a center' });
+      .catch((error) => {
+        res.status(403).json({ message: 'You do not have the admin rights to add a center', error });
       });
   }
 
@@ -36,7 +36,7 @@ export default class CentersController {
     // this ensure the id input isnt a string that cannot be converted eg. "five"
     Users.findById(req.decoded.id)
       .then((user) => {
-        if (user.isAdmin === true) {
+        if (user.isAdmin !== true) {
           return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
         }
         const { id } = req.params;
@@ -58,7 +58,6 @@ export default class CentersController {
                 facility: req.body.facility,
                 capacity: req.body.capacity,
                 city: req.body.city,
-                isAvailable: req.body.isAvailable, // to set a center available for booking
                 image: req.body.image
               })
                 .then(() => {
@@ -77,6 +76,7 @@ export default class CentersController {
   }
 
   static getAllCenters(req, res) {
+    console.log('KLKSDKLDSKLDLKJFKLJFSJKLSFS');
     return Centers.findAll({
       order: [['name', 'DESC']]
     }).then((centers) => {
@@ -106,7 +106,7 @@ export default class CentersController {
 
   static deleteCenter(req, res) {
     Users.findById(req.decoded.id).then((user) => {
-      if (user.isAdmin === true) {
+      if (user.isAdmin !== true) {
         return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
       }
       const { id } = req.params;

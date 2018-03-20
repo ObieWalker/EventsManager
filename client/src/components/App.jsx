@@ -8,7 +8,7 @@ import ContactUs from './ContactUs.jsx';
 import Centers from './Centers.jsx';
 
 import UDashboard from './UserDashboard/UDashboard.jsx';
-import AdminDashboard from './AdminDashboard/Dashboard.jsx'
+import AdminDashboard from './AdminDashboard/Dashboard.jsx';
 // import UTabMenu from './UserDashboard/UTabMenu';
 
 // import AdminCenters from './AdminDashboard/AdminCenters';

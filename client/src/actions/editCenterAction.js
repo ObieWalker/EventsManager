@@ -1,23 +1,80 @@
-import axios from 'axios'
+import axios from 'axios';
+import {
+  IS_CENTER_UPDATING,
+  UPDATE_CENTER_SUCCESS,
+  UPDATE_CENTER_FAILURE
+} from './actionTypes';
 
-import { EDIT_A_CENTER} from './actionTypes'
+const isCenterUpdating = bool => ({
+  type: IS_CENTER_UPDATING,
+  bool
+});
 
-const editCenterAsync = (changeState, centerId) => ({
-    type: EDIT_A_CENTER,
-    payload: {
-        changeState,
-        centerId,
-    },
-})
+const updateCenterSuccess = (updatedCenter, message) => ({
+  type: UPDATE_CENTER_SUCCESS,
+  updatedCenter,
+  message
+});
 
-const editCenter = (changeState, centerId) => (dispatch) => {
-    axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('token')}`;
-    axios
-        .put(`/centers/${centerId}`, changeState)
-        .then((res) => {
-            localStorage.setItem('message', res.data.message);
-            dispatch(editCenterAsync(changeState, centerId));
-        })
-        .catch(error => localStorage.setItem('message', error.response.data.message));
-};
-export default editCenter;
+const updateCenterFailure = error => ({
+  type: UPDATE_CENTER_FAILURE,
+  error
+});
+
+const updateCenter = center => (
+  (dispatch) => {
+    if (axios.defaults.headers.common.token === '') {
+      axios.defaults.headers.common.token = localStorage.getItem('jwtToken');
+    }
+
+    return axios({
+      method: 'PUT',
+      url: `/api/v1/centers/${center.id}`,
+      headers: {
+        token: localStorage.getItem('jwtToken')
+      },
+      data: {
+        name: this.state.name,
+        address: this.state.address,
+        city: this.state.city,
+        capacity: this.state.capacity,
+        facility: this.state.facility
+      }
+    }).then((response) => {
+      if (response) {
+        const { message } = response.data;
+        dispatch(updateCenterSuccess(response.data.center, message));
+        dispatch(isCenterUpdating(false));
+      }
+    }).catch(() => {
+      dispatch(updateCenterFailure('Unable to upload your center. Try again later'));
+      dispatch(isCenterUpdating(false));
+    });
+  }
+);
+
+const updateCenterRequest = center => (
+  (dispatch) => {
+    // let cloudImageUrl = center.initialImageSrc;
+    dispatch(isCenterUpdating(true));
+
+    // if (center.imageFile.name) {
+    //   delete axios.defaults.headers.common['x-access-token'];
+    //   const imageData = new FormData();
+    //   imageData.append('file', center.imageFile);
+    //   imageData.append('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET);
+
+    //   return axios.post(process.env.CLOUDINARY_URL, imageData)
+    //     .then((response) => {
+    //       cloudImageUrl = response.data.url;
+    //       return dispatch(updateCenter(center, cloudImageUrl));
+    //     }).catch(() => {
+    //       dispatch(isCenterUpdating(false));
+    //       dispatch(updateCenterFailure('Unable to upload your center. Try again later'));
+    //     });
+    // }
+    return dispatch(updateCenter(center));
+  }
+);
+
+export default updateCenterRequest;

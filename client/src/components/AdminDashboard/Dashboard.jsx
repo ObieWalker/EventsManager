@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-import TabMenu from './ATabMenu.jsx';
+import AdminPage from './AdminPage.jsx';
 
 class Dashboard extends Component {
   render() {
     return (
       <div >
-        <TabMenu />
+        <h5 style={{ width: '70%' }}>This is an Admin page.
+        It is restricted to accounts with access rights. </h5>
+        <AdminPage/>
       </div>
     );
   }

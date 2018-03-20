@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import SideNav, { Nav, NavText } from 'react-sidenav';
 
 import CreateCenter from './CreateCenter.jsx';
+import Centers from './AdminCenters.jsx';
 
 
 const BaseContainer = props =>
@@ -12,8 +13,8 @@ const BaseContainer = props =>
       display: 'inline-block',
       padding: '1%',
       fontFamily: 'Roboto',
-      fontSize: 30,
-      width: 300
+      fontSize: 20,
+      width: '20%'
     }}
   >
     {props.children}
@@ -25,27 +26,29 @@ const SideNavWithAlerts = () =>
     hoverBgColor="#4054f3"
     hoverColor="red"
     highlightBgColor="#4054b2"
-    defaultSelected="centers"
     highlightColor="#4054b2"
   >
-    <div />
     <Nav id="centers">
       <NavText>
-        <span style={{ marginLeft: 1 }}><Link to='/admin/centers'>All Center</Link></span>
+        <span ><Link to='/admin/centers'>All Center</Link></span>
       </NavText>
     </Nav>
     <Nav id="add">
       <NavText>
-        <span style={{ marginLeft: 6 }}><Link to='/admin/add-center'>Add a Center</Link></span>
+        <span><Link to='/admin/add-center'>Add a Center</Link></span>
       </NavText>
     </Nav>
 
   </SideNav>;
 
 
-class ATabMenu extends React.Component {
+class AdminPage extends React.Component {
   renderAdd() {
     return <CreateCenter />;
+  }
+
+  renderCenters() {
+    return <Centers />;
   }
 
   //   renderModify() {
@@ -70,7 +73,7 @@ class ATabMenu extends React.Component {
             <div style={{ display: 'flex', padding: '10%', background: '#blue' }}>
               <div style={{ width: '80%', height: '60%' }}>
                 <img
-                  src="http://i63.tinypic.com/hs454x.jpg"
+                  src=""
                   style={{ borderRadius: '20px', width: '100%', height: 200 }}
                 />
               </div>
@@ -78,9 +81,9 @@ class ATabMenu extends React.Component {
             </div>
             <SideNavWithAlerts />
           </BaseContainer>
-          <div style={{ padding: 20 }}>
+          <div style={{ padding: 20, width: '40%' }}>
+            <Route exact path={'/admin/centers'} render={this.renderCenters} />
             <Route path={'/admin/add-center'} render={this.renderAdd} />
-            <Route path={'/modify'} render={this.renderModify} />
           </div>
         </div>
       </Router>
@@ -88,4 +91,8 @@ class ATabMenu extends React.Component {
   }
 }
 
-export default ATabMenu;
+BaseContainer.propTypes = {
+  children: PropTypes.node
+};
+
+export default AdminPage;

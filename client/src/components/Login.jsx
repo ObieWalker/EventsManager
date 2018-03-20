@@ -5,12 +5,17 @@ import PropTypes from 'prop-types';
 // import { HashLink } from "react-router-hash-scroll";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import history from '../../history';
+import { withRouter } from 'react-router-dom';
 import signInValidator from '../../helpers/validators/signIn';
 import loginUserAction from '../actions/loginUserAction';
 import verifyToken from '../../helpers/verifyToken';
 
-
+/**
+ *
+ *
+ * @class Login
+ * @extends {Component}
+ */
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +75,7 @@ class Login extends Component {
       this.props.loginUserAction(userDetails)
         .then(() => {
           console.log('my props = ', this.props);
-          this.props.history.push('/user-dashboard');
+          this.props.history.push('/admin/add-center');
           toastr.success('welcome back');
         })
         .catch(error => console.log(error));
@@ -138,7 +143,7 @@ class Login extends Component {
 
 Login.propTypes = {
   loginUserAction: PropTypes.func,
-  router: PropTypes.object.isRequired,
+  router: PropTypes.object,
   history: PropTypes.object
 };
 
@@ -151,4 +156,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

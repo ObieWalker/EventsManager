@@ -1,29 +1,44 @@
-// import React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { Col } from 'react-materialize';
 
-// export const CenterCard = props => (
-//   <div>
-//     <div className="col s12 m6" key={props.center.id}>
-//       <div className="card">
-//         <div className="card-image">
-//           <img src="http://i68.tinypic.com/dh5vk.jpg" alt={props.center.name} />
-//         </div>
-//         <div className="card-content">
-//           <span className='card-title'>
-//             <a href="show-center.html">{props.center.name}</a>
-//           </span><br />
-//           <span className= 'grey-text text-darken-4'>{props.center.address}</span>
-//         </div>
-//         <div className="card-reveal">
-//           <span className="card-title grey-text text-darken-4">{props.center.name}
-//             <i className="material-icons right">close</i></span>
-//           <p>{props.center.address}<br/>{props.center.city}<br/>
-//                     This center has a capacity of {center.capacity}
-//                     with facilities like { props.center.facilities}</p>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
+const CenterCard = (props) => {
+  const { centers } = props;
+  return (
+    <div style={{ margin: '5%' }}>
+      <Col s={10} m={4}>
+        <div className="col 12">
+          <div className="card small">
+            <div className="card-image waves-effect waves-block waves-light">
+              <img className="activator" src="http://i68.tinypic.com/dh5vk.jpg"/>
+            </div>
+            <div className="card-content">
+              <span className="card-title activator grey-text text-darken-4">{centers.name}<i className="material-icons right">more_vert</i></span>
+              <p style={{ float: 'left' }}>{centers.city} </p><br />
+              <p style={{ float: 'left' }}><Link to="/">Book Center</Link></p>
+            </div>
+            <div className="card-reveal">
+              <span className="card-title grey-text text-darken-4">{centers.name}<i className="material-icons right">close</i></span>
+              <div className='row'><p style={{ float: 'left' }}>{centers.address},<br/>{centers.city}</p></div>
+              <p> This center has a capacity of {centers.capacity} seats {' '}
+                    with facilities like { centers.facility}</p>
+            </div>
+          </div>
+        </div>
+      </Col>
 
-// );
+    </div>
+  );
+};
 
-// export default CenterCard;
+CenterCard.propTypes = {
+  centers: PropTypes.func,
+  name: PropTypes.string,
+  address: PropTypes.string,
+  city: PropTypes.string,
+  facility: PropTypes.string,
+  getAllCenters: PropTypes.func
+};
+
+export default CenterCard;

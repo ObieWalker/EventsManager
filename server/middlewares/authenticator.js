@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
+dotenv.config();
 export default class auth {
   static authenticate(req, res, next) {
     const token = req.body.token || req.query.token || req.headers.token;
