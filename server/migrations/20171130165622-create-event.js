@@ -6,7 +6,7 @@ module.exports = {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    centerName: {
+    center: {
       type: Sequelize.STRING,
       allowNull: false
     },
@@ -14,9 +14,15 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false
     },
-    eventDate: {
+    date: {
       type: Sequelize.DATEONLY,
       allowNull: false
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: true,
+      isEmail: true
     },
     guestNo: {
       type: Sequelize.INTEGER,

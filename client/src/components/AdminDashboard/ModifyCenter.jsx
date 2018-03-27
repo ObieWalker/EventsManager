@@ -14,7 +14,7 @@
 //     this.state = {
 //       editMode: false,
 //       centerId: 0,
-//       centerName: { value: '', isValid: true, message: '' },
+//       center: { value: '', isValid: true, message: '' },
 //       capacity: { value: '', isValid: true, message: '' },
 //       address: { value: '', isValid: true, message: '' },
 //       facility: { value: '', isValid: true, message: '' },
@@ -32,7 +32,7 @@
 //   componentWillReceiveProps(nextProps) {
 //     if (this.props.center.id !== nextProps.center.id) {
 //       this.setState({
-//         centerName: Object.assign({}, this.state.name, { value: nextProps.center.name }),
+//         center: Object.assign({}, this.state.name, { value: nextProps.center.name }),
 //         address: Object.assign({}, this.state.address, { value: nextProps.center.address }),
 //         facility: Object.assign({}, this.state.facility, { value: nextProps.center.facility }),
 //         region: Object.assign({}, this.state.region, { value: nextProps.center.region }),
@@ -120,7 +120,7 @@
 //           </div>
 //           <form >
 //             <div className="row">
-//              
+//
 //             </div>
 
 

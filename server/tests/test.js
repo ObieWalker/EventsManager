@@ -31,7 +31,7 @@ describe('Test endpoint', () => {
       .post('/events')
       .send({
         eventtype: 'Wedding',
-        eventdate: 12 / 12 / 2019,
+        date: 12 / 12 / 2019,
         guestno: 120
       })
       .end((err, res) => {
@@ -51,7 +51,7 @@ describe('Test endpoint', () => {
       .send({
         eventtype: 'Wedding',
         guestno: 453,
-        eventdate: '11-12-2017'
+        date: '11-12-2017'
       })
       .end((err, res) => {
         expect(res).to.be.status(200);

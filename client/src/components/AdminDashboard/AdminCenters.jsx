@@ -14,71 +14,66 @@ class AdminCenters extends Component {
       centers: '',
     };
 
-
-    this.handleEditCenter = this.handleEditCenter.bind(this);
-    this.handleEditCenterDetails = this.handleEditCenterDetails.bind(this);
+    this.handleModify = this.handleModify.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
+
   componentDidMount() {
     this.props.getAllCenters();
   }
 
-  handleSwitchingToEditMode() {
-    this.setState({ edittingMode: true });
+  handleModify(e) {
+    e.preventDefault();
   }
 
-  handleSwitchingToViewMode() {
-    return this.props.history.push('/center-details');
-  }
-
-  handleCloseEdit() {
-    return this.setState({ edittingMode: false });
+  handleDelete(e) {
+    e.preventDefault();
   }
 
 
   render() {
-    console.log('===>', this.props.allCenters);
+    const Centers = this.props.getAllCenters;
+    console.log('in admin centers===>', this.props.allCenters);
     return (
       <div>
         <div >
-          <h3>All centers and details.</h3>
-          <div className='center col s12 m6'>
-            {/* <Search /> */}
-          </div>
-          {/* <div className="row">
-            {centers.map(center =>
-              (
-                <CenterList key={center.id} centers={centers} />
-              ))}
-          </div> */}
-          <div>
-            <table className="table-sm text-center table-hover
-            mx-auto bg-white table-responsive-sm table-striped" style={{ width: '80%' }}>
-              <thead className="text-center text-white bg-info border border-white">
-                <tr className="p-3">
-                  <th scope="col" className="border border-white"> S/N</th>
-                  <th scope="col" className="border border-white">Center Name</th>
-                  <th scope="col" className="border border-white">Address</th>
-                  <th scope="col" className="border border-white">City</th>
-                  <th scope="col" className="border border-white">Center Capacity</th>
-                  <th scope="col" className="border border-white">Facilities</th>
+          <div className='center col s12 m12'>
+            <div><div>{Centers ?
+              <table className="table text-center table-hover
+            mx-auto bg-white table-responsive-sm table-striped" style={{ width: '100%' }}>
+                <thead className="text-center text-white bg-info border border-white">
+                  <tr className="p-3">
+                    <th scope="col" className="border border-white"> S/N</th>
+                    <th scope="col" className="border border-white">Center Name</th>
+                    <th scope="col" className="border border-white">Address</th>
+                    <th scope="col" className="border border-white">City</th>
+                    <th scope="col" className="border border-white">Capacity</th>
+                    <th scope="col" className="border border-white">Facilities</th>
+                    <th scope="col" className="border border-white"></th>
+                    <th scope="col" className="border border-white"></th>
 
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  this.props.allCenters.fetchedAllCenters.map((centers, i) =>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    this.props.allCenters.fetchedAllCenters.map((center, i) =>
 
-                    <tr id="#1" key={i} index = {i} className="border border-white">
-                      <td scope="row">{ i + 1 }</td>
-                      <td>{centers.name}</td>
-                      <td>{centers.address}</td>
-                      <td>{centers.city}</td>
-                      <td>{centers.capacity}</td>
-                      <td>{centers.facility}</td>
-                    </tr>)
-                }
-              </tbody>
-            </table>
+                      <tr id="#1" key={i} index = {i} className="border border-white">
+                        <td scope="row">{ i + 1 }</td>
+                        <td>{center.name}</td>
+                        <td>{center.address}</td>
+                        <td>{center.city}</td>
+                        <td>{center.capacity}</td>
+                        <td>{center.facility}</td>
+                        <td><button onClick={this.handleModify} type="button" className="btn-warning btn-sm">Edit</button></td>
+                        <td><button onClick={this.handleDelete} type="button" className="btn-danger btn-sm">Delete</button></td>
+                      </tr>)
+                  }
+                </tbody>
+              </table> : <p style={{ margin: '10%', fontSize: '20px', fontStyle: 'Sans-serif' }}>There are no registered centers.</p>
+            }
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -88,9 +83,7 @@ class AdminCenters extends Component {
 
 AdminCenters.propTypes = {
   allCenters: PropTypes.array,
-  getAllCenters: PropTypes.func.isRequired,
-  editCenter: PropTypes.func,
-  history: PropTypes.object
+  getAllCenters: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -100,4 +93,5 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getAllCenters, editCenter }, dispatch);
+
 export default connect(mapStateToProps, mapDispatchToProps)(AdminCenters);

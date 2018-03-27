@@ -16,7 +16,7 @@ const CenterCard = (props) => {
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">{centers.name}<i className="material-icons right">more_vert</i></span>
               <p style={{ float: 'left' }}>{centers.city} </p><br />
-              <p style={{ float: 'left' }}><Link to="/">Book Center</Link></p>
+              <p style={{ float: 'left' }}><Link to="/" href='/'>Book Center</Link></p>
             </div>
             <div className="card-reveal">
               <span className="card-title grey-text text-darken-4">{centers.name}<i className="material-icons right">close</i></span>
@@ -33,7 +33,7 @@ const CenterCard = (props) => {
 };
 
 CenterCard.propTypes = {
-  centers: PropTypes.func,
+  centers: PropTypes.object,
   name: PropTypes.string,
   address: PropTypes.string,
   city: PropTypes.string,

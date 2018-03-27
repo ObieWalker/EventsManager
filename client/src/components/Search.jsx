@@ -2,7 +2,7 @@ import React from 'react';
 
 const Search = () => (
   <div >
-    <form>
+    <form className='col s12 m6' style={{ width: '40%', float: 'right' }}>
       <div className="input-field search-field">
         <input id="search"
           type="search"

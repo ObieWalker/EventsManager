@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'centerId'
       }
     },
-    centerName: {
+    center: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -28,13 +28,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    eventDate: {
+    date: {
       type: DataTypes.DATEONLY,
       allowNull: false
     },
     guestNo: {
       type: DataTypes.INTEGER,
       allowNull: true
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: {
+          msg: 'Not a valid email'
+        }
+      }
     }
   });
 

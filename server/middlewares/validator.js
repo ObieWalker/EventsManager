@@ -34,6 +34,7 @@ export default class validate {
   }
 
   static centerValidation(req, res, next) {
+    console.log('========THIS====>', req.body);
     req.checkBody('name', 'Your center must have a name').notEmpty();
     req.checkBody('city', 'You must enter a location').notEmpty();
     req.checkBody('capacity', 'You have to enter the venue capacity').notEmpty();
@@ -52,8 +53,10 @@ export default class validate {
     req.checkBody('eventType', 'The event type must be one of the options given or choose "other"').notEmpty();
     req.checkBody('eventType', 'Please just pick the closest match gad damn it').isAlpha();
     req.checkBody('guestNo', 'Your guest number must be a number above 2, surely you cannot be that friendless').isInt({ gt: 2, lt: 4000000 });
-    req.checkBody('eventDate', 'You think you are Marty Mcfly? Wanna go back to the past? Pick a future date').isAfter();
-    req.checkBody('eventDate').toDate();
+    req.checkBody('date', 'You think you are Marty Mcfly? Wanna go back to the past? Pick a future date').isAfter();
+    req.checkBody('date').toDate();
+    req.checkBody('email', 'Please enter a valid email!').isEmail();
+    req.sanitizeBody('email').normalizeEmail({ gmail_remove_subaddress: false, gmail_remove_dots: true });
 
     const errors = req.validationErrors();
     if (errors) {

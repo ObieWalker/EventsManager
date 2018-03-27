@@ -10,12 +10,14 @@ import allCentersReducer from './allCentersReducer';
 import userEventsReducer from './userEventsReducer';
 import editCenterReducer from './editCenterReducer';
 import deleteCenterReducer from './deleteCenterReducer';
+import allEventsReducer from './allEventsReducer';
 
 const rootReducer = combineReducers({
   registerUser: register,
   loginUser: login,
   createCenter: createCenterReducer,
   allCenters: allCentersReducer,
+  allEvents: allEventsReducer,
   userEvents: userEventsReducer,
   deleteCenter: deleteCenterReducer,
   editCenter: editCenterReducer,

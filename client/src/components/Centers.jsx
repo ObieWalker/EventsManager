@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Row } from 'react-materialize';
 import getAllCenters from '../actions/getAllCentersAction';
 import Search from './Search.jsx';
 import CenterList from './CenterCard.jsx';
-import { Row } from 'react-materialize';
 
-class Centers extends Component {
+class AllCenters extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,18 +21,21 @@ class Centers extends Component {
 
 
   render() {
+    const Centers = this.props.allCenters;
+    console.log('this is it here ===>', Centers);
     return (
       <div>
-        <div >
+        <div>
           <h3>All centers and details.</h3>
-          <div className='center col s12 m6'>
-            <Search />
+          <div className='center'>
+            <Search /> <br/> <br/>
           </div>
-          <div>
+          <div> {Centers.fetchedAllCenters.length > 0 ?
             <Row>
-              {this.props.allCenters.fetchedAllCenters.map((centers, i) =>
+              {Centers.fetchedAllCenters.map((centers, i) =>
                 <CenterList key={i} centers={centers} />)}
-            </Row>
+            </Row> : 'There are no registered centers.'
+          }
           </div>
         </div>
       </div>
@@ -40,7 +43,7 @@ class Centers extends Component {
   }
 }
 
-Centers.propTypes = {
+AllCenters.propTypes = {
   allCenters: PropTypes.array,
   getAllCenters: PropTypes.func.isRequired
 };
@@ -53,4 +56,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getAllCenters }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Centers);
+export default connect(mapStateToProps, mapDispatchToProps)(AllCenters);

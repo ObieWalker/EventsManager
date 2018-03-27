@@ -1,98 +1,46 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import SideNav, { Nav, NavText } from 'react-sidenav';
+import React, { Component } from 'react';
+import { Col, NavItem, Nav, Row, Tab } from 'react-bootstrap';
 
 import CreateCenter from './CreateCenter.jsx';
 import Centers from './AdminCenters.jsx';
+import Events from './AllEvents.jsx';
 
-
-const BaseContainer = props =>
-  <div
-    style={{
-      display: 'inline-block',
-      padding: '1%',
-      fontFamily: 'Roboto',
-      fontSize: 20,
-      width: '20%'
-    }}
-  >
-    {props.children}
-  </div>;
-
-
-const SideNavWithAlerts = () =>
-  <SideNav
-    hoverBgColor="#4054f3"
-    hoverColor="red"
-    highlightBgColor="#4054b2"
-    highlightColor="#4054b2"
-  >
-    <Nav id="centers">
-      <NavText>
-        <span ><Link to='/admin/centers'>All Center</Link></span>
-      </NavText>
-    </Nav>
-    <Nav id="add">
-      <NavText>
-        <span><Link to='/admin/add-center'>Add a Center</Link></span>
-      </NavText>
-    </Nav>
-
-  </SideNav>;
-
-
-class AdminPage extends React.Component {
-  renderAdd() {
-    return <CreateCenter />;
-  }
-
-  renderCenters() {
-    return <Centers />;
-  }
-
-  //   renderModify() {
-  //     return <ModifyCenter />;
-  //   }
-
-
+class AdminPage extends Component {
   render() {
     return (
-      <Router>
-        <div style={{ display: 'flex' }}>
 
+      <div className="d-flex flex-row mt-2">
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          <Row className="clearfix">
+            <Col sm={4}>
+              <Nav bsStyle="pills" stacked>
+                <div>
+                  <div style={{ display: 'flex', padding: '2%', background: '#blue' }}>
+                    <div style={{ width: '100%', height: '60%' }}>
+                      <img src='http://i63.tinypic.com/hs454x.jpg'
+                        style={{ borderRadius: '20px', width: '100%', height: 200 }}
+                      />
+                    </div>
 
-          <BaseContainer
-            style={{
-              fontSize: 12,
-              background: '#2d353c',
-              color: '#a8acb1',
-              paddingTop: 0
-            }}
-          >
-            <div style={{ display: 'flex', padding: '10%', background: '#blue' }}>
-              <div style={{ width: '80%', height: '60%' }}>
-                <img
-                  src=""
-                  style={{ borderRadius: '20px', width: '100%', height: 200 }}
-                />
-              </div>
-
-            </div>
-            <SideNavWithAlerts />
-          </BaseContainer>
-          <div style={{ padding: 20, width: '40%' }}>
-            <Route exact path={'/admin/centers'} render={this.renderCenters} />
-            <Route path={'/admin/add-center'} render={this.renderAdd} />
-          </div>
-        </div>
-      </Router>
+                  </div>
+                </div>
+                <NavItem eventKey="first">Add a Center</NavItem>
+                <NavItem eventKey="second">All Centers</NavItem>
+                <NavItem eventKey="third">All Events</NavItem>
+              </Nav>
+            </Col>
+            <Col sm={8}>
+              <Tab.Content animation>
+                <Tab.Pane eventKey="first"><CreateCenter /></Tab.Pane>
+                <Tab.Pane eventKey="second"><Centers /></Tab.Pane>
+                <Tab.Pane eventKey="third"><Events /></Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>;
+      </div>
     );
   }
 }
-
-BaseContainer.propTypes = {
-  children: PropTypes.node
-};
 
 export default AdminPage;

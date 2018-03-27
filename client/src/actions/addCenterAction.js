@@ -36,15 +36,15 @@ const addCenter = centerDetails => (
       headers: {
         token: localStorage.getItem('jwtToken')
       },
-      centerDetails
+      data: centerDetails
     }).then((response) => {
       console.log('=======>', response);
-      // const { message } = response.centerInfo;
-      // dispatch(createCenterSuccess(response.centerInfo.center, message));
-      // dispatch(isCenterCreating(false));
-    }).catch(() => {
-      // dispatch(createCenterFailure(error.response.centerInfo.message));
-      // dispatch(isCenterCreating(false));
+      const { message } = response.centerInfo;
+      dispatch(createCenterSuccess(response.centerInfo.center, message));
+      dispatch(isCenterCreating(false));
+    }).catch((error) => {
+      dispatch(createCenterFailure(error.response.centerInfo.message));
+      dispatch(isCenterCreating(false));
     });
   }
 );

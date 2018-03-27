@@ -29,7 +29,6 @@ class CreateCenter extends Component {
     this.formIsValid = this.formIsValid.bind(this);
     this.handleOnFocus = this.handleOnFocus.bind(this);
     this.handleImage = this.handleImage.bind(this);
-    this.formIsValid = this.formIsValid.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.clear = this.clear.bind(this);
   }
@@ -116,7 +115,6 @@ class CreateCenter extends Component {
             toastr.remove();
             toastr.error(createError);
           }
-          $('button[id=close]').click();
           this.clear();
         });
     }
@@ -126,7 +124,7 @@ class CreateCenter extends Component {
   render() {
     return (
       <div>
-        <div className="container" style={{ width: '100%' }}>
+        <div className='col-lg-8 col-xs-12 col-centered'>
 
           <div className="grey lighten-4" style={{
             display: 'inline-block', width: '100%', margin: '50px 20px 20px 50px', padding: '10%', border: '1px solid #EEE'
@@ -135,7 +133,7 @@ class CreateCenter extends Component {
 
               <div className="nav-wrapper">
 
-                <div className="col s12">
+                <div className='col-lg-12 col-xs-12 col-centered'>
                   <h3 className="brand-logo col s12">Add A Center</h3>
                 </div>
               </div>
@@ -197,7 +195,7 @@ class CreateCenter extends Component {
                     id="facility"
                     name='facility'
                     className="form-control"
-                    placeholder="" required
+                    placeholder="Separate with commas"
                     onChange={this.handleChange} />
                 </div>
 

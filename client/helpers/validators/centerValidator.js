@@ -5,7 +5,7 @@ const centerValidator = (data) => {
   const name = data.name.trim(),
     address = data.address.trim(),
     city = data.city.trim(),
-    facility = data.facility.trim(),
+    capacity = data.capacity.trim(),
     errors = {};
 
   if (validator.isEmpty(name)) {
@@ -41,10 +41,10 @@ const centerValidator = (data) => {
     console.log('error.city');
   }
 
-  if (!validator.isAlphanumeric(facility)) {
-    console.log('facility alphnum');
-    errors.facility = 'Please input valid facility entries';
+  if (validator.isNumeric(capacity)) {
+    errors.name = 'You have to enter a numeric value.';
   }
+
   console.log(errors);
   console.log(isEmpty(errors));
   return { errors, formIsValid: isEmpty(errors) };

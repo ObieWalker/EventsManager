@@ -9,16 +9,17 @@ export default class EventsController {
     return Events.findAll()
       .then((events) => {
         events.forEach((event) => { // checks to see if there are any events with matching dates and centers
-          if (event.eventDate === req.body.eventDate && event.centerName === req.body.centerName) {
+          if (event.date === req.body.date && event.center === req.body.center) {
             res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
           }
         });
         return Events.create({
           userId: req.decoded.userId,
-          centerName: req.body.centerName,
+          center: req.body.center,
           eventType: req.body.eventType,
-          eventDate: req.body.eventDate,
-          guestNo: req.body.guestNo
+          date: req.body.date,
+          guestNo: req.body.guestNo,
+          email: req.body.email
         }).then(() => {
           res.status(201).json({ message: 'Your event has been booked' });
         }).catch(() => {
@@ -34,11 +35,12 @@ export default class EventsController {
           res.status(404).json({ message: 'Event does not exist within our records' });
         }
         return event.update({
-          centerName: req.body.centerName,
+          center: req.body.center,
           userId: req.decoded.userId,
           eventType: req.body.eventType,
-          eventDate: req.body.eventDate,
-          guestNo: req.body.guestNo
+          date: req.body.date,
+          guestNo: req.body.guestNo,
+          email: req.body.email
         })
           .then(() => {
             event.reload().then(() => res.status(200).json({
@@ -73,7 +75,7 @@ export default class EventsController {
   static allEvents(req, res) {
     if (Events.length > 0) {
       return Events.findAll({
-        order: [['eventdate', 'DESC']]
+        order: [['date', 'DESC']]
       }).then((events) => {
         if (events.length > 0) {
           if (req.query) {

@@ -1,7 +1,8 @@
 // user actions
-export const REGISTER_USER = 'register_user';
-export const LOGIN_USER = 'login_user';
-export const LOGOUT_USER = 'Logout_user';
+export const REGISTER_USER = 'REGISTER_USER';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 // center actions
 export const IS_CENTER_CREATING = 'IS_CENTER_CREATING';
@@ -30,4 +31,7 @@ export const UPDATE_EVENT_FAILURE = 'UPDATE_EVENT_FAILURE';
 export const IS_EVENT_DELETING = 'IS_EVENT_DELETING';
 export const DELETE_EVENT_SUCCESS = 'DELETE_EVENT_SUCCESS';
 export const DELETE_EVENT_FAILURE = 'DELETE_EVENT_FAILURE';
+export const IS_EVENTS_FETCHING = 'IS_EVENTS_FETCHING';
+export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
+export const FETCH_EVENTS_FAILURE = 'FETCH_EVENTS_FAILURE';
 

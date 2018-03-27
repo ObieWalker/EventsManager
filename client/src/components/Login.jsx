@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import toastr from 'toastr';
 
 import PropTypes from 'prop-types';
-// import { HashLink } from "react-router-hash-scroll";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import signInValidator from '../../helpers/validators/signIn';
-import loginUserAction from '../actions/loginUserAction';
+import login from '../actions/UserSessionAction';
 import verifyToken from '../../helpers/verifyToken';
 
 /**
@@ -22,6 +21,8 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      isLoading: false,
+      showWarning: false,
       errors: {}
     };
 
@@ -38,7 +39,7 @@ class Login extends Component {
   componentDidMount() {
     // checks to see if user already has a verified token and redirects
     if (verifyToken()) {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/');
       // this.context.router.history.push('/contactus');
     }
   }
@@ -72,11 +73,15 @@ class Login extends Component {
     if (this.isValid()) {
       console.log('it is valid');
       this.setState({ errors: {} });
-      this.props.loginUserAction(userDetails)
+      this.props.login(userDetails)
         .then(() => {
-          console.log('my props = ', this.props);
-          this.props.history.push('/admin/add-center');
-          toastr.success('welcome back');
+          const { isAuthenticated } = this.props.loginUser;
+          console.log('is it authenticated?', isAuthenticated);
+          if (isAuthenticated) {
+            console.log('my props = ', this.props);
+            this.props.history.push('/');
+            toastr.success('welcome back');
+          }
         })
         .catch(error => console.log(error));
     }
@@ -142,9 +147,11 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loginUserAction: PropTypes.func,
+  UserSessionAction: PropTypes.func,
   router: PropTypes.object,
-  history: PropTypes.object
+  history: PropTypes.object,
+  loginUser: PropTypes.object,
+  login: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -152,7 +159,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  loginUserAction,
+  login,
 }, dispatch);
 
 
