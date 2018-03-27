@@ -43,7 +43,7 @@ https://obiewalker.github.io/EventsManager/  <<gh-pages>>
 > Send a PUT request to 127.0.0.1:8080/events/ with this in the body `{
   guestno: 'Sunset Cottage,
   eventtype: 'Wedding',
-  eventdate: 12/12/2017
+  date: 12/12/2017
 }`
 
 ## Tests
@@ -92,7 +92,7 @@ https://obiewalker.github.io/EventsManager/  <<gh-pages>>
       <td>
       <pre>{
 	eventtype: 'Birthday',
-	eventdate: '13/06/2018',
+	date: '13/06/2018',
 	guestno: 123
      }</pre>
      </td>
@@ -104,7 +104,7 @@ https://obiewalker.github.io/EventsManager/  <<gh-pages>>
       <td>
       <pre>{
 	eventtype: 'Birthday',
-	eventdate: '13/06/2017',
+	date: '13/06/2017',
 	guestno: 123
      }</pre>
      </td>

@@ -36,9 +36,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      isAvailable: {
-        type: Sequelize.BOOLEAN
-      },
       image: {
         allowNull: true,
         type: Sequelize.STRING

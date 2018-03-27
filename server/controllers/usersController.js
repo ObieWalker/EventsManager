@@ -1,8 +1,10 @@
 
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
 import { User } from '../models';
 
+dotenv.config();
 const Users = User;
 // const secret = "1234";
 // this will be used for the password encryption
@@ -73,7 +75,7 @@ export default class UsersController {
                 username: user.username,
                 id: user.id
               };
-              const token = jwt.sign(payload, 'secret', { expiresIn: '24h' });
+              const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
               res.status(200).json({ message: 'Login Successful!', token });
             }
           });

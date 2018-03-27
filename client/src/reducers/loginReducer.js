@@ -1,12 +1,20 @@
-import { LOGIN_USER } from '../actions/actionTypes';
+import isEmpty from 'lodash/isEmpty';
 
-const loginReducer = (state = [], action) => {
+import { SET_CURRENT_USER } from '../actions/actionTypes';
+
+const initialState = {
+  isAuthenticated: false,
+  user: {}
+};
+
+export default (state = initialState, action = {}) => {
   switch (action.type) {
-  case LOGIN_USER:
-    return [action.payload, ...state];
+  case SET_CURRENT_USER:
+    return {
+      isAuthenticated: !isEmpty(action.user),
+      user: action.user
+    };
   default:
     return state;
   }
 };
-
-export default loginReducer;
