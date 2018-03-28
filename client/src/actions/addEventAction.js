@@ -39,6 +39,7 @@ const addEvent = eventDetails => (
     }).then((response) => {
       console.log('=======>', response);
       const { message } = response.eventInfo;
+      console.log(response.info);
       dispatch(createEventSuccess(response.eventInfo.event, message));
       dispatch(isEventCreating(false));
     }).catch((error) => {
@@ -52,7 +53,6 @@ const createEventRequest = event => ((dispatch) => {
   dispatch(isEventCreating(true));
   console.log('add event');
   return dispatch(addEvent(event));
-  // imageUrl));
 }
 );
 export default createEventRequest;

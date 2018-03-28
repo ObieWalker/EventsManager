@@ -30,6 +30,7 @@ class BookCenter extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.clear = this.clear.bind(this);
     this.handleCenterSelection = this.handleCenterSelection.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
 
   componentDidMount() {
@@ -37,12 +38,12 @@ class BookCenter extends Component {
     this.props.getAllCenters();
 
     $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      selectMonths: true,
+      selectYears: 5, // dropdown of 5 years
       today: 'Today',
       clear: 'Clear',
       close: 'Ok',
-      closeOnSelect: true, // Close upon selecting a date,
+      closeOnSelect: true, // Close after selection
       onSet: this.handleDateChange
     });
   }
@@ -55,7 +56,7 @@ class BookCenter extends Component {
 
   handleDateChange(e) {
     this.setState({
-      date: Object.assign({}, this.state.date, { value: moment(e.select).format('LL') })
+      date: Object.assign({}, this.state, { date: moment(e.select).format('LL') })
     });
   }
 
@@ -105,6 +106,7 @@ class BookCenter extends Component {
         guestNo: this.state.guestNo,
         email: this.state.email
       };
+      console.log('Reached addEventAction');
       this.props.addEventAction(eventDetails)
         .then(() => {
           console.log('create event');
@@ -161,8 +163,7 @@ class BookCenter extends Component {
                       <label htmlFor="event-center" className="active">Select a Center below<br /></label>
                     </div>
                   </div>
-                </div><br /><br />
-
+                </div><br />
 
                 <div className="input-field col s12">
                   <select
@@ -186,6 +187,7 @@ class BookCenter extends Component {
                     <input
                       name="date"
                       value={this.state.date.value}
+                      onChange={this.handleDateChange}
                       type="text"
                       className="datepicker"
                       id="event-date"
@@ -205,6 +207,7 @@ class BookCenter extends Component {
                     <label htmlFor='range'>Select the approximate number of guests.</label>
                   </p>
                 </div><br /><br />
+                
                 <div className='input-field col s12'>
                   <i className="material-icons prefix">contacts</i>
                   <input
