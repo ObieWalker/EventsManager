@@ -47,7 +47,7 @@ const updateCenter = center => (
         dispatch(isCenterUpdating(false));
       }
     }).catch(() => {
-      dispatch(updateCenterFailure('Unable to upload your center. Try again later'));
+      dispatch(updateCenterFailure('Unable to update your center. Try again later'));
       dispatch(isCenterUpdating(false));
     });
   }

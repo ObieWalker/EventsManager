@@ -24,18 +24,19 @@ const createEventFailure = error => ({
 
 const addEvent = eventDetails => (
   (dispatch) => {
-    console.log(localStorage.getItem('jwtToken'));
+    localStorage.getItem('jwtToken');
     if (axios.defaults.headers.common.token === '') {
       axios.defaults.headers.common.token = localStorage.getItem('jwtToken');
     }
-    console.log('=====>', eventDetails);
+    const test = localStorage.getItem('jwtToken');
+    console.log(test);
     return axios({
       method: 'POST',
       url: '/api/v1/events',
       headers: {
         token: localStorage.getItem('jwtToken')
       },
-      data: eventDetails
+      data: eventDetails,
     }).then((response) => {
       console.log('=======>', response);
       const { message } = response.eventInfo;

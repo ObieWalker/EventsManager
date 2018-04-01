@@ -108,7 +108,9 @@ class CreateCenter extends Component {
         .then(() => {
           console.log('create center');
           const { createSuccess, createError } = this.props;
+          console.log(createSuccess);
           if (createError === '') {
+            // clear toasts before showing new
             toastr.remove();
             toastr.success(createSuccess);
           } else {
@@ -214,16 +216,20 @@ class CreateCenter extends Component {
 
 CreateCenter.propTypes = {
   createCenter: PropTypes.func,
-  createSuccess: PropTypes.func,
-  createError: PropTypes.func
+  createSuccess: PropTypes.string,
+  createError: PropTypes.string
 };
 
-// const mapStateToProps = state => ({
-//   createCenter: state.createCenter
-// });
+
+const mapStateToProps = state => ({
+  isCenterCreating: state.createCenter.isCenterCreating,
+  createSuccess: state.createCenter.createCenterSuccess,
+  createError: state.createCenter.createCenterError
+});
+
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  createCenter: createCenterRequest,
+  createCenter: createCenterRequest
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(CreateCenter);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCenter);

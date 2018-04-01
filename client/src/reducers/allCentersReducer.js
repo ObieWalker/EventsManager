@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   isCentersFetching: false,
-  fetchedAllCenters: [],
+  fetchedCenters: [],
   allCentersError: ''
 };
 
@@ -18,12 +18,12 @@ export default (state = initialState, action = {}) => {
   case FETCH_CENTERS_SUCCESS:
     console.log(action.centers);
     return Object.assign({}, state, {
-      fetchedAllCenters: action.centers
+      fetchedCenters: action.centers
     });
   case FETCH_CENTERS_FAILURE:
     return Object.assign({}, state, {
       allCentersError: action.error,
-      fetchedAllCenters: []
+      fetchedCenters: []
     });
   default:
     return state;

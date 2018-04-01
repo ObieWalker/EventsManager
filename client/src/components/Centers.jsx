@@ -30,9 +30,9 @@ class AllCenters extends Component {
           <div className='center'>
             <Search /> <br/> <br/>
           </div>
-          <div> {Centers.fetchedAllCenters.length > 0 ?
+          <div> {Centers.fetchedCenters.length > 0 ?
             <Row>
-              {Centers.fetchedAllCenters.map((centers, i) =>
+              {Centers.fetchedCenters.map((centers, i) =>
                 <CenterList key={i} centers={centers} />)}
             </Row> : 'There are no registered centers.'
           }

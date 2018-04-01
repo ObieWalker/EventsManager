@@ -97,6 +97,7 @@
     "toastr": "^2.1.4",
     "uglifyjs-webpack-plugin": "^1.2.3",
     "url-loader": "^0.6.2",
+    "uuid": "^3.2.1",
     "validator": "^9.1.2",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",

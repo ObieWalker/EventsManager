@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   isEventsFetching: false,
-  fetchedAllEvents: [],
+  fetchedEvents: [],
   allEventsError: ''
 };
 
@@ -18,12 +18,12 @@ export default (state = initialState, action = {}) => {
   case FETCH_EVENTS_SUCCESS:
     console.log(action.events);
     return Object.assign({}, state, {
-      fetchedAllEvents: action.events
+      fetchedEvents: action.events
     });
   case FETCH_EVENTS_FAILURE:
     return Object.assign({}, state, {
       allEventsError: action.error,
-      fetchedAllEvents: []
+      fetchedEvents: []
     });
   default:
     return state;

@@ -106,8 +106,8 @@ class BookCenter extends Component {
         guestNo: this.state.guestNo,
         email: this.state.email
       };
-      console.log('Reached addEventAction');
-      this.props.addEventAction(eventDetails)
+      console.log(eventDetails);
+      this.props.addNewEvent(eventDetails)
         .then(() => {
           console.log('create event');
           console.log(this.props);
@@ -155,7 +155,7 @@ class BookCenter extends Component {
                       <SelectField
                         value={this.state.center.value}
                         onChange= {this.handleCenterSelection}>
-                        {this.props.allCenters.fetchedAllCenters.map(center => (
+                        {this.props.allCenters.fetchedCenters.map(center => (
                           // <option key={center.id} value={center.id}>  { center.name } - {center.city}</option>
                           <MenuItem key={center.id} value= {center.id} primaryText= {`${center.name} - ${center.city}`}/>
                         ))}
@@ -207,7 +207,7 @@ class BookCenter extends Component {
                     <label htmlFor='range'>Select the approximate number of guests.</label>
                   </p>
                 </div><br /><br />
-                
+
                 <div className='input-field col s12'>
                   <i className="material-icons prefix">contacts</i>
                   <input
@@ -240,7 +240,7 @@ BookCenter.propTypes = {
   getAllCenters: PropTypes.func.isRequired,
   createSuccess: PropTypes.func,
   createError: PropTypes.func,
-  addEventAction: PropTypes.func,
+  addNewEvent: PropTypes.func,
   Centers: PropTypes.array
 };
 

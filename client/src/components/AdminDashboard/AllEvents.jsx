@@ -32,7 +32,7 @@ class AllEvents extends Component {
         <h3>All Events and details.</h3>
         <div>{Events.length > 0 ?
           <Row>
-            {Events.fetchedAllEvents.map((events, i) =>
+            {Events.fetchedEvents.map((events, i) =>
               <EventsCard key={i} events={events} />)}
             <button onClick={cancelEvent}>Cancel Event</button>
           </Row> : 'There are no events booked.'

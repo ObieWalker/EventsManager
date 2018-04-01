@@ -79,7 +79,7 @@ class Login extends Component {
           console.log('is it authenticated?', isAuthenticated);
           if (isAuthenticated) {
             console.log('my props = ', this.props);
-            this.props.history.push('/');
+            this.props.history.push('/dashboard');
             toastr.success('welcome back');
           }
         })
