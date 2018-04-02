@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
-import editCenterActions from '../../actions/editCenterAction';
+import updateCenterRequest from '../../actions/editCenterAction';
 import validateForm from '../../../helpers/validators/centerValidator';
 
 class ModifyCenter extends Component {
@@ -27,6 +27,7 @@ class ModifyCenter extends Component {
 
   componentWillMount() {
     const { center } = this.props;
+    console.log('in componenet will mount', center.name);
     this.setState({
       name: center.name,
       address: center.address,
@@ -66,30 +67,32 @@ class ModifyCenter extends Component {
 
   updateCenter(e) {
     e.preventDefault();
-    if (this.isValid()) {
-      this.setState({ errors: {} });
-      const center = this.state;
-      this.props.modifyCenter(center, this.props.center.id)
-        .then(() => {
-          const { updateSuccess, updateError } = this.props;
-          if (updateError === '') {
-            // clear toasts before showing new
-            toastr.remove();
-            toastr.success(updateSuccess);
-          } else {
-            toastr.remove();
-            toastr.error(updateError);
-          }
-          this.clear();
-        });
-    }
+    // if (this.isValid()) {
+    this.setState({ errors: {} });
+    const newCenterDetails = this.state;
+    this.props.modifyCenter(newCenterDetails, this.props.center.id)
+      .then(() => {
+        const { updateSuccess, updateError } = this.props;
+        if (updateError === '') {
+          // clear toasts before showing new
+          toastr.remove();
+          toastr.success(updateSuccess);
+        } else {
+          toastr.remove();
+          toastr.error(updateError);
+        }
+        this.reset();
+      });
+    // }
   }
 
   render() {
     return (
-      <div className="container max-width-six-hundred">
-        <div className="card">
 
+      <div className="grey lighten-4" style={{
+        display: 'inline-block', width: '100%', padding: '10%', border: '1px solid #EEE'
+      }}>
+        <div className="input-field col s12">
           <form className="col s14" onSubmit={this.onSubmit}>
             <div className="input-field col s12">
               <label>Center Name:</label>
@@ -137,14 +140,13 @@ class ModifyCenter extends Component {
                 onChange={this.handleChange} />
             </div>
             <div className="input-field col s12">
-              <label>Facilities:</label>
+              <label >Facilities (comma separated):</label>
               <input type="text"
                 value ={this.state.facility.value}
                 onFocus={this.state.handleOnFocus}
                 id="facility"
                 name='facility'
                 className="form-control"
-                placeholder="Separate with commas"
                 onChange={this.handleChange} />
             </div>
 
@@ -177,9 +179,8 @@ const mapStateToProps = state => ({
   updateError: state.updateCenter.updateCenterError
 });
 
-function mapDispatchToProps(dispatch) {
-  bindActionCreators({
-    modifyCenter: editCenterActions,
-  }, dispatch);
-}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  modifyCenter: updateCenterRequest
+}, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(ModifyCenter);

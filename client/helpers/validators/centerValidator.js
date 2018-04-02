@@ -5,7 +5,7 @@ const centerValidator = (data) => {
   const name = data.name.trim(),
     address = data.address.trim(),
     city = data.city.trim(),
-    capacity = data.capacity.trim(),
+    { capacity } = data,
     errors = {};
 
   if (validator.isEmpty(name)) {
@@ -41,7 +41,7 @@ const centerValidator = (data) => {
     console.log('error.city');
   }
 
-  if (validator.isNumeric(capacity)) {
+  if (!validator.isNumeric(capacity)) {
     errors.name = 'You have to enter a numeric value.';
   }
 

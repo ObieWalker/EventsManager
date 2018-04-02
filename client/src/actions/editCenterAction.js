@@ -21,7 +21,7 @@ const updateCenterFailure = error => ({
   error
 });
 
-const updateCenter = center => (
+const updateCenter = (newCenterDetails, id) => (
   (dispatch) => {
     if (axios.defaults.headers.common.token === '') {
       axios.defaults.headers.common.token = localStorage.getItem('jwtToken');
@@ -29,17 +29,11 @@ const updateCenter = center => (
 
     return axios({
       method: 'PUT',
-      url: `/api/v1/centers/${center.id}`,
+      url: `/api/v1/centers/${id}`,
       headers: {
         token: localStorage.getItem('jwtToken')
       },
-      data: {
-        name: this.state.name,
-        address: this.state.address,
-        city: this.state.city,
-        capacity: this.state.capacity,
-        facility: this.state.facility
-      }
+      data: newCenterDetails
     }).then((response) => {
       if (response) {
         const { message } = response.data;
@@ -53,7 +47,7 @@ const updateCenter = center => (
   }
 );
 
-const updateCenterRequest = center => (
+const updateCenterRequest = (newCenterDetails, centerId) => (
   (dispatch) => {
     // let cloudImageUrl = center.initialImageSrc;
     dispatch(isCenterUpdating(true));
@@ -73,7 +67,7 @@ const updateCenterRequest = center => (
     //       dispatch(updateCenterFailure('Unable to upload your center. Try again later'));
     //     });
     // }
-    return dispatch(updateCenter(center));
+    return dispatch(updateCenter(newCenterDetails, centerId));
   }
 );
 

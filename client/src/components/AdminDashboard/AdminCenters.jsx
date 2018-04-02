@@ -13,7 +13,7 @@ class AdminCenters extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      centerId: '',
+      center: '',
       show: false
     };
 
@@ -95,17 +95,19 @@ class AdminCenters extends Component {
             </div>
           </div>
         </div>
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modify Center Details.</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <ModifyCenter center ={this.state.center}/>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.handleClose}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+        <div style={{ height: '1000px' }}>
+          <Modal show={this.state.show} onHide={this.handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modify Center Details.</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <ModifyCenter center ={this.state.center}/>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.handleClose}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
       </div>
     );
   }
