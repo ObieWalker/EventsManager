@@ -5,8 +5,8 @@ export const setAuthToken = (token) => {
   // checks if a token exists
   if (token) {
     // specify config defaults for every request
-    axios.defaults.headers.common['x-access-token'] = token;
+    axios.defaults.headers.common.token = token;
   } else {
-    delete axios.defaults.headers.common['x-access-token'];
+    delete axios.defaults.headers.common.token;
   }
 };

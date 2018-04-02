@@ -12,7 +12,7 @@ const registerUser = userInfo => dispatch => (
     .then((res) => {
       console.log(res);
       const { token } = res.data;
-      localStorage.setItem('jwtToken', token);
+      localStorage.setItem('token', token);
       setAuthToken(token);
       dispatch(registerUserAsync(userInfo));
       console.log('registered');

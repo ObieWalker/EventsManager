@@ -80,7 +80,6 @@ class Login extends Component {
             this.props.history.push('/admin');
             toastr.success('Hello Admin!');
           } else if (isAuthenticated) {
-            console.log('my login props in Auth = ', this.props.loginUser.user.isAdmin);
             this.props.history.push('/dashboard');
             toastr.success('welcome back');
           }

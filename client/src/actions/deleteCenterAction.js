@@ -31,7 +31,7 @@ const deleteCenterRequest = id => (
       method: 'DELETE',
       url: `/api/v1/centers/${id}`,
       headers: {
-        token: localStorage.getItem('jwtToken')
+        token: localStorage.getItem('token')
       }
     })
       .then((response) => {

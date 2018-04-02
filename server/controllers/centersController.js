@@ -6,7 +6,6 @@ const Users = User;
 export default class CentersController {
 // create a center only if user is admin
   static createCenter(req, res) {
-    console.log('up above ----->', req.body);
     return Users.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
         return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
@@ -40,7 +39,6 @@ export default class CentersController {
           return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
         }
         const { id } = req.params;
-        // { id } = req.params
         try { // avoid user having a string input as id
           parseInt(id, 10);
         } catch (e) {
@@ -76,7 +74,6 @@ export default class CentersController {
   }
 
   static getAllCenters(req, res) {
-    console.log('KLKSDKLDSKLDLKJFKLJFSJKLSFS');
     return Centers.findAll({
       order: [['name', 'DESC']]
     }).then((centers) => {

@@ -16,7 +16,7 @@ function setCurrentUser(actionType, response, dispatch) {
   console.log('coming out of login, into set current user');
   console.log(response);
   const { token } = response.data;
-  localStorage.setItem('jwtToken', token);
+  localStorage.setItem('token', token);
   setAuthToken(token);
   console.log(token);
   const decoded = jwt.decode(token);

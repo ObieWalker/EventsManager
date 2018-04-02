@@ -24,14 +24,14 @@ const updateCenterFailure = error => ({
 const updateCenter = (newCenterDetails, id) => (
   (dispatch) => {
     if (axios.defaults.headers.common.token === '') {
-      axios.defaults.headers.common.token = localStorage.getItem('jwtToken');
+      axios.defaults.headers.common.token = localStorage.getItem('token');
     }
 
     return axios({
       method: 'PUT',
       url: `/api/v1/centers/${id}`,
       headers: {
-        token: localStorage.getItem('jwtToken')
+        token: localStorage.getItem('token')
       },
       data: newCenterDetails
     }).then((response) => {

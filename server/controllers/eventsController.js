@@ -79,13 +79,28 @@ export default class EventsController {
       }).then((events) => {
         if (events.length > 0) {
           if (req.query) {
-            return res.status(200).json({ message: 'All the upcoming events:', List: events });
+            return res.status(200).json({ message: 'All Events:', List: events });
           }
         }
         res.status(404).json({ message: 'There are no events' });
       });
     }
-
     res.status(404).json({ message: 'There are no events' });
+  }
+
+  static getUserEvents(req, res) {
+    return Events
+      .findAll({
+        where: {
+          userId: req.decoded.userId
+        }
+      }).then((events) => {
+        if (events.length > 0) {
+          if (req.query) {
+            return res.status(200).json({ message: 'All of your upcoming events:', List: events });
+          }
+        }
+        res.status(404).json({ message: 'You have no events.' });
+      }).catch(error => res.status(404).json({ message: 'You have no events', error }));
   }
 }

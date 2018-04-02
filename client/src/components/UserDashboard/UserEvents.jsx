@@ -6,17 +6,18 @@ import ReactDOM from 'react-dom';
 
 import { Button, Modal, Row, Input } from 'react-materialize';
 
-import getUsersEventsAction from '../../actions/actionTypes';
+import getUsersEventsAction from '../../actions/getUserEventsAction';
 import deleteEventAction from '../../actions/actionTypes';
 import editEventAction from '../../actions/actionTypes';
 
 // this component will be to view, update or delete a users events.
 
-class ViewEvents extends Component {
+class UserEvents extends Component {
   constructor(props) {
     super(props);
 
-    // this.handleEditEvent = this.handleEditEvent.bind(this);
+    this.handleEditEvent = this.handleEditEvent.bind(this);
+    this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
   }
 
   componentDidMount() {
@@ -145,4 +146,4 @@ display: 'inline-block', width: '100%', padding: '0px 15px 20px 15px', border: '
   }
 }
 
-export default ViewEvents;
+export default UserEvents;
