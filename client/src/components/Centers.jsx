@@ -44,7 +44,7 @@ class AllCenters extends Component {
 }
 
 AllCenters.propTypes = {
-  allCenters: PropTypes.array,
+  allCenters: PropTypes.object,
   getAllCenters: PropTypes.func.isRequired
 };
 

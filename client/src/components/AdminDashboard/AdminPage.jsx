@@ -13,17 +13,17 @@ class AdminPage extends Component {
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row className="clearfix">
             <Col sm={4}>
-              <Nav bsStyle="pills" stacked>
-                <div>
-                  <div style={{ display: 'flex', padding: '2%', background: '#blue' }}>
-                    <div style={{ width: '100%', height: '60%' }}>
-                      <img src='http://i63.tinypic.com/hs454x.jpg'
-                        style={{ borderRadius: '20px', width: '100%', height: 200 }}
-                      />
-                    </div>
-
+              <div>
+                <div style={{ display: 'flex', padding: '2%', background: '#blue' }}>
+                  <div style={{ width: '100%', height: '60%' }}>
+                    <img src='http://i63.tinypic.com/hs454x.jpg'
+                      style={{ borderRadius: '20px', width: '100%', height: 200 }}
+                    />
                   </div>
+
                 </div>
+              </div>
+              <Nav bsStyle="pills" stacked>
                 <NavItem eventKey="first">Add a Center</NavItem>
                 <NavItem eventKey="second">All Centers</NavItem>
                 <NavItem eventKey="third">All Events</NavItem>

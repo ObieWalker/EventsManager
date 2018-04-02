@@ -13,7 +13,7 @@ export default (ProtectedComponent) => {
 			*/
     componentDidMount() {
       if (!this.props.isAdmin) {
-        this.context.router.history.push('/login');
+        this.context.router.history.push('/');
       }
     }
 
@@ -25,7 +25,7 @@ export default (ProtectedComponent) => {
   }
 
   Authorize.propTypes = {
-    isAdmin: PropTypes.bool.isRequired
+    isAdmin: PropTypes.bool
   };
 
   Authorize.contextTypes = {

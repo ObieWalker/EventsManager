@@ -40,7 +40,6 @@ class Login extends Component {
     // checks to see if user already has a verified token and redirects
     if (verifyToken()) {
       this.props.history.push('/');
-      // this.context.router.history.push('/contactus');
     }
   }
 
@@ -75,10 +74,13 @@ class Login extends Component {
       this.setState({ errors: {} });
       this.props.login(userDetails)
         .then(() => {
-          const { isAuthenticated } = this.props.loginUser;
+          const { isAuthenticated, user } = this.props.loginUser;
           console.log('is it authenticated?', isAuthenticated);
-          if (isAuthenticated) {
-            console.log('my login props = ', this.props.loginUser.user);
+          if (user.isAdmin) {
+            this.props.history.push('/admin');
+            toastr.success('Hello Admin!');
+          } else if (isAuthenticated) {
+            console.log('my login props in Auth = ', this.props.loginUser.user.isAdmin);
             this.props.history.push('/dashboard');
             toastr.success('welcome back');
           }

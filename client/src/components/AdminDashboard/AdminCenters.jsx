@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
+import swal from 'sweetalert';
 import getAllCenters from '../../actions/getAllCentersAction';
 import editCenter from '../../actions/editCenterAction';
+import deleteCenter from '../../actions/deleteCenterAction';
 import ModifyCenter from './ModifyCenterModal.jsx';
 // import Search from './Search.jsx';
 // import CenterList from './CenterCard.jsx';
@@ -41,8 +43,21 @@ class AdminCenters extends Component {
     });
   }
 
-  handleDelete(e) {
-    e.preventDefault();
+  handleDelete(center) {
+    console.log(center);
+    console.log(center.id);
+    swal({
+      title: 'Are you sure?',
+      text: 'If this center is deleted,it cannot be undone',
+      icon: 'warning',
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          this.props.deleteCenter(center.id);
+          swal('Deleted!', `The center ${center.name} has been deleted`, 'success');
+        }
+      });
   }
 
 
@@ -83,7 +98,7 @@ class AdminCenters extends Component {
                           type="button"
                           className="btn-warning btn-sm" >Edit</button></td>
                         <td><button
-                          onClick={this.handleDelete}
+                          onClick={this.handleDelete.bind(this, center)}
                           type="button"
                           className="btn-danger btn-sm">Delete</button></td>
                       </tr>)
@@ -115,7 +130,8 @@ class AdminCenters extends Component {
 
 AdminCenters.propTypes = {
   allCenters: PropTypes.object,
-  getAllCenters: PropTypes.func.isRequired
+  getAllCenters: PropTypes.func.isRequired,
+  deleteCenter: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -124,6 +140,6 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getAllCenters, editCenter }, dispatch);
+  bindActionCreators({ getAllCenters, editCenter, deleteCenter }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminCenters);
