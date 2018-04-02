@@ -78,7 +78,7 @@ class Login extends Component {
           const { isAuthenticated } = this.props.loginUser;
           console.log('is it authenticated?', isAuthenticated);
           if (isAuthenticated) {
-            console.log('my props = ', this.props);
+            console.log('my login props = ', this.props.loginUser.user);
             this.props.history.push('/dashboard');
             toastr.success('welcome back');
           }
