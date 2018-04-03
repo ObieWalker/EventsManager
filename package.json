@@ -118,7 +118,6 @@
     "babel-eslint": "^8.2.2",
     "chai-http": "^3.0.0",
     "css-loader": "^0.28.10",
-    "dotenv": "^4.0.0",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-standard": "^10.2.1",

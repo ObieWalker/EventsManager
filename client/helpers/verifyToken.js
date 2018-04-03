@@ -1,4 +1,7 @@
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // returns true or false if token is verified
 const verifyToken = () => {
@@ -8,6 +11,8 @@ const verifyToken = () => {
   if (token) {
     jwt.verify(token, process.env.SECRET, (error) => {
       if (error) {
+        console.log('secret keyyyyy', process.env.PORT);
+        console.log('this is the token error', error);
         console.log('token exists but its falsy');
         verified = false;
       } else {

@@ -77,6 +77,7 @@ export default class UsersController {
                 isAdmin: user.isAdmin
               };
               const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
+              console.log('server side env', process.env.SECRET);
               res.status(200).json({ message: 'Login Successful!', token });
             }
           });

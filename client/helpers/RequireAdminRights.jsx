@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import verifyToken from './verifyToken';
 
 export default (ProtectedComponent) => {
   class Authorize extends Component {
@@ -12,8 +13,9 @@ export default (ProtectedComponent) => {
 			* @returns { * } null
 			*/
     componentDidMount() {
-      if (!this.props.isAdmin) {
-        this.context.router.history.push('/');
+      if (!verifyToken() || !this.props.isAdmin) {
+        console.log('verify token lets seee');
+        this.context.router.history.push('/login');
       }
     }
 

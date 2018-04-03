@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import logOut from '../actions/logOutAction';
-import LoginComponent from './Login.jsx';
 
 class Header extends Component {
   constructor(props) {
@@ -27,8 +26,15 @@ class Header extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
-
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      const { isAuthenticated } = this.props.login;
+      if (isAuthenticated) {
+        this.setState({ loggedIn: true });
+      } else {
+        this.setState({ loggedIn: false });
+      }
+    }
   }
 
   handleLogOut(e) {
@@ -45,6 +51,7 @@ class Header extends Component {
 
   render() {
     const { loggedIn } = this.state;
+    console.log('the logged in state', loggedIn);
     return (
       <div>
         <nav className="indigo">

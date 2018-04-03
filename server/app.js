@@ -4,6 +4,7 @@ import logger from 'morgan';
 import expressValidator from 'express-validator';
 // import webpack from 'webpack';
 import cors from 'cors';
+import dotenv from 'dotenv';
 // import webpackMiddleware from 'webpack-dev-middleware';
 // import webpackHotMiddleware from 'webpack-hot-middleware';
 import path from 'path';
@@ -13,6 +14,7 @@ import path from 'path';
 import router from './routes/index';
 
 const app = express(); // init express
+dotenv.config();
 
 const port = process.env.PORT || 9000;
 // const env = process.env.NODE_ENV || 'development';

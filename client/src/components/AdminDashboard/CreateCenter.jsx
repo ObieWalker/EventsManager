@@ -189,16 +189,19 @@ class CreateCenter extends Component {
                     placeholder="" required
                     onChange={this.handleChange} />
                 </div>
-                <div className="input-field col s12">
-                  <label>Facilities:</label>
-                  <input type="text"
-                    value ={this.state.facility.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="facility"
-                    name='facility'
-                    className="form-control"
-                    placeholder="Separate with commas"
-                    onChange={this.handleChange} />
+
+                <div className="row">
+                  <div className="input-field col s12">
+                    <textarea id="facility"
+                      className="materialize-textarea"
+                      value ={this.state.facility.value}
+                      onFocus={this.state.handleOnFocus}
+                      name='facility'
+                      placeholder="Separate with commas"
+                      onChange={this.handleChange} >
+                    </textarea>
+                    <label htmlFor="facilities">Center Description</label>
+                  </div>
                 </div>
 
                 <button type="submit" className="waves-effect waves-light btn right hoverable indigo">

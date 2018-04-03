@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-// const Dotenv = require('dotenv-webpack');
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -14,7 +14,8 @@ module.exports = {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new Dotenv()
   ],
   module: {
     rules: [
