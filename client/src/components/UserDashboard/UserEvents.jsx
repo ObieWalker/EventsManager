@@ -20,7 +20,7 @@ class UserEvents extends Component {
   }
 
   componentDidMount() {
-    // this.props.getUserEvents();
+    this.props.getUsersEvents();
   }
 
   handleEditEvent() {
@@ -33,19 +33,20 @@ class UserEvents extends Component {
 
 
   render() {
-    const Events = this.props.userEvents;
+    const Events = this.props.getUsersEvents;
     console.log(Events);
     return (
       <div>
         <div>
           <h3>All Your Upcoming Events.</h3>
-          {/* <div> {Events.fetchedCenters ?
+          {console.log('getting all user events', Events.fetchedCenters)}
+          <div> {Events.fetchedCenters ?
             <Row>
               {Events.fetchedCenters.map((events, i) =>
                 <EventList key={i} events={events} />)}
             </Row> : 'You have no booked events'
           }
-          </div> */}
+          </div>
         </div>
       </div>
     );
@@ -53,14 +54,15 @@ class UserEvents extends Component {
 }
 
 UserEvents.propTypes = {
-  userEvents: PropTypes.object,
-  getUserEvents: PropTypes.object,
+  getUsersEvents: PropTypes.object,
   deleteEvent: PropTypes.func,
-  editEvent: PropTypes.func
+  editEvent: PropTypes.func,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-  allEvents: state.allEvents
+  allEvents: state.allEvents,
+  user: state.loginUser
 });
 
 

@@ -4,22 +4,28 @@ import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import swal from 'sweetalert';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Slider, { createSliderWithTooltip } from 'rc-slider';
 // import ReactBootstrapSlider from 'react-bootstrap-slider';
+import '../../styles/index.less';
 import addEventAction from '../../actions/addEventAction';
 import getAllCenters from '../../actions/getAllCentersAction';
 import validateForm from '../../../helpers/validators/eventValidator';
+
+const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 class BookCenter extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      center: '',
+      center: { value: '' },
       eventType: '',
       date: '',
-      guestNo: '',
+      guestNo: 100,
+      max: 100000,
       email: '',
       errors: {},
     };
@@ -31,6 +37,8 @@ class BookCenter extends Component {
     this.clear = this.clear.bind(this);
     this.handleCenterSelection = this.handleCenterSelection.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.onSliderChange = this.onSliderChange.bind(this);
+    this.onAfterChange = this.onAfterChange.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +56,17 @@ class BookCenter extends Component {
     });
   }
 
+  onSliderChange = (guestNo) => {
+    console.log(guestNo);
+    this.setState({
+      guestNo,
+    });
+  }
+
+  onAfterChange = (value) => {
+    console.log(value); //eslint-disable-line
+  }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -55,10 +74,12 @@ class BookCenter extends Component {
   }
 
   handleDateChange(e) {
+    console.log(moment(e.select).format('l'));
     this.setState({
-      date: Object.assign({}, this.state, { date: moment(e.select).format('LL') })
+      date: Object.assign({}, this.state, { date: moment(e.select).format('l') })
     });
   }
+
 
   handleOnFocus(e) {
     this.setState({
@@ -66,10 +87,12 @@ class BookCenter extends Component {
     });
   }
   handleCenterSelection(event, target, value) {
+    console.log(value);
     this.setState({
       center: Object.assign({}, this.state.center, { value })
     });
   }
+
 
   clear() {
     this.setState({
@@ -98,14 +121,20 @@ class BookCenter extends Component {
     if (this.formIsValid()) {
       console.log('is valid');
       this.setState({ errors: {} });
-      console.log(this.state);
+      console.log(this.state, 'state object');
       const eventDetails = {
-        center: this.state.center,
+        center: this.state.center.value,
         eventType: this.state.eventType,
-        date: this.state.date,
+        date: moment(this.state.date.date).format('YYYY-MM-DD HH:mm:ss'),
         guestNo: this.state.guestNo,
         email: this.state.email
       };
+      swal({
+        title: 'Are you sure?',
+        text: 'You will be booking the center with the set date.',
+        icon: 'info',
+        dangerMode: true,
+      });
       console.log(eventDetails);
       this.props.addNewEvent(eventDetails)
         .then(() => {
@@ -173,11 +202,11 @@ class BookCenter extends Component {
                     className="form-control"
                     id="type">
                     <option value="">Choose the type of event</option>
-                    <option value="1">Wedding</option>
-                    <option value="2">Party</option>
-                    <option value="3">Conference</option>
-                    <option value="4">Ceremony</option>
-                    <option value="5">Other</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Party">Party</option>
+                    <option value="Conference">Conference</option>
+                    <option value="Ceremony">Ceremony</option>
+                    <option value="Other">Other</option>
                   </select>
                   <label htmlFor="event-type" className="active">Type of event<br /><br /></label>
                 </div>
@@ -194,19 +223,20 @@ class BookCenter extends Component {
                     />
                     <label htmlFor="event-center" className="active">Pick a date</label>
                   </div>
-                </div><br /><br />
+                </div>
 
                 <div>
                   <p className="range-field">
-                    <input type="range"
-                      id="test5" min="0"
-                      max="10000"
-                      value={this.state.guestNo.value}
-                      onChange={this.handleChange}
-                    />
                     <label htmlFor='range'>Select the approximate number of guests.</label>
                   </p>
                 </div><br /><br />
+
+                <SliderWithTooltip
+                  max={this.state.max}
+                  value={this.state.guestNo}
+                  onChange={this.onSliderChange}
+                  onAfterChange={this.onAfterChange}
+                />
 
                 <div className='input-field col s12'>
                   <i className="material-icons prefix">contacts</i>

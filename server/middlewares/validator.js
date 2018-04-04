@@ -50,19 +50,22 @@ export default class validate {
   }
 
   static eventValidation(req, res, next) {
+    console.log('=======I reached validator==>');
     req.checkBody('eventType', 'The event type must be one of the options given or choose "other"').notEmpty();
-    req.checkBody('eventType', 'Please just pick the closest match gad damn it').isAlpha();
-    req.checkBody('guestNo', 'Your guest number must be a number above 2, surely you cannot be that friendless').isInt({ gt: 2, lt: 4000000 });
-    req.checkBody('date', 'You think you are Marty Mcfly? Wanna go back to the past? Pick a future date').isAfter();
+    req.checkBody('eventType', 'An event type must be alpha').isAlpha();
+    req.checkBody('guestNo', 'Your guest number must be a number ').isInt({ gt: 2, lt: 4000000 });
     req.checkBody('date').toDate();
+    req.checkBody('date', 'Your date cannot be in the past').isAfter();
     req.checkBody('email', 'Please enter a valid email!').isEmail();
     req.sanitizeBody('email').normalizeEmail({ gmail_remove_subaddress: false, gmail_remove_dots: true });
 
     const errors = req.validationErrors();
     if (errors) {
       res.send(errors);
+      console.log('there are errors from backend validator');
       return;
     }
     next();
+    console.log('out of validator');
   }
 }

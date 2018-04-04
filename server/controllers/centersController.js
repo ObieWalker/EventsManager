@@ -42,7 +42,7 @@ export default class CentersController {
         try { // avoid user having a string input as id
           parseInt(id, 10);
         } catch (e) {
-          return res.status(400).json({ message: 'There was an error with the input!' });
+          return res.status(400).json({ message: 'There was an error with the center ID input!' });
         } finally {
           Centers.findById(id)
             .then((center) => {
@@ -87,18 +87,25 @@ export default class CentersController {
   }
 
   static getCenterDetails(req, res) {
-    Centers.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then((center) => {
-        if (!center) {
-          return res.status(404).json({ message: 'We do not have records of this center' });
+    const { id } = req.params;
+    try { // avoid user having a string input as id
+      parseInt(id, 10);
+    } catch (e) {
+      return res.status(400).json({ message: 'There was an error with the center ID input!' });
+    } finally {
+      Centers.findOne({
+        where: {
+          id: req.params.id
         }
-        res.status(200).json(center);
       })
-      .catch(error => res.status(400).send(error));
+        .then((center) => {
+          if (!center) {
+            return res.status(404).json({ message: 'We do not have records of this center' });
+          }
+          res.status(200).json(center);
+        })
+        .catch(error => res.status(400).send(error));
+    }
   }
 
   static deleteCenter(req, res) {
@@ -110,7 +117,7 @@ export default class CentersController {
       try {
         parseInt(id, 10);
       } catch (e) {
-        return res.status(400).json({ message: 'There was an error with the input!' });
+        return res.status(400).json({ message: 'There was an error with the center ID input!' });
       } finally {
         Centers.findById(id)
           .then((center) => {

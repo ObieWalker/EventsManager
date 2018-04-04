@@ -61,12 +61,12 @@ export default class UsersController {
         if (!user) {
           res.status(404).send({
             success: false,
-            message: 'This account does not exist on our database'
+            message: 'Wrong email or password'
           });
         } else {
           bcrypt.compare(req.body.password, user.password, (err, hash) => {
             if (!hash) {
-              res.status(403).json({ message: 'Wrong password' });
+              res.status(403).json({ success: false, message: 'Wrong email or password' });
             } else if (hash) {
               const payload = {
                 firstName: user.firstName,
@@ -74,11 +74,12 @@ export default class UsersController {
                 email: user.email,
                 username: user.username,
                 id: user.id,
-                isAdmin: user.isAdmin
+                isAdmin: user.isAdmin,
+                createdAt: user.createdAt
               };
               const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
               console.log('server side env', process.env.SECRET);
-              res.status(200).json({ message: 'Login Successful!', token });
+              res.status(200).json({ success: true, message: 'Login Successful!', token });
             }
           });
         }
