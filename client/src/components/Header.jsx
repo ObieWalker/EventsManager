@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-materialize';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import logOut from '../actions/logOutAction';
-import LoginComponent from './Login.jsx';
 
 class Header extends Component {
   constructor(props) {
@@ -27,24 +25,30 @@ class Header extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
-
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      const { isAuthenticated } = this.props.login;
+      if (isAuthenticated) {
+        this.setState({ loggedIn: true });
+      } else {
+        this.setState({ loggedIn: false });
+      }
+    }
   }
 
   handleLogOut(e) {
+    console.log('I am logging out of here');
     e.preventDefault();
-    this.props.logOut()
-      .then(() => {
-        console.log('my props = ', this.props);
-        this.props.history.push('/login');
-        toastr.success('Good bye!!');
-      })
-      .catch(error => console.log(error));
+    this.props.logOut();
+    console.log('my props = ', this.props);
+    this.props.history.push('/');
+    toastr.success('Good bye!!');
   }
 
 
   render() {
     const { loggedIn } = this.state;
+    console.log('the logged in state', loggedIn);
     return (
       <div>
         <nav className="indigo">
@@ -54,7 +58,7 @@ class Header extends Component {
             <ul className="right hide-on-med-and-down" style= {{ paddingRight: '20px' }}>
               <li><Link to='/'>Home</Link></li>
               <li><Link to="/contact-us">Contact Us</Link></li>
-              { loggedIn ? <li><Button onClick={this.handleLogOut} >Log Out </Button></li> :
+              { loggedIn ? <li><Link to="/"><button type="button" className="btn-danger btn-sm" onClick={this.handleLogOut} >Log Out </button></Link></li> :
                 <div className="btn-group">
                   <li><Link to="/login"><button type="button" className="btn-success btn-sm">Login</button></Link></li>
                   <li><Link to="/register"><button type="button" className="btn-primary btn-sm">Register</button></Link></li>
@@ -84,4 +88,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

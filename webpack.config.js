@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-// const Dotenv = require('dotenv-webpack');
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -14,7 +14,8 @@ module.exports = {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new Dotenv()
   ],
   module: {
     rules: [
@@ -38,6 +39,16 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'file-loader?name=[name].[ext]'
+      },
+      {
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader' // creates style nodes from JS strings
+        }, {
+          loader: 'css-loader' // translates CSS into CommonJS
+        }, {
+          loader: 'less-loader' // compiles Less to CSS
+        }]
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,

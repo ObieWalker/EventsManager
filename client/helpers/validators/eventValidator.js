@@ -2,41 +2,36 @@ import validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 
 const eventValidator = (data) => {
-  const center = data.center.trim(),
-    date = data.date.trim(),
-    eventType = data.city.trim(),
-    guestNo = data.facility.trim(),
-    email = data.facility.trim(),
-    errors = {};
+  const {
+    center,
+    eventType,
+    email,
+    date
+  } = data;
+  const errors = {};
 
+  console.log(typeof (email));
+  console.log(email);
 
-  if (validator.isEmpty(center)) {
-    errors.name = 'You have to select a center name.';
+  if (validator.isEmpty(JSON.stringify(center))) {
+    errors.email = 'Please select a center';
   }
 
-  if (!validator.isEmpty(date)) {
-    console.log('not empty');
-    if (!validator.toDate(date)) {
-      errors.date =
-        'Please pick a valid date.';
-      console.log('short length');
+  if (validator.isEmpty(JSON.stringify(eventType))) {
+    errors.eventType = 'Please select the type of event';
+  }
+  if (!validator.isEmpty(email)) {
+    if (!validator.isEmail(email)) {
+      errors.email = 'Please input a valid email';
     }
   } else {
-    errors.address = 'Your event must have a date';
-    console.log('is empty');
+    errors.email = 'Please enter your email.';
+  }
+  // console.log(date);
+  if (validator.isEmpty(JSON.stringify(date))) {
+    errors.date = 'Please select a date.';
   }
 
-  if (validator.isEmpty(eventType)) {
-    errors.city = 'Please select the type of event.';
-  }
-
-  if (!validator.isEmail(email)) {
-    errors.email = 'Please input a valid email';
-  }
-
-  if (validator.isEmpty(guestNo)) {
-    errors.email = 'Please enter a guest estimate';
-  }
   console.log(errors);
   console.log(isEmpty(errors));
   return { errors, formIsValid: isEmpty(errors) };

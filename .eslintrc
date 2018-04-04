@@ -2,6 +2,8 @@
     "parserOptions": {
       "ecmaVersion": 6,
       "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "experimentalDecorators": true,
         "jsx": true
       }
     },
@@ -29,6 +31,7 @@
       "mocha": true,
       "jquery": true
     },
+    "parser": "babel-eslint",
   
     "rules": {
       "one-var": 0,

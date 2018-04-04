@@ -28,11 +28,11 @@ class AllEvents extends Component {
     const Events = this.props.allEvents;
     return (
       <div >
-        
+
         <h3>All Events and details.</h3>
-        <div>{Events.length > 0 ?
+        <div>{Events ?
           <Row>
-            {Events.fetchedAllEvents.map((events, i) =>
+            {Events.fetchedEvents.map((events, i) =>
               <EventsCard key={i} events={events} />)}
             <button onClick={cancelEvent}>Cancel Event</button>
           </Row> : 'There are no events booked.'
@@ -44,7 +44,7 @@ class AllEvents extends Component {
 }
 
 AllEvents.propTypes = {
-  allEvents: PropTypes.array,
+  allEvents: PropTypes.object,
   getAllEvents: PropTypes.func.isRequired
 };
 

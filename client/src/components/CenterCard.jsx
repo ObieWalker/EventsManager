@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Col } from 'react-materialize';
+import { Row, Col } from 'react-materialize';
+// import centerPic from '../..//'
 
 const CenterCard = (props) => {
   const { centers } = props;
@@ -19,10 +20,13 @@ const CenterCard = (props) => {
               <p style={{ float: 'left' }}><Link to="/" href='/'>Book Center</Link></p>
             </div>
             <div className="card-reveal">
-              <span className="card-title grey-text text-darken-4">{centers.name}<i className="material-icons right">close</i></span>
+              <Row>
+                <span className="card-title grey-text text-darken-4" style={{ float: 'left' }}>{centers.name}</span>
+                <span className="card-title grey-text text-darken-4"><i className="material-icons right">close</i></span>
+              </Row>
               <div className='row'><p style={{ float: 'left' }}>{centers.address},<br/>{centers.city}</p></div>
-              <p> This center has a capacity of {centers.capacity} seats {' '}
-                    with facilities like { centers.facility}</p>
+              <p style={{ float: 'left' }}> Center Capacity: {centers.capacity}</p><br />
+              <p>{ centers.facility}</p>
             </div>
           </div>
         </div>

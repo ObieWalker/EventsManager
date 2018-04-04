@@ -1,4 +1,5 @@
 import axios from 'axios';
+import swal from 'sweetalert';
 
 import {
   IS_EVENT_CREATING,
@@ -24,25 +25,38 @@ const createEventFailure = error => ({
 
 const addEvent = eventDetails => (
   (dispatch) => {
-    console.log(localStorage.getItem('jwtToken'));
+    localStorage.getItem('token');
     if (axios.defaults.headers.common.token === '') {
-      axios.defaults.headers.common.token = localStorage.getItem('jwtToken');
+      axios.defaults.headers.common.token = localStorage.getItem('token');
     }
-    console.log('=====>', eventDetails);
+    console.log('test');
     return axios({
       method: 'POST',
       url: '/api/v1/events',
       headers: {
-        token: localStorage.getItem('jwtToken')
+        token: localStorage.getItem('token')
       },
-      data: eventDetails
+      data: eventDetails,
     }).then((response) => {
       console.log('=======>', response);
-      const { message } = response.eventInfo;
-      dispatch(createEventSuccess(response.eventInfo.event, message));
+      const { message } = response.message;
+      console.log(response.message);
+      swal({
+        title: 'Congratulations',
+        text: response.message,
+        icon: 'success',
+        dangerMode: false,
+      });
+      dispatch(createEventSuccess(response.data.event, message));
       dispatch(isEventCreating(false));
     }).catch((error) => {
-      dispatch(createEventFailure(error.response.eventInfo.message));
+      swal({
+        title: 'There was a problem',
+        text: error,
+        icon: 'error',
+        dangerMode: true,
+      });
+      dispatch(createEventFailure(error.response.data.message));
       dispatch(isEventCreating(false));
     });
   }
@@ -52,7 +66,6 @@ const createEventRequest = event => ((dispatch) => {
   dispatch(isEventCreating(true));
   console.log('add event');
   return dispatch(addEvent(event));
-  // imageUrl));
 }
 );
 export default createEventRequest;

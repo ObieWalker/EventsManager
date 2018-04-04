@@ -108,7 +108,9 @@ class CreateCenter extends Component {
         .then(() => {
           console.log('create center');
           const { createSuccess, createError } = this.props;
+          console.log(createSuccess);
           if (createError === '') {
+            // clear toasts before showing new
             toastr.remove();
             toastr.success(createSuccess);
           } else {
@@ -165,38 +167,43 @@ class CreateCenter extends Component {
                     placeholder="" required
                     onChange={this.handleChange}/>
                 </div>
-                <div className="input-field col s12">
-                  <label>City:</label>
-                  <input type="text"
-                    value ={this.state.city.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="city"
-                    name='city'
-                    className="form-control"
-                    placeholder="" required
-                    onChange={this.handleChange} />
+                <div className="row">
+                  <div className="input-field col s8">
+                    <label>City:</label>
+                    <input type="text"
+                      value ={this.state.city.value}
+                      onFocus={this.state.handleOnFocus}
+                      id="city"
+                      name='city'
+                      className="form-control"
+                      placeholder="" required
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className="input-field col s4">
+                    <label>Capacity:</label>
+                    <input type="number"
+                      value ={this.state.capacity.value}
+                      onFocus={this.state.handleOnFocus}
+                      id="capacity"
+                      name='capacity'
+                      className="form-control"
+                      placeholder="" required
+                      onChange={this.handleChange} />
+                  </div>
                 </div>
-                <div className="input-field col s12">
-                  <label>Capacity:</label>
-                  <input type="number"
-                    value ={this.state.capacity.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="capacity"
-                    name='capacity'
-                    className="form-control"
-                    placeholder="" required
-                    onChange={this.handleChange} />
-                </div>
-                <div className="input-field col s12">
-                  <label>Facilities:</label>
-                  <input type="text"
-                    value ={this.state.facility.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="facility"
-                    name='facility'
-                    className="form-control"
-                    placeholder="Separate with commas"
-                    onChange={this.handleChange} />
+
+                <div className="row">
+                  <div className="input-field col s12">
+                    <textarea id="facility"
+                      className="materialize-textarea"
+                      value ={this.state.facility.value}
+                      onFocus={this.state.handleOnFocus}
+                      name='facility'
+                      placeholder="Separate with commas"
+                      onChange={this.handleChange} >
+                    </textarea>
+                    <label htmlFor="facilities">Center Description</label>
+                  </div>
                 </div>
 
                 <button type="submit" className="waves-effect waves-light btn right hoverable indigo">
@@ -214,16 +221,20 @@ class CreateCenter extends Component {
 
 CreateCenter.propTypes = {
   createCenter: PropTypes.func,
-  createSuccess: PropTypes.func,
-  createError: PropTypes.func
+  createSuccess: PropTypes.string,
+  createError: PropTypes.string
 };
 
-// const mapStateToProps = state => ({
-//   createCenter: state.createCenter
-// });
+
+const mapStateToProps = state => ({
+  isCenterCreating: state.createCenter.isCenterCreating,
+  createSuccess: state.createCenter.createCenterSuccess,
+  createError: state.createCenter.createCenterError
+});
+
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  createCenter: createCenterRequest,
+  createCenter: createCenterRequest
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(CreateCenter);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCenter);

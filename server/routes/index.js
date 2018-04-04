@@ -18,9 +18,10 @@ apiv1.post(
   EventsController.createEvent
 );
 // return a users events
-// apiv1.get('/users/:userId/events', EventsController.allUsersEvents);
-// modify an event
+// apiv1.get('/users/:userId/events', EventsController.getUserEvents);
+
 apiv1.get('/events/', EventsController.allEvents);
+// modify an event
 apiv1.put(
   '/events/:id', auth.authenticate,
   validator.eventValidation, EventsController.editEvent

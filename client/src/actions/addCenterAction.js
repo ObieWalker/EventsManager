@@ -25,16 +25,16 @@ const createCenterFailure = error => ({
 // imageUrl
 const addCenter = centerDetails => (
   (dispatch) => {
-    console.log(localStorage.getItem('jwtToken'));
+    console.log(localStorage.getItem('token'));
     if (axios.defaults.headers.common.token === '') {
-      axios.defaults.headers.common.token = localStorage.getItem('jwtToken');
+      axios.defaults.headers.common.token = localStorage.getItem('token');
     }
     console.log('=====>', centerDetails);
     return axios({
       method: 'POST',
       url: '/api/v1/centers',
       headers: {
-        token: localStorage.getItem('jwtToken')
+        token: localStorage.getItem('token')
       },
       data: centerDetails
     }).then((response) => {

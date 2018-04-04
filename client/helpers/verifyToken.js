@@ -1,19 +1,27 @@
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-// returns 1 or 0 if token is verified
+dotenv.config();
+
+// returns true or false if token is verified
 const verifyToken = () => {
-  const token = window.localStorage.jwtToken;
+  const { token } = window.localStorage;
   let verified;
-  // if token exists and verified = 1
+  // if token exists and verified = true
   if (token) {
-    jwt.verify(token, process.env.SECRET_KEY, (error) => {
+    jwt.verify(token, process.env.SECRET, (error) => {
       if (error) {
-        verified = 0;
+        console.log('secret keyyyyy', process.env.PORT);
+        console.log('this is the token error', error);
+        console.log('token exists but its falsy');
+        verified = false;
       } else {
-        verified = 1;
+        console.log('so wtf is wrong then');
+        verified = true;
       }
     });
   } else {
+    console.log('no token exists at all at all');
     verified = 0;
   }
   return verified;
