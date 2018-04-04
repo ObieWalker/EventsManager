@@ -6,10 +6,6 @@ module.exports = {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    center: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
     eventType: {
       type: Sequelize.STRING,
       allowNull: false
@@ -21,7 +17,7 @@ module.exports = {
     email: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
       isEmail: true
     },
     guestNo: {

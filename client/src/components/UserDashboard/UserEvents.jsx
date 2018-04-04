@@ -20,7 +20,7 @@ class UserEvents extends Component {
   }
 
   componentDidMount() {
-    // this.props.getUserEvents();
+    this.props.getUserEvents();
   }
 
   handleEditEvent() {
@@ -39,13 +39,13 @@ class UserEvents extends Component {
       <div>
         <div>
           <h3>All Your Upcoming Events.</h3>
-          {/* <div> {Events.fetchedCenters ?
+          <div> {Events.fetchedCenters ?
             <Row>
               {Events.fetchedCenters.map((events, i) =>
                 <EventList key={i} events={events} />)}
             </Row> : 'You have no booked events'
           }
-          </div> */}
+          </div>
         </div>
       </div>
     );

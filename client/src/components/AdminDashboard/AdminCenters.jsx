@@ -50,6 +50,7 @@ class AdminCenters extends Component {
       title: 'Are you sure?',
       text: 'If this center is deleted,it cannot be undone',
       icon: 'warning',
+      buttons: true,
       dangerMode: true,
     })
       .then((willDelete) => {

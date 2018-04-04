@@ -167,27 +167,29 @@ class CreateCenter extends Component {
                     placeholder="" required
                     onChange={this.handleChange}/>
                 </div>
-                <div className="input-field col s12">
-                  <label>City:</label>
-                  <input type="text"
-                    value ={this.state.city.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="city"
-                    name='city'
-                    className="form-control"
-                    placeholder="" required
-                    onChange={this.handleChange} />
-                </div>
-                <div className="input-field col s12">
-                  <label>Capacity:</label>
-                  <input type="number"
-                    value ={this.state.capacity.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="capacity"
-                    name='capacity'
-                    className="form-control"
-                    placeholder="" required
-                    onChange={this.handleChange} />
+                <div className="row">
+                  <div className="input-field col s8">
+                    <label>City:</label>
+                    <input type="text"
+                      value ={this.state.city.value}
+                      onFocus={this.state.handleOnFocus}
+                      id="city"
+                      name='city'
+                      className="form-control"
+                      placeholder="" required
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className="input-field col s4">
+                    <label>Capacity:</label>
+                    <input type="number"
+                      value ={this.state.capacity.value}
+                      onFocus={this.state.handleOnFocus}
+                      id="capacity"
+                      name='capacity'
+                      className="form-control"
+                      placeholder="" required
+                      onChange={this.handleChange} />
+                  </div>
                 </div>
 
                 <div className="row">

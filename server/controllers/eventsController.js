@@ -8,23 +8,31 @@ export default class EventsController {
     // return Centers.findAll();
     return Events.findAll()
       .then((events) => {
-        events.forEach((event) => { // checks to see if there are any events with matching dates and centers
-          if (event.date === req.body.date && event.center === req.body.center) {
-            res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
-          }
-        });
+        console.log(' date value should e here =====>', req.body.date);
+        if (events) {
+          events.forEach((event) => { // checks to see if there are any events with matching dates and centers
+            if (event.date === req.body.date && event.center === req.body.center) {
+              console.log('i entered the check==-psdf');
+              res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
+            }
+            console.log('i came out the date and center check');
+          });
+        }
+        console.log('there are no events so see me');
         return Events.create({
-          userId: req.decoded.userId,
-          center: req.body.center,
+          userId: req.decoded.id,
+          centerId: req.body.center,
           eventType: req.body.eventType,
           date: req.body.date,
           guestNo: req.body.guestNo,
           email: req.body.email
         }).then(() => {
           res.status(201).json({ message: 'Your event has been booked' });
-        }).catch(() => {
-          res.status(400).json({ message: 'Your request could not be processed' });
-        });
+        })
+          .catch((error) => {
+            console.log('i should see this if error ====>');
+            res.status(400).json({ message: 'Your request could not be processed', error });
+          });
       });
   }
 
