@@ -49,7 +49,7 @@ export default class UsersController {
               Email: user.email
             }
           }))
-          .catch(err => res.status(500).json({ message: 'Server Error', Error: err }));
+          .catch(error => res.status(500).json({ message: 'Server Error', error }));
       });
   }
 
@@ -61,12 +61,12 @@ export default class UsersController {
         if (!user) {
           res.status(404).send({
             success: false,
-            message: 'This account does not exist on our database'
+            message: 'Wrong email or password'
           });
         } else {
           bcrypt.compare(req.body.password, user.password, (err, hash) => {
             if (!hash) {
-              res.status(403).json({ message: 'Wrong password' });
+              res.status(403).json({ success: false, message: 'Wrong email or password' });
             } else if (hash) {
               const payload = {
                 firstName: user.firstName,
@@ -79,7 +79,7 @@ export default class UsersController {
               };
               const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
               console.log('server side env', process.env.SECRET);
-              res.status(200).json({ message: 'Login Successful!', token });
+              res.status(200).json({ success: true, message: 'Login Successful!', token });
             }
           });
         }

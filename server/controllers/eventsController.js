@@ -12,10 +12,8 @@ export default class EventsController {
         if (events) {
           events.forEach((event) => { // checks to see if there are any events with matching dates and centers
             if (event.date === req.body.date && event.center === req.body.center) {
-              console.log('i entered the check==-psdf');
               res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
             }
-            console.log('i came out the date and center check');
           });
         }
         console.log('there are no events so see me');
@@ -63,7 +61,7 @@ export default class EventsController {
       .catch((err) => {
         res.status(400).json({
           message: 'Cannot do that right now',
-          Error: err.name
+          error: err.name
         });
       });
   }
@@ -81,19 +79,16 @@ export default class EventsController {
   }
 
   static allEvents(req, res) {
-    if (Events.length > 0) {
-      return Events.findAll({
-        order: [['date', 'DESC']]
-      }).then((events) => {
-        if (events.length > 0) {
-          if (req.query) {
-            return res.status(200).json({ message: 'All Events:', List: events });
-          }
+    return Events.findAll({
+      order: [['date', 'DESC']]
+    }).then((events) => {
+      if (events.length > 0) {
+        if (req.query) {
+          return res.status(200).json({ success: true, message: 'All Events In System:', events });
         }
-        res.status(404).json({ message: 'There are no events' });
-      });
-    }
-    res.status(404).json({ message: 'There are no events' });
+      }
+      res.status(404).json({ message: 'There are no events' });
+    });
   }
 
   static getUserEvents(req, res) {
@@ -105,7 +100,7 @@ export default class EventsController {
       }).then((events) => {
         if (events.length > 0) {
           if (req.query) {
-            return res.status(200).json({ message: 'All of your upcoming events:', List: events });
+            return res.status(200).json({ success: true, message: 'All of your upcoming events:', events });
           }
         }
         res.status(404).json({ message: 'You have no events.' });
