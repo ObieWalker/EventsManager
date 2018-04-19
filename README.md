@@ -3,8 +3,7 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/215078ce2fd0ee631fc5/test_coverage)](https://codeclimate.com/github/ObieWalker/EventsManager/test_coverage)
 
-[![Build Status](https://travis-ci.org/ObieWalker/EventsManager.svg?branch=ft-api-v2)](https://travis-ci.org/ObieWalker/EventsManager)
-https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop
+[![Build Status](https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop)](https://travis-ci.org/ObieWalker/EventsManager)
 
 [![Coverage Status](https://coveralls.io/repos/github/ObieWalker/EventsManager/badge.svg?branch=develop)](https://coveralls.io/github/ObieWalker/EventsManager?branch=develop)
 
