@@ -8,7 +8,7 @@ export default class CentersController {
   static createCenter(req, res) {
     return Users.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
-        return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
+        return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
       }
       Centers.create({
         userId: req.decoded.id,
@@ -20,14 +20,14 @@ export default class CentersController {
         image: req.body.image
       })
         .then((center) => {
-          res.status(201).json({ message: 'The center has been added', center });
+          res.status(201).json({ success: true, message: 'The center has been added', center });
         })
         .catch((error) => {
-          res.status(400).json({ message: 'Your request could not be processed', error: error.messsage });
+          res.status(400).json({ success: false, message: 'Your request could not be processed', error: error.messsage });
         });
     })
       .catch((error) => {
-        res.status(403).json({ message: 'You do not have the admin rights to add a center', error });
+        res.status(403).json({success: false, message: 'You do not have the admin rights to add a center', error });
       });
   }
 
@@ -36,18 +36,18 @@ export default class CentersController {
     Users.findById(req.decoded.id)
       .then((user) => {
         if (user.isAdmin !== true) {
-          return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
+          return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
         }
         const { id } = req.params;
         try { // avoid user having a string input as id
           parseInt(id, 10);
         } catch (e) {
-          return res.status(400).json({ message: 'There was an error with the input!' });
+          return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
         } finally {
           Centers.findById(id)
             .then((center) => {
               if (!center) { // not found
-                return res.status(404).json({ message: 'No center found' });
+                return res.status(404).json({ success: true, message: 'No center found' });
               }
               return center.update({
                 userId: req.decoded.id,
@@ -61,12 +61,13 @@ export default class CentersController {
                 .then(() => {
                   center.reload()
                     .then(() => res.status(200).json({
+                      success: true,
                       message: 'The center has been modified',
                       updated: center
                     }));
                 })
                 .catch((err) => {
-                  res.status(500).json({ message: 'Could not update', error: err });
+                  res.status(500).json({ success: false, message: 'Could not update', error: err });
                 });
             });
         }
@@ -79,46 +80,53 @@ export default class CentersController {
     }).then((centers) => {
       if (centers.length > 0) {
         if (req.query) {
-          return res.status(200).json({ message: 'Every registered center:', Centers: centers });
+          return res.status(200).json({ success: true, message: 'Every registered center:', centers });
         }
       }
-      res.status(404).json({ message: 'No Centers' });
+      res.status(404).json({ success: true, message: 'No Centers' });
     });
   }
 
   static getCenterDetails(req, res) {
-    Centers.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then((center) => {
-        if (!center) {
-          return res.status(404).json({ message: 'We do not have records of this center' });
+    const { id } = req.params;
+    try { // avoid user having a string input as id
+      parseInt(id, 10);
+    } catch (e) {
+      return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+    } finally {
+      Centers.findOne({
+        where: {
+          id: req.params.id
         }
-        res.status(200).json(center);
       })
-      .catch(error => res.status(400).send(error));
+        .then((center) => {
+          if (!center) {
+            return res.status(404).json({ success: false, message: 'We do not have records of this center' });
+          }
+          res.status(200).json(center);
+        })
+        .catch(error => res.status(400).send(error));
+    }
   }
 
   static deleteCenter(req, res) {
     Users.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
-        return res.status(403).json({ message: 'You do not have the admin privileges to do this' });
+        return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
       }
       const { id } = req.params;
       try {
         parseInt(id, 10);
       } catch (e) {
-        return res.status(400).json({ message: 'There was an error with the input!' });
+        return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
       } finally {
         Centers.findById(id)
           .then((center) => {
             if (!center) { // if no centers
-              return res.status(400).send({ message: 'No such center' });
+              return res.status(400).send({ success: false, message: 'No such center' });
             } // else remove
             return center.destroy()
-              .then(res.status(200).send({ message: 'The center has been deleted!' }))
+              .then(res.status(200).send({ success: true, message: 'The center has been deleted!' }))
               .catch(error => res.status(400).send(error));
           });
       }

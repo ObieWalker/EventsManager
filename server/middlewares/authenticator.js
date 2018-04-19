@@ -10,6 +10,7 @@ export default class auth {
     if (token) {
       jwt.verify(token, process.env.SECRET, (err, decoded) => {
         if (err) {
+          console.log('this is my error message', err);
           return res.status(401).json({ message: 'Failed to authenticate user' });
         }
         // the user data is stored
