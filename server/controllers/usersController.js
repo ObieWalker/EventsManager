@@ -13,7 +13,6 @@ const saltRound = 13;
 
 export default class UsersController {
   static signup(req, res) {
-    console.log(req.body);
     return Users.findAll({
       where: {
         email: req.body.email
@@ -22,7 +21,6 @@ export default class UsersController {
       .then((users) => {
         // checks to see if user already exist
         if (users.length > 0) {
-          console.log('ikfke');
           return res.status(400).json({
             message: 'User already exists'
           });
@@ -78,7 +76,6 @@ export default class UsersController {
                 createdAt: user.createdAt
               };
               const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
-              console.log('server side env', process.env.SECRET);
               res.status(200).json({ success: true, message: 'Login Successful!', token });
             }
           });

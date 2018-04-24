@@ -19,7 +19,7 @@ const logOut = () =>
     localStorage.removeItem('token');
     setAuthToken(false);
     toastr.success('You have been logged out!!');
-    return dispatch(setCurrentUser({}));
+    dispatch(setCurrentUser({}));
   };
 
 export default logOut;

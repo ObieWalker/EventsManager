@@ -25,13 +25,11 @@ const fetchEventsFailure = error => ({
 const fetchEventsRequest = () => (
   (dispatch) => {
     dispatch(isEventsFetching(true));
-    console.log('dispatching just before axios');
     return axios({
       method: 'GET',
       url: '/api/v1/events'
     })
       .then((response) => {
-        console.log(response.data.Events);
         dispatch(fetchEventsSuccess(response.data.Events));
         dispatch(isEventsFetching(false));
       }).catch((error) => {

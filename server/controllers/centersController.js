@@ -1,4 +1,5 @@
 import { Center, User } from '../models';
+import { paginateData } from '../helpers/helper';
 
 const Centers = Center;
 const Users = User;
@@ -27,7 +28,7 @@ export default class CentersController {
         });
     })
       .catch((error) => {
-        res.status(403).json({success: false, message: 'You do not have the admin rights to add a center', error });
+        res.status(403).json({ success: false, message: 'You do not have the admin rights to add a center', error });
       });
   }
 
@@ -75,16 +76,20 @@ export default class CentersController {
   }
 
   static getAllCenters(req, res) {
-    return Centers.findAll({
-      order: [['name', 'DESC']]
-    }).then((centers) => {
-      if (centers.length > 0) {
-        if (req.query) {
-          return res.status(200).json({ success: true, message: 'Every registered center:', centers });
-        }
-      }
-      res.status(404).json({ success: true, message: 'No Centers' });
-    });
+    const limit = 6;
+    let offset = 0;
+    const pageNo = parseInt(req.query.pageNo, 10) || 1;
+    offset = limit * (pageNo - 1);
+    return Centers.findAndCountAll({
+      order: [['name', 'DESC']],
+      limit,
+      offset
+    }).then(centers => paginateData({
+      req, res, centers, limit, pageNo
+    }))
+      .catch((error) => {
+        res.status(500).json({ message: 'Your request had an error', error });
+      });
   }
 
   static getCenterDetails(req, res) {

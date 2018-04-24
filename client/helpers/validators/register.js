@@ -4,7 +4,6 @@ import isEmpty from 'lodash/isEmpty';
 
 const formIsValid = (data) => {
   const errors = {};
-  console.log(data.verifyPassword);
 
   if (!validator.isEmail(data.email)) {
     errors.email = 'Invalid email address';

@@ -27,7 +27,6 @@ class ModifyCenter extends Component {
 
   componentWillMount() {
     const { center } = this.props;
-    console.log('in componenet will mount', center.name);
     this.setState({
       name: center.name,
       address: center.address,
@@ -40,7 +39,6 @@ class ModifyCenter extends Component {
 
   reset() {
     const { center } = this.props;
-    console.log('this is the center prop', center);
     this.setState({
       name: center.name,
       address: center.address,

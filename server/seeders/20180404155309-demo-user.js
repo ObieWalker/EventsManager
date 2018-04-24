@@ -50,6 +50,76 @@
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
+//   },
+//   {
+//     firstName: 'testUser4fn',
+//     lastName: 'testUser4ln',
+//     username: 'testUser4',
+//     password: bcrypt.hashSync('password', 13),
+//     email: 'testUser4@gmail.com',
+//     isAdmin: false,
+//     createdAt: new Date(),
+//     updatedAt: new Date()
+//   },
+//   {
+//     firstName: 'testUser5fn',
+//     lastName: 'testUser5ln',
+//     username: 'testUser5',
+//     password: bcrypt.hashSync('password', 13),
+//     email: 'testUser5@gmail.com',
+//     isAdmin: false,
+//     createdAt: new Date(),
+//     updatedAt: new Date()
+//   },
+//   {
+//     firstName: 'testUser6fn',
+//     lastName: 'testUser6ln',
+//     username: 'testUser6',
+//     password: bcrypt.hashSync('password', 13),
+//     email: 'testUser6@gmail.com',
+//     isAdmin: false,
+//     createdAt: new Date(),
+//     updatedAt: new Date()
+//   },
+//   {
+//     firstName: 'testUser7fn',
+//     lastName: 'testUser7ln',
+//     username: 'testUser7',
+//     password: bcrypt.hashSync('password', 13),
+//     email: 'testUser7@gmail.com',
+//     isAdmin: false,
+//     createdAt: new Date(),
+//     updatedAt: new Date()
+//   },
+//   {
+//     firstName: 'testUser8fn',
+//     lastName: 'testUser8ln',
+//     username: 'testUser8',
+//     password: bcrypt.hashSync('password', 13),
+//     email: 'testUser8@gmail.com',
+//     isAdmin: false,
+//     createdAt: new Date(),
+//     updatedAt: new Date()
+//   },
+//   {
+//     firstName: 'testUser9fn',
+//     lastName: 'testUser9ln',
+//     username: 'testUser3',
+//     password: bcrypt.hashSync('password', 13),
+//     email: 'testUser9@gmail.com',
+//     isAdmin: false,
+//     createdAt: new Date(),
+//     updatedAt: new Date()
+//   },
+//   {
+//     firstName: 'testUser10fn',
+//     lastName: 'testUser10ln',
+//     username: 'testUser10',
+//     password: bcrypt.hashSync('password', 13),
+//     email: 'testUser10@gmail.com',
+//     isAdmin: false,
+//     createdAt: new Date(),
+//     updatedAt: new Date()
 //   }], {}),
 
 //   down: queryInterface =>
@@ -111,6 +181,105 @@
 //         facility: '',
 //         capacity: 120,
 //         city: 'Ajah',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 1,
+//         name: 'Kilamanjaor',
+//         address: '74, Lekki Way',
+//         facility: 'A nice Helipad',
+//         capacity: 200,
+//         city: 'Lekki',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 2,
+//         name: 'Andela Learning Center',
+//         address: '121, Ikorodu Road, Illupeju',
+//         facility: 'Parking, Elevator',
+//         capacity: 500,
+//         city: 'Illupeju',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 1,
+//         name: 'The Worship Center',
+//         address: '1a, Idowu Taylor Street',
+//         facility: 'Stage, Air-conditioning, 24hr Security',
+//         capacity: 150,
+//         city: 'Victoria Island',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 2,
+//         name: 'Distrikt',
+//         address: '45, Picadilly Square',
+//         facility: 'Penthouse',
+//         capacity: 1000,
+//         city: 'Picadilly',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 1,
+//         name: 'The Black swan',
+//         address: '99, Swan street',
+//         facility: 'Pond and Spring',
+//         capacity: 500,
+//         city: 'Palm Springs',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 2,
+//         name: 'The Bottle',
+//         address: '31, Guts street',
+//         facility: 'Unlimited supply of alcoholic beverages',
+//         capacity: 100,
+//         city: 'Lagoon',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 2,
+//         name: 'Segun Sams',
+//         address: '73, Gbgada Road',
+//         facility: 'Strippers',
+//         capacity: 50,
+//         city: 'Gbgada',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 2,
+//         name: 'Kachi\'s Kruger',
+//         address: '33, Tambawa Street',
+//         facility: 'Robo cops, 24hr customer aid',
+//         capacity: 400,
+//         city: 'Ikeja',
+//         image: '',
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         userId: 2,
+//         name: 'LA Bakes',
+//         address: '880, Herbert Macauley Way',
+//         facility: 'Rice stew very Plenty, Kitchen',
+//         capacity: 300,
+//         city: 'Yaba',
 //         image: '',
 //         createdAt: new Date(),
 //         updatedAt: new Date()

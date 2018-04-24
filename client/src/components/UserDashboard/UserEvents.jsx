@@ -34,12 +34,10 @@ class UserEvents extends Component {
 
   render() {
     const Events = this.props.getUsersEvents;
-    console.log(Events);
     return (
       <div>
         <div>
           <h3>All Your Upcoming Events.</h3>
-          {console.log('getting all user events', Events.fetchedCenters)}
           <div> {Events.fetchedCenters ?
             <Row>
               {Events.fetchedCenters.map((events, i) =>

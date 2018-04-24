@@ -34,9 +34,7 @@ class AdminCenters extends Component {
     });
   }
 
-
   handleModify(center) {
-    console.log('this is the center ID', center);
     this.setState({
       center,
       show: true
@@ -44,8 +42,6 @@ class AdminCenters extends Component {
   }
 
   handleDelete(center) {
-    console.log(center);
-    console.log(center.id);
     swal({
       title: 'Are you sure?',
       text: 'If this center is deleted,it cannot be undone',
@@ -61,9 +57,7 @@ class AdminCenters extends Component {
       });
   }
 
-
   render() {
-    console.log('in admin centers===>', this.props.allCenters);
     return (
       <div>
         <div >

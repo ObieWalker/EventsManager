@@ -24,7 +24,6 @@ class AllEvents extends Component {
 
 
   render() {
-    console.log('===>', this.props.allEvents);
     const Events = this.props.allEvents;
     return (
       <div >

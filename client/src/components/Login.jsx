@@ -47,7 +47,6 @@ class Login extends Component {
     const { errors, isValid } = signInValidator(this.state);
     if (!isValid) {
       this.setState({ errors });
-      console.log(errors);
     }
     return isValid;
   }
@@ -64,22 +63,19 @@ class Login extends Component {
 
   handleUserLogin(e) {
     e.preventDefault();
-    console.log('first');
     const userDetails = {
       email: this.state.email,
       password: this.state.password,
     };
     if (this.isValid()) {
-      console.log('it is valid');
       this.setState({ errors: {} });
       this.props.login(userDetails)
         .then(() => {
           const { isAuthenticated, user } = this.props.loginUser;
-          console.log('is it authenticated?', isAuthenticated);
           if (user.isAdmin) {
             this.props.history.push('/admin');
             toastr.success('Hello Admin!');
-          } else if (isAuthenticated) {
+          } else if (isAuthenticated && !user.isAdmin) {
             this.props.history.push('/dashboard');
             toastr.success('welcome back');
           }

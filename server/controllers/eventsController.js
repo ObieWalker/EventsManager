@@ -8,7 +8,6 @@ export default class EventsController {
     // return Centers.findAll();
     return Events.findAll()
       .then((events) => {
-        console.log(' date value should e here =====>', req.body.date);
         if (events) {
           events.forEach((event) => { // checks to see if there are any events with matching dates and centers
             if (event.date === req.body.date && event.center === req.body.center) {
@@ -16,7 +15,6 @@ export default class EventsController {
             }
           });
         }
-        console.log('there are no events so see me');
         return Events.create({
           userId: req.decoded.id,
           centerId: req.body.center,
@@ -28,7 +26,6 @@ export default class EventsController {
           res.status(201).json({ message: 'Your event has been booked' });
         })
           .catch((error) => {
-            console.log('i should see this if error ====>');
             res.status(400).json({ message: 'Your request could not be processed', error });
           });
       });

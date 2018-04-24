@@ -29,7 +29,6 @@ const addEvent = eventDetails => (
     if (axios.defaults.headers.common.token === '') {
       axios.defaults.headers.common.token = localStorage.getItem('token');
     }
-    console.log('test');
     return axios({
       method: 'POST',
       url: '/api/v1/events',
@@ -38,9 +37,7 @@ const addEvent = eventDetails => (
       },
       data: eventDetails,
     }).then((response) => {
-      console.log('=======>', response);
       const { message } = response.message;
-      console.log(response.message);
       swal({
         title: 'Congratulations',
         text: response.message,
@@ -64,7 +61,6 @@ const addEvent = eventDetails => (
 
 const createEventRequest = event => ((dispatch) => {
   dispatch(isEventCreating(true));
-  console.log('add event');
   return dispatch(addEvent(event));
 }
 );
