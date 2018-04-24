@@ -16,7 +16,6 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    console.log('login props ====>', this.props.login);
     const { isAuthenticated } = this.props.login;
     if (isAuthenticated) {
       this.setState({ loggedIn: true });
@@ -26,8 +25,8 @@ class Header extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const { isAuthenticated } = nextProps.login;
     if (this.props !== nextProps) {
-      const { isAuthenticated } = this.props.login;
       if (isAuthenticated) {
         this.setState({ loggedIn: true });
       } else {
@@ -37,10 +36,8 @@ class Header extends Component {
   }
 
   handleLogOut(e) {
-    console.log('I am logging out of here');
     e.preventDefault();
     this.props.logOut();
-    console.log('my props = ', this.props);
     this.props.history.push('/');
     toastr.success('Good bye!!');
   }
@@ -48,7 +45,6 @@ class Header extends Component {
 
   render() {
     const { loggedIn } = this.state;
-    console.log('the logged in state', loggedIn);
     return (
       <div>
         <nav className="indigo">
@@ -63,8 +59,6 @@ class Header extends Component {
                   <li><Link to="/login"><button type="button" className="btn-success btn-sm">Login</button></Link></li>
                   <li><Link to="/register"><button type="button" className="btn-primary btn-sm">Register</button></Link></li>
                 </div>
-              // <li><Link to="/register"><button className= 'btn-success btn-sm' >Register</button></Link></li>
-              //   <li><Link to="/register"><button className= 'btn-success btn-sm' >Register</button></Link></li>
               }
             </ul>
           </div>

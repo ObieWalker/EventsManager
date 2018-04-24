@@ -11,17 +11,12 @@ const verifyToken = () => {
   if (token) {
     jwt.verify(token, process.env.SECRET, (error) => {
       if (error) {
-        console.log('secret keyyyyy', process.env.PORT);
-        console.log('this is the token error', error);
-        console.log('token exists but its falsy');
         verified = false;
       } else {
-        console.log('so wtf is wrong then');
         verified = true;
       }
     });
   } else {
-    console.log('no token exists at all at all');
     verified = 0;
   }
   return verified;

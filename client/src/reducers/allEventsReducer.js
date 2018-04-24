@@ -16,7 +16,6 @@ export default (state = initialState, action = {}) => {
   case IS_EVENTS_FETCHING:
     return Object.assign({}, state, { isEventsFetching: action.bool });
   case FETCH_EVENTS_SUCCESS:
-    console.log(action.events);
     return Object.assign({}, state, {
       fetchedEvents: action.events
     });

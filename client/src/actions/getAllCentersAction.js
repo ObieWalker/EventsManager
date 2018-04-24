@@ -22,17 +22,15 @@ const fetchCentersFailure = error => ({
   error
 });
 
-const fetchCentersRequest = () => (
+const fetchCentersRequest = pageNo => (
   (dispatch) => {
     dispatch(isCentersFetching(true));
-    console.log('dispatching just before axios');
     return axios({
       method: 'GET',
-      url: '/api/v1/centers'
+      url: `/api/v1/centers?pageNo=${pageNo}`
     })
       .then((response) => {
-        console.log(response.data.Centers);
-        dispatch(fetchCentersSuccess(response.data.Centers));
+        dispatch(fetchCentersSuccess(response.data.centers));
         dispatch(isCentersFetching(false));
       }).catch((error) => {
         dispatch(fetchCentersFailure(error.response.data.message));

@@ -10,9 +10,6 @@ const eventValidator = (data) => {
   } = data;
   const errors = {};
 
-  console.log(typeof (email));
-  console.log(email);
-
   if (validator.isEmpty(JSON.stringify(center))) {
     errors.email = 'Please select a center';
   }
@@ -31,9 +28,6 @@ const eventValidator = (data) => {
   if (validator.isEmpty(JSON.stringify(date))) {
     errors.date = 'Please select a date.';
   }
-
-  console.log(errors);
-  console.log(isEmpty(errors));
   return { errors, formIsValid: isEmpty(errors) };
 };
 

@@ -13,40 +13,30 @@ const centerValidator = (data) => {
   }
 
   if (!validator.isEmpty(address)) {
-    console.log('not empty');
     if (!validator.isLength(address, { min: 5, max: 1000 })) {
       errors.address =
         'Please enter an address that is more descriptive.';
-      console.log('short length');
     }
   } else {
     errors.address = 'The Center must have an address';
-    console.log('is empty');
   }
 
   if (!validator.isEmpty(city)) {
-    console.log('city is not empty');
     if (!validator.isLength(city, { min: 1, max: 20 })) {
-      console.log('city length');
       if (city.search(/[^A-Za-z\s]/) !== -1) {
         errors.city = 'The city has to have to alphabets only';
-        console.log('error.city');
       }
       errors.city =
         'Please enter a valid city name .';
-      console.log('error.city');
     }
   } else {
     errors.city = 'Please enter the city of the center';
-    console.log('error.city');
   }
 
   if (!validator.isNumeric(capacity)) {
     errors.name = 'You have to enter a numeric value.';
   }
 
-  console.log(errors);
-  console.log(isEmpty(errors));
   return { errors, formIsValid: isEmpty(errors) };
 };
 

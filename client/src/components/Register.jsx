@@ -39,12 +39,7 @@ class Register extends Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-    // const state = Object.assign({}, this.state);
-    // state.value = e.target.value;
-    // this.setState({ state});
-    // console.log(state)
   }
-  // returns errors if they exist
   isValid() {
     const { errors, isValid } = validator(this.state);
     if (!isValid) {
@@ -53,7 +48,6 @@ class Register extends Component {
     return isValid;
   }
   onSubmit(e) {
-    // console.log("onsubmit pressed")
     e.preventDefault();
     if (this.isValid()) {
       this.setState({ errors: {} });
@@ -67,7 +61,6 @@ class Register extends Component {
       };
       this.props.registerUserAction(userDetails)
         .then(() => {
-          console.log('i have pushed history');
           this.props.history.push('/');
         }).catch(error =>
           this.setState({ errors: error.response.data.errors }));
@@ -99,7 +92,6 @@ class Register extends Component {
                   type="text"
                   className="validate" />
                 <label htmlFor="first_name">First Name</label>
-                {/* {console.log(this.state.firstName)} */}
                 {this.state.errors.firstName &&
                                 <span className="error">
                                   {this.state.errors.firstName}

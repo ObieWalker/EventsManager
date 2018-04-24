@@ -25,11 +25,9 @@ const createCenterFailure = error => ({
 // imageUrl
 const addCenter = centerDetails => (
   (dispatch) => {
-    console.log(localStorage.getItem('token'));
     if (axios.defaults.headers.common.token === '') {
       axios.defaults.headers.common.token = localStorage.getItem('token');
     }
-    console.log('=====>', centerDetails);
     return axios({
       method: 'POST',
       url: '/api/v1/centers',
@@ -38,7 +36,6 @@ const addCenter = centerDetails => (
       },
       data: centerDetails
     }).then((response) => {
-      console.log('=======>', response);
       const { message } = response.centerInfo;
       dispatch(createCenterSuccess(response.centerInfo.center, message));
       dispatch(isCenterCreating(false));
@@ -69,7 +66,6 @@ const createCenterRequest = center => (
     //       dispatch(isCenterCreating(false));
     //     });
     // }
-    console.log('add center');
     return dispatch(addCenter(center));
     // imageUrl));
   }

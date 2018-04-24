@@ -49,7 +49,6 @@ export default class validate {
   }
 
   static eventValidation(req, res, next) {
-    console.log('=======I reached validator==>');
     req.checkBody('eventType', 'The event type must be one of the options given or choose "other"').notEmpty();
     req.checkBody('eventType', 'An event type must be one of the drop down options').isAlpha();
     req.checkBody('guestNo', 'Your guest estimate must be a number ').isInt({ gt: 2, lt: 4000000 });
@@ -61,10 +60,8 @@ export default class validate {
     const errors = req.validationErrors();
     if (errors) {
       res.status(400).json({ error: errors });
-      console.log('there are errors from backend validator');
       return;
     }
     next();
-    console.log('out of validator');
   }
 }

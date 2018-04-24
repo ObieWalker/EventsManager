@@ -14,7 +14,6 @@ export default (ProtectedComponent) => {
 			*/
     componentDidMount() {
       if (!verifyToken() || !this.props.isAdmin) {
-        console.log('verify token lets seee');
         this.context.router.history.push('/login');
       }
     }

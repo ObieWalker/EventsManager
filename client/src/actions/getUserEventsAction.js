@@ -12,7 +12,6 @@ const getUserEvents = userIdNo => (dispatch) => {
   axios
     .get(`/user/events/${userIdNo}`)
     .then((res) => {
-      console.log('user events response', res);
       localStorage.setItem('message', res.data.message);
       dispatch(getUserEventsAsync(res.data.event));
     })

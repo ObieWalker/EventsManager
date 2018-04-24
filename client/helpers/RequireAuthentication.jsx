@@ -21,7 +21,6 @@ export default (ProtectedComponent) => {
 			*/
     componentDidMount() {
       if (!verifyToken()) {
-        console.log('verify token lets seee');
         this.context.router.history.push('/login');
       }
     }

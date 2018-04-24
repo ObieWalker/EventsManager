@@ -9,17 +9,16 @@ const initialState = {
   fetchedCenters: [],
   allCentersError: ''
 };
-
+let newState;
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
   case IS_CENTERS_FETCHING:
     return Object.assign({}, state, { isCentersFetching: action.bool });
   case FETCH_CENTERS_SUCCESS:
-    console.log(action.centers);
-    return Object.assign({}, state, {
-      fetchedCenters: action.centers
-    });
+    newState = Object.assign({}, state);
+    newState.fetchedCenters = newState.fetchedCenters.concat(action.centers);
+    return newState;
   case FETCH_CENTERS_FAILURE:
     return Object.assign({}, state, {
       allCentersError: action.error,

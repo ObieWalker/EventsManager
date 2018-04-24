@@ -83,7 +83,6 @@ class CreateCenter extends Component {
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
-      console.log('not valid');
       this.setState({ errors });
     }
     return formIsValid;
@@ -91,12 +90,9 @@ class CreateCenter extends Component {
 
 
   onSubmit(e) {
-    console.log('onsubmit');
     e.preventDefault();
     if (this.formIsValid()) {
-      console.log('is valid');
       this.setState({ errors: {} });
-      console.log(this.state);
       const centerDetails = {
         name: this.state.name,
         address: this.state.address,
@@ -106,9 +102,7 @@ class CreateCenter extends Component {
       };
       this.props.createCenter(centerDetails)
         .then(() => {
-          console.log('create center');
           const { createSuccess, createError } = this.props;
-          console.log(createSuccess);
           if (createError === '') {
             // clear toasts before showing new
             toastr.remove();

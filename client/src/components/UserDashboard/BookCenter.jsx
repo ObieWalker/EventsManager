@@ -42,7 +42,6 @@ class BookCenter extends Component {
   }
 
   componentDidMount() {
-    console.log('this.props.getAllCenters===>', this.props.getAllCenters);
     this.props.getAllCenters();
 
     $('.datepicker').pickadate({
@@ -57,14 +56,13 @@ class BookCenter extends Component {
   }
 
   onSliderChange = (guestNo) => {
-    console.log(guestNo);
     this.setState({
       guestNo,
     });
   }
 
   onAfterChange = (value) => {
-    console.log(value); //eslint-disable-line
+    console.lof(value);
   }
 
   handleChange(e) {
@@ -74,7 +72,6 @@ class BookCenter extends Component {
   }
 
   handleDateChange(e) {
-    console.log(moment(e.select).format('l'));
     this.setState({
       date: Object.assign({}, this.state, { date: moment(e.select).format('l') })
     });
@@ -87,7 +84,6 @@ class BookCenter extends Component {
     });
   }
   handleCenterSelection(event, target, value) {
-    console.log(value);
     this.setState({
       center: Object.assign({}, this.state.center, { value })
     });
@@ -108,7 +104,6 @@ class BookCenter extends Component {
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
-      console.log('not valid');
       this.setState({ errors });
     }
     return formIsValid;
@@ -116,12 +111,9 @@ class BookCenter extends Component {
 
 
   onSubmit(e) {
-    console.log('onsubmit');
     e.preventDefault();
     if (this.formIsValid()) {
-      console.log('is valid');
       this.setState({ errors: {} });
-      console.log(this.state, 'state object');
       const eventDetails = {
         center: this.state.center.value,
         eventType: this.state.eventType,
@@ -135,11 +127,8 @@ class BookCenter extends Component {
         icon: 'info',
         dangerMode: true,
       });
-      console.log(eventDetails);
       this.props.addNewEvent(eventDetails)
         .then(() => {
-          console.log('create event');
-          console.log(this.props);
           const { createSuccess, createError } = this.props;
           if (createError === '') {
             toastr.remove();
