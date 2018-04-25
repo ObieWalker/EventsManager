@@ -1,4 +1,5 @@
 import { Event } from '../models';
+import { paginateEvents } from '../helpers/helper';
 
 const Events = Event;
 // const Centers = Center;
@@ -76,31 +77,66 @@ export default class EventsController {
   }
 
   static allEvents(req, res) {
-    return Events.findAll({
-      order: [['date', 'DESC']]
-    }).then((events) => {
-      if (events.length > 0) {
-        if (req.query) {
-          return res.status(200).json({ success: true, message: 'All Events In System:', events });
-        }
-      }
-      res.status(404).json({ message: 'There are no events' });
-    });
+    const limit = 6;
+    let offset = 0;
+    const pageNo = parseInt(req.query.pageNo, 10) || 1;
+    offset = limit * (pageNo - 1);
+    return Events.findAndCountAll({
+      order: [['date', 'DESC']],
+      limit,
+      offset
+    }).then(events => paginateEvents({
+      req, res, events, limit, pageNo
+    }))
+      .catch((error) => {
+        res.status(500).json({ message: 'Your request had an error', error });
+      });
   }
 
   static getUserEvents(req, res) {
-    return Events
-      .findAll({
+    const limit = 6;
+    let offset = 0;
+    const pageNo = parseInt(req.query.pageNo, 10) || 1;
+    offset = limit * (pageNo - 1);
+    return Events.findAndCountAll({
+      where: {
+        userId: req.decoded.userId
+      },
+      order: [['date', 'DESC']],
+      limit,
+      offset
+    }).then(events => paginateEvents({
+      req, res, events, limit, pageNo
+    }))
+      .catch((error) => {
+        res.status(500).json({ message: 'Your request had an error', error });
+      });
+  }
+
+  static getCenterEvents(req, res) {
+    const limit = 6;
+    let offset = 0;
+    const pageNo = parseInt(req.query.pageNo, 10) || 1;
+    offset = limit * (pageNo - 1);
+    const { id } = req.params;
+    try { // avoid user having a string input as id
+      parseInt(id, 10);
+    } catch (e) {
+      return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+    } finally {
+      Events.findAndCountAll({
         where: {
-          userId: req.decoded.userId
-        }
-      }).then((events) => {
-        if (events.length > 0) {
-          if (req.query) {
-            return res.status(200).json({ success: true, message: 'All of your upcoming events:', events });
-          }
-        }
-        res.status(404).json({ message: 'You have no events.' });
-      }).catch(error => res.status(404).json({ message: 'You have no events', error }));
+          centerId: id
+        },
+        order: [['date', 'DESC']],
+        limit,
+        offset
+      }).then(events => paginateEvents({
+        req, res, events, limit, pageNo
+      }))
+        .catch((error) => {
+          res.status(500).json({ message: 'Your request had an error', error });
+        });
+    }
   }
 }

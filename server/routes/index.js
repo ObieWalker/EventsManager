@@ -21,6 +21,8 @@ apiv1.post(
 // apiv1.get('/users/:userId/events', EventsController.getUserEvents);
 
 apiv1.get('/events/', EventsController.allEvents);
+// get user events
+apiv1.get('/events/:user', auth.authenticate, EventsController.getUserEvents);
 // modify an event
 apiv1.put(
   '/events/:id', auth.authenticate,
@@ -42,6 +44,11 @@ apiv1.post(
 apiv1.put(
   '/centers/:id', auth.authenticate,
   validator.centerValidation, CentersController.modifyCenter
+);
+// get center events
+apiv1.get(
+  '/center/events/:id',
+  EventsController.getCenterEvents
 );
 // get all centers
 apiv1.get('/centers', CentersController.getAllCenters);
