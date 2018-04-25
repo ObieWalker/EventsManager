@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { User } from '../models';
+import { paginateUsers } from '../helpers/helper';
+
 
 dotenv.config();
 const Users = User;
@@ -86,6 +88,96 @@ export default class UsersController {
           success: false,
           error
         });
+      });
+  }
+  static getAllUsers(req, res) {
+    const limit = 10;
+    let offset = 0;
+    const pageNo = parseInt(req.query.pageNo, 10) || 1;
+    offset = limit * (pageNo - 1);
+    Users.findById(req.decoded.id)
+      .then((user) => {
+        if (user.isAdmin !== true) {
+          return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+        }
+        return Users.findAndCountAll({
+          order: [['id', 'DESC']],
+          limit,
+          offset
+        }).then(users => paginateUsers({
+          req, res, users, limit, pageNo
+        }))
+          .catch((error) => {
+            res.status(500).json({ message: 'Your request had an error', error });
+          });
+      });
+  }
+
+  static setAsAdmin(req, res) {
+    Users.findById(req.decoded.id)
+      .then((adminUser) => {
+        if (adminUser.isAdmin !== true) {
+          return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+        }
+        const { id } = req.params;
+        try { // avoid user having a string input as id
+          parseInt(id, 10);
+        } catch (e) {
+          return res.status(400).json({ success: false, message: 'There was an error with the user ID input!' });
+        } finally {
+          Users.findById(id)
+            .then((user) => {
+              if (!user) { // not found
+                return res.status(404).json({ success: true, message: 'No user found' });
+              }
+              return user.update({
+                isAdmin: req.body.isAdmin
+              })
+                .then(() => {
+                  user.reload()
+                    .then(() => res.status(200).json({
+                      success: true,
+                      message: 'The user\'s details have been modified',
+                      updated: user
+                    }));
+                })
+                .catch((err) => {
+                  res.status(500).json({ success: false, message: 'Could not update user status', error: err });
+                });
+            });
+        }
+      });
+  }
+
+
+  static deleteUser(req, res) {
+    Users.findById(req.decoded.id)
+      .then((adminUser) => {
+        if (adminUser.isAdmin !== true) {
+          return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+        }
+        const { id } = req.params;
+        try { // avoid user having a string input as id
+          parseInt(id, 10);
+        } catch (e) {
+          return res.status(400).json({ success: false, message: 'There was an error with the user ID input!' });
+        } finally {
+          Users.findById(id)
+            .then((user) => {
+              if (!user) { // not found
+                return res.status(404).json({ success: true, message: 'No user found' });
+              }
+              return user.destroy()
+                .then(() => res.status(200).json({
+                  success: true,
+                  message: 'The user\'s details have been deleted',
+                  updated: user
+                }))
+                .catch((err) => {
+                  res.status(500).json({ success: false, message: 'Unable to delete user', error: err });
+                });
+            });
+        }
       });
   }
 }
