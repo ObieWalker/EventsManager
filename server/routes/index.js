@@ -11,6 +11,10 @@ const apiv1 = express.Router();
 // account creation and login
 apiv1.post('/users', validator.signUpValidator, UsersController.signup);
 apiv1.post('/users/login', validator.signInValidator, UsersController.signin);
+apiv1.get('/users', auth.authenticate, UsersController.getAllUsers);
+apiv1.put('/users/:id', auth.authenticate, UsersController.setAsAdmin);
+apiv1.delete('users/:id', auth.authenticate, UsersController.deleteUser);
+
 
 // create a new event
 apiv1.post(
