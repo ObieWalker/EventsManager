@@ -11,8 +11,11 @@
     "build": "babel src -d dist",
     "heroku-postbuild": "npm run build:dev",
     "mocha": "mocha --compilers js:babel-core/register",
-    "test": "nyc --reporter=html --reporter=text mocha ./server/tests/ --compilers js:babel-register --exit",
-    "test:dev": "npm run test && npm run coverage",
+    "pretest": "NODE_ENV=test npm run db:migration",
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "test:dev": "NODE_ENV=test npm run db:migration:dev && nyc --reporter=html --reporter=text mocha --timeout 45000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "db:migration": "sequelize db:migrate && sequelize db:seed:all",
+    "db:migration:dev": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
     "lint": "./node_modules/.bin/eslint",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"

@@ -1,3 +1,4 @@
+import moment from 'moment';
 /**
  * @returns {object} message
  *
@@ -87,7 +88,7 @@ export default class validate {
  */
   static centerValidation(req, res, next) {
     req.checkBody('name', 'Your center must have a name').notEmpty();
-    req.checkBody('city', 'You must enter a location').notEmpty();
+    req.checkBody('city', 'You must enter a city').notEmpty();
     req.checkBody(
       'capacity',
       'You have to enter the venue capacity'
@@ -126,14 +127,17 @@ export default class validate {
       'guestNo',
       'Your guest estimate must be a number more than 2'
     ).isInt({ gt: 2 });
-    req.checkBody('date').toDate();
+    // req.checkBody('date').isDate();
     req.checkBody('date', 'Your date entry cannot be empty').notEmpty();
-    // req.checkBody(
-    //   'date',
-    //   'Your date cannot be in the past'
-    // ).isAfter((Date.now());
+    req.checkBody(
+      'date',
+      'Your date cannot be in the past'
+    ).isAfter();
 
     const errors = req.validationErrors();
+    if (moment(req.body.date).isValid() === false) {
+      errors[0].msg = 'Invalid date';
+    }
     if (errors) {
       res.status(400).json({
         success: false, message: errors[0].msg, error: errors

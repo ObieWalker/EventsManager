@@ -40,8 +40,8 @@ const getCenterEventsRequest = (centerId, pageNo, limit) => (
       dispatch(fetchCenterEventsSuccess(response.data.events));
       dispatch(isCenterEventsFetching(false));
     }).catch((error) => {
-      toastr.success(error.response.data.info);
-      dispatch(fetchCenterEventsFailure(error.response.data.info));
+      toastr.success(error.response.data.message);
+      dispatch(fetchCenterEventsFailure(error.response.data.message));
       dispatch(isCenterEventsFetching(false));
     });
   }

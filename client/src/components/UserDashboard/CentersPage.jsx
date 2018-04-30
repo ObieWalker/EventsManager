@@ -18,8 +18,7 @@ import addEventAction from '../../actions/addEventAction';
 import getAllCenters from '../../actions/getAllCentersAction';
 import validateForm from '../../../helpers/validators/eventValidator';
 import centerEvents,
-{ clearCenterEvents }
-  from '../../actions/getCenterEventsAction';
+{ clearCenterEvents } from '../../actions/getCenterEventsAction';
 
 /**
  *
@@ -60,16 +59,15 @@ class CentersPage extends Component {
   }
 
   /**
- * @method componentWillMount
- * @returns { * } null
- * @memberof AllCenters
- */
+   * @method componentWillMount
+   * @returns { * } null
+   * @memberof AllCenters
+   */
   componentWillMount() {
     const { pageNo, limit } = this.state;
-    this.props.getAllCenters(pageNo, limit)
-      .then(() => {
-        this.setState({ centers: this.props.allCenters.fetchedCenters });
-      });
+    this.props.getAllCenters(pageNo, limit).then(() => {
+      this.setState({ centers: this.props.allCenters.fetchedCenters });
+    });
   }
   /**
    * @method componentWillReceiveProps
@@ -86,11 +84,11 @@ class CentersPage extends Component {
     }
   }
   /**
- * @returns {object} center state
- *
- * @param {any} center
- * @memberof CentersPage
- */
+   * @returns {object} center state
+   *
+   * @param {any} center
+   * @memberof CentersPage
+   */
   handleShowModal(center) {
     this.setState({
       center,
@@ -98,37 +96,37 @@ class CentersPage extends Component {
     });
   }
   /**
- * @returns {object} events
- *
- * @param {any} center
- * @memberof CentersPage
- */
+   * @returns {object} events
+   *
+   * @param {any} center
+   * @memberof CentersPage
+   */
   getCenterEvents(center) {
     this.setState({
-      showCenterEvents: true,
+      showCenterEvents: true
     });
     this.props.centerEvents(center.id, 1, 10);
   }
   /**
- * @returns {object} state
- *
- * @param {any} e
- * @memberof CentersPage
- */
+   * @returns {object} state
+   *
+   * @param {any} e
+   * @memberof CentersPage
+   */
   resetPage() {
     this.setState({
       pageNo: 1,
       filter: '',
       capacity: '',
-      facility: '',
+      facility: ''
     });
   }
   /**
- * @returns {object} page state
- *
- * @param {any} e
- * @memberof CentersPage
- */
+   * @returns {object} page state
+   *
+   * @param {any} e
+   * @memberof CentersPage
+   */
   revertPageState(e) {
     e.preventDefault();
     this.setState({
@@ -137,13 +135,13 @@ class CentersPage extends Component {
     this.props.clearCenterEvents();
   }
   /**
- * @returns {object} search state
- *
- * @param {any} filter
- * @param {any} capacity
- * @param {any} facility
- * @memberof CentersPage
- */
+   * @returns {object} search state
+   *
+   * @param {any} filter
+   * @param {any} capacity
+   * @param {any} facility
+   * @memberof CentersPage
+   */
   changeSearchState(filter, capacity, facility) {
     this.setState({
       filter,
@@ -152,21 +150,21 @@ class CentersPage extends Component {
     });
   }
   /**
- * @returns {object} void
- *
- * @param {any} e
- * @memberof BookCenter
- */
+   * @returns {object} void
+   *
+   * @param {any} e
+   * @memberof BookCenter
+   */
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
   /**
- *
- * @returns {object} state
- * @memberof AdminCenters
- */
+   *
+   * @returns {object} state
+   * @memberof AdminCenters
+   */
   handleClose() {
     this.setState({
       show: false
@@ -179,9 +177,15 @@ class CentersPage extends Component {
    * @memberof AllCenters
    */
   loadMoreContent() {
-    this.setState({
-      pageNo: this.state.pageNo + 1, isLoading: true
-    }, () => { this.getMoreCenters(this.state.pageNo, this.state.limit); });
+    this.setState(
+      {
+        pageNo: this.state.pageNo + 1,
+        isLoading: true
+      },
+      () => {
+        this.getMoreCenters(this.state.pageNo, this.state.limit);
+      }
+    );
   }
 
   /**
@@ -197,11 +201,11 @@ class CentersPage extends Component {
   }
 
   /**
- *
- *
- * @returns {object} boolean
- * @memberof BookCenter
- */
+   *
+   *
+   * @returns {object} boolean
+   * @memberof BookCenter
+   */
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
@@ -211,11 +215,11 @@ class CentersPage extends Component {
   }
 
   /**
- * @returns {object} void
- *
- * @param {any} e
- * @memberof BookCenter
- */
+   * @returns {object} void
+   *
+   * @param {any} e
+   * @memberof BookCenter
+   */
   onSubmit(e) {
     e.preventDefault();
     if (this.formIsValid()) {
@@ -230,32 +234,31 @@ class CentersPage extends Component {
         title: 'Are you sure?',
         text: 'You will be booking the center with the set date.',
         icon: 'info',
-        dangerMode: true,
+        dangerMode: true
       });
-      this.props.addNewEvent(eventDetails)
-        .then(() => {
-          const { createSuccess, createError } = this.props;
-          if (createError === '') {
-            toastr.remove();
-            toastr.success(createSuccess);
-          } else {
-            swal({
-              title: 'Unable to add new event',
-              text: createError,
-              icon: 'error',
-              dangerMode: false,
-            });
-          }
-          this.clear();
-        });
+      this.props.addNewEvent(eventDetails).then(() => {
+        const { createSuccess, createError } = this.props;
+        if (createError === '') {
+          toastr.remove();
+          toastr.success(createSuccess);
+        } else {
+          swal({
+            title: 'Unable to add new event',
+            text: createError,
+            icon: 'error',
+            dangerMode: false
+          });
+        }
+        this.clear();
+      });
     }
   }
   /**
- *
- *
- * @returns {object} booked center
- * @memberof BookCenter
- */
+   *
+   *
+   * @returns {object} booked center
+   * @memberof BookCenter
+   */
   render() {
     const { centers, showCenterEvents } = this.state;
     if (showCenterEvents === false) {
@@ -263,37 +266,59 @@ class CentersPage extends Component {
         <div>
           <div>
             <h3>Available Centers.</h3>
-            <div className='center'>
+            <div className="center">
               <Search
                 changeSearchState={this.changeSearchState.bind(this)}
                 resetPage={this.resetPage.bind(this)}
-              /> <br/> <br/>
+              />{' '}
+              <br /> <br />
             </div>
-            <div> {(centers) ?
-              <Row>
-                {centers.map((center, i) =>
-                  <CenterList key={i} center={center}
-                    handleShowModal={this.handleShowModal.bind(this)}
-                    getCenterEvents={this.getCenterEvents.bind(this, center)}/>)}
-              </Row> : 'There are no registered centers.'
-            }
-            {this.state.isLoading === true &&
-          <div><p>Loading...</p> <Loading /></div> }
-            <ScrollUp showUnder={100}>
-              <button type="button"
-                className="btn btn-floating btn-rounded waves-effect"
-              >TOP</button>
-            </ScrollUp>
-            <button onClick={this.loadMoreContent}
-              className="btn btn-primary active"
-              id="loadMore" disabled={!this.props.moreCenters}
-            >Load More</button>
-            <br /><br />
+            <div>
+              {' '}
+              {centers ? (
+                <Row>
+                  {centers.map((center, i) => (
+                    <CenterList
+                      key={i}
+                      center={center}
+                      handleShowModal={this.handleShowModal.bind(this)}
+                      getCenterEvents={this.getCenterEvents.bind(this, center)}
+                    />
+                  ))}
+                </Row>
+              ) : (
+                'There are no registered centers.'
+              )}
+              {this.state.isLoading === true && (
+                <div>
+                  <p>Loading...</p> <Loading />
+                </div>
+              )}
+              <ScrollUp showUnder={100}>
+                <button
+                  type="button"
+                  className="btn btn-floating btn-rounded waves-effect"
+                >
+                  TOP
+                </button>
+              </ScrollUp>
+              <button
+                onClick={this.loadMoreContent}
+                className="btn btn-primary active"
+                id="loadMore"
+                disabled={!this.props.moreCenters}
+              >
+                Load More
+              </button>
+              <br />
+              <br />
             </div>
           </div>
           <Modal show={this.state.show} onHide={this.handleClose}>
-            <BookCenter center ={this.state.center}
-              handleClose={this.handleClose.bind(this)}/>
+            <BookCenter
+              center={this.state.center}
+              handleClose={this.handleClose.bind(this)}
+            />
           </Modal>
         </div>
       );
@@ -302,25 +327,42 @@ class CentersPage extends Component {
     return (
       <div>
         <button
-          className="btn peach-gradient btn-sm glyphicon glyphicon-arrow-left left"
-          onClick={this.revertPageState}> Go Back</button>
+          className="btn peach-gradient btn-sm
+          glyphicon glyphicon-arrow-left left"
+          onClick={this.revertPageState}
+        >
+          {' '}
+          Go Back
+        </button>
         <div>
-          {(events && events.length > 0) ? (
+          {events && events.length > 0 ? (
             <div>
-              <h3>Upcoming Events at {this.props.fetchedCenterEvents[0].Center.name}</h3>
+              <h3>
+                Upcoming Events at{' '}
+                {this.props.fetchedCenterEvents[0].Center.name}
+              </h3>
               <Row>
-                {events.map((event, i) =>
-                  <EventList key={i} event={event}/>)}
+                {events.map((event, i) => <EventList key={i} event={event} />)}
               </Row>
-            </div>) : <h4>This Center has no upcoming events.</h4>
-          }
-          {this.state.isLoading === true &&
-            <div><p>Loading...</p> <Loading /></div> }
+            </div>
+          ) : (
+            <h4>This Center has no upcoming events.</h4>
+          )}
+          {this.state.isLoading === true && (
+            <div>
+              <p>Loading...</p> <Loading />
+            </div>
+          )}
           <ScrollUp showUnder={100}>
-            <button type="button"
-              className="btn btn-floating btn-rounded waves-effect">TOP</button>
+            <button
+              type="button"
+              className="btn btn-floating btn-rounded waves-effect"
+            >
+              TOP
+            </button>
           </ScrollUp>
-          <br /><br />
+          <br />
+          <br />
         </div>
       </div>
     );
@@ -349,12 +391,15 @@ const mapStateToProps = state => ({
   fetchedCenterEvents: state.centerEvents.fetchedCenterEvents
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getAllCenters,
-  addNewEvent: addEventAction,
-  centerEvents,
-  clearCenterEvents
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      getAllCenters,
+      addNewEvent: addEventAction,
+      centerEvents,
+      clearCenterEvents
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(CentersPage);
-

@@ -34,6 +34,7 @@
     "parser": "babel-eslint",
   
     "rules": {
+      "import/extensions": 0,
       "one-var": 0,
       "semi": ["error", "always"],
       "eol-last": ["error", "always"],
@@ -48,6 +49,7 @@
       "consistent-return": 0,
       "no-param-reassign": 0,
       "comma-dangle": 0,
+      "arrow-body-style": [2, "as-needed"],
       "curly": ["error", "multi-line"],
       "import/no-unresolved": [2, { "commonjs": true }],
       "no-shadow": ["error", { "allow": ["req", "res", "err"] }],

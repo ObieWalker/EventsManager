@@ -5,22 +5,22 @@ export const hostUrl = process.env.NODE_ENV === 'production' ?
 export const paginateData = ({
   res, centers, limit, pageNo
 }) => {
-  const info = 'Centers have been returned successfully';
+  const message = 'Centers have been returned successfully';
   if (centers.count < 1) {
     return res.status(404).json({
-      info: 'No centers available'
+      message: 'No centers available'
     });
   } else if (centers.rows.length < 1) {
     return res.status(404).json({
-      info: 'No centers in this set'
+      message: 'No centers in this set'
     });
   } else if (pageNo > Math.ceil(centers.count / limit)) {
     return res.status(404).json({
-      info: 'No more centers available'
+      message: 'No more centers available'
     });
   }
   return res.status(200).json({
-    info,
+    message,
     success: true,
     centers: centers.rows,
     count: centers.count
@@ -30,22 +30,22 @@ export const paginateData = ({
 export const paginateEvents = ({
   res, events, limit, pageNo
 }) => {
-  const info = 'Events have been returned successfully';
+  const message = 'Events have been returned successfully';
   if (events.count < 1) {
     return res.status(404).json({
-      info: 'No events available'
+      message: 'No events available'
     });
   } else if (events.rows.length < 1) {
     return res.status(404).json({
-      info: 'No more events availale.'
+      message: 'No more events availale.'
     });
   } else if (pageNo > Math.ceil(events.count / limit)) {
     return res.status(404).json({
-      info: 'No more events available'
+      message: 'No more events available'
     });
   }
   return res.status(200).json({
-    info,
+    message,
     success: true,
     events: events.rows,
     count: events.count
@@ -55,22 +55,22 @@ export const paginateEvents = ({
 export const paginateHistory = ({
   res, events, limit, pageNo
 }) => {
-  const info = 'Events have been returned successfully';
+  const message = 'Events have been returned successfully';
   if (events.count < 1) {
     return res.status(404).json({
-      info: 'No events available'
+      message: 'No events available'
     });
   } else if (events.rows.length < 1) {
     return res.status(404).json({
-      info: 'No events in this set'
+      message: 'No events in this set'
     });
   } else if (pageNo > Math.ceil(events.count / limit)) {
     return res.status(404).json({
-      info: 'No more events available'
+      message: 'No more events available'
     });
   }
   return res.status(200).json({
-    info,
+    message,
     success: true,
     events: events.rows,
     count: events.count
@@ -80,22 +80,22 @@ export const paginateHistory = ({
 export const paginateUsers = ({
   res, users, limit, pageNo
 }) => {
-  const info = 'Users have been returned successfully';
+  const message = 'Users have been returned successfully';
   if (users.count < 1) {
     return res.status(404).json({
-      info: 'No users available'
+      message: 'No users available'
     });
   } else if (users.rows.length < 1) {
     return res.status(404).json({
-      info: 'No users in this set'
+      message: 'No users in this set'
     });
   } else if (pageNo > Math.ceil(users.count / limit)) {
     return res.status(404).json({
-      info: 'No more users available'
+      message: 'No more users available'
     });
   }
   return res.status(200).json({
-    info,
+    message,
     success: true,
     users: users.rows,
     count: users.count
