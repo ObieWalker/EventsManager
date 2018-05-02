@@ -31,15 +31,6 @@ module.exports = (sequelize, DataTypes) => {
     guestNo: {
       type: DataTypes.INTEGER,
       allowNull: true
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isEmail: {
-          msg: 'Not a valid email'
-        }
-      }
     }
   });
 

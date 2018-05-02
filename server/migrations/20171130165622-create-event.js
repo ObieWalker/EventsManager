@@ -14,12 +14,6 @@ module.exports = {
       type: Sequelize.DATEONLY,
       allowNull: false
     },
-    email: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: false,
-      isEmail: true
-    },
     guestNo: {
       type: Sequelize.INTEGER,
       allowNull: true
