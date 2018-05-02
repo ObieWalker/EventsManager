@@ -1,4 +1,3 @@
-
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
@@ -8,21 +7,18 @@ import { paginateUsers } from '../helpers/helper';
 
 dotenv.config();
 const Users = User;
-// const secret = "1234";
-// this will be used for the password encryption
-// this is the cost factor set to 2 raised to 13 just because
 const saltRound = 13;
 
 export default class UsersController {
   static signup(req, res) {
-    return Users.findAll({
+    return Users.findOne({
       where: {
         email: req.body.email
       }
     })
       .then((users) => {
         // checks to see if user already exist
-        if (users.length > 0) {
+        if (users) {
           return res.status(400).json({
             message: 'User already exists'
           });
@@ -120,35 +116,35 @@ export default class UsersController {
           return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
         }
         const { id } = req.params;
-        try { // avoid user having a string input as id
-          parseInt(id, 10);
-        } catch (e) {
+        if (!Number.isInteger(id)) {
           return res.status(400).json({ success: false, message: 'There was an error with the user ID input!' });
-        } finally {
-          Users.findById(id)
-            .then((user) => {
-              if (!user) { // not found
-                return res.status(404).json({ success: true, message: 'No user found' });
-              }
-              return user.update({
-                isAdmin: req.body.isAdmin
-              })
-                .then(() => {
-                  user.reload()
-                    .then(() => res.status(200).json({
-                      success: true,
-                      message: 'The user\'s details have been modified',
-                      updated: user
-                    }));
-                })
-                .catch((err) => {
-                  res.status(500).json({ success: false, message: 'Could not update user status', error: err });
-                });
-            });
         }
+        const intId = parseInt(id, 10);
+        if (Number.isNaN(intId)) {
+          return res.status(400).json({ success: false, message: 'There was an error with the user ID input!' });
+        }
+        Users.findById(id)
+          .then((user) => {
+            if (!user) { // not found
+              return res.status(404).json({ success: true, message: 'No user found' });
+            }
+            return user.update({
+              isAdmin: req.body.isAdmin
+            })
+              .then(() => {
+                user.reload()
+                  .then(() => res.status(200).json({
+                    success: true,
+                    message: 'The user\'s details have been modified',
+                    updated: user
+                  }));
+              })
+              .catch((err) => {
+                res.status(500).json({ success: false, message: 'Could not update user status', error: err });
+              });
+          });
       });
   }
-
 
   static deleteUser(req, res) {
     Users.findById(req.decoded.id)
@@ -157,27 +153,28 @@ export default class UsersController {
           return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
         }
         const { id } = req.params;
-        try { // avoid user having a string input as id
-          parseInt(id, 10);
-        } catch (e) {
-          return res.status(400).json({ success: false, message: 'There was an error with the user ID input!' });
-        } finally {
-          Users.findById(id)
-            .then((user) => {
-              if (!user) { // not found
-                return res.status(404).json({ success: true, message: 'No user found' });
-              }
-              return user.destroy()
-                .then(() => res.status(200).json({
-                  success: true,
-                  message: 'The user\'s details have been deleted',
-                  updated: user
-                }))
-                .catch((err) => {
-                  res.status(500).json({ success: false, message: 'Unable to delete user', error: err });
-                });
-            });
+        if (!Number.isInteger(id)) {
+          return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
         }
+        const intId = parseInt(id, 10);
+        if (Number.isNaN(intId)) {
+          return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+        }
+        Users.findById(id)
+          .then((user) => {
+            if (!user) { // not found
+              return res.status(404).json({ success: true, message: 'No user found' });
+            }
+            return user.destroy()
+              .then(() => res.status(200).json({
+                success: true,
+                message: 'The user\'s details have been deleted',
+                updated: user
+              }))
+              .catch((err) => {
+                res.status(500).json({ success: false, message: 'Unable to delete user', error: err });
+              });
+          });
       });
   }
 }

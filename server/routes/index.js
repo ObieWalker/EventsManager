@@ -37,6 +37,11 @@ apiv1.delete(
   '/events/:id',
   auth.authenticate, EventsController.deleteEvent
 );
+// get center events
+apiv1.get(
+  '/center/events/:centerId',
+  EventsController.getCenterEvents
+);
 
 // add new center
 apiv1.post(
@@ -49,11 +54,7 @@ apiv1.put(
   '/centers/:id', auth.authenticate,
   validator.centerValidation, CentersController.modifyCenter
 );
-// get center events
-apiv1.get(
-  '/center/events/:id',
-  EventsController.getCenterEvents
-);
+
 // get all centers
 apiv1.get('/centers', CentersController.getAllCenters);
 // get center details
