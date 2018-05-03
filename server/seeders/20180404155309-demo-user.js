@@ -312,7 +312,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '5/4/2018',
         guestNo: 120,
-        email: 'testuser1@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -322,7 +321,6 @@ module.exports = {
         eventType: 'Party',
         date: '5/12/2018',
         guestNo: 120,
-        email: 'testuser1@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -332,7 +330,6 @@ module.exports = {
         eventType: 'Party',
         date: '6/4/2018',
         guestNo: 60,
-        email: 'testuser2@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -342,7 +339,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '6/6/2018',
         guestNo: 120,
-        email: 'testuser1@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -352,7 +348,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '8/7/2018',
         guestNo: 80,
-        email: 'testuser1@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -362,7 +357,6 @@ module.exports = {
         eventType: 'Dinner',
         date: '6/7/2018',
         guestNo: 120,
-        email: 'testuser3@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -372,7 +366,6 @@ module.exports = {
         eventType: 'Conference',
         date: '6/8/2018',
         guestNo: 120,
-        email: 'testuser3@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -382,7 +375,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '5/6/2018',
         guestNo: 100,
-        email: 'testuser4@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -392,7 +384,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '8/6/2018',
         guestNo: 120,
-        email: 'testuser4@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -402,7 +393,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '8/21/2018',
         guestNo: 120,
-        email: 'testuser4@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -412,7 +402,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '6/15/2018',
         guestNo: 120,
-        email: 'testuser4@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -422,7 +411,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '6/25/2018',
         guestNo: 120,
-        email: 'testuser4@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -432,7 +420,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '7/25/2018',
         guestNo: 120,
-        email: 'testuser4@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -442,7 +429,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '6/28/2018',
         guestNo: 120,
-        email: 'testuser4@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -452,7 +438,6 @@ module.exports = {
         eventType: 'Wedding',
         date: '6/29/2018',
         guestNo: 120,
-        email: 'testuser5@gmail.com',
         createdAt: new Date(),
         updatedAt: new Date()
       }], {}

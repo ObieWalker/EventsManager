@@ -18,6 +18,10 @@ module.exports = {
       type: Sequelize.INTEGER,
       allowNull: true
     },
+    isCancelled: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

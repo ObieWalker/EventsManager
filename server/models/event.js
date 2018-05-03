@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, DataTypes) => {
   const Event = sequelize.define('Event', {
     userId: {
@@ -30,6 +28,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     guestNo: {
       type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    isCancelled: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
       allowNull: true
     }
   });

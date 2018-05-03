@@ -21,25 +21,25 @@ export default class CentersController {
             message: 'Center already exists'
           });
         }
-      Centers.create({
-        userId: req.decoded.id,
-        name: req.body.name,
-        address: req.body.address,
-        facility: req.body.facility,
-        capacity: req.body.capacity,
-        city: req.body.city,
-        image: req.body.image
-      })
-        .then((center) => {
-          res.status(201).json({ success: true, message: 'The center has been added', center });
+        Centers.create({
+          userId: req.decoded.id,
+          name: req.body.name,
+          address: req.body.address,
+          facility: req.body.facility,
+          capacity: req.body.capacity,
+          city: req.body.city,
+          image: req.body.image
         })
+          .then((center) => {
+            res.status(201).json({ success: true, message: 'The center has been added', center });
+          })
+          .catch((error) => {
+            res.status(400).json({ success: false, message: 'Your request could not be processed', error: error.messsage });
+          });
+      })
         .catch((error) => {
-          res.status(400).json({ success: false, message: 'Your request could not be processed', error: error.messsage });
+          res.status(403).json({ success: false, message: 'You do not have the admin rights to add a center', error });
         });
-    })
-      .catch((error) => {
-        res.status(403).json({ success: false, message: 'You do not have the admin rights to add a center', error });
-      });
     });
   }
 

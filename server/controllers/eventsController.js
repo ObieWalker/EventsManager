@@ -1,8 +1,12 @@
-import { Event, Center } from '../models';
+import dotenv from 'dotenv';
+import { Event, Center, User } from '../models';
 import { paginateEvents } from '../helpers/helper';
+import sendMail from '../helpers/sendMail';
 
+dotenv.config();
 const Events = Event;
 const Centers = Center;
+const Users = User;
 
 export default class EventsController {
   static createEvent(req, res) {
@@ -86,12 +90,59 @@ export default class EventsController {
       });
   }
 
+  static cancelEvent(req, res) {
+    Users.findById(req.decoded.id)
+      .then((adminUser) => {
+        if (adminUser.isAdmin !== true) {
+          return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+        }
+        const { id } = req.params;
+        const intId = parseInt(id, 10);
+        if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
+          return res.status(400).json({ success: false, message: 'There was an error with the event ID input!' });
+        }
+        return Events.findById(req.params.id)
+          .then((event) => {
+            if (!event) { // if no centers
+              return res.status(404).send({ success: false, message: 'Event not found' });
+            } // else remove
+            const eventDate = event.date;
+            event.update({
+              isCancelled: true
+            }).then(() => User.findOne({
+              where: {
+                id: event.userId,
+              }
+            }).then((user) => {
+              const receiverEmail = user.email;
+              const firstname = user.firstName;
+              sendMail(receiverEmail, firstname, eventDate);
+            })
+              .then(() => res.status(200).json({
+                success: true,
+                message: 'The event has been cancelled',
+                cancelled: event
+              }))
+              .catch((err) => {
+                res.status(500).json({ success: false, message: 'Could not cancel event', error: err });
+              }));
+          })
+          .catch((err) => {
+            res.status(400).json({
+              message: 'Cannot do that right now',
+              error: err.name
+            });
+          });
+      });
+  }
+
   static allEvents(req, res) {
     const limit = parseInt(req.query.limit, 10) || 6;
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
-    return Events.findAndCountAll({
+    Events.findAndCountAll({
+
       order: [['date', 'DESC']],
       limit,
       offset
