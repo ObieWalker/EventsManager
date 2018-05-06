@@ -26,7 +26,7 @@ apiv1.post(
 
 apiv1.get('/events/', EventsController.allEvents);
 // get user events
-apiv1.get('/events/user', auth.authenticate, EventsController.getUserEvents);
+apiv1.get('/user/events/', auth.authenticate, EventsController.getUserEvents);
 // modify an event
 apiv1.put(
   '/events/:id', auth.authenticate,

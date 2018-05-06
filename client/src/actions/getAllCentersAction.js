@@ -22,12 +22,12 @@ const fetchCentersFailure = error => ({
   error
 });
 
-const fetchCentersRequest = pageNo => (
+const fetchCentersRequest = (pageNo, limit) => (
   (dispatch) => {
     dispatch(isCentersFetching(true));
     return axios({
       method: 'GET',
-      url: `/api/v1/centers?pageNo=${pageNo}`
+      url: `/api/v1/centers?pageNo=${pageNo}&limit=${limit}`
     })
       .then((response) => {
         dispatch(fetchCentersSuccess(response.data.centers));

@@ -21,7 +21,7 @@ const login = userInfo =>
       setAuthToken(token);
       const decoded = jwt.decode(token);
       dispatch(setUser(decoded));
-      toastr.success(`Oh hi ${decoded.firstName} ${decoded.lastName}`);
+      toastr.success(`Welcome ${decoded.firstName}`);
     })
     .catch((error) => {
       toastr.error('Please enter a valid email or password combination');

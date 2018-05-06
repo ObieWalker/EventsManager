@@ -21,8 +21,7 @@ export default (state = initialState, action = {}) => {
     return newState;
   case FETCH_CENTERS_FAILURE:
     return Object.assign({}, state, {
-      allCentersError: action.error,
-      fetchedCenters: []
+      allCentersError: action.error
     });
   default:
     return state;

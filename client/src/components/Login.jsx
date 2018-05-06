@@ -74,10 +74,9 @@ class Login extends Component {
           const { isAuthenticated, user } = this.props.loginUser;
           if (user.isAdmin) {
             this.props.history.push('/admin');
-            toastr.success('Hello Admin!');
+            toastr.success('Admin!');
           } else if (isAuthenticated && !user.isAdmin) {
             this.props.history.push('/dashboard');
-            toastr.success('welcome back');
           }
         })
         .catch(error => console.log(error));

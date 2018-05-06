@@ -36,7 +36,7 @@
 //     lastName: 'testUser2ln',
 //     username: 'testUser2',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser2@gmail.com',
+//     email: 'testuser2@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -46,7 +46,7 @@
 //     lastName: 'testUser3ln',
 //     username: 'testUser3',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser3@gmail.com',
+//     email: 'testuser3@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -56,7 +56,7 @@
 //     lastName: 'testUser4ln',
 //     username: 'testUser4',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser4@gmail.com',
+//     email: 'testuser4@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -66,7 +66,7 @@
 //     lastName: 'testUser5ln',
 //     username: 'testUser5',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser5@gmail.com',
+//     email: 'testuser5@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -76,7 +76,7 @@
 //     lastName: 'testUser6ln',
 //     username: 'testUser6',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser6@gmail.com',
+//     email: 'testuser6@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -86,7 +86,7 @@
 //     lastName: 'testUser7ln',
 //     username: 'testUser7',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser7@gmail.com',
+//     email: 'testuser7@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -96,7 +96,7 @@
 //     lastName: 'testUser8ln',
 //     username: 'testUser8',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser8@gmail.com',
+//     email: 'testuser8@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -106,7 +106,7 @@
 //     lastName: 'testUser9ln',
 //     username: 'testUser3',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser9@gmail.com',
+//     email: 'testuser9@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
@@ -116,7 +116,7 @@
 //     lastName: 'testUser10ln',
 //     username: 'testUser10',
 //     password: bcrypt.hashSync('password', 13),
-//     email: 'testUser10@gmail.com',
+//     email: 'testuser10@gmail.com',
 //     isAdmin: false,
 //     createdAt: new Date(),
 //     updatedAt: new Date()
