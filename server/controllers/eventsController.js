@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { Event, Center, User } from '../models';
+import models, { Event, Center, User } from '../models';
 import { paginateEvents } from '../helpers/helper';
 import sendMail from '../helpers/sendMail';
 
@@ -7,6 +7,7 @@ dotenv.config();
 const Events = Event;
 const Centers = Center;
 const Users = User;
+const { Op } = models.sequelize;
 
 export default class EventsController {
   static createEvent(req, res) {
@@ -142,7 +143,6 @@ export default class EventsController {
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
     Events.findAndCountAll({
-
       order: [['date', 'DESC']],
       limit,
       offset
@@ -161,9 +161,12 @@ export default class EventsController {
     offset = limit * (pageNo - 1);
     return Events.findAndCountAll({
       where: {
-        userId: req.decoded.userId
+        userId: req.decoded.id,
+        date: {
+          [Op.gte]: new Date().toDateString()
+        }
       },
-      order: [['date', 'DESC']],
+      order: [['date', 'ASC']],
       limit,
       offset
     }).then(events => paginateEvents({

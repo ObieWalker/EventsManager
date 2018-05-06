@@ -9,16 +9,16 @@ const initialState = {
   fetchedEvents: [],
   allEventsError: ''
 };
-
+let newState;
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
   case IS_EVENTS_FETCHING:
     return Object.assign({}, state, { isEventsFetching: action.bool });
   case FETCH_EVENTS_SUCCESS:
-    return Object.assign({}, state, {
-      fetchedEvents: action.events
-    });
+    newState = Object.assign({}, state);
+    newState.fetchedEvents = newState.fetchedEvents.concat(action.events);
+    return newState;
   case FETCH_EVENTS_FAILURE:
     return Object.assign({}, state, {
       allEventsError: action.error,

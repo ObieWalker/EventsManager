@@ -13,7 +13,7 @@ export default class UsersController {
   static signup(req, res) {
     return Users.findOne({
       where: {
-        email: req.body.email
+        email: req.body.email.toLowerCase()
       }
     })
       .then((users) => {
@@ -35,7 +35,7 @@ export default class UsersController {
           username: req.body.username,
           password: myPassword,
           verifyPassword: myPassword,
-          email: req.body.email
+          email: req.body.email.toLowerCase()
         })
           .then(user => res.status(201).json({
             message: 'Your account has been created!, Your details',
@@ -51,7 +51,7 @@ export default class UsersController {
 
   static signin(req, res) {
     Users.findOne({
-      where: { email: req.body.email }
+      where: { email: req.body.email.toLowerCase() }
     })
       .then((user) => {
         if (!user) {

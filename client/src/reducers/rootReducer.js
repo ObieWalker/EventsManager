@@ -3,8 +3,6 @@ import { combineReducers } from 'redux';
 import register from './registerReducer';
 import login from './loginReducer';
 // import events from './eventReducer';
-// import centerReducer from './centerReducer';
-// import singleCenter from './singleCenterReducer'
 import createCenterReducer from './createCenterReducer';
 import updateCenterReducer from './updateCenterReducer';
 import allCentersReducer from './allCentersReducer';
@@ -19,9 +17,9 @@ const rootReducer = combineReducers({
   createCenter: createCenterReducer,
   updateCenter: updateCenterReducer,
   allCenters: allCentersReducer,
-  allEvents: allEventsReducer,
-  userEvents: userEventsReducer,
   deleteCenter: deleteCenterReducer,
+  allEvents: allEventsReducer,
+  allUserEvents: userEventsReducer,
   editCenter: editCenterReducer,
 });
 

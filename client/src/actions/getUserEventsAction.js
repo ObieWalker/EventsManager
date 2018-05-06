@@ -1,20 +1,43 @@
 import axios from 'axios';
 
-import { GET_USER_EVENTS } from '../actions/actionTypes';
+import {
+  IS_USER_EVENTS_FETCHING,
+  FETCH_USER_EVENTS_SUCCESS,
+  FETCH_USER_EVENTS_FAILURE
+} from '../actions/actionTypes';
 
-const getUserEventsAsync = getAllEventsDetail => ({
-  type: GET_USER_EVENTS,
-  payload: getAllEventsDetail,
+
+const isUsersEventsFetching = bool => ({
+  type: IS_USER_EVENTS_FETCHING,
+  bool
 });
 
-const getUserEvents = userIdNo => (dispatch) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('token')}`;
-  axios
-    .get(`/user/events/${userIdNo}`)
-    .then((res) => {
-      localStorage.setItem('message', res.data.message);
-      dispatch(getUserEventsAsync(res.data.event));
-    })
-    .catch(error => localStorage.setItem('message', error.response.message));
-};
-export default getUserEvents;
+
+const fetchUserEventsSuccess = events => ({
+  type: FETCH_USER_EVENTS_SUCCESS,
+  events
+});
+
+
+const fetchUserEventsFailure = error => ({
+  type: FETCH_USER_EVENTS_FAILURE,
+  error
+});
+
+const getUserEventsRequest = (pageNo, limit) => (
+  (dispatch) => {
+    dispatch(isUsersEventsFetching(true));
+    return axios({
+      method: 'GET',
+      url: `/api/v1/user/events/?pageNo=${pageNo}&limit=${limit}`
+    }).then((response) => {
+      dispatch(fetchUserEventsSuccess(response.data.events));
+      dispatch(isUsersEventsFetching(false));
+    }).catch((error) => {
+      dispatch(fetchUserEventsFailure(error.response.data.message));
+      dispatch(isUsersEventsFetching(false));
+    });
+  }
+);
+
+export default getUserEventsRequest;

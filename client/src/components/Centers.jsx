@@ -14,16 +14,17 @@ class AllCenters extends Component {
     this.state = {
       centers: '',
       pageNo: 1,
+      limit: 6,
       isLoading: false
     };
 
     this.loadMoreContent = this.loadMoreContent.bind(this);
-    this.getCenters = this.getCenters.bind(this);
+    this.getMoreCenters = this.getMoreCenters.bind(this);
   }
 
   componentWillMount() {
-    const { pageNo } = this.state;
-    this.props.getAllCenters(pageNo)
+    const { pageNo, limit } = this.state;
+    this.props.getAllCenters(pageNo, limit)
       .then(() => {
         this.setState({ centers: this.props.allCenters.fetchedCenters });
       });
@@ -36,10 +37,10 @@ class AllCenters extends Component {
   }
 
   loadMoreContent() {
-    this.setState({ pageNo: this.state.pageNo + 1, isLoading: true }, () => { this.getCenters(this.state.pageNo); });
+    this.setState({ pageNo: this.state.pageNo + 1, isLoading: true }, () => { this.getMoreCenters(this.state.pageNo, this.state.limit); });
   }
-  getCenters(pageNo) {
-    this.props.getAllCenters(pageNo);
+  getMoreCenters(pageNo, limit) {
+    this.props.getAllCenters(pageNo, limit);
   }
 
   render() {
