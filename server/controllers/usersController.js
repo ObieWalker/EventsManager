@@ -118,7 +118,7 @@ export default class UsersController {
         const { id } = req.params;
         const intId = parseInt(id, 10);
         if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
-          return res.status(400).json({ success: false, message: 'There was an error with the event ID input!' });
+          return res.status(400).json({ success: false, message: 'There was an error with the user ID input!' });
         }
         Users.findById(id)
           .then((user) => {
@@ -150,12 +150,9 @@ export default class UsersController {
           return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
         }
         const { id } = req.params;
-        if (!Number.isInteger(id)) {
-          return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
-        }
         const intId = parseInt(id, 10);
-        if (Number.isNaN(intId)) {
-          return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+        if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
+          return res.status(400).json({ success: false, message: 'There was an error with the user ID input!' });
         }
         Users.findById(id)
           .then((user) => {

@@ -108,6 +108,7 @@ export default class EventsController {
               return res.status(404).send({ success: false, message: 'Event not found' });
             } // else remove
             const eventDate = event.date;
+            const eventCenter = event.center;
             event.update({
               isCancelled: true
             }).then(() => User.findOne({
@@ -117,7 +118,7 @@ export default class EventsController {
             }).then((user) => {
               const receiverEmail = user.email;
               const firstname = user.firstName;
-              sendMail(receiverEmail, firstname, eventDate);
+              sendMail(receiverEmail, firstname, eventDate, eventCenter);
             })
               .then(() => res.status(200).json({
                 success: true,
@@ -185,7 +186,7 @@ export default class EventsController {
     const { centerId } = req.params;
     const intId = parseInt(centerId, 10);
     if (!Number.isInteger(intId) || !((centerId).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(centerId) === -1) {
-      return res.status(400).json({ success: false, message: 'There was an error with the event ID input!' });
+      return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
     }
     Centers.findOne({
       where: {
