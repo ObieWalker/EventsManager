@@ -13,7 +13,8 @@ export default class CentersController {
       }
       Center.findOne({
         where: {
-          name: req.body.name
+          name: req.body.name,
+          address: req.body.address
         }
       }).then((matchCenter) => {
         if (matchCenter) {
@@ -52,10 +53,7 @@ export default class CentersController {
         }
         const { id } = req.params;
         const intId = parseInt(id, 10);
-        if (!Number.isInteger(intId)) {
-          return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
-        }
-        if (Number.isNaN(intId)) {
+        if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
           return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
         }
         Centers.findById(id)
