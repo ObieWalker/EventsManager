@@ -8,8 +8,22 @@ import { paginateUsers } from '../helpers/helper';
 dotenv.config();
 const Users = User;
 const saltRound = 13;
-
+/**
+ * @description user controller
+ *
+ * @export
+ * @class UsersController
+ */
 export default class UsersController {
+  /**
+   * @description registers a user
+   *
+   * @static
+   * @param {any} req
+   * @param {any} res
+   * @returns {object} user
+   * @memberof UsersController
+   */
   static signup(req, res) {
     return Users.findOne({
       where: {
@@ -19,7 +33,7 @@ export default class UsersController {
       .then((users) => {
         // checks to see if user already exist
         if (users) {
-          return res.status(400).json({
+          return res.status(409).json({
             message: 'User already exists'
           });
         } // ensures both entries to password match
@@ -48,7 +62,14 @@ export default class UsersController {
           .catch(error => res.status(500).json({ message: 'Server Error', error }));
       });
   }
-
+  /**
+ * @description signs in a user
+ * @return {object} sign in message
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @memberof UsersController
+ */
   static signin(req, res) {
     Users.findOne({
       where: { email: req.body.email.toLowerCase() }
@@ -86,6 +107,14 @@ export default class UsersController {
         });
       });
   }
+  /**
+   * @description returns all users from database
+   * @returns {object} users
+   * @static
+   * @param {any} req
+   * @param {any} res
+   * @memberof UsersController
+   */
   static getAllUsers(req, res) {
     const limit = 10;
     let offset = 0;
@@ -108,7 +137,14 @@ export default class UsersController {
           });
       });
   }
-
+  /**
+ * @description sets a user as an admin
+ * @returns {object} user
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @memberof UsersController
+ */
   static setAsAdmin(req, res) {
     Users.findById(req.decoded.id)
       .then((adminUser) => {
@@ -142,7 +178,14 @@ export default class UsersController {
           });
       });
   }
-
+  /**
+ * @description deletes a user from database
+ * @returns {object} delete message
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @memberof UsersController
+ */
   static deleteUser(req, res) {
     Users.findById(req.decoded.id)
       .then((adminUser) => {

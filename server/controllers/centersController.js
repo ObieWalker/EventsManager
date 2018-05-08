@@ -3,9 +3,27 @@ import { paginateData } from '../helpers/helper';
 
 const Centers = Center;
 const Users = User;
-
+/**
+ * @description center controller
+ *
+ * @export
+ * @class CentersController
+ */
 export default class CentersController {
 // create a center only if user is admin
+/**
+ * @returns {object} center
+ *
+ * @static
+ *
+ * @description creates center in database
+ *
+ * @param {any} req
+ *
+ * @param {any} res
+ *
+ * @memberof CentersController
+ */
   static createCenter(req, res) {
     Users.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
@@ -43,7 +61,19 @@ export default class CentersController {
         });
     });
   }
-
+  /**
+ * @returns {object} center
+ *
+ * @static
+ *
+ * @description Modifies a center in the database
+ *
+ * @param {any} req
+ *
+ * @param {any} res
+ *
+ * @memberof CentersController
+ */
   static modifyCenter(req, res) {
     // this ensure the id input isnt a string that cannot be converted eg. "five"
     Users.findById(req.decoded.id)
@@ -84,7 +114,19 @@ export default class CentersController {
           });
       });
   }
-
+  /**
+ * @returns {object} centers
+ *
+ * @static
+ *
+ * @description Gets all centers from a database
+ *
+ * @param {any} req
+ *
+ * @param {any} res
+ *
+ * @memberof CentersController
+ */
   static getAllCenters(req, res) {
     const limit = parseInt(req.query.limit, 10) || 140000;
     let offset = 0;
@@ -101,7 +143,15 @@ export default class CentersController {
         res.status(500).json({ message: 'Your request had an error', error });
       });
   }
-
+  /**
+ *
+ * @description Gets a center from database
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} center
+ * @memberof CentersController
+ */
   static getCenterDetails(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
@@ -121,7 +171,19 @@ export default class CentersController {
       })
       .catch(error => res.status(400).json({ success: false, error }));
   }
-
+  /**
+ * @returns {object} delete message
+ *
+ * @description Deletes center from database
+ *
+ * @static
+ *
+ * @param {any} req
+ *
+ * @param {any} res
+ *
+ * @memberof CentersController
+ */
   static deleteCenter(req, res) {
     Users.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {

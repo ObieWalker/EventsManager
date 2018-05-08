@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import expressValidator from 'express-validator';
+import swaggerUi from 'swagger-ui-express';
 // import webpack from 'webpack';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -10,7 +11,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 // import webpackConfigDev from '../webpack.config.dev';
 // import webpackConfigProd from '../webpack.config.prod';
-
+import swaggerDoc from './doc/swagger.json';
 import router from './routes/index';
 
 const app = express(); // init express
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 // let compiler;
 // if (env === 'production') {
 //   compiler = webpack(webpackConfigProd);
