@@ -8,8 +8,22 @@ const Events = Event;
 const Centers = Center;
 const Users = User;
 const { Op } = models.sequelize;
-
+/**
+ * @description event controller
+ *
+ * @export
+ * @class EventsController
+ */
 export default class EventsController {
+  /**
+   * @description creates a new event
+   *
+   * @static
+   * @param {any} req
+   * @param {any} res
+   * @returns {object} event
+   * @memberof EventsController
+   */
   static createEvent(req, res) {
     // return Centers.findAll();
     return Events.findAll()
@@ -26,8 +40,7 @@ export default class EventsController {
           centerId: req.body.centerId,
           eventType: req.body.eventType,
           date: req.body.date,
-          guestNo: req.body.guestNo,
-          email: req.body.email
+          guestNo: req.body.guestNo
         }).then((event) => {
           res.status(201).json({ message: 'Your event has been booked', event });
         })
@@ -36,7 +49,15 @@ export default class EventsController {
           });
       });
   }
-
+  /**
+ * @description modifies an event
+ *
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @returns {pbject} event
+ * @memberof EventsController
+ */
   static editEvent(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
@@ -53,8 +74,7 @@ export default class EventsController {
           userId: req.decoded.userId,
           eventType: req.body.eventType,
           date: req.body.date,
-          guestNo: req.body.guestNo,
-          email: req.body.email
+          guestNo: req.body.guestNo
         })
           .then(() => {
             event.reload().then(() => res.status(200).json({
@@ -73,7 +93,15 @@ export default class EventsController {
         });
       });
   }
-
+  /**
+ * @description deletes an event from database
+ *
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} delete message
+ * @memberof EventsController
+ */
   static deleteEvent(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
@@ -90,7 +118,14 @@ export default class EventsController {
           .catch(error => res.status(400).send(error));
       });
   }
-
+  /**
+ * @description admin cancelling an event
+ * @returns {object} cancel message
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @memberof EventsController
+ */
   static cancelEvent(req, res) {
     Users.findById(req.decoded.id)
       .then((adminUser) => {
@@ -137,7 +172,14 @@ export default class EventsController {
           });
       });
   }
-
+  /**
+ * @return {object} events
+ * @description returns all events in database
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @memberof EventsController
+ */
   static allEvents(req, res) {
     const limit = parseInt(req.query.limit, 10) || 6;
     let offset = 0;
@@ -154,7 +196,14 @@ export default class EventsController {
         res.status(500).json({ message: 'Your request had an error', error });
       });
   }
-
+  /**
+ * @returns {object} events
+ * @description returns all the events of a user
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @memberof EventsController
+ */
   static getUserEvents(req, res) {
     const limit = parseInt(req.query.limit, 10) || 6;
     let offset = 0;
@@ -177,7 +226,15 @@ export default class EventsController {
         res.status(500).json({ message: 'Your request had an error', error });
       });
   }
-
+  /**
+ * @description get all events booked to a center
+ *
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} events
+ * @memberof EventsController
+ */
   static getCenterEvents(req, res) {
     const limit = parseInt(req.query.limit, 10) || 6;
     let offset = 0;
