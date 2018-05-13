@@ -128,7 +128,7 @@ export default class CentersController {
  * @memberof CentersController
  */
   static getAllCenters(req, res) {
-    const limit = parseInt(req.query.limit, 10) || 140000;
+    const limit = parseInt(req.query.limit, 10) || 6;
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
