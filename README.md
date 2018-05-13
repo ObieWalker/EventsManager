@@ -7,7 +7,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/ObieWalker/EventsManager/badge.svg?branch=develop)](https://coveralls.io/github/ObieWalker/EventsManager?branch=develop)
 
-https://obievents.herokuapp.com/ <<Herokuuu>>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+https://obievents.herokuapp.com/ <<Heroku>>
 
 https://obiewalker.github.io/EventsManager/  <<gh-pages>>
 
@@ -20,153 +22,116 @@ https://obiewalker.github.io/EventsManager/  <<gh-pages>>
 
 
 ### Contributing to the project
-  - This is a solo project but I got a lot of help from my fellow boot-campers and LFA's.
+  - This was intended to be a personal project but I have gotten help and feedback from colleagues and learning facilitators which were duly implemented.
 
 ## TECHNOLOGIES USED
 
   * Front-end: React/Redux and Materialize (Templates available on my gh-pages).
   * Back-end: Node/Expressjs + Sequelize/Postgres
   * Libraries: nodemon, Babel, eslint, etc.
-  * Test: Mocha/Chai
+  * Backend Test: Mocha/Chai
+  * Frontend Test: Enzyme and Jest
 
 ### How users can get started with the project
   - Ensure you have a system with atleast 8GB RAM and follow the instructions below
 
 ## For installation
+* Install Node JS and Postgresql
 * Clone the repo.
-* cd into the server folder
-* Run npm install to install all dependencies
-* Run npm run start to start the server
+* [cd] into the root of the project directory.
+* Run `npm install` to install all 
+* Create a .env file with values for the following keys:
+```
+SECRET=
+PORT=
+UPLOAD_PRESET=
+DEFAULT_IMAGE=
+CLOUDINARY_URL=
+MAILER_EMAIL=
+MAILER_PASSWORD=
+```
+* To run on **development** environment, Run `npm run start:dev` to start the server
+ and`npm run build:dev` for the client side.
+ * To run on **Production** environment, Run `npm start` to start the application.
+* Open your browser on localhost:3000
 
-## Testing with POSTMAN
-> Send a PUT request to 127.0.0.1:8080/events/ with this in the body `{
-  guestno: 'Sunset Cottage,
-  eventtype: 'Wedding',
-  date: 12/12/2017
-}`
 
 ## Tests
   - To run tests, use `npm test`
 
-## API ENDPOINTS
-<hr>
-<table>
-  <tr>
-      <th>Request Type</th>
-      <th>End Point</th>
-      <th>Action</th>
-      <th>Body</th>
-  </tr>
-     <tr>
-      <td>POST</td>
-      <td>/api/v1/users/</td>
-      <td>Signup</td>
-      <td>
-	<pre>{
-	username: 'testPerson'
-	firstname: 'firstname1',
-  lastname: 'lastname1',
-	email: 'testingemail@gmail.com',
-	password: 'testPassword',
-	verifyPassword: 'testPassword'
-     }</pre>
-     </td>
-  </tr>
-    </tr>
-     <tr>
-      <td>POST</td>
-      <td>/api/v1/users/login</td>
-      <td>Signin</td>
-      <td>
-	<pre>{
-	email: 'email@gmail.com'
-	password: 'password1',
-      }</pre>
-      </td>
-  </tr>
-  <tr>
-      <td>POST</td>
-      <td>/api/v1/events/</td>
-      <td>Add Event</td>
-      <td>
-      <pre>{
-	eventtype: 'Birthday',
-	date: '13/06/2018',
-	guestno: 123
-     }</pre>
-     </td>
-  </tr>  
-  <tr>
-      <td>PUT</td>
-      <td>/api/v1/events/<eventId> </td>
-      <td>Modify an event</td>
-      <td>
-      <pre>{
-	eventtype: 'Birthday',
-	date: '13/06/2017',
-	guestno: 123
-     }</pre>
-     </td>
-  </tr>
-  <tr>
-      <td>POST</td>
-      <td>/api/v1/centers/</td>
-      <td>Add a center</td>
-      <td>
-      <pre>{
-      name: 'The Coitus Club',
-      address: '17, Isaleko',
-      location: 'Victoria Island',
-      capacity: 300,
-      bookstatus: true,
-      token: '<token from login>'
-      }</pre>
-      </td>
-  </tr>
+### ACTORS
 
-  <tr>
-      <td>GET</td>
-      <td>/api/v1/events/</td>
-      <td>All events</td>
-      <td></td>
-  </tr>
-    <tr>
-      <td>GET</td>
-      <td>/api/v1/centers/1<centerId></td>
-      <td>Get a single center</td>
-      <td></td>
-  </tr>
-   
-  <tr>
-      <td>GET</td>
-      <td>/api/v1/centers/</td>
-      <td>Get all centers</td>
-      <td></td>
-  </tr>
-  <tr>
-      <td>DELETE</td>
-      <td>/api/v1/events/2<eventId></td>
-      <td>Delete an event</td>
-      <td>
-      <pre>{
-	    token: '<your token from login>'
-      }</pre> 
-      </td>
-  </tr>
+Regular users can:
+- Register and sign in.
+- Add events.
+- Modify their own events.
+- Delete their own events.
+- View all their events.
+- View all centers.
 
-   <tr>
-      <td>PUT</td>
-      <td>/api/v1/centers/1<centerId></td>
-      <td>Modify a center</td>
-      <td>
-      <pre>{
-      name: 'The Virgin Club',
-      address: '18, Isaleko',
-      location: 'Victoria Island',
-      capacity: 301,
-      bookstatus: true,
-      token: '<token from login>'
-      }</pre>
-      </td>
-  </tr>
-</table>
+Admin Users can:
+- Add a center.
+- Modify a center.
+- Delete a center.
+- Cancel events.
+- View all events and centers.
+- Make a regular user an admin.
+- Delete a user and invalidate the users token.
+
+## The API Endpoints
+
+**User**
+***Register***
+* `POST` https://obievents.herokuapp.com/api/v1/users
+
+***Login***
+* `POST` https://obievents.herokuapp.com/api/v1/users/login
+
+***All Users***
+* `GET` https://obievents.herokuapp.com/api/v1/users
+
+***Make user admin***
+* `PUT` https://obievents.herokuapp.com/api/v1/users/:id
+
+***Delete a user***
+* `DELETE` https://obievents.herokuapp.com/api/v1/users/:id
+
+
+**Center**
+***Create a center***
+* `POST` https://obievents.herokuapp.com/api/v1/centers
+
+***Get all centers***
+* `GET`  https://obievents.herokuapp.com/api/v1/centers
+
+***Get a center***
+* `GET`  https://obievents.herokuapp.com/api/v1/centers/:id
+
+***Modify a center***
+* `PUT`  https://obievents.herokuapp.com/api/v1/centers/:id
+
+***Delete a center***
+* `DEL`  https://obievents.herokuapp.com/api/v1/centers/:id
+
+
+**Events**
+***Create an Event***
+* `POST` https://obievents.herokuapp.com/api/v1/events
+
+***Get a users Events***
+* `GET`  https://obievents.herokuapp.com/api/v1/user/events/
+
+***Get all Events***
+* `GET`  https://obievents.herokuapp.com/api/v1/events/
+
+***Modify an Event***
+* `PUT`  https://obievents.herokuapp.com/api/v1/events/:id
+
+***Delete an Event***
+* `DEL`  https://obievents.herokuapp.com/api/v1/events/:id
+
+***Get all center Events***
+* `DEL`  https://obievents.herokuapp.com/api/v1/center/events/:centerId
+
+***Cancel an Event***
+* `DEL`  https://obievents.herokuapp.com/api/v1/admin/events/:id

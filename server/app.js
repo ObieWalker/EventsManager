@@ -67,6 +67,14 @@ app.use('/api/v1/', router);
 //   })
 // })
 
+// a catch all for unmatched routes
+app.all('*', (req, res) => {
+  res.status(404).json({
+    error: {
+      name: 'Error', message: 'Invalid URL Request 🚫'
+    }
+  });
+});
 
 app.use(express.static(path.join(__dirname, '../build')));
 app.get('*', (req, res) => {

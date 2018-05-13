@@ -18,9 +18,9 @@ const sendMail = (recieverEmail, firstname, date, center) => {
       subject: 'Event Cancellation', // Subject line
       text: `Hi ${firstname}, 
               We are sad to announce that your event to be held on ${date} \
-at ${center} has been cancelled due to extenuating circumstances.\
-Please reschedule for a different date or center and you will 
-be refunded shortly.\n
+at ${center} has been cancelled due to extenuating circumstances. \
+Please reschedule for a different date or center and you will \
+be refunded shortly.
               
 Signed,
 Accolades Events`, // plain text body
