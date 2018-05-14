@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import toastr from 'toastr';
-
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -16,6 +15,11 @@ import verifyToken from '../../helpers/verifyToken';
  * @extends {Component}
  */
 class Login extends Component {
+  /**
+   * Creates an instance of Login.
+   * @param {any} props
+   * @memberof Login
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -32,10 +36,21 @@ class Login extends Component {
     this.isValid = this.isValid.bind(this);
   }
 
+  /**
+ * @returns {object} void
+ *
+ * @param {any} e
+ * @memberof Login
+ */
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  /**
+ * @returns {object} void
+ *
+ * @memberof Login
+ */
   componentDidMount() {
     // checks to see if user already has a verified token and redirects
     if (verifyToken()) {
@@ -43,6 +58,11 @@ class Login extends Component {
     }
   }
 
+  /**
+ * @returns {object} void
+ *
+ * @memberof Login
+ */
   isValid() {
     const { errors, isValid } = signInValidator(this.state);
     if (!isValid) {
@@ -51,6 +71,12 @@ class Login extends Component {
     return isValid;
   }
   // show error when focused
+  /**
+ * @returns {object} void
+ *
+ * @param {any} event
+ * @memberof Login
+ */
   handleOnFocus(event) {
     this.setState({
       errors: Object.assign(
@@ -60,7 +86,12 @@ class Login extends Component {
     });
   }
 
-
+  /**
+ * @returns {object} void
+ *
+ * @param {any} e
+ * @memberof Login
+ */
   handleUserLogin(e) {
     e.preventDefault();
     const userDetails = {
@@ -82,7 +113,12 @@ class Login extends Component {
         .catch(error => console.log(error));
     }
   }
-
+  /**
+ *
+ *
+ * @returns {object} login details
+ * @memberof Login
+ */
   render() {
     return (
       <div>

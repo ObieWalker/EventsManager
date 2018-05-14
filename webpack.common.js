@@ -1,32 +1,20 @@
-const webpack = require('webpack');
 const path = require('path');
-const dotenv = require('dotenv');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
-dotenv.load();
 
 module.exports = {
   entry: [
     path.join(__dirname, '/client/src/index.jsx')
   ],
   output: {
-    path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
+    path: path.join(__dirname, 'build')
   },
-  plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        SECRET: JSON.stringify(process.env.SECRET),
-        PORT: JSON.stringify(process.env.PORT),
-        UPLOAD_PRESET: JSON.stringify(process.env.UPLOAD_PRESET),
-        DEFAULT_IMAGE: JSON.stringify(process.env.DEFAULT_IMAGE),
-        CLOUDINARY_URL: JSON.stringify(process.env.CLOUDINARY_URL)
-      }
-    })
-  ],
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -90,12 +78,21 @@ module.exports = {
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
     ]
   },
-  resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
-  node: {
-    dns: 'empty',
-    net: 'empty',
-    fs: 'empty'
-  }
+  plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        SECRET: JSON.stringify(process.env.SECRET),
+        PORT: JSON.stringify(process.env.PORT),
+        UPLOAD_PRESET: JSON.stringify(process.env.UPLOAD_PRESET),
+        DEFAULT_IMAGE: JSON.stringify(process.env.DEFAULT_IMAGE),
+        CLOUDINARY_URL: JSON.stringify(process.env.CLOUDINARY_URL)
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: './client/public/index.html',
+    }),
+    new CleanWebpackPlugin(['build']),
+  ]
 };

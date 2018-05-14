@@ -12,8 +12,19 @@ import RequireAuthentication from '../../helpers/RequireAuthentication.jsx';
 import RequireAdminRights from '../../helpers/RequireAdminRights.jsx';
 import NotFound from './NotFound.jsx';
 
-
+/**
+ *
+ *
+ * @export
+ * @class App
+ * @extends {Component}
+ */
 export default class App extends Component {
+  /**
+   * @description all paths of app
+   * @returns {object} main App
+   * @memberof App
+   */
   render() {
     return (
       <Router history={history}>
