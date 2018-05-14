@@ -9,6 +9,7 @@
     "start:dev2": "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
     "dev": "webpack-dev-server --progress --colors --content-base=./client/public",
     "build": "babel src -d dist",
+   " heroku-postbuild": "npm run build",
     "mocha": "mocha --compilers js:babel-core/register",
     "test": "nyc --reporter=html --reporter=text mocha ./server/tests/ --compilers js:babel-register --exit",
     "test:dev": "npm run test && npm run coverage",
@@ -17,7 +18,8 @@
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "engines": {
-    "node": "6.11.0"
+    "node": "8.11.1",
+    "npm": "5.6.0"
   },
   "dependencies": {
     "auth-js": "0.0.10",
