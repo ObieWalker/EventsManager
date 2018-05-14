@@ -16,7 +16,18 @@ import validateForm from '../../../helpers/validators/eventValidator';
 
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
+/**
+ * 
+ * @param {any} guestNo value
+ * @class BookCenter
+ * @extends {Component}
+ */
 class BookCenter extends Component {
+  /**
+   * Creates an instance of BookCenter.
+   * @param {any} props
+   * @memberof BookCenter
+   */
   constructor(props) {
     super(props);
 
@@ -41,6 +52,11 @@ class BookCenter extends Component {
     this.onAfterChange = this.onAfterChange.bind(this);
   }
 
+  /**
+ * @returns {object} void
+ *
+ * @memberof BookCenter
+ */
   componentDidMount() {
     this.props.getAllCenters();
 
@@ -64,32 +80,59 @@ class BookCenter extends Component {
   onAfterChange = (value) => {
     console.lof(value);
   }
-
+  /**
+ * @returns {object} void
+ *
+ * @param {any} e
+ * @memberof BookCenter
+ */
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-
+  /**
+ * @returns {object} void
+ *
+ * @param {any} e
+ * @memberof BookCenter
+ */
   handleDateChange(e) {
     this.setState({
       date: Object.assign({}, this.state, { date: moment(e.select).format('l') })
     });
   }
 
-
+  /**
+ * @returns {object} void
+ *
+ * @param {any} e
+ * @memberof BookCenter
+ */
   handleOnFocus(e) {
     this.setState({
       errors: Object.assign({}, this.state.errors, { [e.target.name]: '' })
     });
   }
+  /**
+   * @returns {object} void
+   *
+   * @param {any} event
+   * @param {any} target
+   * @param {any} value
+   * @memberof BookCenter
+   */
   handleCenterSelection(event, target, value) {
     this.setState({
       center: Object.assign({}, this.state.center, { value })
     });
   }
 
-
+  /**
+ * @returns {object} void
+ *
+ * @memberof BookCenter
+ */
   clear() {
     this.setState({
       center: '',
@@ -100,7 +143,12 @@ class BookCenter extends Component {
       errors: {}
     });
   }
-
+  /**
+ *
+ *
+ * @returns {object} boolean
+ * @memberof BookCenter
+ */
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
@@ -109,7 +157,12 @@ class BookCenter extends Component {
     return formIsValid;
   }
 
-
+  /**
+ * @returns {object} void
+ *
+ * @param {any} e
+ * @memberof BookCenter
+ */
   onSubmit(e) {
     e.preventDefault();
     if (this.formIsValid()) {
@@ -141,7 +194,12 @@ class BookCenter extends Component {
         });
     }
   }
-
+  /**
+ *
+ *
+ * @returns {object} booked center
+ * @memberof BookCenter
+ */
   render() {
     return (
       <div>

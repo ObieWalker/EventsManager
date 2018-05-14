@@ -1,7 +1,9 @@
 const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');
 const path = require('path');
+const dotenv = require('dotenv');
+
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
+dotenv.load();
 
 module.exports = {
   entry: [
@@ -15,7 +17,15 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new Dotenv()
+    new webpack.DefinePlugin({
+      'process.env': {
+        SECRET: JSON.stringify(process.env.SECRET),
+        PORT: JSON.stringify(process.env.PORT),
+        UPLOAD_PRESET: JSON.stringify(process.env.UPLOAD_PRESET),
+        DEFAULT_IMAGE: JSON.stringify(process.env.DEFAULT_IMAGE),
+        CLOUDINARY_URL: JSON.stringify(process.env.CLOUDINARY_URL)
+      }
+    })
   ],
   module: {
     rules: [
