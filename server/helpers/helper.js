@@ -37,6 +37,33 @@ export const paginateData = ({
 export const paginateEvents = ({
   req, res, events, limit, pageNo
 }) => {
+  console.log('=======>>>>>testt');
+  const info = 'Events have been returned successfully';
+  if (events.count < 1) {
+    return res.status(404).json({
+      info: 'No events available'
+    });
+  } else if (events.rows.length < 1) {
+    return res.status(404).json({
+      info: 'No events in this set'
+    });
+  } else if (pageNo > Math.ceil(events.count / limit)) {
+    return res.status(404).json({
+      info: 'No more events available'
+    });
+  }
+  return res.status(200).json({
+    info,
+    success: true,
+    events: events.rows,
+    count: events.count,
+    more: getMoreEvents(limit, pageNo, events.count, req.path)
+  });
+};
+
+export const paginateHistory = ({
+  req, res, events, limit, pageNo
+}) => {
   const info = 'Events have been returned successfully';
   if (events.count < 1) {
     return res.status(404).json({

@@ -1,41 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-materialize';
-// import centerPic from '../../../assets/centerpic.jpg';
+
 
 const EventCard = (props) => {
-  const { events } = props;
-  return (
-    <div style={{ margin: '5%' }}>
-      <Col s={10} m={4}>
-        <div className="col 12">
-          <div className="card small">
-            <div className="card-image waves-effect waves-block waves-light">
-              <img className="activator" src="http://i68.tinypic.com/dh5vk.jpg"/>
-            </div>
-            <div className="card-content">
-              <span className="card-title activator grey-text text-darken-4">Center Name: {events.center}<i className="material-icons right">more_vert</i></span>
-              <p style={{ float: 'left' }}>{events.eventType} </p><br />
-              <p style={{ float: 'left' }}>{events.date} </p><br />
-              <p>click on image to see more details.</p>
-            </div>
-            <div className="card-reveal">
-              <span className="card-title grey-text text-darken-4">Center Name: {events.center}<i className="material-icons right">close</i></span>
-              <span className="card-title grey-text text-darken-4">Type of Event: {events.eventType}</span>
-              <span className="card-title grey-text text-darken-4">Date of Event: {events.date}</span>
-              <span className="card-title grey-text text-darken-4">Est. Guest No.: {events.guestNo}</span>
-              <span className="card-title grey-text text-darken-4">Contact Email: {events.email}</span>
+  const { event } = props;
+  const cutOffTime = Date.now() + 86400000;
+  const eventDate = new Date(event.date);
+  if (event) {
+    return (
+      <div style={{ margin: '5%' }}>
+        <Col s={10} m={4}>
+          <div className="col 12">
+            <div className="card elegant-color white-text" style={{ width: '18rem', padding: '5%' }}>
+              <div className="card-body">
+                <h5 className="card-title white-text">{event.eventType}</h5>
+                <h6 className="card-subtitle mb-2 text-muted white-text">Center: {event.Center.name}</h6>
+                <p className="card-text white-text">Date: {event.date}</p>
+                <p className="card-text white-text">Address {event.Center.address}</p>
+                <p className="card-text white-text">Guest Estimate: {event.guestNo}</p>
+                {eventDate > cutOffTime &&
+                <div>
+                  <button className="btn blue-gradient active btn-sm" id="loadMore">Edit</button>
+                  <button className="btn btn-primary btn-danger btn-sm" id="loadMore">Delete</button>
+                </div>
+                }
+              </div>
             </div>
           </div>
-        </div>
-      </Col>
-
-    </div>
-  );
+        </Col>
+      </div>
+    );
+  }
+  return null;
 };
 
 EventCard.propTypes = {
-  events: PropTypes.object,
+  event: PropTypes.object,
   name: PropTypes.string,
   date: PropTypes.string,
   guestNo: PropTypes.number,

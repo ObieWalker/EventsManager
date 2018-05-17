@@ -5,7 +5,7 @@ import Header from './Header.jsx';
 import Home from './Home.jsx';
 import Register from './Register.jsx';
 import ContactUs from './ContactUs.jsx';
-import Centers from './Centers.jsx';
+// import Centers from './Centers.jsx';
 import UDashboard from './UserDashboard/Main.jsx';
 import AdminDashboard from './AdminDashboard/Dashboard.jsx';
 import RequireAuthentication from '../../helpers/RequireAuthentication.jsx';
@@ -31,7 +31,7 @@ export default class App extends Component {
         <div style={{ textAlign: 'center' }}>
           <Header />
           <Switch>
-            <Route exact path='/' component={Centers} />
+            <Route exact path='/' component={RequireAuthentication(UDashboard)} />
             <Route exact path='/login' component={Home} />
             <Route exact path='/register' component={Register} />
             <Route path='/contact-us' component={ContactUs} />

@@ -2,7 +2,19 @@ import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Modal11 from './Modal.jsx';
 
+/**
+ *
+ *
+ * @class ModifyEventModal
+ * @extends {Component}
+ */
 class ModifyEventModal extends Component {
+  /**
+   * Creates an instance of ModifyEventModal.
+   * @param {any} props
+   * @param {any} context
+   * @memberof ModifyEventModal
+   */
   constructor(props, context) {
     super(props, context);
 
@@ -14,14 +26,30 @@ class ModifyEventModal extends Component {
     };
   }
 
+  /**
+   * @returns {object} state
+   *
+   * @memberof ModifyEventModal
+   */
   handleClose() {
     this.setState({ show: false });
   }
 
+  /**
+   * @returns {object} state
+   *
+   * @memberof ModifyEventModal
+   */
   handleShow() {
     this.setState({ show: true });
   }
 
+  /**
+   *
+   *
+   * @returns {object}edit modal
+   * @memberof ModifyEventModal
+   */
   render() {
     return (
       <div>

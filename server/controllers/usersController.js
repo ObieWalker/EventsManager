@@ -92,6 +92,7 @@ export default class UsersController {
                 username: user.username,
                 id: user.id,
                 isAdmin: user.isAdmin,
+                loginTime: Date.now(),
                 createdAt: user.createdAt
               };
               const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });

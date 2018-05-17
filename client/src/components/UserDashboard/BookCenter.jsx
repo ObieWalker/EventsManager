@@ -17,16 +17,14 @@ import validateForm from '../../../helpers/validators/eventValidator';
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 /**
- * 
- * @param {any} guestNo value
+ *
  * @class BookCenter
  * @extends {Component}
  */
 class BookCenter extends Component {
   /**
-   * Creates an instance of BookCenter.
-   * @param {any} props
-   * @memberof BookCenter
+   * @constructor
+   * @param {*} props
    */
   constructor(props) {
     super(props);
@@ -37,7 +35,6 @@ class BookCenter extends Component {
       date: '',
       guestNo: 100,
       max: 100000,
-      email: '',
       errors: {},
     };
 
@@ -71,14 +68,26 @@ class BookCenter extends Component {
     });
   }
 
+  /**
+   *
+   * @param {any} guestNo
+   * @returns {object} state
+   * @memberof BookCenter
+   */
   onSliderChange = (guestNo) => {
     this.setState({
       guestNo,
     });
   }
 
+  /**
+   *
+   * @param {any} value
+   * @returns {object} state
+   * @memberof BookCenter
+   */
   onAfterChange = (value) => {
-    console.lof(value);
+    console.log(value);
   }
   /**
  * @returns {object} void
@@ -152,6 +161,7 @@ class BookCenter extends Component {
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
+      console.log('there are errors', errors);
       this.setState({ errors });
     }
     return formIsValid;
@@ -164,6 +174,7 @@ class BookCenter extends Component {
  * @memberof BookCenter
  */
   onSubmit(e) {
+    console.log('inside onsubmit');
     e.preventDefault();
     if (this.formIsValid()) {
       this.setState({ errors: {} });
@@ -171,9 +182,9 @@ class BookCenter extends Component {
         center: this.state.center.value,
         eventType: this.state.eventType,
         date: moment(this.state.date.date).format('YYYY-MM-DD HH:mm:ss'),
-        guestNo: this.state.guestNo,
-        email: this.state.email
+        guestNo: this.state.guestNo
       };
+      console.log('center details', eventDetails.center);
       swal({
         title: 'Are you sure?',
         text: 'You will be booking the center with the set date.',
@@ -201,6 +212,7 @@ class BookCenter extends Component {
  * @memberof BookCenter
  */
   render() {
+    const { errors } = this.state;
     return (
       <div>
         <div className="col s8" style={{ margin: '5%' }}>
@@ -228,6 +240,8 @@ class BookCenter extends Component {
                 <div className="row">
                   <div className="input-field col s8">
                     <div>
+                      {errors.center &&
+                      <div>Please select a center </div> }
                       <SelectField
                         value={this.state.center.value}
                         onChange= {this.handleCenterSelection}>
@@ -246,6 +260,7 @@ class BookCenter extends Component {
                     name="eventType"
                     value={this.state.eventType.value}
                     onChange={this.handleChange}
+                    onFocus={this.handleOnFocus}
                     className="form-control"
                     id="type">
                     <option value="">Choose the type of event</option>
@@ -285,22 +300,8 @@ class BookCenter extends Component {
                   onAfterChange={this.onAfterChange}
                 />
 
-                <div className='input-field col s12'>
-                  <i className="material-icons prefix">contacts</i>
-                  <input
-                    className='validate'
-                    value={this.state.email.value}
-                    error={this.state.errors.email}
-                    onFocus={this.state.handleOnFocus}
-                    type='email'
-                    name='email'
-                    id='email'
-                    onChange={this.handleChange}/>
-                  <label htmlFor='email'>Enter a contact email.</label>
-                </div>
-
                 <button type="submit" className="waves-effect waves-light btn right hoverable indigo">
-                  <i className="large material-icons right" aria-hidden="true"> done</i>Make Booking
+                  <i className="large material-icons right" aria-hidden="true" > done</i>Make Booking
                 </button>
               </form>
             </div>

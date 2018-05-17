@@ -2,8 +2,19 @@
 import React, { Component } from 'react';
 import { OverlayTrigger, Popover, Tooltip } from 'react-bootstrap';
 
-
+/**
+ *
+ *
+ * @class TestModal
+ * @extends {Component}
+ */
 class TestModal extends Component {
+  /**
+   * 
+   * 
+   * @returns 
+   * @memberof TestModal
+   */
   render() {
     const popover = (
       <Popover id="modal-popover" title="popover">
