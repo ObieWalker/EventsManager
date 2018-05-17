@@ -31,10 +31,11 @@ const getUserEventsRequest = (pageNo, limit) => (
       method: 'GET',
       url: `/api/v1/user/events/?pageNo=${pageNo}&limit=${limit}`
     }).then((response) => {
+      console.log('response . data . events', response.data.events);
       dispatch(fetchUserEventsSuccess(response.data.events));
       dispatch(isUsersEventsFetching(false));
     }).catch((error) => {
-      dispatch(fetchUserEventsFailure(error.response.data.message));
+      dispatch(fetchUserEventsFailure(error.response.data.info));
       dispatch(isUsersEventsFetching(false));
     });
   }

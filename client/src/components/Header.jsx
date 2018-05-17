@@ -5,8 +5,18 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import logOut from '../actions/logOutAction';
-
+/**
+ *
+ *
+ * @class Header
+ * @extends {Component}
+ */
 class Header extends Component {
+  /**
+   * Creates an instance of Header.
+   * @param {any} props
+   * @memberof Header
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +24,11 @@ class Header extends Component {
     };
     this.handleLogOut = this.handleLogOut.bind(this);
   }
-
+  /**
+ * @method componentDidMount
+ * @returns {object} user
+ * @memberof Header
+ */
   componentDidMount() {
     const { isAuthenticated } = this.props.login;
     if (isAuthenticated) {
@@ -23,7 +37,12 @@ class Header extends Component {
       this.setState({ loggedIn: false });
     }
   }
-
+  /**
+ * @method componentWillReceiveProps
+ * @returns {object} state
+ * @param {any} nextProps
+ * @memberof Header
+ */
   componentWillReceiveProps(nextProps) {
     const { isAuthenticated } = nextProps.login;
     if (this.props !== nextProps) {
@@ -34,15 +53,26 @@ class Header extends Component {
       }
     }
   }
-
+  /**
+ * @returns {*} null
+ *
+ * @param {any} e
+ * @memberof Header
+ */
   handleLogOut(e) {
     e.preventDefault();
     this.props.logOut();
     this.props.history.push('/');
     toastr.success('Good bye!!');
+    window.location.reload();
   }
 
-
+  /**
+ *
+ *
+ * @returns {object} user login and register
+ * @memberof Header
+ */
   render() {
     const { loggedIn } = this.state;
     return (

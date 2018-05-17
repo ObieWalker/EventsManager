@@ -6,7 +6,18 @@ import toastr from 'toastr';
 import updateCenterRequest from '../../actions/editCenterAction';
 import validateForm from '../../../helpers/validators/centerValidator';
 
+/**
+ *
+ *
+ * @class ModifyCenter
+ * @extends {Component}
+ */
 class ModifyCenter extends Component {
+  /**
+   * Creates an instance of ModifyCenter.
+   * @param {any} props
+   * @memberof ModifyCenter
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -25,6 +36,11 @@ class ModifyCenter extends Component {
     this.isValid = this.isValid.bind(this);
   }
 
+  /**
+   * @method componentWillMount
+   * @returns {object} state
+   * @memberof ModifyCenter
+   */
   componentWillMount() {
     const { center } = this.props;
     this.setState({
@@ -37,6 +53,11 @@ class ModifyCenter extends Component {
     });
   }
 
+  /**
+   * @returns {object} state
+   *
+   * @memberof ModifyCenter
+   */
   reset() {
     const { center } = this.props;
     this.setState({
@@ -49,12 +70,23 @@ class ModifyCenter extends Component {
     });
   }
 
+  /**
+   * @returns {object} state
+   *
+   * @param {any} event
+   * @memberof ModifyCenter
+   */
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
+  /**
+   * @returns {object} boolean
+   *
+   * @memberof ModifyCenter
+   */
   isValid() {
     const { errors, isValid } = validateForm(this.state);
     if (!isValid) {
@@ -63,6 +95,12 @@ class ModifyCenter extends Component {
     return isValid;
   }
 
+  /**
+   * @returns {object} updated center
+   *
+   * @param {any} e
+   * @memberof ModifyCenter
+   */
   updateCenter(e) {
     e.preventDefault();
     // if (this.isValid()) {
@@ -84,6 +122,12 @@ class ModifyCenter extends Component {
     // }
   }
 
+  /**
+ *
+ *
+ * @returns {object} updated center
+ * @memberof ModifyCenter
+ */
   render() {
     return (
 

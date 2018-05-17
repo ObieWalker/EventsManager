@@ -10,8 +10,10 @@ module.exports = {
     path.join(__dirname, '/client/src/index.jsx')
   ],
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, 'client'),
+    filename: './bundle/bundle.js',
+    hotUpdateChunkFilename: './hot/hot-update.js',
+    hotUpdateMainFilename: './hot/hot-update.json'
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),

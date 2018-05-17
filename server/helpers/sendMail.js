@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-const sendMail = (recieverEmail, firstname, date, center) => {
+const sendMail = (recieverEmail, firstname, date, center, address) => {
     nodemailer.createTestAccount((err, account) => {/* eslint-disable-line */
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
@@ -17,8 +17,8 @@ const sendMail = (recieverEmail, firstname, date, center) => {
       to: recieverEmail, // receiver
       subject: 'Event Cancellation', // Subject line
       text: `Hi ${firstname}, 
-              We are sad to announce that your event to be held on ${date} \
-at ${center} has been cancelled due to extenuating circumstances. \
+              We are sad to announce that your event  on ${date} \
+at ${center}, ${address} has been cancelled due to extenuating circumstances. \
 Please reschedule for a different date or center and you will \
 be refunded shortly.
               

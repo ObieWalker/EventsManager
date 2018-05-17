@@ -4,7 +4,11 @@ import jwt from 'jsonwebtoken';
 import { setAuthToken } from '../../helpers/setAuthToken';
 
 import { SET_CURRENT_USER } from './actionTypes';
-
+/**
+ * @returns {object} user
+ *
+ * @param {any} user
+ */
 export function setUser(user) {
   return {
     type: SET_CURRENT_USER,
@@ -20,6 +24,7 @@ const login = userInfo =>
       localStorage.setItem('token', token);
       setAuthToken(token);
       const decoded = jwt.decode(token);
+      console.log('this is decoded token ======>>', decoded);
       dispatch(setUser(decoded));
       toastr.success(`Welcome ${decoded.firstName}`);
     })

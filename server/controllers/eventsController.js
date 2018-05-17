@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import models, { Event, Center, User } from '../models';
-import { paginateEvents } from '../helpers/helper';
+import { paginateEvents, paginateHistory } from '../helpers/helper';
 import sendMail from '../helpers/sendMail';
 
 dotenv.config();
@@ -8,6 +8,7 @@ const Events = Event;
 const Centers = Center;
 const Users = User;
 const { Op } = models.sequelize;
+const centerAttributes = ['name', 'address'];
 /**
  * @description event controller
  *
@@ -38,6 +39,7 @@ export default class EventsController {
         return Events.create({
           userId: req.decoded.id,
           centerId: req.body.centerId,
+          center: req.body.center,
           eventType: req.body.eventType,
           date: req.body.date,
           guestNo: req.body.guestNo
@@ -137,15 +139,24 @@ export default class EventsController {
         if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
           return res.status(400).json({ success: false, message: 'There was an error with the event ID input!' });
         }
-        return Events.findById(req.params.id)
+        return Events.findOne({
+          where: {
+            id: req.params.id,
+          },
+          include: [{
+            model: Center,
+            attributes: centerAttributes
+          }],
+        })
           .then((event) => {
             if (!event) { // if no centers
               return res.status(404).send({ success: false, message: 'Event not found' });
             } // else remove
             const eventDate = event.date;
-            const eventCenter = event.center;
+            const eventCenter = event.Center.name;
+            const eventAddress = event.Center.address;
             event.update({
-              isCancelled: true
+              isCancelled: !event.isCancelled
             }).then(() => User.findOne({
               where: {
                 id: event.userId,
@@ -153,7 +164,7 @@ export default class EventsController {
             }).then((user) => {
               const receiverEmail = user.email;
               const firstname = user.firstName;
-              sendMail(receiverEmail, firstname, eventDate, eventCenter);
+              sendMail(receiverEmail, firstname, eventDate, eventCenter, eventAddress);
             })
               .then(() => res.status(200).json({
                 success: true,
@@ -205,6 +216,7 @@ export default class EventsController {
  * @memberof EventsController
  */
   static getUserEvents(req, res) {
+    console.log('=====>>>>get user events');
     const limit = parseInt(req.query.limit, 10) || 6;
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
@@ -216,6 +228,10 @@ export default class EventsController {
           [Op.gte]: new Date().toDateString()
         }
       },
+      include: [{
+        model: Center,
+        attributes: centerAttributes
+      }],
       order: [['date', 'ASC']],
       limit,
       offset
@@ -226,6 +242,42 @@ export default class EventsController {
         res.status(500).json({ message: 'Your request had an error', error });
       });
   }
+  /**
+ *
+ *
+ * @static
+ * @param {any} req
+ * @param {any} res
+ * @returns {object} events
+ * @memberof EventsController
+ */
+  static getUserHistory(req, res) {
+    const limit = parseInt(req.query.limit, 10) || 6;
+    let offset = 0;
+    const pageNo = parseInt(req.query.pageNo, 10) || 1;
+    offset = limit * (pageNo - 1);
+    return Events.findAndCountAll({
+      where: {
+        userId: req.decoded.id,
+        date: {
+          [Op.lt]: new Date().toDateString()
+        }
+      },
+      include: [{
+        model: Center,
+        attributes: centerAttributes
+      }],
+      order: [['date', 'ASC']],
+      limit,
+      offset
+    }).then(events => paginateHistory({
+      req, res, events, limit, pageNo
+    }))
+      .catch((error) => {
+        res.status(500).json({ message: 'Your request had an error', error });
+      });
+  }
+
   /**
  * @description get all events booked to a center
  *

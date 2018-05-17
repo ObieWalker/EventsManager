@@ -10,6 +10,7 @@ import userEventsReducer from './userEventsReducer';
 import editCenterReducer from './editCenterReducer';
 import deleteCenterReducer from './deleteCenterReducer';
 import allEventsReducer from './allEventsReducer';
+import userHistoryReducer from './userHistoryReducer';
 
 const rootReducer = combineReducers({
   registerUser: register,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   allEvents: allEventsReducer,
   allUserEvents: userEventsReducer,
   editCenter: editCenterReducer,
+  userHistory: userHistoryReducer
 });
 
 export default rootReducer;

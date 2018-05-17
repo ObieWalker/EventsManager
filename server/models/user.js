@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    loginTime: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,

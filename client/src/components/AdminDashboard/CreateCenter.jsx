@@ -10,8 +10,18 @@ import validateForm from '../../../helpers/validators/centerValidator';
 import createCenterRequest from '../../actions/addCenterAction';
 // import success from '../../actions/'
 
-
+/**
+ *
+ *
+ * @class CreateCenter
+ * @extends {Component}
+ */
 class CreateCenter extends Component {
+  /**
+   * Creates an instance of CreateCenter.
+   * @param {any} props
+   * @memberof CreateCenter
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -32,19 +42,34 @@ class CreateCenter extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.clear = this.clear.bind(this);
   }
-
+  /**
+ * @returns {object} state
+ *
+ * @param {any} e
+ * @memberof CreateCenter
+ */
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-
+  /**
+ * @returns {object} state
+ *
+ * @param {any} e
+ * @memberof CreateCenter
+ */
   handleOnFocus(e) {
     this.setState({
       errors: Object.assign({}, this.state.errors, { [e.target.name]: '' })
     });
   }
-
+  /**
+ * @returns {object} state
+ *
+ * @param {any} event
+ * @memberof CreateCenter
+ */
   handleImage(event) {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -66,7 +91,11 @@ class CreateCenter extends Component {
       this.setState({ defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg', uploadedImage: '' });
     }
   }
-
+  /**
+ * @returns {object} state
+ *
+ * @memberof CreateCenter
+ */
   clear() {
     this.setState({
       name: '',
@@ -79,7 +108,12 @@ class CreateCenter extends Component {
       errors: {}
     });
   }
-
+  /**
+ *
+ *
+ * @returns {boolean} form validity
+ * @memberof CreateCenter
+ */
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
@@ -88,7 +122,12 @@ class CreateCenter extends Component {
     return formIsValid;
   }
 
-
+  /**
+ * @returns {*} null
+ *
+ * @param {any} e
+ * @memberof CreateCenter
+ */
   onSubmit(e) {
     e.preventDefault();
     if (this.formIsValid()) {
@@ -116,7 +155,12 @@ class CreateCenter extends Component {
     }
   }
 
-
+  /**
+ *
+ *
+ * @returns {object} create center
+ * @memberof CreateCenter
+ */
   render() {
     return (
       <div>
