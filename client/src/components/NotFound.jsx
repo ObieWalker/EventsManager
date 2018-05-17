@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PageNotFound from '../../assets/notFound.jpg';
-
+/**
+ *
+ *
+ * @class NotFound
+ * @extends {Component}
+ */
 class NotFound extends Component {
+  /**
+   *
+   *
+   * @returns {object} not found  picture
+   * @memberof NotFound
+   */
   render() {
     return (
       <div className="bg-faded">

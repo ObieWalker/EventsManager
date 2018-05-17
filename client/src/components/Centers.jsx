@@ -8,7 +8,18 @@ import getAllCenters from '../actions/getAllCentersAction';
 import Search from './Search.jsx';
 import CenterList from './CenterCard.jsx';
 
+/**
+ * @returns {object} centers
+ *
+ * @class AllCenters
+ * @extends {Component}
+ */
 class AllCenters extends Component {
+  /**
+   * Creates an instance of AllCenters.
+   * @param {any} props
+   * @memberof AllCenters
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +32,11 @@ class AllCenters extends Component {
     this.loadMoreContent = this.loadMoreContent.bind(this);
     this.getMoreCenters = this.getMoreCenters.bind(this);
   }
-
+  /**
+ * @method componentWillMount
+ * @returns { * } null
+ * @memberof AllCenters
+ */
   componentWillMount() {
     const { pageNo, limit } = this.state;
     this.props.getAllCenters(pageNo, limit)
@@ -30,19 +45,44 @@ class AllCenters extends Component {
       });
   }
 
+  /**
+   * @method componentWillReceiveProps
+   * @returns { * } null
+   * @param {any} nextProps
+   * @memberof AllCenters
+   */
   componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props) {
       this.setState({ centers: nextProps.allCenters.fetchedCenters, isLoading: false });
     }
   }
 
+  /**
+   * @method loadMoreContent
+   * @returns {object} state
+   * @memberof AllCenters
+   */
   loadMoreContent() {
     this.setState({ pageNo: this.state.pageNo + 1, isLoading: true }, () => { this.getMoreCenters(this.state.pageNo, this.state.limit); });
   }
+
+  /**
+   * @returns { * } null
+   *
+   * @param {any} pageNo
+   * @param {any} limit
+   * @memberof AllCenters
+   */
   getMoreCenters(pageNo, limit) {
     this.props.getAllCenters(pageNo, limit);
   }
 
+  /**
+   *
+   *
+   * @returns {object} centers
+   * @memberof AllCenters
+   */
   render() {
     const Centers = this.state.centers;
     return (

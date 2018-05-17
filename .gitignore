@@ -7,3 +7,5 @@ package-lock.json
 .nyc_output
 .vscode
 build
+client/bundle
+client/hot

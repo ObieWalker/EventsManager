@@ -5,7 +5,6 @@ import expressValidator from 'express-validator';
 import swaggerUi from 'swagger-ui-express';
 // import webpack from 'webpack';
 import cors from 'cors';
-import dotenv from 'dotenv';
 // import webpackMiddleware from 'webpack-dev-middleware';
 // import webpackHotMiddleware from 'webpack-hot-middleware';
 import path from 'path';
@@ -15,7 +14,6 @@ import swaggerDoc from './doc/swagger.json';
 import router from './routes/index';
 
 const app = express(); // init express
-dotenv.config();
 
 const port = process.env.PORT || 9000;
 // const env = process.env.NODE_ENV || 'development';
@@ -68,15 +66,10 @@ app.use('/api/v1/', router);
 // })
 
 // a catch all for unmatched routes
-app.all('*', (req, res) => {
-  res.status(404).json({
-    error: {
-      name: 'Error', message: 'Invalid URL Request 🚫'
-    }
-  });
-});
 
-app.use(express.static(path.join(__dirname, '../build')));
+
+app.use(express.static(path.join(__dirname, '../client')));
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/public/'));
 });
@@ -89,6 +82,14 @@ app.use((req, res, next) => {
     error: '404: Sorry Page Not Found!'
   });
   next(err);
+});
+
+app.all('*', (req, res) => {
+  res.status(404).json({
+    error: {
+      name: 'Error', message: 'Invalid URL Request 🚫'
+    }
+  });
 });
 
 

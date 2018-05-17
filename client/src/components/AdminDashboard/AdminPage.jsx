@@ -5,7 +5,19 @@ import CreateCenter from './CreateCenter.jsx';
 import Centers from './AdminCenters.jsx';
 import Events from './AllEvents.jsx';
 
+/**
+ *
+ *
+ * @class AdminPage
+ * @extends {Component}
+ */
 class AdminPage extends Component {
+  /**
+   *
+   *
+   * @returns {object} tab content
+   * @memberof AdminPage
+   */
   render() {
     return (
 
