@@ -1,14 +1,29 @@
-import { GET_CENTER_DETAILS } from '../actions/actionTypes';
 
+import {
+  IS_CENTER_FETCHING,
+  FETCH_CENTER_SUCCESS,
+  FETCH_CENTER_FAILURE
+} from '../actions/actionTypes';
 
-const getACenterReducer = (state = [], action) => {
+const initialState = {
+  isCenterFetching: false,
+  center: {},
+  centerError: ''
+};
+
+export default (state = initialState, action = {}) => {
   switch (action.type) {
-  case GET_CENTER_DETAILS:
-    return state.map(center =>
-      (action.center.id === center.id ? action.center : center));
+  case IS_CENTER_FETCHING:
+    return Object.assign({}, state, { isCenterFetching: action.bool });
+  case FETCH_CENTER_SUCCESS:
+    return {
+      ...state, center: action.center
+    };
+  case FETCH_CENTER_FAILURE:
+    return Object.assign({}, state, {
+      centerError: action.error
+    });
   default:
     return state;
   }
 };
-
-export default getACenterReducer;
