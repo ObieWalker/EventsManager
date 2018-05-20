@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row } from 'react-materialize';
+import ScrollUp from 'react-scroll-up';
 import PropTypes from 'prop-types';
 import Loading from 'react-loading-animation';
 import getUsersHistoryRequest from '../../actions/getUserHistoryAction';
@@ -41,8 +42,6 @@ class UserHistory extends Component {
     this.props.getUsersHistory()
       .then(() => {
         this.setState({ userHistory: this.props.userHistory.fetchedUserHistory });
-      }).then(() => {
-        console.log('component will mount user history', this.state.userHistory);
       });
   }
 
@@ -98,7 +97,9 @@ class UserHistory extends Component {
           }
           {this.state.isLoading === true &&
           <div><p>Loading...</p> <Loading /></div> }
-
+          <ScrollUp showUnder={100}>
+            <button type="button" className="btn btn-floating btn-rounded waves-effect">TOP</button>
+          </ScrollUp>
           <button onClick={this.loadMoreContent}
             className="btn btn-primary active" id="loadMore" disabled={!this.props.moreHistory}>Load More</button>
           <br /><br />

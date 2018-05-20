@@ -37,14 +37,15 @@ const addEvent = eventDetails => (
       },
       data: eventDetails,
     }).then((response) => {
-      const { message } = response.message;
+      console.log('inside response for event create', response);
+      const { message } = response.data.message;
       swal({
         title: 'Congratulations',
-        text: response.message,
+        text: response.data.message,
         icon: 'success',
         dangerMode: false,
       });
-      dispatch(createEventSuccess(response.data.event, message));
+      dispatch(createEventSuccess(response.data.newEvent, message));
       dispatch(isEventCreating(false));
     }).catch((error) => {
       swal({

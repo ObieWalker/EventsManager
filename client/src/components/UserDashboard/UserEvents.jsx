@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row } from 'react-materialize';
+import ScrollUp from 'react-scroll-up';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 import Loading from 'react-loading-animation';
 import getUsersEventsRequest from '../../actions/getUserEventsAction';
 // import deleteEventAction from '../../actions/deleteEventAction';
@@ -71,16 +73,31 @@ class UserEvents extends Component {
    * @memberof UserEvents
    */
   handleEditEvent() {
-    this.props.editEvent();
+    console.log('Attempting to edit event');
+    // this.props.editEvent();
   }
 
   /**
-   * @returns {*} null
-   *
-   * @memberof UserEvents
-   */
-  handleDeleteEvent() {
-    this.props.deleteEvent();
+ * @returns {*} null
+ *
+ * @param {any} event
+ * @memberof UserEvents
+ */
+  handleDeleteEvent(event) {
+    console.log('attempting to delete event');
+    swal({
+      title: 'Are you sure?',
+      text: `If this ${event.eventType} at ${event.Center.name} is cancelled, it cannot be undone`,
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          this.props.deleteEvent(event.id);
+          swal('Deleted!', `This ${event.eventType} has been cancelled`, 'success');
+        }
+      });
   }
 
   /**
@@ -111,19 +128,22 @@ class UserEvents extends Component {
    */
   render() {
     const Events = this.state.userEvents;
-    console.log('Events======>>>>>>>', Events);
     return (
       <div>
         <h3>All Your Upcoming Events.</h3>
         <div> {(Events && Events.length > 0) ? (
           <Row>
             {Events.map((event, i) =>
-              <EventList key={i} event={event} />)}
+              <EventList key={i} event={event}
+                handleDeleteEvent={this.handleDeleteEvent.bind(this, event)}
+                handleEditEvent={this.handleEditEvent.bind(this, event)}/>)}
           </Row>) : 'You have no booked events'
         }
         {this.state.isLoading === true &&
           <div><p>Loading...</p> <Loading /></div> }
-
+        <ScrollUp showUnder={100}>
+          <button type="button" className="btn btn-floating btn-rounded waves-effect">TOP</button>
+        </ScrollUp>
         <button onClick={this.loadMoreContent}
           className="btn btn-primary active" id="loadMore" disabled={!this.props.moreEvents}>Load More</button>
         <br /><br />

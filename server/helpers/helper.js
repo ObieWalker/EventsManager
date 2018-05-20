@@ -2,18 +2,8 @@
 export const hostUrl = process.env.NODE_ENV === 'production' ?
   'https://obievents.herokuapp.com' : 'http://localhost:3000';
 
-export const route = '/api/v1/';
-
-export const getMoreUrl = (limit, pageNo, totalCenters, path) =>
-  (pageNo + 1 <= Math.ceil(totalCenters / limit) ?
-    `${hostUrl}${path}/?page=${pageNo + 1}&limit=${limit}` : null);
-
-export const getMoreEvents = (limit, pageNo, totalEvents, path) =>
-  (pageNo + 1 <= Math.ceil(totalEvents / limit) ?
-    `${hostUrl}${path}/?page=${pageNo + 1}&limit=${limit}` : null);
-
 export const paginateData = ({
-  req, res, centers, limit, pageNo
+  res, centers, limit, pageNo
 }) => {
   let info = 'Centers have been returned successfully';
   if (centers.count < 1) {
@@ -29,15 +19,13 @@ export const paginateData = ({
     info,
     success: true,
     centers: centers.rows,
-    count: centers.count,
-    more: getMoreUrl(limit, pageNo, centers.count, req.path)
+    count: centers.count
   });
 };
 
 export const paginateEvents = ({
-  req, res, events, limit, pageNo
+  res, events, limit, pageNo
 }) => {
-  console.log('=======>>>>>testt');
   const info = 'Events have been returned successfully';
   if (events.count < 1) {
     return res.status(404).json({
@@ -56,13 +44,12 @@ export const paginateEvents = ({
     info,
     success: true,
     events: events.rows,
-    count: events.count,
-    more: getMoreEvents(limit, pageNo, events.count, req.path)
+    count: events.count
   });
 };
 
 export const paginateHistory = ({
-  req, res, events, limit, pageNo
+  res, events, limit, pageNo
 }) => {
   const info = 'Events have been returned successfully';
   if (events.count < 1) {
@@ -82,13 +69,12 @@ export const paginateHistory = ({
     info,
     success: true,
     events: events.rows,
-    count: events.count,
-    more: getMoreEvents(limit, pageNo, events.count, req.path)
+    count: events.count
   });
 };
 
 export const paginateUsers = ({
-  req, res, users, limit, pageNo
+  res, users, limit, pageNo
 }) => {
   const info = 'Users have been returned successfully';
   if (users.count < 1) {
@@ -108,7 +94,6 @@ export const paginateUsers = ({
     info,
     success: true,
     users: users.rows,
-    count: users.count,
-    more: getMoreEvents(limit, pageNo, users.count, req.path)
+    count: users.count
   });
 };

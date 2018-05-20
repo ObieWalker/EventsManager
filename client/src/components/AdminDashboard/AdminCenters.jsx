@@ -10,8 +10,18 @@ import deleteCenter from '../../actions/deleteCenterAction';
 import ModifyCenter from './ModifyCenterModal.jsx';
 // import Search from './Search.jsx';
 // import CenterList from './CenterCard.jsx';
-
+/**
+ *
+ *
+ * @class AdminCenters
+ * @extends {Component}
+ */
 class AdminCenters extends Component {
+  /**
+   * Creates an instance of AdminCenters.
+   * @param {any} props
+   * @memberof AdminCenters
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -23,24 +33,42 @@ class AdminCenters extends Component {
     this.handleModify = this.handleModify.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
-
+  /**
+ * @method componentDidMount
+ * @returns {*} null
+ * @memberof AdminCenters
+ */
   componentDidMount() {
     this.props.getAllCenters();
   }
-
+  /**
+ *
+ * @returns {object} state
+ * @memberof AdminCenters
+ */
   handleClose() {
     this.setState({
       show: false
     });
   }
-
+  /**
+ * @returns {object} state
+ *
+ * @param {any} center
+ * @memberof AdminCenters
+ */
   handleModify(center) {
     this.setState({
       center,
       show: true
     });
   }
-
+  /**
+ * @returns {*} null
+ *
+ * @param {any} center
+ * @memberof AdminCenters
+ */
   handleDelete(center) {
     swal({
       title: 'Are you sure?',
@@ -56,7 +84,12 @@ class AdminCenters extends Component {
         }
       });
   }
-
+  /**
+ *
+ *
+ * @returns {object} centers
+ * @memberof AdminCenters
+ */
   render() {
     return (
       <div>

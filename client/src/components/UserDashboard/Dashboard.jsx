@@ -3,7 +3,7 @@ import { Col, NavItem, Nav, Row, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import BookCenter from './BookCenter.jsx';
+import CentersPage from './CentersPage.jsx';
 import ViewEvents from './UserEvents.jsx';
 import History from './History.jsx';
 
@@ -49,14 +49,14 @@ class Dashboard extends Component {
                 </div>
               </div>
               <Nav bsStyle="pills" stacked>
-                <NavItem eventKey="first">Book a Center</NavItem>
+                <NavItem eventKey="first">Choose a Center</NavItem>
                 <NavItem eventKey="second">Your Upcoming Events</NavItem>
                 <NavItem eventKey="third">Booking History</NavItem>
               </Nav>
             </Col>
             <Col sm={9}>
               <Tab.Content animation>
-                <Tab.Pane eventKey="first"><BookCenter /></Tab.Pane>
+                <Tab.Pane eventKey="first"><CentersPage /></Tab.Pane>
                 <Tab.Pane eventKey="second"><ViewEvents /></Tab.Pane>
                 <Tab.Pane eventKey="third"><History /></Tab.Pane>
               </Tab.Content>

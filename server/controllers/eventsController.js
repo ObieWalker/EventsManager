@@ -26,31 +26,38 @@ export default class EventsController {
    * @memberof EventsController
    */
   static createEvent(req, res) {
-    // return Centers.findAll();
-    return Events.findAll()
+    return Events.findOne({
+      where: {
+        centerId: req.body.centerId,
+        date: req.body.date
+      },
+    })
       .then((events) => {
         if (events) {
-          events.forEach((matchEvent) => { // checks to see if there are any events with matching dates and centers
-            if (matchEvent.date === req.body.date && matchEvent.centerId === req.body.centerId) {
-              res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
-            }
-          });
+          return res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
         }
-        return Events.create({
-          userId: req.decoded.id,
-          centerId: req.body.centerId,
-          center: req.body.center,
-          eventType: req.body.eventType,
-          date: req.body.date,
-          guestNo: req.body.guestNo
-        }).then((event) => {
-          res.status(201).json({ message: 'Your event has been booked', event });
-        })
-          .catch((error) => {
-            res.status(400).json({ message: 'Your request could not be processed', error });
+
+        return Centers.findById(req.body.centerId)
+          .then((center) => {
+            if (center.capacity < parseInt(req.body.guestNo, 10)) {
+              return res.status(400).json({ message: 'The center cannot hold your guest estimate, please pick a bigger venue.' });
+            }
+            return Events.create({
+              userId: req.decoded.id,
+              centerId: req.body.centerId,
+              eventType: req.body.eventType,
+              date: req.body.date,
+              guestNo: req.body.guestNo
+            }).then((newEvent) => {
+              res.status(201).json({ message: 'Your event has been booked', newEvent });
+            })
+              .catch((error) => {
+                res.status(400).json({ message: 'Your request could not be processed', error });
+              });
           });
       });
   }
+
   /**
  * @description modifies an event
  *
@@ -71,22 +78,41 @@ export default class EventsController {
         if (!event) {
           res.status(404).json({ message: 'Event does not exist within our records' });
         }
-        return event.update({
-          centerId: req.body.centerId,
-          userId: req.decoded.userId,
-          eventType: req.body.eventType,
-          date: req.body.date,
-          guestNo: req.body.guestNo
-        })
-          .then(() => {
-            event.reload().then(() => res.status(200).json({
-              message: 'Your event has been updated',
-              updated: event
-            }));
-          })
-          .catch((err) => {
-            res.status(500).json({ message: 'Could not update', error: err });
-          });
+        return Events.findOne({
+          where: {
+            id: {
+              [Op.ne]: req.params.id
+            },
+            centerId: req.body.centerId,
+            date: req.body.date
+          },
+        }).then((matchedEvent) => {
+          if (matchedEvent) {
+            return res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
+          }
+          return Centers.findById(req.body.centerId)
+            .then((center) => {
+              if (center.capacity < parseInt(req.body.guestNo, 10)) {
+                return res.status(400).json({ message: 'The center cannot hold your guest estimate, please pick a bigger venue.' });
+              }
+              return event.update({
+                centerId: req.body.centerId,
+                userId: req.decoded.userId,
+                eventType: req.body.eventType,
+                date: req.body.date,
+                guestNo: req.body.guestNo
+              })
+                .then(() => {
+                  event.reload().then(() => res.status(200).json({
+                    message: 'Your event has been updated',
+                    updated: event
+                  }));
+                })
+                .catch((err) => {
+                  res.status(500).json({ message: 'Could not update', error: err });
+                });
+            });
+        });
       })
       .catch((err) => {
         res.status(400).json({
@@ -216,7 +242,6 @@ export default class EventsController {
  * @memberof EventsController
  */
   static getUserEvents(req, res) {
-    console.log('=====>>>>get user events');
     const limit = parseInt(req.query.limit, 10) || 6;
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
@@ -308,7 +333,10 @@ export default class EventsController {
     });
     Events.findAndCountAll({
       where: {
-        centerId
+        centerId,
+        date: {
+          [Op.gte]: new Date().toDateString()
+        }
       },
       order: [['date', 'DESC']],
       limit,
