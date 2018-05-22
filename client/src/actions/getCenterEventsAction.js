@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
   IS_CENTER_EVENTS_FETCHING,
   FETCH_CENTER_EVENTS_SUCCESS,
-  FETCH_CENTER_EVENTS_FAILURE
+  FETCH_CENTER_EVENTS_FAILURE,
+  CLEAR_CENTER_EVENTS
 } from '../actions/actionTypes';
 
 
@@ -24,12 +25,17 @@ const fetchCenterEventsFailure = error => ({
   error
 });
 
-const getCenterEventsRequest = (pageNo, limit) => (
+const clearAllCenterEvent = empty => ({
+  type: CLEAR_CENTER_EVENTS,
+  empty
+});
+
+const getCenterEventsRequest = (centerId, pageNo, limit) => (
   (dispatch) => {
     dispatch(isCenterEventsFetching(true));
     return axios({
       method: 'GET',
-      url: `/api/v1/user/events/?pageNo=${pageNo}&limit=${limit}`
+      url: `/api/v1/center/events/${centerId}?pageNo=${pageNo}&limit=${limit}`
     }).then((response) => {
       dispatch(fetchCenterEventsSuccess(response.data.events));
       dispatch(isCenterEventsFetching(false));
@@ -39,5 +45,9 @@ const getCenterEventsRequest = (pageNo, limit) => (
     });
   }
 );
+
+export const clearCenterEvents = () => (dispatch) => {
+  dispatch(clearAllCenterEvent([]));
+};
 
 export default getCenterEventsRequest;

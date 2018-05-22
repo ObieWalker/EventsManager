@@ -155,7 +155,6 @@ class BookCenter extends Component {
  * @memberof BookCenter
  */
   onSubmit(centerId) {
-    console.log('book center onsubmit');
     if (this.formIsValid()) {
       this.setState({ errors: {} });
       const eventDetails = {

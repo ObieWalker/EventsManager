@@ -24,7 +24,6 @@ const login = userInfo =>
       localStorage.setItem('token', token);
       setAuthToken(token);
       const decoded = jwt.decode(token);
-      console.log('this is decoded token ======>>', decoded);
       dispatch(setUser(decoded));
       toastr.success(`Welcome ${decoded.firstName}`);
     })

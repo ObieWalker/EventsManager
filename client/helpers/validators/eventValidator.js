@@ -1,7 +1,6 @@
 import isEmpty from 'lodash/isEmpty';
 
 const eventValidator = (data) => {
-  console.log('inside event validator');
   const {
     center,
     eventType,
