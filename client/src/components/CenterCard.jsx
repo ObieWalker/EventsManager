@@ -19,28 +19,6 @@ class CenterCard extends Component {
       center: '',
       show: false
     };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.getCenterEvents = this.getCenterEvents.bind(this);
-  }
-  /**
- * @returns {object} state
- *
- * @param {any} e
- * @memberof CenterCard
- */
-  handleClick(e) {
-    e.preventDefault();
-  }
-
-  /**
- * @returns {object} center events
- *
- * @param {any} e
- * @memberof CenterCard
- */
-  getCenterEvents(e) {
-    e.preventDefault();
   }
   /**
    *
@@ -74,7 +52,7 @@ class CenterCard extends Component {
                   }
                   <button onClick={this.props.handleShowModal.bind(this, center)}
                     className="btn btn-primary btn-sm active">Book Center</button>
-                  <button onClick={this.getCenterEvents.bind(this, center.id)}
+                  <button onClick={this.props.getCenterEvents.bind(this, center)}
                     className="btn btn-info btn-sm active" id="loadMore">Booked Events</button>
                   <br />
                 </div>
@@ -95,7 +73,8 @@ CenterCard.propTypes = {
   address: PropTypes.string,
   city: PropTypes.string,
   facility: PropTypes.string,
-  getAllCenters: PropTypes.func
+  getAllCenters: PropTypes.func,
+  getCenterEvents: PropTypes.func
 };
 
 export default CenterCard;

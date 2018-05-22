@@ -8,7 +8,7 @@ const Events = Event;
 const Centers = Center;
 const Users = User;
 const { Op } = models.sequelize;
-const centerAttributes = ['name', 'address'];
+const centerAttributes = ['name', 'address', 'city'];
 /**
  * @description event controller
  *
@@ -35,8 +35,8 @@ export default class EventsController {
       .then((events) => {
         if (events) {
           return res.status(409).json({
-            message: 'The event center is booked on that day,\
-             please choose a different day or center.'
+            message: 'The event center is booked on that day, ' +
+             'please choose a different day or center.'
           });
         }
         return Centers.findById(req.body.centerId)
@@ -113,8 +113,8 @@ export default class EventsController {
             .then((center) => {
               if (center.capacity < parseInt(req.body.guestNo, 10)) {
                 return res.status(400).json({
-                  message: `The center cannot hold your guest estimate,
-                  please pick a bigger venue.`
+                  message: 'The center cannot hold your guest estimate, ' +
+                  'please pick a bigger venue.'
                 });
               }
               return event.update({
@@ -408,6 +408,10 @@ export default class EventsController {
           [Op.gte]: new Date().toDateString()
         }
       },
+      include: [{
+        model: Center,
+        attributes: centerAttributes
+      }],
       order: [['date', 'DESC']],
       limit,
       offset

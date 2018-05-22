@@ -34,7 +34,6 @@ const getUserHistoryRequest = (pageNo, limit) => (
       dispatch(fetchUserHistorySuccess(response.data.events));
       dispatch(isUsersHistoryFetching(false));
     }).catch((error) => {
-      console.log('get user history error', error);
       dispatch(fetchUserHistoryFailure(error.response.data.info));
       dispatch(isUsersHistoryFetching(false));
     });
