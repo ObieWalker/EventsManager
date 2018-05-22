@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
   IS_CENTERS_FETCHING,
   FETCH_CENTERS_SUCCESS,
-  FETCH_CENTERS_FAILURE
+  FETCH_CENTERS_FAILURE,
+  CLEAR_CENTER_STATE
 } from './actionTypes';
 
 const isCentersFetching = bool => ({
@@ -22,12 +23,20 @@ const fetchCentersFailure = error => ({
   error
 });
 
-const fetchCentersRequest = (pageNo, limit) => (
+const clearAllCenters = empty => ({
+  type: CLEAR_CENTER_STATE,
+  empty
+});
+
+const fetchCentersRequest =
+(pageNo = 1, limit = 6, filter = '', facility = '', capacity = '') => (
   (dispatch) => {
+    const searchParams = `filter=${filter}&facility=${facility}&capacity=${capacity}`;
     dispatch(isCentersFetching(true));
     return axios({
       method: 'GET',
-      url: `/api/v1/centers?pageNo=${pageNo}&limit=${limit}`
+      url:
+      `/api/v1/centers?${searchParams}&pageNo=${pageNo}&limit=${limit}`
     })
       .then((response) => {
         dispatch(fetchCentersSuccess(response.data.centers));
@@ -38,4 +47,9 @@ const fetchCentersRequest = (pageNo, limit) => (
       });
   }
 );
+
+export const clearCenterState = () => (dispatch) => {
+  dispatch(clearAllCenters([]));
+};
+
 export default fetchCentersRequest;

@@ -1,8 +1,9 @@
-import { Center, User } from '../models';
+import models, { Center, User } from '../models';
 import { paginateData } from '../helpers/helper';
 
 const Centers = Center;
 const Users = User;
+const { Op } = models.sequelize;
 /**
  * @description center controller
  *
@@ -132,7 +133,26 @@ export default class CentersController {
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
+    const filter = req.query.filter || '';
+    const facility = req.query.facility || '';
+    const capacity = parseInt(req.query.capacity, 10) || 1;
     return Centers.findAndCountAll({
+      where: {
+        capacity: {
+          [Op.gte]: capacity,
+        },
+        facility: {
+          [Op.iRegexp]: `^.*${facility}.*$`,
+        },
+        [Op.or]: {
+          name: {
+            [Op.iRegexp]: `^.*${filter}.*$`,
+          },
+          city: {
+            [Op.iRegexp]: `^.*${filter}.*$`,
+          },
+        },
+      },
       order: [['name', 'DESC']],
       limit,
       offset

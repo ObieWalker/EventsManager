@@ -36,7 +36,10 @@ class CentersPage extends Component {
       pageNo: 1,
       limit: 6,
       isLoading: false,
-      show: false
+      show: false,
+      filter: '',
+      capacity: '',
+      facility: ''
     };
 
     this.loadMoreContent = this.loadMoreContent.bind(this);
@@ -45,6 +48,7 @@ class CentersPage extends Component {
     this.formIsValid = this.formIsValid.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleShowModal = this.handleShowModal.bind(this);
+    this.changeSearchState = this.changeSearchState.bind(this);
   }
 
   /**
@@ -83,6 +87,21 @@ class CentersPage extends Component {
     });
   }
   /**
+ * @returns {object} search state
+ *
+ * @param {any} filter
+ * @param {any} capacity
+ * @param {any} facility
+ * @memberof CentersPage
+ */
+  changeSearchState(filter, capacity, facility) {
+    this.setState({
+      filter,
+      capacity,
+      facility
+    });
+  }
+  /**
  * @returns {object} void
  *
  * @param {any} e
@@ -110,7 +129,9 @@ class CentersPage extends Component {
    * @memberof AllCenters
    */
   loadMoreContent() {
-    this.setState({ pageNo: this.state.pageNo + 1, isLoading: true }, () => { this.getMoreCenters(this.state.pageNo, this.state.limit); });
+    this.setState({
+      pageNo: this.state.pageNo + 1, isLoading: true
+    }, () => { this.getMoreCenters(this.state.pageNo, this.state.limit); });
   }
 
   /**
@@ -121,7 +142,8 @@ class CentersPage extends Component {
    * @memberof AllCenters
    */
   getMoreCenters(pageNo, limit) {
-    this.props.getAllCenters(pageNo, limit);
+    const { filter, facility, capacity } = this.state;
+    this.props.getAllCenters(pageNo, limit, filter, facility, capacity);
   }
 
   /**
@@ -166,6 +188,7 @@ class CentersPage extends Component {
       this.props.addNewEvent(eventDetails)
         .then(() => {
           const { createSuccess, createError } = this.props;
+          console.log('create success', createSuccess);
           if (createError === '') {
             toastr.remove();
             toastr.success(createSuccess);
@@ -188,9 +211,9 @@ class CentersPage extends Component {
     return (
       <div>
         <div>
-          <h3>All centers and details.</h3>
+          <h3>Available Centers.</h3>
           <div className='center'>
-            <Search /> <br/> <br/>
+            <Search changeSearchState={this.changeSearchState.bind(this)}/> <br/> <br/>
           </div>
           <div> {(centers) ?
             <Row>
@@ -204,17 +227,12 @@ class CentersPage extends Component {
             <button type="button" className="btn btn-floating btn-rounded waves-effect">TOP</button>
           </ScrollUp>
           <button onClick={this.loadMoreContent}
-            className="btn btn-primary active" id="loadMore">Load More</button>
+            className="btn btn-primary active" id="loadMore" disabled={!this.props.moreCenters}>Load More</button>
           <br /><br />
           </div>
         </div>
         <Modal show={this.state.show} onHide={this.handleClose}>
-          {/* <Modal.Body> */}
           <BookCenter center ={this.state.center}/>
-          {/* </Modal.Body> */}
-          {/* <Modal.Footer>
-            <Button onClick={this.handleClose}>Close</Button>
-          </Modal.Footer> */}
         </Modal>
       </div>
     );
@@ -227,12 +245,16 @@ CentersPage.propTypes = {
   createSuccess: PropTypes.func,
   createError: PropTypes.func,
   addNewEvent: PropTypes.func,
-  Centers: PropTypes.array
+  Centers: PropTypes.array,
+  moreCenters: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
   allCenters: state.allCenters,
   eventState: state.eventState,
+  createError: state.createCenter.createCenterError,
+  createSuccess: state.createCenter.createCenterSuccess,
+  moreCenters: state.allCenters.moreCenters
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

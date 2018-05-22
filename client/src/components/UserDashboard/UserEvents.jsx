@@ -44,7 +44,7 @@ class UserEvents extends Component {
    * @memberof UserEvents
    */
   componentWillMount() {
-    this.props.getUsersEvents()
+    this.props.getUsersEvents(this.state.pageNo, this.state.limit)
       .then(() => {
         if (this.props.allUserEvents.fetchedUserEvents) {
           this.setState({ userEvents: this.props.allUserEvents.fetchedUserEvents });

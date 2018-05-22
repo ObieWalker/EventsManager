@@ -5,11 +5,15 @@ export const hostUrl = process.env.NODE_ENV === 'production' ?
 export const paginateData = ({
   res, centers, limit, pageNo
 }) => {
-  let info = 'Centers have been returned successfully';
+  const info = 'Centers have been returned successfully';
   if (centers.count < 1) {
-    info = 'No centers available';
+    return res.status(404).json({
+      info: 'No centers available'
+    });
   } else if (centers.rows.length < 1) {
-    info = 'No centers in this set';
+    return res.status(404).json({
+      info: 'No centers in this set'
+    });
   } else if (pageNo > Math.ceil(centers.count / limit)) {
     return res.status(404).json({
       info: 'No more centers available'

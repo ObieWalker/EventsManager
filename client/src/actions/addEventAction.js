@@ -37,7 +37,6 @@ const addEvent = eventDetails => (
       },
       data: eventDetails,
     }).then((response) => {
-      console.log('inside response for event create', response);
       const { message } = response.data.message;
       swal({
         title: 'Congratulations',
@@ -49,8 +48,8 @@ const addEvent = eventDetails => (
       dispatch(isEventCreating(false));
     }).catch((error) => {
       swal({
-        title: 'There was a problem',
-        text: error,
+        title: 'Unable to make booking.',
+        text: error.response.data.message,
         icon: 'error',
         dangerMode: true,
       });

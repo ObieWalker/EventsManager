@@ -48,7 +48,6 @@ class EventCard extends Component {
  */
   render() {
     const { event } = this.props;
-    console.log('this.props.event', event);
     const cutOffTime = Date.now() + 86400000;
     const eventDate = new Date(event.date);
     if (event) {

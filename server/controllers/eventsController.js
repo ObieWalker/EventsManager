@@ -34,13 +34,18 @@ export default class EventsController {
     })
       .then((events) => {
         if (events) {
-          return res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
+          return res.status(409).json({
+            message: 'The event center is booked on that day,\
+             please choose a different day or center.'
+          });
         }
-
         return Centers.findById(req.body.centerId)
           .then((center) => {
             if (center.capacity < parseInt(req.body.guestNo, 10)) {
-              return res.status(400).json({ message: 'The center cannot hold your guest estimate, please pick a bigger venue.' });
+              return res.status(400).json({
+                message: `The center is too small for your guest estimate, 
+                please pick a bigger venue.`
+              });
             }
             return Events.create({
               userId: req.decoded.id,
@@ -49,10 +54,14 @@ export default class EventsController {
               date: req.body.date,
               guestNo: req.body.guestNo
             }).then((newEvent) => {
-              res.status(201).json({ message: 'Your event has been booked', newEvent });
+              res.status(201).json({
+                message: 'Your event has been booked', newEvent
+              });
             })
               .catch((error) => {
-                res.status(400).json({ message: 'Your request could not be processed', error });
+                res.status(400).json({
+                  message: 'Your request could not be processed', error
+                });
               });
           });
       });
@@ -70,13 +79,20 @@ export default class EventsController {
   static editEvent(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
-    if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
-      return res.status(400).json({ success: false, message: 'There was an error with the event ID input!' });
+    if (!Number.isInteger(intId)
+    || !((id).indexOf('.') === -1)
+    || Number.isNaN(intId)
+    || Math.sign(id) === -1) {
+      return res.status(400).json({
+        success: false, message: 'There was an error with the event ID input!'
+      });
     }
     return Events.findById(req.params.id)
       .then((event) => {
         if (!event) {
-          res.status(404).json({ message: 'Event does not exist within our records' });
+          res.status(404).json({
+            message: 'Event does not exist within our records'
+          });
         }
         return Events.findOne({
           where: {
@@ -88,12 +104,18 @@ export default class EventsController {
           },
         }).then((matchedEvent) => {
           if (matchedEvent) {
-            return res.status(409).json({ message: 'The event center is booked on that day, please pick another' });
+            return res.status(409).json({
+              message: `The event center is booked on that day, 
+              please pick another`
+            });
           }
           return Centers.findById(req.body.centerId)
             .then((center) => {
               if (center.capacity < parseInt(req.body.guestNo, 10)) {
-                return res.status(400).json({ message: 'The center cannot hold your guest estimate, please pick a bigger venue.' });
+                return res.status(400).json({
+                  message: `The center cannot hold your guest estimate,
+                  please pick a bigger venue.`
+                });
               }
               return event.update({
                 centerId: req.body.centerId,
@@ -109,7 +131,9 @@ export default class EventsController {
                   }));
                 })
                 .catch((err) => {
-                  res.status(500).json({ message: 'Could not update', error: err });
+                  res.status(500).json({
+                    message: 'Could not update', error: err
+                  });
                 });
             });
         });
@@ -133,16 +157,25 @@ export default class EventsController {
   static deleteEvent(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
-    if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
-      return res.status(400).json({ success: false, message: 'There was an error with the event ID input!' });
+    if (!Number.isInteger(intId)
+    || !((id).indexOf('.') === -1)
+    || Number.isNaN(intId)
+    || Math.sign(id) === -1) {
+      return res.status(400).json({
+        success: false, message: 'There was an error with the event ID input!'
+      });
     }
     return Events.findById(req.params.id)
       .then((event) => {
         if (!event) { // if no centers
-          return res.status(404).send({ success: false, message: 'Event not found' });
-        } // else remove
+          return res.status(404).send({
+            success: false, message: 'Event not found'
+          });
+        }
         return event.destroy()
-          .then(res.status(200).send({ success: true, message: 'The event has been cancelled' }))
+          .then(res.status(200).send({
+            success: true, message: 'The event has been cancelled'
+          }))
           .catch(error => res.status(400).send(error));
       });
   }
@@ -158,12 +191,21 @@ export default class EventsController {
     Users.findById(req.decoded.id)
       .then((adminUser) => {
         if (adminUser.isAdmin !== true) {
-          return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+          return res.status(403).json({
+            success: false,
+            message: 'You do not have the admin privileges to do this'
+          });
         }
         const { id } = req.params;
         const intId = parseInt(id, 10);
-        if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
-          return res.status(400).json({ success: false, message: 'There was an error with the event ID input!' });
+        if (!Number.isInteger(intId)
+        || !((id).indexOf('.') === -1)
+        || Number.isNaN(intId)
+        || Math.sign(id) === -1) {
+          return res.status(400).json({
+            success: false,
+            message: 'There was an error with the event ID input!'
+          });
         }
         return Events.findOne({
           where: {
@@ -176,7 +218,10 @@ export default class EventsController {
         })
           .then((event) => {
             if (!event) { // if no centers
-              return res.status(404).send({ success: false, message: 'Event not found' });
+              return res.status(404).send({
+                success: false,
+                message: 'Event not found'
+              });
             } // else remove
             const eventDate = event.date;
             const eventCenter = event.Center.name;
@@ -190,7 +235,13 @@ export default class EventsController {
             }).then((user) => {
               const receiverEmail = user.email;
               const firstname = user.firstName;
-              sendMail(receiverEmail, firstname, eventDate, eventCenter, eventAddress);
+              sendMail(
+                receiverEmail,
+                firstname,
+                eventDate,
+                eventCenter,
+                eventAddress
+              );
             })
               .then(() => res.status(200).json({
                 success: true,
@@ -198,7 +249,11 @@ export default class EventsController {
                 cancelled: event
               }))
               .catch((err) => {
-                res.status(500).json({ success: false, message: 'Could not cancel event', error: err });
+                res.status(500).json({
+                  success: false,
+                  message: 'Could not cancel event',
+                  error: err
+                });
               }));
           })
           .catch((err) => {
@@ -230,7 +285,9 @@ export default class EventsController {
       req, res, events, limit, pageNo
     }))
       .catch((error) => {
-        res.status(500).json({ message: 'Your request had an error', error });
+        res.status(500).json({
+          message: 'Your request had an error', error
+        });
       });
   }
   /**
@@ -264,7 +321,9 @@ export default class EventsController {
       req, res, events, limit, pageNo
     }))
       .catch((error) => {
-        res.status(500).json({ message: 'Your request had an error', error });
+        res.status(500).json({
+          message: 'Your request had an error', error
+        });
       });
   }
   /**
@@ -299,7 +358,9 @@ export default class EventsController {
       req, res, events, limit, pageNo
     }))
       .catch((error) => {
-        res.status(500).json({ message: 'Your request had an error', error });
+        res.status(500).json({
+          message: 'Your request had an error', error
+        });
       });
   }
 
@@ -319,8 +380,14 @@ export default class EventsController {
     offset = limit * (pageNo - 1);
     const { centerId } = req.params;
     const intId = parseInt(centerId, 10);
-    if (!Number.isInteger(intId) || !((centerId).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(centerId) === -1) {
-      return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+    if (!Number.isInteger(intId)
+    || !((centerId).indexOf('.') === -1)
+    || Number.isNaN(intId)
+    || Math.sign(centerId) === -1) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the center ID input!'
+      });
     }
     Centers.findOne({
       where: {
@@ -328,7 +395,10 @@ export default class EventsController {
       }
     }).then((center) => {
       if (!center) {
-        return res.status(404).json({ success: false, message: 'This center does not exist' });
+        return res.status(404).json({
+          success: false,
+          message: 'This center does not exist'
+        });
       }
     });
     Events.findAndCountAll({
@@ -343,14 +413,19 @@ export default class EventsController {
       offset
     }).then((events) => {
       if (!events) {
-        return res.status(404).json({ success: true, message: 'No events booked with this center' });
+        return res.status(404).json({
+          success: true,
+          message: 'No events booked with this center'
+        });
       }
       paginateEvents({
         req, res, events, limit, pageNo
       });
     })
       .catch((error) => {
-        res.status(500).json({ message: 'Your request had an error', error });
+        res.status(500).json({
+          message: 'Your request had an error', error
+        });
       });
   }
 }
