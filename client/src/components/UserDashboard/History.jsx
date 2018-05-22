@@ -39,7 +39,7 @@ class UserHistory extends Component {
    * @memberof UserEvents
    */
   componentWillMount() {
-    this.props.getUsersHistory()
+    this.props.getUsersHistory(this.state.pageNo, this.state.limit)
       .then(() => {
         this.setState({ userHistory: this.props.userHistory.fetchedUserHistory });
       });
@@ -84,7 +84,6 @@ class UserHistory extends Component {
    */
   render() {
     const History = this.state.userHistory;
-    console.log('this is your history object', History);
     return (
       <div>
         <div>

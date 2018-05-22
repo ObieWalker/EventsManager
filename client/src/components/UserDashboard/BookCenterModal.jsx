@@ -117,19 +117,6 @@ class BookCenter extends Component {
       errors: Object.assign({}, this.state.errors, { [e.target.name]: '' })
     });
   }
-  /**
-   * @returns {object} void
-   *
-   * @param {any} event
-   * @param {any} target
-   * @param {any} value
-   * @memberof BookCenter
-   */
-  handleCenterSelection(event, target, value) {
-    this.setState({
-      center: Object.assign({}, this.state.center, { value })
-    });
-  }
 
   /**
  * @returns {object} void
