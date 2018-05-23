@@ -1,26 +1,29 @@
+
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
-import PropTypes from 'prop-types';
-import moment from 'moment';
 import swal from 'sweetalert';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
-import '../../styles/index.less';
-import addEventAction from '../../actions/addEventAction';
+import moment from 'moment';
+
+import editEventAction from '../../actions/editEventAction';
 import validateForm from '../../../helpers/validators/eventValidator';
 
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 /**
  *
- * @class BookCenter
+ *
+ * @class TestModal
  * @extends {Component}
  */
-class BookCenter extends Component {
+class EditModal extends Component {
   /**
-   * @constructor
-   * @param {*} props
+   * Creates an instance of EditModal.
+   * @param {any} props
+   * @memberof EditModal
    */
   constructor(props) {
     super(props);
@@ -29,28 +32,29 @@ class BookCenter extends Component {
       center: '',
       eventType: '',
       date: '',
-      guestNo: 100,
+      guestNo: 179,
       max: 100000,
       step: 50,
       errors: {},
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.formIsValid = this.formIsValid.bind(this);
-    this.handleOnFocus = this.handleOnFocus.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.clear = this.clear.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
     this.onSliderChange = this.onSliderChange.bind(this);
     this.onAfterChange = this.onAfterChange.bind(this);
+    this.formIsValid = this.formIsValid.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
-
   /**
  * @returns {object} void
  *
  * @memberof BookCenter
  */
   componentDidMount() {
+    this.setState({
+      eventType: this.props.event.eventType,
+      guestNo: this.props.event.guestNo,
+      date: this.props.event.date
+    });
     $('.datepicker').pickadate({
       selectMonths: true,
       selectYears: 5, // dropdown of 5 years
@@ -61,7 +65,6 @@ class BookCenter extends Component {
       onSet: this.handleDateChange
     });
   }
-
   /**
    *
    * @param {any} guestNo
@@ -70,7 +73,7 @@ class BookCenter extends Component {
    */
   onSliderChange = (guestNo) => {
     this.setState({
-      guestNo,
+      guestNo
     });
   }
 
@@ -89,52 +92,20 @@ class BookCenter extends Component {
  * @param {any} e
  * @memberof BookCenter
  */
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-  /**
- * @returns {object} void
- *
- * @param {any} e
- * @memberof BookCenter
- */
   handleDateChange(e) {
     this.setState({
-      date: Object.assign({}, this.state, {
-        date: moment(e.select).format('l')
-      })
+      date: moment(e.select).format('l')
+      // date: Object.assign({}, this.state, {
+      //   date: moment(e.select).format('l')
+      // })
     });
   }
-
   /**
- * @returns {object} void
+ * @returns {object} event
  *
- * @param {any} e
- * @memberof BookCenter
+ * @param {any} event
+ * @memberof EditModal
  */
-  handleOnFocus(e) {
-    this.setState({
-      errors: Object.assign({}, this.state.errors, { [e.target.name]: '' })
-    });
-  }
-
-  /**
- * @returns {object} void
- *
- * @memberof BookCenter
- */
-  clear() {
-    this.setState({
-      center: '',
-      eventType: '',
-      date: '',
-      guestNo: '',
-      email: '',
-      errors: {}
-    });
-  }
   /**
  *
  *
@@ -144,67 +115,71 @@ class BookCenter extends Component {
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
-      console.log('there are errors', errors);
       this.setState({ errors });
     }
     return formIsValid;
   }
-
   /**
- * @returns {object} void
  *
- * @param {any} centerId
- * @memberof BookCenter
+ * @returns {object} modified event
+ * @param {any} event
+ * @memberof EditModal
  */
-  onSubmit(centerId) {
+  onSubmit() {
     if (this.formIsValid()) {
       this.setState({ errors: {} });
-      const eventDetails = {
-        centerId,
+      const modifiedEvent = {
+        eventId: this.props.event.id,
+        centerId: this.props.event.centerId,
         eventType: this.state.eventType,
-        date: moment(this.state.date.date).format('YYYY-MM-DD HH:mm:ss'),
+        date: moment(this.state.date).format('YYYY-MM-DD HH:mm:ss'),
         guestNo: this.state.guestNo
       };
       swal({
-        title: 'Are you sure?',
-        text: 'You will be booking the center with the set date.',
+        title: 'Modify your Event?',
+        text: `Event Type: ${modifiedEvent.eventType}
+        Date: ${this.state.date}
+        guest Est.: ${modifiedEvent.guestNo}`,
         icon: 'info',
         dangerMode: true,
       });
-      this.props.addNewEvent(eventDetails)
+      this.props.editEvent(modifiedEvent)
         .then(() => {
-          const { createSuccess, createError } = this.props;
-          if (createError === '') {
+          this.props.handleClose();
+          const { updateSuccess, updateError } = this.props;
+          if (updateError === '') {
             toastr.remove();
-            toastr.success(createSuccess);
+            toastr.success(updateSuccess);
           } else {
             toastr.remove();
-            toastr.error(createError);
+            toastr.error(updateError);
           }
-          this.clear();
         });
     }
   }
   /**
  *
  *
- * @returns {object} booked center
- * @memberof BookCenter
+ * @returns {object} modified event
+ * @memberof EditModal
  */
   render() {
     const { errors } = this.state;
-    const { center } = this.props;
     return (
       <div className="card card-image" style={{
         backgroundImage: "url('http://i68.tinypic.com/dh5vk.jpg')",
-        width: '95%',
+        width: '120%',
         height: '100%',
-        padding: '5%'
+        paddingRight: '35%',
+        paddingLeft: '5%',
+        paddingTop: '0px',
+        marginLeft: '-2.5%'
       }}>
         <section className="form-dark">
           <div
             className="text-uppercase card-title font-weight-bold blue-text ">
-            {center.name}</div>
+          Venue: <h4>{this.props.event.Center.name}</h4></div>
+
           <br /><br />
           <div>
             <div className="text-blue  z-depth-4">
@@ -212,6 +187,7 @@ class BookCenter extends Component {
                 <select
                   name="eventType"
                   value={this.state.eventType.value}
+                  defaultValue={this.props.event.eventType}
                   onChange={this.handleChange}
                   onFocus={this.handleOnFocus}
                   className="form-control"
@@ -225,8 +201,9 @@ class BookCenter extends Component {
                 </select>
                 <label htmlFor="event-type"
                   className="active">Type of event<br /><br /></label>
-                {errors.eventType &&
-                <p className="red-text">{errors.eventType}</p>}
+                { errors.eventType &&
+              <p className="red-text">{errors.eventType}</p>
+                }
               </div>
               <br /><br />
               <div className="row">
@@ -235,6 +212,7 @@ class BookCenter extends Component {
                     name="date"
                     value={this.state.date.value}
                     onChange={this.handleDateChange}
+                    defaultValue={this.props.event.date}
                     type="text"
                     className="datepicker"
                     id="event-date"
@@ -243,8 +221,9 @@ class BookCenter extends Component {
                     className="active">Pick a date</label>
                 </div>
               </div>
-              {errors.date &&
-                <p className="red-text">{errors.date}</p>}
+              { errors.date &&
+              <p className="red-text">{errors.date}</p>
+              }
               <div>
                 <p className="range-field">
                   <label htmlFor='range'>Approximate number of guests:</label>
@@ -254,24 +233,26 @@ class BookCenter extends Component {
                 <p className="text-monospace font-weight-bold blue-text">
                 Over {this.state.guestNo}</p> :
                 <p className="text-monospace font-weight-bold blue-text">
-                Less than {this.state.guestNo}</p>}
+                Approximately {this.state.guestNo}</p>}
 
               <SliderWithTooltip
                 max={this.state.max}
                 value={this.state.guestNo}
                 step={this.state.step}
+                defaultValue={this.props.event.guestNo}
                 onChange={this.onSliderChange}
                 onAfterChange={this.onAfterChange}
               />
               { errors.guestNo &&
-                <p className="red-text">{errors.guestNo}</p>
+              <p className="red-text">{errors.guestNo}</p>
               }
               <br /><br />
-              <button onClick={this.onSubmit.bind(this, center.id)}
+              <button
+                onClick={this.onSubmit.bind(this, this.props.event)}
                 type="submit"
                 className="waves-effect waves-light btn right hoverable indigo">
-                <i className="large material-icons right"
-                  aria-hidden="true" > done</i>Make Booking
+                <i className="large material-icons right" aria-hidden="true" >
+                done</i>Update Event
               </button>
             </div>
           </div>
@@ -281,16 +262,22 @@ class BookCenter extends Component {
   }
 }
 
-BookCenter.propTypes = {
-  center: PropTypes.Object,
-  createSuccess: PropTypes.func,
-  createError: PropTypes.func,
-  addNewEvent: PropTypes.func
+EditModal.propTypes = {
+  event: PropTypes.object,
+  editEvent: PropTypes.func,
+  handleClose: PropTypes.func,
+  updateSuccess: PropTypes.string,
+  updateError: PropTypes.string,
 };
 
+const mapStateToProps = state => ({
+  updateSuccess: state.updateEvent.updateEventSuccess,
+  updateError: state.updateEvent.updateEventError
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  addNewEvent: addEventAction,
+  editEvent: editEventAction,
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(BookCenter);
+export default connect(mapStateToProps, mapDispatchToProps)(EditModal);
+

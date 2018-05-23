@@ -119,7 +119,7 @@ export default class EventsController {
               }
               return event.update({
                 centerId: req.body.centerId,
-                userId: req.decoded.userId,
+                userId: req.decoded.id,
                 eventType: req.body.eventType,
                 date: req.body.date,
                 guestNo: req.body.guestNo
@@ -174,7 +174,7 @@ export default class EventsController {
         }
         return event.destroy()
           .then(res.status(200).send({
-            success: true, message: 'The event has been cancelled'
+            success: true, message: `This ${event.eventType} has been cancelled`
           }))
           .catch(error => res.status(400).send(error));
       });
@@ -278,7 +278,12 @@ export default class EventsController {
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
     Events.findAndCountAll({
-      order: [['date', 'DESC']],
+      where: {
+        date: {
+          [Op.gte]: new Date().toDateString()
+        }
+      },
+      order: [['date', 'ASC']],
       limit,
       offset
     }).then(events => paginateEvents({
@@ -351,7 +356,7 @@ export default class EventsController {
         model: Center,
         attributes: centerAttributes
       }],
-      order: [['date', 'ASC']],
+      order: [['date', 'DESC']],
       limit,
       offset
     }).then(events => paginateHistory({

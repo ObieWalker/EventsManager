@@ -141,6 +141,7 @@ class ModifyCenter extends Component {
               <input type="text"
                 className="form-control"
                 value ={this.state.name.value}
+                defaultValue={this.props.center.name}
                 onFocus={this.state.handleOnFocus}
                 id='name'
                 name='name'
