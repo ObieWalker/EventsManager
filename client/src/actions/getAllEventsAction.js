@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toastr from 'toastr';
 import {
   IS_EVENTS_FETCHING,
   FETCH_EVENTS_SUCCESS,
@@ -22,18 +23,20 @@ const fetchEventsFailure = error => ({
   error
 });
 
-const fetchEventsRequest = () => (
+const fetchEventsRequest = (pageNo, limit) => (
   (dispatch) => {
+    console.log('inside fetch user events');
     dispatch(isEventsFetching(true));
     return axios({
       method: 'GET',
-      url: '/api/v1/events'
+      url: `/api/v1/events?pageNo=${pageNo}&limit=${limit}`
     })
       .then((response) => {
-        dispatch(fetchEventsSuccess(response.data.Events));
+        dispatch(fetchEventsSuccess(response.data.events));
         dispatch(isEventsFetching(false));
       }).catch((error) => {
-        dispatch(fetchEventsFailure(error.response.data.message));
+        toastr.error(error.response.data.info);
+        dispatch(fetchEventsFailure(error.response.data.info));
         dispatch(isEventsFetching(false));
       });
   }

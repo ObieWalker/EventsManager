@@ -39,7 +39,7 @@ const deleteAnEvent = event => (
       }
     }).then((response) => {
       swal({
-        title: 'Deleted!',
+        title: 'Congratulations',
         text: response.data.message,
         icon: 'success',
         dangerMode: false,
@@ -48,10 +48,10 @@ const deleteAnEvent = event => (
       dispatch(isEventDeleting(false));
     }).catch((error) => {
       swal({
-        title: 'Unable cancel your event at this time.',
+        title: 'Unable to delete',
         text: error.response.data.message,
         icon: 'error',
-        dangerMode: true,
+        dangerMode: false,
       });
       dispatch(deleteEventFailure(error.response.data.message));
       dispatch(isEventDeleting(false));

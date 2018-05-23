@@ -165,25 +165,20 @@ class CreateCenter extends Component {
     return (
       <div>
         <div className='col-lg-8 col-xs-12 col-centered'>
-
           <div className="grey lighten-4" style={{
-            display: 'inline-block', width: '100%', margin: '50px 20px 20px 50px', padding: '10%', border: '1px solid #EEE'
+            display: 'inline-block', width: '80%', margin: '5%', padding: '5%', border: '1px solid #EEE'
           }}>
             <div className="row">
-
               <div className="nav-wrapper">
-
                 <div className='col-lg-12 col-xs-12 col-centered'>
-                  <h3 className="brand-logo col s12">Add A Center</h3>
                 </div>
               </div>
             </div>
-
             <div className="input-field col s12">
-
+              <h4 className="brand-logo col s12">Add Center Information.</h4>
               <form className="col s14" onSubmit={this.onSubmit}>
                 <div className="input-field col s12">
-                  <label>Center Name:</label>
+                  <label htmlFor="name">Center Name:</label>
                   <input type="text"
                     className="form-control"
                     value ={this.state.name.value}
@@ -237,10 +232,18 @@ class CreateCenter extends Component {
                       value ={this.state.facility.value}
                       onFocus={this.state.handleOnFocus}
                       name='facility'
-                      placeholder="Separate with commas"
                       onChange={this.handleChange} >
                     </textarea>
-                    <label htmlFor="facilities">Center Description</label>
+                    <label htmlFor="facilities">Center Description/Facilities:</label>
+                  </div>
+                </div>
+                <div className="file-field input-field">
+                  <div className="btn">
+                    <span>File</span>
+                    <input type="file" multiple/>
+                  </div>
+                  <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" placeholder="Upload Center Picture"/>
                   </div>
                 </div>
 

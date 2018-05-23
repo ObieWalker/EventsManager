@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import toastr from 'toastr';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -105,7 +104,6 @@ class Login extends Component {
           const { isAuthenticated, user } = this.props.loginUser;
           if (user.isAdmin) {
             this.props.history.push('/admin');
-            toastr.success('Admin!');
           } else if (isAuthenticated && !user.isAdmin) {
             this.props.history.push('/dashboard');
           }

@@ -37,7 +37,7 @@ export const paginateEvents = ({
     });
   } else if (events.rows.length < 1) {
     return res.status(404).json({
-      info: 'No events in this set'
+      info: 'No more events availale.'
     });
   } else if (pageNo > Math.ceil(events.count / limit)) {
     return res.status(404).json({

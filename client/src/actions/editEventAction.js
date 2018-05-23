@@ -25,7 +25,6 @@ const updateEventFailure = error => ({
 
 const updateEventRequest = event => (
   (dispatch) => {
-    console.log('event id ===>>', event.eventId);
     dispatch(isEventCreating(true));
     localStorage.getItem('token');
     if (axios.defaults.headers.common.token === '') {
@@ -49,7 +48,6 @@ const updateEventRequest = event => (
       dispatch(updateEventSuccess(response.data.newEvent, message));
       dispatch(isEventCreating(false));
     }).catch((error) => {
-      console.log('this is the error response==>>', error.response.data.error);
       swal({
         title: 'Unable to make booking.',
         text: error.response.data.message,

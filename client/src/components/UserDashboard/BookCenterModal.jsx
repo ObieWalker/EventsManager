@@ -144,7 +144,6 @@ class BookCenter extends Component {
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
-      console.log('there are errors', errors);
       this.setState({ errors });
     }
     return formIsValid;
@@ -178,8 +177,12 @@ class BookCenter extends Component {
             toastr.remove();
             toastr.success(createSuccess);
           } else {
-            toastr.remove();
-            toastr.error(createError);
+            swal({
+              title: 'Unable to add new event',
+              text: createError,
+              icon: 'error',
+              dangerMode: false,
+            });
           }
           this.clear();
         });

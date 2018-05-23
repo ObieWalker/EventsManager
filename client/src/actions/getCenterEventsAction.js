@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import toastr from 'toastr';
 import {
   IS_CENTER_EVENTS_FETCHING,
   FETCH_CENTER_EVENTS_SUCCESS,
@@ -40,6 +40,7 @@ const getCenterEventsRequest = (centerId, pageNo, limit) => (
       dispatch(fetchCenterEventsSuccess(response.data.events));
       dispatch(isCenterEventsFetching(false));
     }).catch((error) => {
+      toastr.success(error.response.data.info);
       dispatch(fetchCenterEventsFailure(error.response.data.info));
       dispatch(isCenterEventsFetching(false));
     });

@@ -8,7 +8,7 @@ const Events = Event;
 const Centers = Center;
 const Users = User;
 const { Op } = models.sequelize;
-const centerAttributes = ['name', 'address', 'city'];
+const centerAttributes = ['name', 'address', 'city', 'image'];
 /**
  * @description event controller
  *
@@ -283,6 +283,10 @@ export default class EventsController {
           [Op.gte]: new Date().toDateString()
         }
       },
+      include: [{
+        model: Center,
+        attributes: centerAttributes
+      }],
       order: [['date', 'ASC']],
       limit,
       offset

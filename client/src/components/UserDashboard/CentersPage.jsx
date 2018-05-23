@@ -116,7 +116,6 @@ class CentersPage extends Component {
  * @memberof CentersPage
  */
   resetPage() {
-    console.log('inside reset page');
     this.setState({
       pageNo: 1,
       filter: '',
@@ -206,7 +205,6 @@ class CentersPage extends Component {
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
-      console.log('there are errors', errors);
       this.setState({ errors });
     }
     return formIsValid;
@@ -219,7 +217,6 @@ class CentersPage extends Component {
  * @memberof BookCenter
  */
   onSubmit(e) {
-    console.log('inside onsubmit');
     e.preventDefault();
     if (this.formIsValid()) {
       this.setState({ errors: {} });
@@ -242,8 +239,12 @@ class CentersPage extends Component {
             toastr.remove();
             toastr.success(createSuccess);
           } else {
-            toastr.remove();
-            toastr.error(createError);
+            swal({
+              title: 'Unable to add new event',
+              text: createError,
+              icon: 'error',
+              dangerMode: false,
+            });
           }
           this.clear();
         });
@@ -297,7 +298,6 @@ class CentersPage extends Component {
         </div>
       );
     }
-
     const events = this.props.fetchedCenterEvents;
     return (
       <div>
@@ -330,8 +330,8 @@ class CentersPage extends Component {
 CentersPage.propTypes = {
   allCenters: PropTypes.object,
   getAllCenters: PropTypes.func.isRequired,
-  createSuccess: PropTypes.func,
-  createError: PropTypes.func,
+  createSuccess: PropTypes.string,
+  createError: PropTypes.string,
   addNewEvent: PropTypes.func,
   Centers: PropTypes.array,
   moreCenters: PropTypes.bool,

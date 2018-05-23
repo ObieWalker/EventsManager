@@ -100,17 +100,12 @@ class EditModal extends Component {
       // })
     });
   }
-  /**
- * @returns {object} event
- *
- * @param {any} event
- * @memberof EditModal
- */
+
   /**
  *
  *
  * @returns {object} boolean
- * @memberof BookCenter
+ * @memberof EditModal
  */
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
@@ -129,8 +124,8 @@ class EditModal extends Component {
     if (this.formIsValid()) {
       this.setState({ errors: {} });
       const modifiedEvent = {
-        eventId: this.props.event.id,
         centerId: this.props.event.centerId,
+        eventId: this.props.event.id,
         eventType: this.state.eventType,
         date: moment(this.state.date).format('YYYY-MM-DD HH:mm:ss'),
         guestNo: this.state.guestNo
@@ -146,13 +141,15 @@ class EditModal extends Component {
       this.props.editEvent(modifiedEvent)
         .then(() => {
           this.props.handleClose();
-          const { updateSuccess, updateError } = this.props;
-          if (updateError === '') {
-            toastr.remove();
-            toastr.success(updateSuccess);
+          if (this.props.updateError === '') {
+            toastr.success(this.props.updateSuccess);
           } else {
-            toastr.remove();
-            toastr.error(updateError);
+            swal({
+              title: 'Unable to add new event',
+              text: this.props.updateError,
+              icon: 'error',
+              dangerMode: false,
+            });
           }
         });
     }
