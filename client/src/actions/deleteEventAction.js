@@ -1,20 +1,61 @@
-import axios from 'axios'
+import axios from 'axios';
+import swal from 'sweetalert';
 
-import { DELETE_AN_EVENT} from './actionTypes'
+import {
+  IS_EVENT_DELETING,
+  DELETE_EVENT_SUCCESS,
+  DELETE_EVENT_FAILURE
+} from './actionTypes';
 
-const deleteAnEventAsync = (eventId) => ({
-    type: DELETE_AN_EVENT,
-    payload: eventId
-})
+const isEventDeleting = bool => ({
+  type: IS_EVENT_DELETING,
+  bool
+});
 
-const deleteAnEvent = (eventId) => {
-    axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('token')}`;
-    axios
-        .delete(`events/${eventId}`)
-        .then((res) => {
-            localStorage.setItem('message', res.data.message);
-            dispatch(deleteAnEventAsync(eventId));
-        })
-        .catch(error => localStorage.setItem('message', error.response.data.message));
-}
+
+const deleteEventSuccess = eventId => ({
+  type: DELETE_EVENT_SUCCESS,
+  payload: eventId
+});
+
+const deleteEventFailure = error => ({
+  type: DELETE_EVENT_FAILURE,
+  error
+});
+
+
+const deleteAnEvent = event => (
+  (dispatch) => {
+    dispatch(isEventDeleting(true));
+    localStorage.getItem('token');
+    if (axios.defaults.headers.common.token === '') {
+      axios.defaults.headers.common.token = localStorage.getItem('token');
+    }
+    return axios({
+      method: 'DELETE',
+      url: `/api/v1/events/${event.id}`,
+      headers: {
+        token: localStorage.getItem('token')
+      }
+    }).then((response) => {
+      swal({
+        title: 'Deleted!',
+        text: response.data.message,
+        icon: 'success',
+        dangerMode: false,
+      });
+      dispatch(deleteEventSuccess(event.id));
+      dispatch(isEventDeleting(false));
+    }).catch((error) => {
+      swal({
+        title: 'Unable cancel your event at this time.',
+        text: error.response.data.message,
+        icon: 'error',
+        dangerMode: true,
+      });
+      dispatch(deleteEventFailure(error.response.data.message));
+      dispatch(isEventDeleting(false));
+    });
+  });
 export default deleteAnEvent;
+

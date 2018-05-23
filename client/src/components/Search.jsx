@@ -67,6 +67,7 @@ class Search extends Component {
       capacity: '',
       facility: ''
     });
+    this.props.resetPage();
     this.props.clearCenterState();
     this.props.getAllCenters();
   }
@@ -131,7 +132,8 @@ class Search extends Component {
 Search.propTypes = {
   getAllCenters: PropTypes.func,
   clearCenterState: PropTypes.func,
-  changeSearchState: PropTypes.func
+  changeSearchState: PropTypes.func,
+  resetPage: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -56,6 +56,7 @@ class CentersPage extends Component {
     this.changeSearchState = this.changeSearchState.bind(this);
     this.getCenterEvents = this.getCenterEvents.bind(this);
     this.revertPageState = this.revertPageState.bind(this);
+    this.resetPage = this.resetPage.bind(this);
   }
 
   /**
@@ -108,7 +109,21 @@ class CentersPage extends Component {
     });
     this.props.centerEvents(center.id, 1, 10);
   }
-
+  /**
+ * @returns {object} state
+ *
+ * @param {any} e
+ * @memberof CentersPage
+ */
+  resetPage() {
+    console.log('inside reset page');
+    this.setState({
+      pageNo: 1,
+      filter: '',
+      capacity: '',
+      facility: '',
+    });
+  }
   /**
  * @returns {object} page state
  *
@@ -250,6 +265,7 @@ class CentersPage extends Component {
             <div className='center'>
               <Search
                 changeSearchState={this.changeSearchState.bind(this)}
+                resetPage={this.resetPage.bind(this)}
               /> <br/> <br/>
             </div>
             <div> {(centers) ?
@@ -275,7 +291,8 @@ class CentersPage extends Component {
             </div>
           </div>
           <Modal show={this.state.show} onHide={this.handleClose}>
-            <BookCenter center ={this.state.center}/>
+            <BookCenter center ={this.state.center}
+              handleClose={this.handleClose.bind(this)}/>
           </Modal>
         </div>
       );
@@ -300,7 +317,8 @@ class CentersPage extends Component {
           {this.state.isLoading === true &&
             <div><p>Loading...</p> <Loading /></div> }
           <ScrollUp showUnder={100}>
-            <button type="button" className="btn btn-floating btn-rounded waves-effect">TOP</button>
+            <button type="button"
+              className="btn btn-floating btn-rounded waves-effect">TOP</button>
           </ScrollUp>
           <br /><br />
         </div>

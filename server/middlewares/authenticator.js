@@ -24,7 +24,9 @@ export default class auth {
     if (token) {
       jwt.verify(token, process.env.SECRET, (err, decoded) => {
         if (err) {
-          return res.status(401).json({ message: 'Failed to authenticate user' });
+          return res.status(401).json({
+            message: 'Failed to authenticate user'
+          });
         }
         User.findOne({
           where: {
@@ -32,7 +34,9 @@ export default class auth {
           }
         }).then((user) => {
           if (!user) {
-            return res.status(401).json({ message: 'User account does not exist' });
+            return res.status(401).json({
+              message: 'User account does not exist'
+            });
           }
           // the user data is stored
           req.decoded = decoded;
@@ -40,7 +44,9 @@ export default class auth {
         });
       });
     } else {
-      res.status(403).json({ message: 'No token, please sign up or sign in' });
+      res.status(403).json({
+        message: 'No token, please sign up or sign in'
+      });
     }
   }
 }
