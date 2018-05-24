@@ -88,7 +88,6 @@ class UserEvents extends Component {
    * @memberof UserEvents
    */
   handleEditEvent() {
-    console.log('Attempting to edit event');
     // this.props.editEvent();
   }
   /**

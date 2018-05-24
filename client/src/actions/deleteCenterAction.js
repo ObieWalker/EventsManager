@@ -1,4 +1,5 @@
 import axios from 'axios';
+import swal from 'sweetalert';
 import {
   IS_CENTER_DELETING,
   DELETE_CENTER_SUCCESS,
@@ -35,9 +36,21 @@ const deleteCenterRequest = id => (
       }
     })
       .then((response) => {
+        swal({
+          title: 'Congratulations',
+          text: response.data.message,
+          icon: 'success',
+          dangerMode: false,
+        });
         dispatch(deleteCenterSuccess(id, response.data.message));
         dispatch(isCenterDeleting(false));
       }).catch((error) => {
+        swal({
+          title: 'Unable to delete',
+          text: error.response.data.message,
+          icon: 'error',
+          dangerMode: false,
+        });
         dispatch(deleteCenterError(error.response.data.message));
         dispatch(isCenterDeleting(false));
       });

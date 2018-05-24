@@ -1,5 +1,6 @@
 import models, { Center, User } from '../models';
 import { paginateData } from '../helpers/helper';
+import handleEvents from '../helpers/handleEvents';
 
 const Centers = Center;
 const Users = User;
@@ -28,7 +29,10 @@ export default class CentersController {
   static createCenter(req, res) {
     Users.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
-        return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+        return res.status(403).json({
+          success: false,
+          message: 'You do not have the admin privileges to do this'
+        });
       }
       Center.findOne({
         where: {
@@ -51,14 +55,26 @@ export default class CentersController {
           image: req.body.image
         })
           .then((center) => {
-            res.status(201).json({ success: true, message: 'The center has been added', center });
+            res.status(201).json({
+              success: true,
+              message: 'The center has been added',
+              center
+            });
           })
           .catch((error) => {
-            res.status(400).json({ success: false, message: 'Your request could not be processed', error: error.messsage });
+            res.status(400).json({
+              success: false,
+              message: 'Your request could not be processed',
+              error: error.messsage
+            });
           });
       })
         .catch((error) => {
-          res.status(403).json({ success: false, message: 'You do not have the admin rights to add a center', error });
+          res.status(403).json({
+            success: false,
+            message: 'You do not have the admin rights to add a center',
+            error
+          });
         });
     });
   }
@@ -76,21 +92,31 @@ export default class CentersController {
  * @memberof CentersController
  */
   static modifyCenter(req, res) {
-    // this ensure the id input isnt a string that cannot be converted eg. "five"
     Users.findById(req.decoded.id)
       .then((user) => {
         if (user.isAdmin !== true) {
-          return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+          return res.status(403).json({
+            success: false,
+            message: 'You do not have the admin privileges to do this'
+          });
         }
         const { id } = req.params;
         const intId = parseInt(id, 10);
-        if (!Number.isInteger(intId) || !((id).indexOf('.') === -1) || Number.isNaN(intId) || Math.sign(id) === -1) {
-          return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+        if (!Number.isInteger(intId)
+        || !((id).indexOf('.') === -1)
+        || Number.isNaN(intId)
+        || Math.sign(id) === -1) {
+          return res.status(400).json({
+            success: false,
+            message: 'There was an error with the center ID input!'
+          });
         }
         Centers.findById(id)
           .then((center) => {
             if (!center) { // not found
-              return res.status(404).json({ success: true, message: 'No center found' });
+              return res.status(404).json({
+                success: true, message: 'No center found'
+              });
             }
             return center.update({
               userId: req.decoded.id,
@@ -110,7 +136,11 @@ export default class CentersController {
                   }));
               })
               .catch((err) => {
-                res.status(500).json({ success: false, message: 'Could not update', error: err });
+                res.status(500).json({
+                  success: false,
+                  message: 'Could not update',
+                  error: err
+                });
               });
           });
       });
@@ -160,7 +190,10 @@ export default class CentersController {
       req, res, centers, limit, pageNo
     }))
       .catch((error) => {
-        res.status(500).json({ message: 'Your request had an error', error });
+        res.status(500).json({
+          message: 'Your request had an error',
+          error
+        });
       });
   }
   /**
@@ -175,8 +208,13 @@ export default class CentersController {
   static getCenterDetails(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
-    if (!Number.isInteger(intId) || Number.isNaN(intId) || Math.sign(id) === -1) {
-      return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+    if (!Number.isInteger(intId)
+    || Number.isNaN(intId)
+    || Math.sign(id) === -1) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the center ID input!'
+      });
     }
     Centers.findOne({
       where: {
@@ -185,9 +223,16 @@ export default class CentersController {
     })
       .then((center) => {
         if (!center) {
-          return res.status(404).json({ success: false, message: 'We do not have records of this center' });
+          return res.status(404).json({
+            success: false,
+            message: 'We do not have records of this center'
+          });
         }
-        res.status(200).json({ success: true, message: 'Here is your center', center });
+        res.status(200).json({
+          success: true,
+          message: 'Here is your center',
+          center
+        });
       })
       .catch(error => res.status(400).json({ success: false, error }));
   }
@@ -207,20 +252,32 @@ export default class CentersController {
   static deleteCenter(req, res) {
     Users.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
-        return res.status(403).json({ success: false, message: 'You do not have the admin privileges to do this' });
+        return res.status(403).json({
+          success: false,
+          message: 'You do not have the admin privileges to do this'
+        });
       }
       const { id } = req.params;
       const intId = parseInt(id, 10);
-      if (!Number.isInteger(intId) || Number.isNaN(intId) || Math.sign(id) === -1) {
-        return res.status(400).json({ success: false, message: 'There was an error with the center ID input!' });
+      if (!Number.isInteger(intId)
+      || Number.isNaN(intId)
+      || Math.sign(id) === -1) {
+        return res.status(400).json({
+          success: false,
+          message: 'There was an error with the center ID input!'
+        });
       }
       Centers.findById(id)
         .then((center) => {
           if (!center) { // if no centers
-            return res.status(400).send({ success: false, message: 'No such center' });
+            return res.status(400).send({
+              success: false, message: 'No such center'
+            });
           } // else remove
           return center.destroy()
-            .then(res.status(200).send({ success: true, message: 'The center has been deleted!' }))
+            .then(res.status(200).send({
+              success: true, message: 'The center has been deleted!'
+            }))
             .catch(error => res.status(400).send(error));
         });
     });

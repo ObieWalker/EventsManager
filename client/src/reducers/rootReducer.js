@@ -2,18 +2,17 @@ import { combineReducers } from 'redux';
 
 import register from './registerReducer';
 import login from './loginReducer';
-// import events from './eventReducer';
 import createCenterReducer from './createCenterReducer';
 import updateCenterReducer from './updateCenterReducer';
 import allCentersReducer from './allCentersReducer';
 import userEventsReducer from './userEventsReducer';
-import editCenterReducer from './editCenterReducer';
 import deleteCenterReducer from './deleteCenterReducer';
 import allEventsReducer from './allEventsReducer';
 import userHistoryReducer from './userHistoryReducer';
 import getCenterReducer from './getACenterReducer';
 import centerEventsReducer from './centerEventsReducer';
 import editEventReducer from './editEventReducer';
+import getUsersReducer from './getUsersReducer';
 
 const rootReducer = combineReducers({
   registerUser: register,
@@ -24,11 +23,11 @@ const rootReducer = combineReducers({
   deleteCenter: deleteCenterReducer,
   allEvents: allEventsReducer,
   allUserEvents: userEventsReducer,
-  editCenter: editCenterReducer,
   userHistory: userHistoryReducer,
   getCenter: getCenterReducer,
   centerEvents: centerEventsReducer,
-  updateEvent: editEventReducer
+  updateEvent: editEventReducer,
+  getUsers: getUsersReducer
 });
 
 export default rootReducer;

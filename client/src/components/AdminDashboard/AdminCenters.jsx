@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+import ScrollUp from 'react-scroll-up';
 import swal from 'sweetalert';
+import Loading from 'react-loading-animation';
 import getAllCenters from '../../actions/getAllCentersAction';
 import editCenter from '../../actions/editCenterAction';
 import deleteCenter from '../../actions/deleteCenterAction';
@@ -25,13 +27,20 @@ class AdminCenters extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      center: '',
-      show: false
+      centers: '',
+      isLoading: false,
+      show: false,
+      pageNo: 1,
+      limit: 10,
+      filter: '',
+      facility: '',
+      capacity: ''
     };
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleModify = this.handleModify.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.loadMoreContent = this.loadMoreContent.bind(this);
   }
   /**
  * @method componentDidMount
@@ -39,8 +48,48 @@ class AdminCenters extends Component {
  * @memberof AdminCenters
  */
   componentDidMount() {
-    this.props.getAllCenters();
+    this.props.getAllCenters(this.state.pageNo, this.state.limit)
+      .then(() => {
+        this.setState({ centers: this.props.allCenters.fetchedCenters });
+      });
   }
+  /**
+ * @returns {*} null
+ *
+ * @param {any} nextProps
+ * @memberof AdminCenters
+ */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props) {
+      this.setState({
+        centers: nextProps.allCenters.fetchedCenters,
+        isLoading: false
+      });
+    }
+  }
+  /**
+   * @method loadMoreContent
+   * @returns {object} state
+   * @memberof AllCenters
+   */
+  loadMoreContent() {
+    this.setState({
+      pageNo: this.state.pageNo + 1, isLoading: true
+    }, () => { this.getMoreCenters(this.state.pageNo, this.state.limit); });
+  }
+
+  /**
+   * @returns { * } null
+   *
+   * @param {any} pageNo
+   * @param {any} limit
+   * @memberof AllCenters
+   */
+  getMoreCenters(pageNo, limit) {
+    const { filter, facility, capacity } = this.state;
+    this.props.getAllCenters(pageNo, limit, filter, facility, capacity);
+  }
+
   /**
  *
  * @returns {object} state
@@ -72,7 +121,7 @@ class AdminCenters extends Component {
   handleDelete(center) {
     swal({
       title: 'Are you sure?',
-      text: 'If this center is deleted,it cannot be undone',
+      text: 'If this center is deleted, it cannot be undone',
       icon: 'warning',
       buttons: true,
       dangerMode: true,
@@ -80,7 +129,6 @@ class AdminCenters extends Component {
       .then((willDelete) => {
         if (willDelete) {
           this.props.deleteCenter(center.id);
-          swal('Deleted!', `The center ${center.name} has been deleted`, 'success');
         }
       });
   }
@@ -93,8 +141,9 @@ class AdminCenters extends Component {
   render() {
     return (
       <div>
-        <div >
+        <div>
           <div className='center col s12 m12'>
+            <h3>Centers and Details.</h3>
             <div><div>{this.props.allCenters.fetchedCenters ?
               <table className="table text-center table-hover
             mx-auto bg-white table-responsive-sm table-striped" style={{ width: '100%' }}>
@@ -132,23 +181,30 @@ class AdminCenters extends Component {
                       </tr>)
                   }
                 </tbody>
-              </table> : <p style={{ margin: '10%', fontSize: '20px', fontStyle: 'Sans-serif' }}>There are no registered centers.</p>
+              </table> : <p style={{
+                margin: '10%', fontSize: '20px', fontStyle: 'Sans-serif'
+              }}>There are no registered centers.</p>
             }
             </div>
             </div>
           </div>
+          {this.state.isLoading === true &&
+          <div><p>Loading...</p> <Loading /></div> }
+          <ScrollUp showUnder={100}>
+            <button type="button"
+              className="btn btn-floating btn-rounded waves-effect"
+            >TOP</button>
+          </ScrollUp>
+          <button onClick={this.loadMoreContent}
+            className="btn btn-primary active"
+            id="loadMore" disabled={!this.props.moreCenters}
+          >Load More</button>
         </div>
         <div style={{ height: '1000px' }}>
           <Modal show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Modify Center Details.</Modal.Title>
-            </Modal.Header>
             <Modal.Body>
               <ModifyCenter center ={this.state.center}/>
             </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.handleClose}>Close</Button>
-            </Modal.Footer>
           </Modal>
         </div>
       </div>
@@ -159,11 +215,13 @@ class AdminCenters extends Component {
 AdminCenters.propTypes = {
   allCenters: PropTypes.object,
   getAllCenters: PropTypes.func.isRequired,
-  deleteCenter: PropTypes.func
+  deleteCenter: PropTypes.func,
+  moreCenters: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-  allCenters: state.allCenters
+  allCenters: state.allCenters,
+  moreCenters: state.allCenters.moreCenters
 });
 
 

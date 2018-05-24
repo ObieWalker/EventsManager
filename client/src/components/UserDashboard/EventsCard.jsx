@@ -28,7 +28,6 @@ class EventCard extends Component {
  * @memberof EventCard
  */
   handleEdit(event) {
-    console.log('handle edit in events card');
     this.props.handleShowEditModal(event);
     // this.props.handleEditEvent();
   }
@@ -39,7 +38,6 @@ class EventCard extends Component {
  * @memberof EventCard
  */
   handleDelete() {
-    console.log('handle delete in events card');
     this.props.handleDeleteEvent();
   }
   /**
@@ -52,13 +50,16 @@ class EventCard extends Component {
     const { event } = this.props;
     const cutOffTime = Date.now() + 86400000;
     const eventDate = new Date(event.date);
+    const today = Date.now();
     if (event) {
       return (
         <div style={{ margin: '5%' }}>
           <Col s={10} m={4}>
             <div className="col 12">
               <div className="card elegant-color white-text"
-                style={{ width: '18rem', padding: '5%', borderRadius: '10%' }}>
+                style={{
+                  width: '18rem', padding: '5%', borderRadius: '10%', height: '260px'
+                }}>
                 <div className="card-body">
                   <h5 className="card-title white-text">{event.eventType}</h5>
                   <h6 className="card-subtitle mb-2 text-muted white-text">
@@ -71,8 +72,9 @@ class EventCard extends Component {
                   <hr className="hr-light"/>
                   {event.isCancelled ?
                     <h6 className="red-text">
-                    Apologies!! This event has been cancelled.</h6> :
-                    <div>{eventDate > cutOffTime ?
+                    Apologies!!! This event was cancelled.</h6> :
+                    <div>{(eventDate > today) &&
+                    <div>{(eventDate > cutOffTime) ?
                       <div>
                         <button className="btn blue-gradient active btn-sm"
                           onClick={this.handleEdit.bind(this, event)}>
@@ -82,9 +84,8 @@ class EventCard extends Component {
                       </div> :
                       <div><h6 className="red-text">
                       Unable to Cancel or Modify 24 hrs to event.</h6></div>
-                    }</div>
+                    }</div>}</div>
                   }
-
                 </div>
               </div>
             </div>
