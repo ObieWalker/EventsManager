@@ -1,33 +1,30 @@
 language: node_js
+
 node_js:
-  - "8"
-sudo: required
-before_install:
-  - npm install -g node-gyp
-cache:
-  directories:
-  - node_modules
-addons:
-  - postgresql: "9.4"
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
-env:
-  - CXX=g++-4.8
-global:
-  - export NODE_ENV=test
+  - "8.11.1"
+
 script:
- - npm run test
-after_success: 
-  - codeclimate-test-reporter < coverage/lcov.info
-  - npm run coverage
-  - npm run coveralls
+  - NODE_ENV=test npm test
+  - NODE_ENV=development npm test
+
+install:
+  - npm install
+  - npm install -g codecov
+env:
+  
+
 services:
   - postgresql
+
+cache:
+  directories:
+   - "node_modules"
+
 before_script:
- - psql -c "CREATE DATABASE \"events_test\";" -U postgres
- - npm install
- - npm install -g sequelize-cli
+  - psql -c "create database events_test;" -U postgres
+
+after_success:
+  - NODE_ENV=development npm run coverage
+  - NODE_ENV=test npm run coverage
+  - npm run jest
 
