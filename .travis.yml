@@ -4,8 +4,8 @@ node_js:
   - "8.11.1"
 
 script:
-  - NODE_ENV=test npm test
-  - NODE_ENV=development npm test
+  - NODE_ENV=test npm pretest
+  - NODE_ENV=development npm pretest
 
 install:
   - npm install
@@ -22,6 +22,7 @@ cache:
 
 before_script:
   - psql -c "create database events_test;" -U postgres
+  - psql -c "create database events_dev;" -U postgres
 
 after_success:
   - NODE_ENV=development npm run coverage
