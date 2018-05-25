@@ -4,7 +4,6 @@ node_js:
   - "8.11.1"
 
 script:
-  - NODE_ENV=test npm run pretest
   - NODE_ENV=development npm run pretest
 
 install:
@@ -26,6 +25,5 @@ before_script:
 
 after_success:
   - NODE_ENV=development npm run coverage
-  - NODE_ENV=test npm run coverage
   - npm run jest
 

@@ -2,21 +2,28 @@
   "name": "event-manager",
   "version": "1.0.0",
   "scripts": {
-    "start": "NODE_ENV=production webpack --mode production --config webpack.prod.js && node server/entry.js",
+    "start":
+      "NODE_ENV=production webpack --mode production --config webpack.prod.js && node server/entry.js",
     "build:dev": "webpack --mode development -w",
     "start:dev": "nodemon server/entry.js",
     "build:dev:client": "webpack --progress --config webpack.config.dev.js",
-    "start:dev2": "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
-    "dev": "webpack-dev-server --progress --colors --content-base=./client/public",
+    "start:dev2":
+      "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
+    "dev":
+      "webpack-dev-server --progress --colors --content-base=./client/public",
     "build": "babel src -d dist",
     "heroku-postbuild": "npm run build:dev",
     "mocha": "mocha --compilers js:babel-core/register",
-    "pretest": "npm run seq:create && NODE_ENV=test npm run db:migration",
+    "pretest":
+      "npm run db:migration && NODE_ENV=development",
     "seq:create": "sequelize db:create events_test",
-    "test": "NODE_ENV=development nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
-    "test:dev": "NODE_ENV=development npm run db:migration:dev && nyc --reporter=html --reporter=text mocha --timeout 45000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "test":
+      "NODE_ENV=development nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "test:dev":
+      "NODE_ENV=development npm run db:migration:dev && nyc --reporter=html --reporter=text mocha --timeout 45000 ./server/tests/index.js --exit --require babel-register --reporter spec",
     "db:migration": "sequelize db:migrate && sequelize db:seed:all",
-    "db:migration:dev": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+    "db:migration:dev":
+      "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
     "lint": "./node_modules/.bin/eslint",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
@@ -136,9 +143,7 @@
     "test": "tests"
   },
   "nodemonConfig": {
-    "ignore": [
-      "client/*"
-    ]
+    "ignore": ["client/*"]
   },
   "author": "Obi Walker",
   "license": "ISC",

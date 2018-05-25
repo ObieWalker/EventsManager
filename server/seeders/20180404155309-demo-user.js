@@ -1,3 +1,4 @@
+/*eslint-disable */
 const bcrypt = require('bcrypt');
 
 module.exports = {
