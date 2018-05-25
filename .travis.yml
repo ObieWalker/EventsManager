@@ -1,19 +1,29 @@
 language: node_js
+
 node_js:
-  - "8"
-sudo: required
-before_install:
-  - npm install -g node-gyp
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
-env:
-  - CXX=g++-4.8
+  - "8.11.1"
+
 script:
- - npm install
- - npm test
-after_success: 'npm run coveralls' 
+  - NODE_ENV=development npm run pretest
+
+install:
+  - npm install
+  - npm install -g codecov
+env:
+  
+
+services:
+  - postgresql
+
+cache:
+  directories:
+   - "node_modules"
+
+before_script:
+  - psql -c "create database events_test;" -U postgres
+  - psql -c "create database events_dev;" -U postgres
+
+after_success:
+  - NODE_ENV=development npm run coverage
+  - npm run jest
 

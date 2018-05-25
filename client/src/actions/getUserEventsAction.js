@@ -34,7 +34,7 @@ const getUserEventsRequest = (pageNo, limit) => (
       dispatch(fetchUserEventsSuccess(response.data.events));
       dispatch(isUsersEventsFetching(false));
     }).catch((error) => {
-      dispatch(fetchUserEventsFailure(error.response.data.info));
+      dispatch(fetchUserEventsFailure(error.response.data.message));
       dispatch(isUsersEventsFetching(false));
     });
   }

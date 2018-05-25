@@ -35,8 +35,8 @@ const fetchEventsRequest = (pageNo, limit) => (
         dispatch(fetchEventsSuccess(response.data.events));
         dispatch(isEventsFetching(false));
       }).catch((error) => {
-        toastr.error(error.response.data.info);
-        dispatch(fetchEventsFailure(error.response.data.info));
+        toastr.error(error.response.data.message);
+        dispatch(fetchEventsFailure(error.response.data.message));
         dispatch(isEventsFetching(false));
       });
   }

@@ -21,13 +21,20 @@ class EventCard extends Component {
         <div style={{ margin: '5%' }}>
           <Col s={10} m={4}>
             <div className="col 12">
-              <div className="card elegant-color white-text" style={{ borderRadius: '10%', width: '18rem', padding: '5%' }}>
+              <div
+                className="card elegant-color white-text"
+                style={{ borderRadius: '10%', width: '18rem', padding: '5%' }}
+              >
                 <div className="card-body">
                   <h5 className="card-title white-text">{event.eventType}</h5>
-                  <p className="card-text white-text">Address: {event.Center.address}, {event.Center.city}</p>
+                  <p className="card-text white-text">
+                    Address: {event.Center.address}, {event.Center.city}
+                  </p>
                   <p className="card-text white-text">Date: {event.date}</p>
-                  <p className="card-text white-text">Guest Estimate: {event.guestNo}</p>
-                  <hr className="hr-light"/>
+                  <p className="card-text white-text">
+                    Guest Estimate: {event.guestNo}
+                  </p>
+                  <hr className="hr-light" />
                 </div>
               </div>
             </div>

@@ -1,6 +1,5 @@
 import models, { Center, User } from '../models';
 import { paginateData } from '../helpers/helper';
-import handleEvents from '../helpers/handleEvents';
 
 const Centers = Center;
 const Users = User;
