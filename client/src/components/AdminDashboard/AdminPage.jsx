@@ -31,22 +31,44 @@ class AdminPage extends Component {
               <div>
                 <div style={{ display: 'flex', background: '#blue' }}>
                   <div style={{ width: '100%', height: '60%' }}>
-                    <div ><br />
+                    <div>
+                      <br />
                       <div className="col-sm-12">
                         <ul className="list-group">
-                          <li className="list-group-item text-muted" contentEditable="false">Profile</li>
-                          <li className="list-group-item text-right"><span className="pull-left"><strong
-                            className="">Name</strong></span>
-                          <span className="text-uppercase,nesvd xckj  ">{user.firstName} {user.lastName}</span></li>
-                          <li className="list-group-item text-right"><span className="pull-left"><strong
-                            className="">Account Created:</strong></span> {moment(user.createdAt).format('ll')}</li>
-                          <li className="list-group-item text-right"><span className="pull-left"><strong
-                            className="">Last login</strong></span> {moment(user.loginTime).fromNow()}</li>
-                          <li className="list-group-item text-right"><span className="pull-left"><strong
-                            className="">Username</strong></span> {user.username}</li>
-                          <li className="list-group-item text-right"><span className="pull-left">
-                            <strong className="">Account Type </strong></span> {user.isAdmin ? 'Admin' : 'Regular User'}
-
+                          <li className="list-group-item text-muted">
+                            Profile
+                          </li>
+                          <li className="list-group-item text-right">
+                            <span className="pull-left">
+                              <strong className="">Name</strong>
+                            </span>
+                            <span className="text-uppercase,nesvd xckj  ">
+                              {user.firstName} {user.lastName}
+                            </span>
+                          </li>
+                          <li className="list-group-item text-right">
+                            <span className="pull-left">
+                              <strong className="">Account Created:</strong>
+                            </span>{' '}
+                            {moment(user.createdAt).format('ll')}
+                          </li>
+                          <li className="list-group-item text-right">
+                            <span className="pull-left">
+                              <strong className="">Last login</strong>
+                            </span>{' '}
+                            {moment(user.loginTime).fromNow()}
+                          </li>
+                          <li className="list-group-item text-right">
+                            <span className="pull-left">
+                              <strong className="">Username</strong>
+                            </span>{' '}
+                            {user.username}
+                          </li>
+                          <li className="list-group-item text-right">
+                            <span className="pull-left">
+                              <strong className="">Account Type </strong>
+                            </span>{' '}
+                            {user.isAdmin ? 'Admin' : 'Regular User'}
                           </li>
                         </ul>
                       </div>
@@ -63,10 +85,18 @@ class AdminPage extends Component {
             </Col>
             <Col sm={9}>
               <Tab.Content animation>
-                <Tab.Pane eventKey="first"><CreateCenter /></Tab.Pane>
-                <Tab.Pane eventKey="second"><Centers /></Tab.Pane>
-                <Tab.Pane eventKey="third"><Events /></Tab.Pane>
-                <Tab.Pane eventKey="fourth"><Users /></Tab.Pane>
+                <Tab.Pane eventKey="first">
+                  <CreateCenter />
+                </Tab.Pane>
+                <Tab.Pane eventKey="second">
+                  <Centers />
+                </Tab.Pane>
+                <Tab.Pane eventKey="third">
+                  <Events />
+                </Tab.Pane>
+                <Tab.Pane eventKey="fourth">
+                  <Users />
+                </Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>
@@ -83,8 +113,7 @@ AdminPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  loginUser: state.loginUser,
+  loginUser: state.loginUser
 });
-
 
 export default connect(mapStateToProps, null)(AdminPage);

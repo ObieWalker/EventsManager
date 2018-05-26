@@ -43,40 +43,43 @@ class CreateCenter extends Component {
     this.clear = this.clear.bind(this);
   }
   /**
- * @returns {object} state
- *
- * @param {any} e
- * @memberof CreateCenter
- */
+   * @returns {object} state
+   *
+   * @param {any} e
+   * @memberof CreateCenter
+   */
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
   /**
- * @returns {object} state
- *
- * @param {any} e
- * @memberof CreateCenter
- */
+   * @returns {object} state
+   *
+   * @param {any} e
+   * @memberof CreateCenter
+   */
   handleOnFocus(e) {
     this.setState({
       errors: Object.assign({}, this.state.errors, { [e.target.name]: '' })
     });
   }
   /**
- * @returns {object} state
- *
- * @param {any} event
- * @memberof CreateCenter
- */
+   * @returns {object} state
+   *
+   * @param {any} event
+   * @memberof CreateCenter
+   */
   handleImage(event) {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
       const filereader = new FileReader();
       validateImage(filereader, file, (fileType) => {
-        if (fileType === 'image/png' || fileType === 'image/gif' ||
-              fileType === 'image/jpeg') {
+        if (
+          fileType === 'image/png' ||
+          fileType === 'image/gif' ||
+          fileType === 'image/jpeg'
+        ) {
           this.setState({ uploadedImage: file });
           filereader.onload = (e) => {
             this.setState({ imageSrc: e.target.result });
@@ -88,14 +91,17 @@ class CreateCenter extends Component {
         }
       });
     } else {
-      this.setState({ defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg', uploadedImage: '' });
+      this.setState({
+        defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',
+        uploadedImage: ''
+      });
     }
   }
   /**
- * @returns {object} state
- *
- * @memberof CreateCenter
- */
+   * @returns {object} state
+   *
+   * @memberof CreateCenter
+   */
   clear() {
     this.setState({
       name: '',
@@ -109,11 +115,11 @@ class CreateCenter extends Component {
     });
   }
   /**
- *
- *
- * @returns {boolean} form validity
- * @memberof CreateCenter
- */
+   *
+   *
+   * @returns {boolean} form validity
+   * @memberof CreateCenter
+   */
   formIsValid() {
     const { errors, formIsValid } = validateForm(this.state);
     if (!formIsValid) {
@@ -123,11 +129,11 @@ class CreateCenter extends Component {
   }
 
   /**
- * @returns {*} null
- *
- * @param {any} e
- * @memberof CreateCenter
- */
+   * @returns {*} null
+   *
+   * @param {any} e
+   * @memberof CreateCenter
+   */
   onSubmit(e) {
     e.preventDefault();
     if (this.formIsValid()) {
@@ -139,39 +145,44 @@ class CreateCenter extends Component {
         capacity: this.state.capacity,
         facility: this.state.facility
       };
-      this.props.createCenter(centerDetails)
-        .then(() => {
-          const { createSuccess, createError } = this.props;
-          if (createError === '') {
-            // clear toasts before showing new
-            toastr.remove();
-            toastr.success(createSuccess);
-          } else {
-            toastr.remove();
-            toastr.error(createError);
-          }
-          this.clear();
-        });
+      this.props.createCenter(centerDetails).then(() => {
+        const { createSuccess, createError } = this.props;
+        if (createError === '') {
+          // clear toasts before showing new
+          toastr.remove();
+          toastr.success(createSuccess);
+        } else {
+          toastr.remove();
+          toastr.error(createError);
+        }
+        this.clear();
+      });
     }
   }
 
   /**
- *
- *
- * @returns {object} create center
- * @memberof CreateCenter
- */
+   *
+   *
+   * @returns {object} create center
+   * @memberof CreateCenter
+   */
   render() {
     return (
       <div>
-        <div className='col-lg-8 col-xs-12 col-centered'>
-          <div className="grey lighten-4" style={{
-            display: 'inline-block', width: '80%', margin: '5%', padding: '5%', border: '1px solid #EEE'
-          }}>
+        <div className="col-lg-8 col-xs-12 col-centered">
+          <div
+            className="grey lighten-4"
+            style={{
+              display: 'inline-block',
+              width: '80%',
+              margin: '5%',
+              padding: '5%',
+              border: '1px solid #EEE'
+            }}
+          >
             <div className="row">
               <div className="nav-wrapper">
-                <div className='col-lg-12 col-xs-12 col-centered'>
-                </div>
+                <div className="col-lg-12 col-xs-12 col-centered" />
               </div>
             </div>
             <div className="input-field col s12">
@@ -179,83 +190,108 @@ class CreateCenter extends Component {
               <form className="col s14" onSubmit={this.onSubmit}>
                 <div className="input-field col s12">
                   <label htmlFor="name">Center Name:</label>
-                  <input type="text"
+                  <input
+                    type="text"
                     className="form-control"
-                    value ={this.state.name.value}
+                    value={this.state.name.value}
                     onFocus={this.state.handleOnFocus}
-                    id='name'
-                    name='name'
-                    placeholder="" required
-                    onChange={this.handleChange}/>
+                    id="name"
+                    name="name"
+                    placeholder=""
+                    required
+                    onChange={this.handleChange}
+                  />
                 </div>
 
                 <div className="input-field col s12">
                   <label>Address:</label>
-                  <input type="text"
-                    value ={this.state.address.value}
+                  <input
+                    type="text"
+                    value={this.state.address.value}
                     onFocus={this.state.handleOnFocus}
                     id="address"
                     className="form-control"
-                    name='address'
-                    placeholder="" required
-                    onChange={this.handleChange}/>
+                    name="address"
+                    placeholder=""
+                    required
+                    onChange={this.handleChange}
+                  />
                 </div>
                 <div className="row">
                   <div className="input-field col s8">
                     <label>City:</label>
-                    <input type="text"
-                      value ={this.state.city.value}
+                    <input
+                      type="text"
+                      value={this.state.city.value}
                       onFocus={this.state.handleOnFocus}
                       id="city"
-                      name='city'
+                      name="city"
                       className="form-control"
-                      placeholder="" required
-                      onChange={this.handleChange} />
+                      placeholder=""
+                      required
+                      onChange={this.handleChange}
+                    />
                   </div>
                   <div className="input-field col s4">
                     <label>Capacity:</label>
-                    <input type="number"
-                      value ={this.state.capacity.value}
+                    <input
+                      type="number"
+                      value={this.state.capacity.value}
                       onFocus={this.state.handleOnFocus}
                       id="capacity"
-                      name='capacity'
+                      name="capacity"
                       className="form-control"
-                      placeholder="" required
-                      onChange={this.handleChange} />
+                      placeholder=""
+                      required
+                      onChange={this.handleChange}
+                    />
                   </div>
                 </div>
 
                 <div className="row">
                   <div className="input-field col s12">
-                    <textarea id="facility"
+                    <textarea
+                      id="facility"
                       className="materialize-textarea"
-                      value ={this.state.facility.value}
+                      value={this.state.facility.value}
                       onFocus={this.state.handleOnFocus}
-                      name='facility'
-                      onChange={this.handleChange} >
-                    </textarea>
-                    <label htmlFor="facilities">Center Description/Facilities:</label>
+                      name="facility"
+                      onChange={this.handleChange}
+                    />
+                    <label htmlFor="facilities">
+                      Center Description/Facilities:
+                    </label>
                   </div>
                 </div>
                 <div className="file-field input-field">
                   <div className="btn">
                     <span>File</span>
-                    <input type="file" multiple/>
+                    <input type="file" multiple />
                   </div>
                   <div className="file-path-wrapper">
-                    <input className="file-path validate" type="text" placeholder="Upload Center Picture"/>
+                    <input
+                      className="file-path validate"
+                      type="text"
+                      placeholder="Upload Center Picture"
+                    />
                   </div>
                 </div>
 
-                <button type="submit" className="waves-effect waves-light btn right hoverable indigo">
-                  <i className="large material-icons right" aria-hidden="true"> done</i>Add Center
+                <button
+                  type="submit"
+                  className="waves-effect waves-light
+                  btn right hoverable indigo"
+                >
+                  <i className="large material-icons right" aria-hidden="true">
+                    {' '}
+                    done
+                  </i>Add Center
                 </button>
               </form>
             </div>
           </div>
         </div>
       </div>
-
     );
   }
 }
@@ -266,16 +302,18 @@ CreateCenter.propTypes = {
   createError: PropTypes.string
 };
 
-
 const mapStateToProps = state => ({
   isCenterCreating: state.createCenter.isCenterCreating,
   createSuccess: state.createCenter.createCenterSuccess,
   createError: state.createCenter.createCenterError
 });
 
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  createCenter: createCenterRequest
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      createCenter: createCenterRequest
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateCenter);

@@ -326,12 +326,18 @@ class CentersPage extends Component {
     const events = this.props.fetchedCenterEvents;
     return (
       <div>
-        <button
+        {/* <button
           className="btn peach-gradient btn-sm
           glyphicon glyphicon-arrow-left left"
           onClick={this.revertPageState}
         >
           {' '}
+          Go Back
+        </button> */}
+        <button
+          onClick={this.revertPageState}
+          className="animated bounceInUp btn btn-small left"
+        ><i className="large material-icons">reply</i>
           Go Back
         </button>
         <div>

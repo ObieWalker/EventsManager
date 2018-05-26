@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { User } from '../models';
-import { paginateUsers } from '../helpers/helper';
+import { paginateUsers, paramValidator } from '../helpers/helper';
 
 dotenv.config();
 const Users = User;
@@ -171,17 +171,13 @@ export default class UsersController {
       }
       const { id } = req.params;
       const intId = parseInt(id, 10);
-      if (
-        !Number.isInteger(intId) ||
-        !(id.indexOf('.') === -1) ||
-        Number.isNaN(intId) ||
-        Math.sign(id) === -1
-      ) {
+      if (paramValidator(id) === true) {
         return res.status(400).json({
           success: false,
           message: 'There was an error with the user ID input!'
         });
       }
+      console.log('this is int ID', intId);
       Users.findById(id).then((user) => {
         if (!user) {
           // not found
@@ -229,18 +225,13 @@ export default class UsersController {
       }
       const { id } = req.params;
       const intId = parseInt(id, 10);
-      if (
-        !Number.isInteger(intId) ||
-        !(id.indexOf('.') === -1) ||
-        Number.isNaN(intId) ||
-        Math.sign(id) === -1
-      ) {
+      if (paramValidator(id) === true) {
         return res.status(400).json({
           success: false,
           message: 'There was an error with the user ID input!'
         });
       }
-      Users.findById(id).then((user) => {
+      Users.findById(intId).then((user) => {
         if (!user) {
           // not found
           return res

@@ -17,22 +17,19 @@ class ContactUs extends Component {
   render() {
     return (
       <div>
-        <h4>
-          You can reach us by filling this form or calling our toll free number.
-        </h4>
         <div
           className="grey lighten-4"
           style={{
             display: 'inline-block',
-            marginTop: '30px',
+            margin: '5%',
             padding: '32px 48px 20px 48px',
             border: '1px solid #EEE',
-            width: '800px'
+            width: '45%'
           }}
         >
-          <h4> Please Contact Us</h4>
+          <h4>Feedback or Enquiries</h4>
 
-          <form className="col s14">
+          <form className="col s6">
             <div className="row">
               <div className="input-field  col s6">
                 <i className="material-icons prefix">contacts</i>
@@ -46,8 +43,13 @@ class ContactUs extends Component {
                 <label htmlFor="last_name">Last Name</label>
               </div>
             </div>
-
             <div className="row">
+              <div className="input-field col s6">
+                <i className="material-icons prefix">contacts</i>
+                <input id="username" type="text" className="validate" />
+                <label htmlFor="last_name">Username</label>
+              </div>
+
               <div className="input-field col s6">
                 <i className="material-icons prefix">email</i>
                 <input id="email" type="email" className="validate" />

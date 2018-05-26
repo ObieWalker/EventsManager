@@ -333,11 +333,11 @@ module.exports = describe('Tests for the centers', () => {
           .request(app)
           .get('/api/v1/centers/0')
           .end((err, res) => {
-            res.should.have.status(404);
+            res.should.have.status(400);
             res.should.be.a('object');
             res.body.should.have
               .property('message')
-              .equal('We do not have records of this center');
+              .equal('There was an error with the center ID input!');
             done();
           });
       }

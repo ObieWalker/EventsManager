@@ -33,16 +33,15 @@ class AllCenters extends Component {
     this.getMoreCenters = this.getMoreCenters.bind(this);
   }
   /**
- * @method componentWillMount
- * @returns { * } null
- * @memberof AllCenters
- */
+   * @method componentWillMount
+   * @returns { * } null
+   * @memberof AllCenters
+   */
   componentWillMount() {
     const { pageNo, limit } = this.state;
-    this.props.getAllCenters(pageNo, limit)
-      .then(() => {
-        this.setState({ centers: this.props.allCenters.fetchedCenters });
-      });
+    this.props.getAllCenters(pageNo, limit).then(() => {
+      this.setState({ centers: this.props.allCenters.fetchedCenters });
+    });
   }
 
   /**
@@ -53,7 +52,10 @@ class AllCenters extends Component {
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props) {
-      this.setState({ centers: nextProps.allCenters.fetchedCenters, isLoading: false });
+      this.setState({
+        centers: nextProps.allCenters.fetchedCenters,
+        isLoading: false
+      });
     }
   }
 
@@ -63,7 +65,9 @@ class AllCenters extends Component {
    * @memberof AllCenters
    */
   loadMoreContent() {
-    this.setState({ pageNo: this.state.pageNo + 1, isLoading: true }, () => { this.getMoreCenters(this.state.pageNo, this.state.limit); });
+    this.setState({ pageNo: this.state.pageNo + 1, isLoading: true }, () => {
+      this.getMoreCenters(this.state.pageNo, this.state.limit);
+    });
   }
 
   /**
@@ -89,21 +93,34 @@ class AllCenters extends Component {
       <div>
         <div>
           <h3>All centers and details.</h3>
-          <div className='center'>
-            <Search /> <br/> <br/>
+          <div className="center">
+            <Search /> <br /> <br />
           </div>
-          <div> {(Centers) ?
-            <Row>
-              {Centers.map((centers, i) =>
-                <CenterList key={i} centers={centers} />)}
-            </Row> : 'There are no registered centers.'
-          }
-          {this.state.isLoading === true &&
-          <div><p>Loading...</p> <Loading /></div> }
-
-          <button onClick={this.loadMoreContent}
-            className="btn btn-primary active" id="loadMore">Load More</button>
-          <br /><br />
+          <div>
+            {' '}
+            {Centers ? (
+              <Row>
+                {Centers.map((centers, i) => (
+                  <CenterList key={i} centers={centers} />
+                ))}
+              </Row>
+            ) : (
+              'There are no registered centers.'
+            )}
+            {this.state.isLoading === true && (
+              <div>
+                <p>Loading...</p> <Loading />
+              </div>
+            )}
+            <button
+              onClick={this.loadMoreContent}
+              className="btn btn-primary active"
+              id="loadMore"
+            >
+              Load More
+            </button>
+            <br />
+            <br />
           </div>
         </div>
       </div>
@@ -120,7 +137,6 @@ AllCenters.propTypes = {
 const mapStateToProps = state => ({
   allCenters: state.allCenters
 });
-
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getAllCenters }, dispatch);

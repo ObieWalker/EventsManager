@@ -1,6 +1,7 @@
-
-export const hostUrl = process.env.NODE_ENV === 'production' ?
-  'https://obievents.herokuapp.com' : 'http://localhost:3000';
+export const hostUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://obievents.herokuapp.com'
+    : 'http://localhost:3000';
 
 export const paginateData = ({
   res, centers, limit, pageNo
@@ -100,4 +101,19 @@ export const paginateUsers = ({
     users: users.rows,
     count: users.count
   });
+};
+
+export const paramValidator = (id) => {
+  const intId = parseInt(id, 10);
+  if (
+    !Number.isInteger(intId) ||
+    !(id.indexOf('.') === -1) ||
+    Number.isNaN(id) ||
+    (id.match(/[a-z]/i)) ||
+    Math.sign(id) === -1 ||
+    intId < 1
+  ) {
+    return true;
+  }
+  return false;
 };

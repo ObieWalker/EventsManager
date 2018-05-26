@@ -74,6 +74,7 @@ class Header extends Component {
    * @memberof Header
    */
   render() {
+    const { user } = this.props.login;
     const { loggedIn } = this.state;
     return (
       <div>
@@ -84,7 +85,9 @@ class Header extends Component {
               className="left"
               style={{
                 fontSize: '30px',
-                paddingLeft: '10px'
+                paddingLeft: '10px',
+                color: 'white',
+                textDecoration: 'none'
               }}
             >
               The Events Manager
@@ -99,6 +102,11 @@ class Header extends Component {
               <li>
                 <Link to="/contact-us">Contact Us</Link>
               </li>
+              {user.isAdmin && (
+                <li>
+                  <Link to="/dashboard">View as User</Link>
+                </li>
+              )}
               {loggedIn ? (
                 <li>
                   <Link to="/">
