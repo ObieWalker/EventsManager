@@ -103,7 +103,7 @@ module.exports = describe('Tests for the user', () => {
         });
     });
 
-    it('shoud return a status 400 error response for null password', (done) => {
+    it('shoud return a status 400 error response for null verify password', (done) => {
       chai
         .request(app)
         .post('/api/v1/users')
@@ -439,7 +439,7 @@ module.exports = describe('Tests for the user', () => {
       (done) => {
         chai
           .request(app)
-          .put(`/api/v1/users/${4}?token=${helper.adminToken}`)
+          .put(`/api/v1/users/${6}?token=${helper.adminToken}`)
           .end((err, res) => {
             expect(res).to.be.status(200);
             res.body.should.have.a('object');
@@ -536,11 +536,11 @@ module.exports = describe('Tests for the user', () => {
       }
     );
     it(
-      'shoud return a status 200 for successfully setting the user as an admin',
+      'shoud return a status 200 for successfully deleting the user\'s account',
       (done) => {
         chai
           .request(app)
-          .delete(`/api/v1/users/${4}?token=${helper.adminToken}`)
+          .delete(`/api/v1/users/${7}?token=${helper.adminToken}`)
           .end((err, res) => {
             expect(res).to.be.status(200);
             res.body.should.have.a('object');

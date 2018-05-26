@@ -31,12 +31,18 @@ export default class App extends Component {
         <div style={{ textAlign: 'center' }}>
           <Header />
           <Switch>
-            <Route exact path='/' component={RequireAuthentication(UDashboard)} />
-            <Route exact path='/login' component={Home} />
-            <Route exact path='/register' component={Register} />
-            <Route path='/contact-us' component={ContactUs} />
-            <Route path='/dashboard' component={RequireAuthentication(UDashboard)} />
-            <Route path='/admin' component={RequireAdminRights(AdminDashboard)} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Home} />
+            <Route exact path="/register" component={Register} />
+            <Route path="/contact-us" component={ContactUs} />
+            <Route
+              path="/dashboard"
+              component={RequireAuthentication(UDashboard)}
+            />
+            <Route
+              path="/admin"
+              component={RequireAdminRights(AdminDashboard)}
+            />
             <Route component={NotFound} />
           </Switch>
         </div>
@@ -44,4 +50,3 @@ export default class App extends Component {
     );
   }
 }
-

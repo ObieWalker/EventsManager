@@ -202,7 +202,7 @@ module.exports = describe('Tests for Events', () => {
             centerId: 2,
             eventType: 'Wedding',
             email: 'testuser1@gmail.com',
-            date: '2019-06-25',
+            date: '2019-09-25',
             guestNo: 1200000
           })
           .end((err, res) => {
@@ -286,17 +286,17 @@ module.exports = describe('Tests for Events', () => {
 
     describe('GET api/v1/center/events/:centerId', () => {
       it(
-        'should return 404 error response for a center that does not exist',
+        'should return 400 error response for a center that does not exist',
         (done) => {
           chai
             .request(app)
             .get('/api/v1/center/events/0')
             .end((err, res) => {
-              expect(res).to.be.status(404);
+              expect(res).to.be.status(400);
               res.should.be.a('object');
               res.body.should.have
                 .property('message')
-                .to.equal('This center does not exist');
+                .to.equal('There was an error with the center ID input!');
               done();
             });
         }
@@ -464,16 +464,16 @@ module.exports = describe('Tests for Events', () => {
 
   describe('DELETE api/v1/events/:id', () => {
     it(
-      'should return a 404 success response for deleting a non existing event',
+      'should return a 400 error response for deleting a non existing event',
       (done) => {
         chai
           .request(app)
           .delete(`/api/v1/events/0?token=${helper.userToken}`)
           .end((err, res) => {
-            expect(res).to.be.status(404);
+            expect(res).to.be.status(400);
             res.should.be.a('object');
             res.body.should.have
-              .property('message').to.equal('Event not found');
+              .property('message').to.equal('There was an error with the event ID input!');
             done();
           });
       }

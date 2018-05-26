@@ -53,7 +53,12 @@ class Login extends Component {
   componentDidMount() {
     // checks to see if user already has a verified token and redirects
     if (verifyToken()) {
-      this.props.history.push('/');
+      const { isAuthenticated, user } = this.props.loginUser;
+      if (user.isAdmin) {
+        this.props.history.push('/admin');
+      } else if (isAuthenticated && !user.isAdmin) {
+        this.props.history.push('/dashboard');
+      }
     }
   }
 

@@ -1,6 +1,10 @@
 import dotenv from 'dotenv';
 import models, { Event, Center, User } from '../models';
-import { paginateEvents, paginateHistory } from '../helpers/helper';
+import {
+  paginateEvents,
+  paginateHistory,
+  paramValidator
+} from '../helpers/helper';
 import sendMail from '../helpers/sendMail';
 
 dotenv.config();
@@ -54,14 +58,16 @@ export default class EventsController {
           date: req.body.date,
           guestNo: req.body.guestNo
         })
-          .then(newEvent => res.status(201).json({
-            messgae: 'Your event has been booked',
-            newEvent
-          }))
-          .catch(error => res.status(400).json({
-            message: 'Your request could not be processed',
-            error
-          }));
+          .then(newEvent =>
+            res.status(201).json({
+              messgae: 'Your event has been booked',
+              newEvent
+            }))
+          .catch(error =>
+            res.status(400).json({
+              message: 'Your request could not be processed',
+              error
+            }));
       });
     });
   }
@@ -78,12 +84,7 @@ export default class EventsController {
   static editEvent(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
-    if (
-      !Number.isInteger(intId) ||
-      !(id.indexOf('.') === -1) ||
-      Number.isNaN(intId) ||
-      Math.sign(id) === -1
-    ) {
+    if (paramValidator(id) === true) {
       return res.status(400).json({
         success: false,
         message: 'There was an error with the event ID input!'
@@ -128,22 +129,25 @@ export default class EventsController {
                 guestNo: req.body.guestNo
               })
               .then(() => {
-                event.reload().then(() => res.status(200).json({
-                  message: 'Your event has been updated',
-                  updated: event
-                }));
+                event.reload().then(() =>
+                  res.status(200).json({
+                    message: 'Your event has been updated',
+                    updated: event
+                  }));
               })
-              .catch(err => res.status(500).json({
-                message: 'Could not update',
-                error: err
-              }));
+              .catch(err =>
+                res.status(500).json({
+                  message: 'Could not update',
+                  error: err
+                }));
           });
         });
       })
-      .catch(err => res.status(400).json({
-        message: 'Cannot do that right now',
-        error: err.name
-      }));
+      .catch(err =>
+        res.status(400).json({
+          message: 'Cannot do that right now',
+          error: err.name
+        }));
   }
   /**
    * @description deletes an event from database
@@ -157,17 +161,15 @@ export default class EventsController {
   static deleteEvent(req, res) {
     const { id } = req.params;
     const intId = parseInt(id, 10);
-    if (
-      !Number.isInteger(intId) ||
-      !(id.indexOf('.') === -1) ||
-      Number.isNaN(intId) ||
-      Math.sign(id) === -1
-    ) {
+    console.log('inside delete event', id, '===', intId);
+    if (paramValidator(id) === true) {
+      console.log('inside paramvaidator===');
       return res.status(400).json({
         success: false,
         message: 'There was an error with the event ID input!'
       });
     }
+    console.log('reached before database check====');
     return Events.findById(req.params.id).then((event) => {
       if (!event) {
         // if no centers
@@ -178,10 +180,11 @@ export default class EventsController {
       }
       return event
         .destroy()
-        .then(() => res.status(200).send({
-          success: true,
-          message: `This ${event.eventType} has been cancelled`
-        }))
+        .then(() =>
+          res.status(200).send({
+            success: true,
+            message: `This ${event.eventType} has been cancelled`
+          }))
         .catch(error => res.status(400).send(error));
     });
   }
@@ -203,12 +206,7 @@ export default class EventsController {
       }
       const { id } = req.params;
       const intId = parseInt(id, 10);
-      if (
-        !Number.isInteger(intId) ||
-        !(id.indexOf('.') === -1) ||
-        Number.isNaN(intId) ||
-        Math.sign(id) === -1
-      ) {
+      if (paramValidator(id) === true) {
         return res.status(400).json({
           success: false,
           message: 'There was an error with the event ID input!'
@@ -216,7 +214,7 @@ export default class EventsController {
       }
       return Events.findOne({
         where: {
-          id: req.params.id
+          id: intId
         },
         include: [
           {
@@ -240,37 +238,41 @@ export default class EventsController {
             .update({
               isCancelled: !event.isCancelled
             })
-            .then(() => User.findOne({
-              where: {
-                id: event.userId
-              }
-            })
-              .then((user) => {
-                const receiverEmail = user.email;
-                const firstname = user.firstName;
-                sendMail(
-                  receiverEmail,
-                  firstname,
-                  eventDate,
-                  eventCenter,
-                  eventAddress
-                );
+            .then(() =>
+              User.findOne({
+                where: {
+                  id: event.userId
+                }
               })
-              .then(() => res.status(200).json({
-                success: true,
-                message: 'The event has been cancelled',
-                cancelled: event
-              }))
-              .catch(err => res.status(500).json({
-                success: false,
-                message: 'Could not cancel event',
-                error: err
-              })));
+                .then((user) => {
+                  const receiverEmail = user.email;
+                  const firstname = user.firstName;
+                  sendMail(
+                    receiverEmail,
+                    firstname,
+                    eventDate,
+                    eventCenter,
+                    eventAddress
+                  );
+                })
+                .then(() =>
+                  res.status(200).json({
+                    success: true,
+                    message: 'The event has been cancelled',
+                    cancelled: event
+                  }))
+                .catch(err =>
+                  res.status(500).json({
+                    success: false,
+                    message: 'Could not cancel event',
+                    error: err
+                  })));
         })
-        .catch(err => res.status(400).json({
-          message: 'Cannot do that right now',
-          error: err.name
-        }));
+        .catch(err =>
+          res.status(400).json({
+            message: 'Cannot do that right now',
+            error: err.name
+          }));
     });
   }
   /**
@@ -302,17 +304,19 @@ export default class EventsController {
       limit,
       offset
     })
-      .then(events => paginateEvents({
-        req,
-        res,
-        events,
-        limit,
-        pageNo
-      }))
-      .catch(error => res.status(500).json({
-        message: 'Your request had an error',
-        error
-      }));
+      .then(events =>
+        paginateEvents({
+          req,
+          res,
+          events,
+          limit,
+          pageNo
+        }))
+      .catch(error =>
+        res.status(500).json({
+          message: 'Your request had an error',
+          error
+        }));
   }
   /**
    * @returns {object} events
@@ -344,17 +348,19 @@ export default class EventsController {
       limit,
       offset
     })
-      .then(events => paginateEvents({
-        req,
-        res,
-        events,
-        limit,
-        pageNo
-      }))
-      .catch(error => res.status(500).json({
-        message: 'Your request had an error',
-        error
-      }));
+      .then(events =>
+        paginateEvents({
+          req,
+          res,
+          events,
+          limit,
+          pageNo
+        }))
+      .catch(error =>
+        res.status(500).json({
+          message: 'Your request had an error',
+          error
+        }));
   }
   /**
    *
@@ -387,17 +393,19 @@ export default class EventsController {
       limit,
       offset
     })
-      .then(events => paginateHistory({
-        req,
-        res,
-        events,
-        limit,
-        pageNo
-      }))
-      .catch(error => res.status(500).json({
-        message: 'Your request had an error',
-        error
-      }));
+      .then(events =>
+        paginateHistory({
+          req,
+          res,
+          events,
+          limit,
+          pageNo
+        }))
+      .catch(error =>
+        res.status(500).json({
+          message: 'Your request had an error',
+          error
+        }));
   }
 
   /**
@@ -416,12 +424,7 @@ export default class EventsController {
     offset = limit * (pageNo - 1);
     const { centerId } = req.params;
     const intId = parseInt(centerId, 10);
-    if (
-      !Number.isInteger(intId) ||
-      !(centerId.indexOf('.') === -1) ||
-      Number.isNaN(intId) ||
-      Math.sign(centerId) === -1
-    ) {
+    if (paramValidator(centerId) === true) {
       return res.status(400).json({
         success: false,
         message: 'There was an error with the center ID input!'
@@ -429,7 +432,7 @@ export default class EventsController {
     }
     return Centers.findOne({
       where: {
-        id: centerId
+        id: intId
       }
     }).then((center) => {
       if (!center) {
@@ -470,10 +473,11 @@ export default class EventsController {
             pageNo
           });
         })
-        .catch(error => res.status(500).json({
-          message: 'Your request had an error',
-          error
-        }));
+        .catch(error =>
+          res.status(500).json({
+            message: 'Your request had an error',
+            error
+          }));
     });
   }
 }
