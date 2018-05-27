@@ -99,9 +99,11 @@ class Header extends Component {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
-                <Link to="/contact-us">Contact Us</Link>
-              </li>
+              {!user.isAdmin && (
+                <li>
+                  <Link to="/contact-us">Contact Us</Link>
+                </li>
+              )}
               {user.isAdmin && (
                 <li>
                   <Link to="/dashboard">View as User</Link>

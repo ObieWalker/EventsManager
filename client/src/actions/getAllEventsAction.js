@@ -25,7 +25,6 @@ const fetchEventsFailure = error => ({
 
 const fetchEventsRequest = (pageNo, limit) => (
   (dispatch) => {
-    console.log('inside fetch user events');
     dispatch(isEventsFetching(true));
     return axios({
       method: 'GET',

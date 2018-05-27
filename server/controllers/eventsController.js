@@ -160,16 +160,12 @@ export default class EventsController {
    */
   static deleteEvent(req, res) {
     const { id } = req.params;
-    const intId = parseInt(id, 10);
-    console.log('inside delete event', id, '===', intId);
     if (paramValidator(id) === true) {
-      console.log('inside paramvaidator===');
       return res.status(400).json({
         success: false,
         message: 'There was an error with the event ID input!'
       });
     }
-    console.log('reached before database check====');
     return Events.findById(req.params.id).then((event) => {
       if (!event) {
         // if no centers

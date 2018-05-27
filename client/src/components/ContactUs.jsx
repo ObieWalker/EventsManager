@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-// import { HashLink } from "react-router-hash-scroll";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import sendMail from '../actions/sendMailAction';
 
 /**
  *
@@ -8,6 +11,54 @@ import React, { Component } from 'react';
  * @extends {Component}
  */
 class ContactUs extends Component {
+  /**
+   * Creates an instance of ContactUs.
+   * @param {any} props
+   * @memberof ContactUs
+   */
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      username: '',
+      message: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.sendMail = this.sendMail.bind(this);
+  }
+  /**
+   * @returns {object} void
+   *
+   * @param {any} e
+   * @memberof Login
+   */
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  /**
+   * @returns {*} null
+   *
+   * @memberof ContactUs
+   */
+  sendMail() {
+    const emailData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      username: this.state.username,
+      email: this.state.email,
+      message: this.state.message
+    };
+    this.props.sendMail(emailData);
+    this.setState({
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      message: ''
+    });
+  }
   /**
    *
    *
@@ -33,26 +84,50 @@ class ContactUs extends Component {
             <div className="row">
               <div className="input-field  col s6">
                 <i className="material-icons prefix">contacts</i>
-                <input id="first_name" type="text" className="validate" />
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  className="validate"
+                  onChange={this.handleChange}
+                />
                 <label htmlFor="first_name">First Name</label>
               </div>
 
               <div className="input-field col s6">
                 <i className="material-icons prefix">contacts</i>
-                <input id="last_name" type="text" className="validate" />
+                <input
+                  id="lastName"
+                  type="text"
+                  className="validate"
+                  name="lastName"
+                  onChange={this.handleChange}
+                />
                 <label htmlFor="last_name">Last Name</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s6">
                 <i className="material-icons prefix">contacts</i>
-                <input id="username" type="text" className="validate" />
+                <input
+                  id="username"
+                  type="text"
+                  className="validate"
+                  name="username"
+                  onChange={this.handleChange}
+                />
                 <label htmlFor="last_name">Username</label>
               </div>
 
               <div className="input-field col s6">
                 <i className="material-icons prefix">email</i>
-                <input id="email" type="email" className="validate" />
+                <input
+                  id="email"
+                  type="email"
+                  className="validate"
+                  name="email"
+                  onChange={this.handleChange}
+                />
                 <label htmlFor="email" data-error="wrong" data-success="right">
                   Email
                 </label>
@@ -62,12 +137,20 @@ class ContactUs extends Component {
             <div className="row">
               <div className="input-field col s12">
                 <i className="material-icons prefix">mode_edit</i>
-                <textarea id="textarea1" className="materialize-textarea" />
+                <textarea
+                  id="message"
+                  className="materialize-textarea"
+                  name="message"
+                  onChange={this.handleChange}
+                />
                 <label htmlFor="textarea1">Textarea</label>
               </div>
             </div>
 
-            <a className="waves-effect waves-light btn right hoverable">
+            <a
+              onClick={this.sendMail}
+              className="waves-effect waves-light btn right hoverable"
+            >
               <i className="large material-icons right">send</i>Send
             </a>
           </form>
@@ -76,4 +159,17 @@ class ContactUs extends Component {
     );
   }
 }
-export default ContactUs;
+
+ContactUs.propTypes = {
+  sendMail: PropTypes.func
+};
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      sendMail
+    },
+    dispatch
+  );
+
+export default connect(null, mapDispatchToProps)(ContactUs);

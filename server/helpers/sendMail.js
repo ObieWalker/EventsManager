@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-const sendMail = (recieverEmail, firstname, date, center, address) => {
+const sendMail = (receiverEmail, firstname, date, center, address) => {
     nodemailer.createTestAccount((err, account) => {/* eslint-disable-line */
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
@@ -14,7 +14,7 @@ const sendMail = (recieverEmail, firstname, date, center, address) => {
     // setup email data with unicode symbols
     const mailOptions = {
       from: 'noreply@eventsmanager.com', // sender address
-      to: recieverEmail, // receiver
+      to: receiverEmail, // receiver
       subject: 'Event Cancellation', // Subject line
       text: `Hi ${firstname}, 
               We are sad to announce that your event  on ${date} \

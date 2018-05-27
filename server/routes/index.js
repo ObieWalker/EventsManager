@@ -55,4 +55,6 @@ apiv1.get('/centers', CentersController.getAllCenters);
 apiv1.get('/centers/:id', CentersController.getCenterDetails);
 apiv1.delete('/centers/:id', auth.authenticate, CentersController.deleteCenter);
 
+
+apiv1.post('/admin/contact/', UsersController.contactAdmin);
 export default apiv1;
