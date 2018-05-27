@@ -39,10 +39,11 @@ class UserHistory extends Component {
    * @memberof UserEvents
    */
   componentWillMount() {
-    this.props.getUsersHistory(this.state.pageNo, this.state.limit)
-      .then(() => {
-        this.setState({ userHistory: this.props.userHistory.fetchedUserHistory });
+    this.props.getUsersHistory(this.state.pageNo, this.state.limit).then(() => {
+      this.setState({
+        userHistory: this.props.userHistory.fetchedUserHistory
       });
+    });
   }
 
   /**
@@ -53,7 +54,10 @@ class UserHistory extends Component {
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props) {
-      this.setState({ userHistory: nextProps.userHistory.fetchedUserHistory, isLoading: false });
+      this.setState({
+        userHistory: nextProps.userHistory.fetchedUserHistory,
+        isLoading: false
+      });
     }
   }
   /**
@@ -62,7 +66,15 @@ class UserHistory extends Component {
    * @memberof UserEvents
    */
   loadMoreContent() {
-    this.setState({ pageNo: this.state.pageNo + 1, isLoading: true }, () => { this.getMoreEvents(this.state.pageNo, this.state.limit); });
+    this.setState(
+      {
+        pageNo: this.state.pageNo + 1,
+        isLoading: true
+      },
+      () => {
+        this.getMoreEvents(this.state.pageNo, this.state.limit);
+      }
+    );
   }
 
   /**
@@ -88,20 +100,40 @@ class UserHistory extends Component {
       <div>
         <div>
           <h3>Your booking history.</h3>
-          <div> {(History.length > 0) ?
-            <Row>
-              {History.map((event, i) =>
-                <EventList key={i} event={event} />)}
-            </Row> : 'You have no booking history'
-          }
-          {this.state.isLoading === true &&
-          <div><p>Loading...</p> <Loading /></div> }
-          <ScrollUp showUnder={100}>
-            <button type="button" className="btn btn-floating btn-rounded waves-effect">TOP</button>
-          </ScrollUp>
-          <button onClick={this.loadMoreContent}
-            className="btn btn-primary active" id="loadMore" disabled={!this.props.moreHistory}>Load More</button>
-          <br /><br />
+          <div>
+            {' '}
+            {History.length > 0 ? (
+              <Row>
+                {History.map((event, i) => <EventList key={i} event={event} />)}
+              </Row>
+            ) : (
+              'You have no booking history'
+            )}
+            {this.state.isLoading === true && (
+              <div>
+                <p>Loading...</p> <Loading />
+              </div>
+            )}
+            <ScrollUp showUnder={100}>
+              <button
+                type="button"
+                className="btn btn-floating btn-rounded waves-effect"
+              >
+                TOP
+              </button>
+            </ScrollUp>
+            {this.props.moreHistory && (
+              <button
+                onClick={this.loadMoreContent}
+                className="btn btn-primary active"
+                id="loadMore"
+                disabled={!this.props.moreHistory}
+              >
+                Load More
+              </button>
+            )}
+            <br />
+            <br />
           </div>
         </div>
       </div>
@@ -122,10 +154,12 @@ const mapStateToProps = state => ({
   moreHistory: state.userHistory.moreHistory
 });
 
-
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    getUsersHistory: getUsersHistoryRequest
-  }, dispatch);
+  bindActionCreators(
+    {
+      getUsersHistory: getUsersHistoryRequest
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserHistory);

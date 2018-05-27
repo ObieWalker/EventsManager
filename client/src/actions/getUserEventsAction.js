@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import toastr from 'toastr';
 import {
   IS_USER_EVENTS_FETCHING,
   FETCH_USER_EVENTS_SUCCESS,
@@ -34,6 +34,7 @@ const getUserEventsRequest = (pageNo, limit) => (
       dispatch(fetchUserEventsSuccess(response.data.events));
       dispatch(isUsersEventsFetching(false));
     }).catch((error) => {
+      toastr.error(error.response.data.message);
       dispatch(fetchUserEventsFailure(error.response.data.message));
       dispatch(isUsersEventsFetching(false));
     });

@@ -15,11 +15,11 @@ import cancelEvent from '../../actions/cancelEventAction';
  * @extends {Component}
  */
 class AllEvents extends Component {
-/**
- * Creates an instance of AllEvents.
- * @param {any} props
- * @memberof AllEvents
- */
+  /**
+   * Creates an instance of AllEvents.
+   * @param {any} props
+   * @memberof AllEvents
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -34,19 +34,18 @@ class AllEvents extends Component {
   }
 
   /**
- * @returns {object} all events
- *
- * @memberof AllEvents
- */
+   * @returns {object} all events
+   *
+   * @memberof AllEvents
+   */
   componentWillMount() {
-    this.props.getAllEvents(this.state.pageNo, this.state.limit)
-      .then(() => {
-        if (this.props.fetchedEvents) {
-          this.setState({
-            events: this.props.fetchedEvents
-          });
-        }
-      });
+    this.props.getAllEvents(this.state.pageNo, this.state.limit).then(() => {
+      if (this.props.fetchedEvents) {
+        this.setState({
+          events: this.props.fetchedEvents
+        });
+      }
+    });
   }
   /**
    * @returns {object} state
@@ -55,8 +54,7 @@ class AllEvents extends Component {
    * @memberof UserEvents
    */
   componentWillReceiveProps(nextProps) {
-    if (this.props.fetchedEvents
-      && this.props.fetchedEvents.length > 0) {
+    if (this.props.fetchedEvents && this.props.fetchedEvents.length > 0) {
       this.setState({
         events: this.props.fetchedEvents,
         isLoading: false
@@ -75,12 +73,15 @@ class AllEvents extends Component {
    * @memberof AllEvents
    */
   loadMoreContent() {
-    this.setState({
-      pageNo: this.state.pageNo + 1,
-      isLoading: true
-    }, () => {
-      this.getMoreEvents(this.state.pageNo, this.state.limit);
-    });
+    this.setState(
+      {
+        pageNo: this.state.pageNo + 1,
+        isLoading: true
+      },
+      () => {
+        this.getMoreEvents(this.state.pageNo, this.state.limit);
+      }
+    );
   }
 
   /**
@@ -94,43 +95,65 @@ class AllEvents extends Component {
     this.props.getAllEvents(pageNo, limit);
   }
   /**
- * @returns {*} null
- *
- * @param {any} eventId
- * @memberof AllEvents
- */
+   * @returns {*} null
+   *
+   * @param {any} eventId
+   * @memberof AllEvents
+   */
   cancelEvent(eventId) {
     this.props.cancelEvent(eventId);
   }
   /**
- *
- *
- * @returns {object} event card
- * @memberof AllEvents
- */
+   *
+   *
+   * @returns {object} event card
+   * @memberof AllEvents
+   */
   render() {
     // const { events } = this.state;
     const { events } = this.state;
     return (
       <div>
         <h3>All Events and details.</h3>
-        <div>{(events && events.length > 0) ?
-          <Row>
-            {events.map((event, i) =>
-              <EventsCard key={i} event={event}
-                cancelEvent={this.cancelEvent.bind(this)}/>)}
-          </Row> : 'There are no events booked.'
-        }
-        {this.state.isLoading === true &&
-          <div><p>Loading...</p> <Loading /></div> }
-        <ScrollUp showUnder={100}>
-          <button type="button"
-            className="btn btn-floating btn-rounded waves-effect">TOP</button>
-        </ScrollUp>
-        <button onClick={this.loadMoreContent}
-          className="btn btn-primary active"
-          id="loadMore" disabled={!this.props.moreEvents}>Load More</button>
-        <br /><br />
+        <div>
+          {events && events.length > 0 ? (
+            <Row>
+              {events.map((event, i) => (
+                <EventsCard
+                  key={i}
+                  event={event}
+                  cancelEvent={this.cancelEvent.bind(this)}
+                />
+              ))}
+            </Row>
+          ) : (
+            'There are no events booked.'
+          )}
+          {this.state.isLoading === true && (
+            <div>
+              <p>Loading...</p> <Loading />
+            </div>
+          )}
+          <ScrollUp showUnder={100}>
+            <button
+              type="button"
+              className="btn btn-floating btn-rounded waves-effect"
+            >
+              TOP
+            </button>
+          </ScrollUp>
+          {this.props.moreEvents && (
+            <button
+              onClick={this.loadMoreContent}
+              className="btn btn-primary active"
+              id="loadMore"
+              disabled={!this.props.moreEvents}
+            >
+              Load More
+            </button>
+          )}
+          <br />
+          <br />
         </div>
       </div>
     );
@@ -152,9 +175,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    getAllEvents,
-    cancelEvent
-  }, dispatch);
+  bindActionCreators(
+    {
+      getAllEvents,
+      cancelEvent
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllEvents);

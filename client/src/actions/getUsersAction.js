@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toastr from 'toastr';
 import {
   IS_USERS_FETCHING,
   FETCH_USERS_SUCCESS,
@@ -36,6 +37,7 @@ const fetchUsersRequest =
         dispatch(fetchUsersSuccess(response.data.users));
         dispatch(isUsersFetching(false));
       }).catch((error) => {
+        toastr.error(error.response.data.message);
         dispatch(fetchUsersFailure(error.response.data.message));
         dispatch(isUsersFetching(false));
       });

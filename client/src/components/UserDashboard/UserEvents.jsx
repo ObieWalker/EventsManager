@@ -50,14 +50,13 @@ class UserEvents extends Component {
    * @memberof UserEvents
    */
   componentWillMount() {
-    this.props.getUsersEvents(this.state.pageNo, this.state.limit)
-      .then(() => {
-        if (this.props.allUserEvents.fetchedUserEvents) {
-          this.setState({
-            userEvents: this.props.allUserEvents.fetchedUserEvents
-          });
-        }
-      });
+    this.props.getUsersEvents(this.state.pageNo, this.state.limit).then(() => {
+      if (this.props.allUserEvents.fetchedUserEvents) {
+        this.setState({
+          userEvents: this.props.allUserEvents.fetchedUserEvents
+        });
+      }
+    });
   }
 
   /**
@@ -67,8 +66,10 @@ class UserEvents extends Component {
    * @memberof UserEvents
    */
   componentWillReceiveProps(nextProps) {
-    if (this.props.allUserEvents.fetchedUserEvents
-      && this.props.allUserEvents.fetchedUserEvents.length > 0) {
+    if (
+      this.props.allUserEvents.fetchedUserEvents &&
+      this.props.allUserEvents.fetchedUserEvents.length > 0
+    ) {
       this.setState({
         userEvents: this.props.allUserEvents.fetchedUserEvents,
         isLoading: false
@@ -91,11 +92,11 @@ class UserEvents extends Component {
     // this.props.editEvent();
   }
   /**
- * @returns {object} state
- *
- * @param {any} event
- * @memberof UserEvents
- */
+   * @returns {object} state
+   *
+   * @param {any} event
+   * @memberof UserEvents
+   */
   handleShowEditModal(event) {
     this.setState({
       event,
@@ -103,34 +104,35 @@ class UserEvents extends Component {
     });
   }
   /**
- * @returns {*} null
- *
- * @memberof UserEvents
- */
+   * @returns {*} null
+   *
+   * @memberof UserEvents
+   */
   handleClose() {
     this.setState({
       showModal: false
     });
   }
   /**
- * @returns {*} null
- *
- * @param {any} event
- * @memberof UserEvents
- */
+   * @returns {*} null
+   *
+   * @param {any} event
+   * @memberof UserEvents
+   */
   handleDeleteEvent(event) {
     swal({
       title: 'Are you sure?',
-      text: `If this ${event.eventType} at ${event.Center.name} is cancelled, it cannot be undone`,
+      text: `If this ${event.eventType} at ${
+        event.Center.name
+      } is cancelled, it cannot be undone`,
       icon: 'warning',
       buttons: true,
-      dangerMode: true,
-    })
-      .then((willDelete) => {
-        if (willDelete) {
-          this.props.deleteEvent(event);
-        }
-      });
+      dangerMode: true
+    }).then((willDelete) => {
+      if (willDelete) {
+        this.props.deleteEvent(event);
+      }
+    });
   }
 
   /**
@@ -139,12 +141,15 @@ class UserEvents extends Component {
    * @memberof UserEvents
    */
   loadMoreContent() {
-    this.setState({
-      pageNo: this.state.pageNo + 1,
-      isLoading: true
-    }, () => {
-      this.getMoreEvents(this.state.pageNo, this.state.limit);
-    });
+    this.setState(
+      {
+        pageNo: this.state.pageNo + 1,
+        isLoading: true
+      },
+      () => {
+        this.getMoreEvents(this.state.pageNo, this.state.limit);
+      }
+    );
   }
 
   /**
@@ -169,29 +174,59 @@ class UserEvents extends Component {
     return (
       <div>
         <h3>All Your Upcoming Events.</h3>
-        <div> {(Events && Events.length > 0) ? (
-          <Row>
-            {Events.map((event, i) =>
-              <EventList key={i} event={event}
-                handleDeleteEvent={this.handleDeleteEvent.bind(this, event)}
-                handleShowEditModal={this.handleShowEditModal.bind(this, event)}
-                handleEditEvent={this.handleEditEvent.bind(this, event)}/>)}
-          </Row>) : 'You have no booked events'
-        }
-        {this.state.isLoading === true &&
-          <div><p>Loading...</p> <Loading /></div> }
-        <ScrollUp showUnder={100}>
-          <button type="button"
-            className="btn btn-floating btn-rounded waves-effect">TOP</button>
-        </ScrollUp>
-        <button onClick={this.loadMoreContent}
-          className="btn btn-primary active"
-          id="loadMore" disabled={!this.props.moreEvents}>Load More</button>
-        <br /><br />
+        <div>
+          {' '}
+          {Events && Events.length > 0 ? (
+            <Row>
+              {Events.map((event, i) => (
+                <EventList
+                  key={i}
+                  event={event}
+                  handleDeleteEvent={this.handleDeleteEvent.bind(this, event)}
+                  handleShowEditModal={this.handleShowEditModal.bind(
+                    this,
+                    event
+                  )}
+                  handleEditEvent={this.handleEditEvent.bind(this, event)}
+                />
+              ))}
+            </Row>
+          ) : (
+            'You have no booked events'
+          )}
+          {this.state.isLoading === true && (
+            <div>
+              <p>Loading...</p> <Loading />
+            </div>
+          )}
+          <ScrollUp showUnder={100}>
+            <button
+              type="button"
+              className="btn btn-floating btn-rounded waves-effect"
+            >
+              TOP
+            </button>
+          </ScrollUp>
+          {this.props.moreEvents && (
+            <button
+              onClick={this.loadMoreContent}
+              className="btn btn-primary active"
+              id="loadMore"
+              disabled={!this.props.moreEvents}
+            >
+              Load More
+            </button>
+          )}
+          <br />
+          <br />
         </div>
-        <Modal className="modal-display"
-          show={this.state.showModal} onHide={this.handleClose} bsSize="large">
-          <EditModal event={this.state.event}/>
+        <Modal
+          className="modal-display"
+          show={this.state.showModal}
+          onHide={this.handleClose}
+          bsSize="large"
+        >
+          <EditModal event={this.state.event} />
         </Modal>
       </div>
     );
@@ -213,11 +248,13 @@ const mapStateToProps = state => ({
   moreEvents: state.allUserEvents.moreEvents
 });
 
-
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    getUsersEvents: getUsersEventsRequest,
-    deleteEvent: deleteEventAction
-  }, dispatch);
+  bindActionCreators(
+    {
+      getUsersEvents: getUsersEventsRequest,
+      deleteEvent: deleteEventAction
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserEvents);

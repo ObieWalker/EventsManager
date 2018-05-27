@@ -195,10 +195,16 @@ class AdminCenters extends Component {
               className="btn btn-floating btn-rounded waves-effect"
             >TOP</button>
           </ScrollUp>
-          <button onClick={this.loadMoreContent}
-            className="btn btn-primary active"
-            id="loadMore" disabled={!this.props.moreCenters}
-          >Load More</button>
+          {this.props.moreCenters && (
+            <button
+              onClick={this.loadMoreContent}
+              className="btn btn-primary active"
+              id="loadMore"
+              disabled={!this.props.moreCenters}
+            >
+              Load More
+            </button>
+          )}
         </div>
         <div style={{ height: '1000px' }}>
           <Modal show={this.state.show} onHide={this.handleClose}>

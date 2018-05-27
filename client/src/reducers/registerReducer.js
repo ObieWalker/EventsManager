@@ -10,4 +10,3 @@ const registerReducer = (state = [], action) => {
 };
 
 export default registerReducer;
-
