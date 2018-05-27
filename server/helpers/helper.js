@@ -13,7 +13,7 @@ export const paginateData = ({
     });
   } else if (centers.rows.length < 1) {
     return res.status(404).json({
-      message: 'No centers in this set'
+      message: 'No more centers available'
     });
   } else if (pageNo > Math.ceil(centers.count / limit)) {
     return res.status(404).json({
@@ -63,7 +63,7 @@ export const paginateHistory = ({
     });
   } else if (events.rows.length < 1) {
     return res.status(404).json({
-      message: 'No events in this set'
+      message: 'No more events available'
     });
   } else if (pageNo > Math.ceil(events.count / limit)) {
     return res.status(404).json({
@@ -88,7 +88,7 @@ export const paginateUsers = ({
     });
   } else if (users.rows.length < 1) {
     return res.status(404).json({
-      message: 'No users in this set'
+      message: 'No more users available'
     });
   } else if (pageNo > Math.ceil(users.count / limit)) {
     return res.status(404).json({

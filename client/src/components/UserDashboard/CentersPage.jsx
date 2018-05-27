@@ -302,14 +302,16 @@ class CentersPage extends Component {
                   TOP
                 </button>
               </ScrollUp>
-              <button
-                onClick={this.loadMoreContent}
-                className="btn btn-primary active"
-                id="loadMore"
-                disabled={!this.props.moreCenters}
-              >
-                Load More
-              </button>
+              {this.props.moreCenters && (
+                <button
+                  onClick={this.loadMoreContent}
+                  className="btn btn-primary active"
+                  id="loadMore"
+                  disabled={!this.props.moreCenters}
+                >
+                  Load More
+                </button>
+              )}
               <br />
               <br />
             </div>
@@ -337,7 +339,8 @@ class CentersPage extends Component {
         <button
           onClick={this.revertPageState}
           className="animated bounceInUp btn btn-small left"
-        ><i className="large material-icons">reply</i>
+        >
+          <i className="large material-icons">reply</i>
           Go Back
         </button>
         <div>

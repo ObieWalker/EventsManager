@@ -10,7 +10,6 @@ const initialState = {
   deleteUserError: ''
 };
 
-
 export default (state = initialState, action = {}) => {
   switch (action.type) {
   case IS_USER_DELETING:
@@ -23,4 +22,3 @@ export default (state = initialState, action = {}) => {
     return state;
   }
 };
-

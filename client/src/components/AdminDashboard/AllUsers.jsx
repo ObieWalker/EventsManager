@@ -248,14 +248,16 @@ class AllUsers extends Component {
               TOP
             </button>
           </ScrollUp>
-          <button
-            onClick={this.loadMoreContent}
-            className="btn btn-primary active"
-            id="loadMore"
-            disabled={!this.props.moreUsers}
-          >
-            Load More
-          </button>
+          {this.props.moreUsers && (
+            <button
+              onClick={this.loadMoreContent}
+              className="btn btn-primary active"
+              id="loadMore"
+              disabled={!this.props.moreUsers}
+            >
+              Load More
+            </button>
+          )}
         </div>
         <div style={{ height: '1000px' }} />
       </div>

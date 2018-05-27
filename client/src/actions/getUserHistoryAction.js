@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import toastr from 'toastr';
 import {
   IS_USER_HISTORY_FETCHING,
   FETCH_USER_HISTORY_SUCCESS,
@@ -34,6 +34,7 @@ const getUserHistoryRequest = (pageNo, limit) => (
       dispatch(fetchUserHistorySuccess(response.data.events));
       dispatch(isUsersHistoryFetching(false));
     }).catch((error) => {
+      toastr.error(error.response.data.message);
       dispatch(fetchUserHistoryFailure(error.response.data.message));
       dispatch(isUsersHistoryFetching(false));
     });

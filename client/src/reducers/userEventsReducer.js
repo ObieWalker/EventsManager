@@ -18,7 +18,8 @@ export default (state = initialState, action = {}) => {
     return Object.assign({}, state, { isUserEventsFetching: action.bool });
   case FETCH_USER_EVENTS_SUCCESS:
     newState = Object.assign({}, state);
-    newState.fetchedUserEvents = newState.fetchedUserEvents.concat(action.events);
+    newState.fetchedUserEvents =
+    newState.fetchedUserEvents.concat(action.events);
     return newState;
   case FETCH_USER_EVENTS_FAILURE:
     return Object.assign({}, state, {
