@@ -1,4 +1,3 @@
-
 import {
   IS_CENTER_FETCHING,
   FETCH_CENTER_SUCCESS,
@@ -16,9 +15,7 @@ export default (state = initialState, action = {}) => {
   case IS_CENTER_FETCHING:
     return Object.assign({}, state, { isCenterFetching: action.bool });
   case FETCH_CENTER_SUCCESS:
-    return {
-      ...state, center: action.center
-    };
+    return Object.assign({}, state, { center: action.center });
   case FETCH_CENTER_FAILURE:
     return Object.assign({}, state, {
       centerError: action.error
