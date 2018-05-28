@@ -68,7 +68,7 @@ class BookCenter extends Component {
    * @returns {object} state
    * @memberof BookCenter
    */
-  onSliderChange = (guestNo) => {
+  onSliderChange(guestNo) {
     this.setState({
       guestNo,
     });
@@ -80,7 +80,7 @@ class BookCenter extends Component {
    * @returns {object} state
    * @memberof BookCenter
    */
-  onAfterChange = (value) => {
+  onAfterChange(value) {
     console.log(value);
   }
   /**
