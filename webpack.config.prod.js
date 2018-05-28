@@ -29,24 +29,23 @@ const UglifyJsPluginConfig = new UglifyJsPlugin({
     },
     output: {
       comments: false,
-      beautify: false,
+      beautify: false
     }
   }
 });
 
 module.exports = merge(common, {
   devtool: 'source-map',
-  entry: [
-    'babel-polyfill',
-    path.join(__dirname, '/client/src/index.jsx')
-  ],
+  entry: ['babel-polyfill', path.join(__dirname, '/client/src/index.jsx')],
   module: {
-    rules: [{
-      test: /\.(js?x)$/,
-      use: 'babel-loader',
-      include: path.join(__dirname, '/client'),
-      exclude: /(node_modules|server|.vscode)/
-    }]
+    rules: [
+      {
+        test: /\.(js?x)$/,
+        use: 'babel-loader',
+        include: path.join(__dirname, '/client'),
+        exclude: /(node_modules|server|.vscode)/
+      }
+    ]
   },
   plugins: [
     HtmlWebpackPluginConfig,
@@ -59,5 +58,8 @@ module.exports = merge(common, {
       threshold: 10240,
       minRatio: 0.8
     }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    })
   ]
 });
