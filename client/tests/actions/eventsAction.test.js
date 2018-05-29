@@ -9,7 +9,8 @@ import deleteEvent from '../../src/actions/deleteEventAction';
 import cancelEvent from '../../src/actions/cancelEventAction';
 import userEvents from '../../src/actions/getUserEventsAction';
 import userHistory from '../../src/actions/getUserHistoryAction';
-import centerEvents from '../../src/actions/getCenterEventsAction';
+import centerEvents, { clearCenterEvents }
+  from '../../src/actions/getCenterEventsAction';
 import * as types from '../../src/actions/actionTypes';
 import { events } from '../__mocks__/eventsData';
 
@@ -427,5 +428,13 @@ describe('fetch center events actions', () => {
     return store.dispatch(centerEvents()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
+  });
+
+  it('handles CLEAR_CENTER_EVENTS to remove all events', () => {
+    const empty = [];
+    const expectedActions = [{ type: types.CLEAR_CENTER_EVENTS, empty }];
+    const store = mockStore({ events: [] });
+    store.dispatch(clearCenterEvents());
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });

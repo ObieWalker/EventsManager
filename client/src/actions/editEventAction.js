@@ -38,7 +38,7 @@ const updateEventRequest = event => (
       },
       data: event,
     }).then((response) => {
-      const { message } = response.data.message;
+      const { message } = response.data;
       swal({
         title: 'Congratulations',
         text: response.data.message,

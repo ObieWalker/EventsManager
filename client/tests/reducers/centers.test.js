@@ -177,6 +177,15 @@ describe('Delete Center', () => {
       deleteCenterSuccess: 'success'
     });
   });
+  it('should handle DELETE_CENTER_FAILURE', () => {
+    const deleteCenterFailure = {
+      type: types.DELETE_CENTER_FAILURE,
+      error: 'failure'
+    };
+    expect(deleteCenterReducer({}, deleteCenterFailure)).toEqual({
+      deleteCenterError: 'failure'
+    });
+  });
 });
 
 describe('Get A Center', () => {

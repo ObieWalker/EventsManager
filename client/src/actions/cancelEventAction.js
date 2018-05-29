@@ -13,9 +13,10 @@ const isEventDeleting = bool => ({
 });
 
 
-const cancelEventSuccess = eventId => ({
+const cancelEventSuccess = (eventId, message) => ({
   type: CANCEL_EVENT_SUCCESS,
-  payload: eventId
+  payload: eventId,
+  message
 });
 
 const cancelEventFailure = error => ({
@@ -44,7 +45,7 @@ const cancelEvent = id => (
         icon: 'success',
         dangerMode: false,
       });
-      dispatch(cancelEventSuccess(id));
+      dispatch(cancelEventSuccess(response.data.eventId, response.data.message));
       dispatch(isEventDeleting(false));
     }).catch((error) => {
       swal({

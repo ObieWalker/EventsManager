@@ -2,7 +2,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import expect from 'expect';
-import getCenters from '../../src/actions/getAllCentersAction';
+import getCenters, { clearCenterState }
+  from '../../src/actions/getAllCentersAction';
 import addCenter from '../../src/actions/addCenterAction';
 import deleteCenter from '../../src/actions/deleteCenterAction';
 import editCenter from '../../src/actions/editCenterAction';
@@ -20,7 +21,7 @@ describe('fetch centers actions', () => {
   afterEach(() => {
     moxios.uninstall();
   });
-  it('creates FETCH_CENTERS_SUCCESS after fetching centers', () => {
+  it('handles FETCH_CENTERS_SUCCESS after fetching centers', () => {
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
@@ -41,7 +42,7 @@ describe('fetch centers actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
-  it('creates FETCH_CENTERS_FAILURE after fetching centers', () => {
+  it('handles FETCH_CENTERS_FAILURE after fetching centers', () => {
     const error = 'No centers available';
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -61,6 +62,13 @@ describe('fetch centers actions', () => {
     return store.dispatch(getCenters()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
+  });
+  it('handles CLEAR_CENTER_STATE to remove all centers', () => {
+    const empty = [];
+    const expectedActions = [{ type: types.CLEAR_CENTER_STATE, empty }];
+    const store = mockStore({ centers: [] });
+    store.dispatch(clearCenterState());
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });
 
@@ -159,12 +167,12 @@ describe('delete center actions', () => {
       });
     });
     const expectedActions = [
-      { type: types.IS_CENTER_CREATING, bool: true },
-      { type: types.CREATE_CENTER_FAILURE, error },
-      { type: types.IS_CENTER_CREATING, bool: false }
+      { type: types.IS_CENTER_DELETING, bool: true },
+      { type: types.DELETE_CENTER_FAILURE, error },
+      { type: types.IS_CENTER_DELETING, bool: false }
     ];
     const store = mockStore({ center: [] });
-    return store.dispatch(addCenter(6)).then(() => {
+    return store.dispatch(deleteCenter(6)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -186,7 +194,7 @@ describe('edit a center actions', () => {
         status: 200,
         response: {
           center,
-          message: 'The center has been modified',
+          message: 'The center has been modified'
         }
       });
     });

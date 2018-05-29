@@ -5,7 +5,9 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const webpack = require('webpack');
 const common = require('./webpack.common');
 const path = require('path');
+const dotenv = require('dotenv');
 
+dotenv.load();
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/public/index.html',
   filename: 'index.html',
@@ -59,7 +61,14 @@ module.exports = merge(common, {
       minRatio: 0.8
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env': {
+        NODE_ENV: 'production',
+        SECRET: JSON.stringify(process.env.SECRET),
+        PORT: JSON.stringify(process.env.PORT),
+        UPLOAD_PRESET: JSON.stringify(process.env.UPLOAD_PRESET),
+        DEFAULT_IMAGE: JSON.stringify(process.env.DEFAULT_IMAGE),
+        CLOUDINARY_URL: JSON.stringify(process.env.CLOUDINARY_URL)
+      }
     })
   ]
 });

@@ -40,8 +40,8 @@ const updateCenter = (newCenterDetails, id) => (
         dispatch(updateCenterSuccess(response.data.center, message));
         dispatch(isCenterUpdating(false));
       }
-    }).catch(() => {
-      dispatch(updateCenterFailure('Unable to update your center. Try again later'));
+    }).catch((error) => {
+      dispatch(updateCenterFailure(error.response.data.message));
       dispatch(isCenterUpdating(false));
     });
   }
