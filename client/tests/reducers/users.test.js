@@ -7,7 +7,7 @@ import loginUserReducer from '../../src/reducers/loginReducer';
 import updateRoleReducer from '../../src/reducers/updateRoleReducer';
 import deleteUserReducer from '../../src/reducers/deleteUserReducer';
 import * as types from '../../src/actions/actionTypes';
-import { users } from '../__mocks__/userData';
+import { users } from '../__mocks__/usersData';
 
 describe('Register User', () => {
   const initialState = [];

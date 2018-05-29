@@ -1,4 +1,4 @@
-export const centers = {
+export const events = {
   event1: {
     id: 3,
     userId: 4,

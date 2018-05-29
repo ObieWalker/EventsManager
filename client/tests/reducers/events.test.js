@@ -206,7 +206,7 @@ describe('Get User Events', () => {
   it('should handle FETCH_USER_EVENTS_SUCCESS', () => {
     const fetchEventsSuccess = {
       type: types.FETCH_USER_EVENTS_SUCCESS,
-      message: 'success'
+      events
     };
     expect(getUserEventsReducer(state, fetchEventsSuccess)).toEqual({
       fetchedUserEvents: [events],
@@ -250,9 +250,10 @@ describe('Get Users History', () => {
     });
   });
   it('should handle FETCH_USER_HISTORY_SUCCESS', () => {
+    const history = events
     const fetchHistorySuccess = {
       type: types.FETCH_USER_HISTORY_SUCCESS,
-      message: 'success'
+      history
     };
     expect(getUsersHistoryReducer(state, fetchHistorySuccess)).toEqual({
       fetchedUserHistory: [events],
