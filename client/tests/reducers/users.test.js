@@ -7,20 +7,33 @@ import loginUserReducer from '../../src/reducers/loginReducer';
 import updateRoleReducer from '../../src/reducers/updateRoleReducer';
 import deleteUserReducer from '../../src/reducers/deleteUserReducer';
 import * as types from '../../src/actions/actionTypes';
-import { users } from '../__mocks__/userData';
+import { users } from '../__mocks__/usersData';
 
 describe('Register User', () => {
-  const initialState = [];
+  const initialState = {
+    isUserRegistering: false,
+    registerUserSuccess: '',
+    registerUserError: ''
+  };
   const state = {};
   it('should return the initial state', () => {
     expect(registerUserReducer(undefined, {})).toEqual(initialState);
   });
-  it('should handle REGISTER_USER', () => {
+  it('should handle REGISTER_USER_SUCCESS', () => {
     const registerUser = {
-      type: types.REGISTER_USER,
+      type: types.REGISTER_USER_SUCCESS,
       payload: users.user1
     };
     expect(registerUserReducer(state, registerUser)).toEqual([users.user1]);
+  });
+  it('should handle REGISTER_USER_FAILURE', () => {
+    const registerUser = {
+      type: types.REGISTER_USER_FAILURE,
+      error: 'Unable to register user'
+    };
+    expect(registerUserReducer(state, registerUser)).toEqual({
+      registerUserError: 'Unable to register user'
+    });
   });
 });
 

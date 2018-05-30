@@ -6,7 +6,7 @@ import deleteCenterReducer from '../../src/reducers/deleteCenterReducer';
 import updateCenterReducer from '../../src/reducers/updateCenterReducer';
 import getACenterReducer from '../../src/reducers/getACenterReducer';
 import * as types from '../../src/actions/actionTypes';
-import { centers } from '../__mocks__/centerData';
+import { centers } from '../__mocks__/centersData';
 
 describe('Get Centers', () => {
   const initialState = {
@@ -175,6 +175,15 @@ describe('Delete Center', () => {
     };
     expect(deleteCenterReducer({}, deleteCenterSuccess)).toEqual({
       deleteCenterSuccess: 'success'
+    });
+  });
+  it('should handle DELETE_CENTER_FAILURE', () => {
+    const deleteCenterFailure = {
+      type: types.DELETE_CENTER_FAILURE,
+      error: 'failure'
+    };
+    expect(deleteCenterReducer({}, deleteCenterFailure)).toEqual({
+      deleteCenterError: 'failure'
     });
   });
 });

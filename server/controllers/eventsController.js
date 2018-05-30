@@ -179,7 +179,8 @@ export default class EventsController {
         .then(() =>
           res.status(200).send({
             success: true,
-            message: `This ${event.eventType} has been cancelled`
+            message: `This ${event.eventType} has been cancelled`,
+            eventId: event.id
           }))
         .catch(error => res.status(400).send(error));
     });
@@ -255,7 +256,8 @@ export default class EventsController {
                   res.status(200).json({
                     success: true,
                     message: 'The event has been cancelled',
-                    cancelled: event
+                    cancelled: event,
+                    eventId: event.id
                   }))
                 .catch(err =>
                   res.status(500).json({

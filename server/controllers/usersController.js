@@ -102,9 +102,12 @@ export default class UsersController {
               const token = jwt.sign(payload, process.env.SECRET, {
                 expiresIn: '24h'
               });
-              res
-                .status(200)
-                .json({ success: true, message: 'Login Successful!', token });
+              res.status(200).json({
+                success: true,
+                message: 'Login Successful!',
+                token,
+                user
+              });
             }
           });
         }

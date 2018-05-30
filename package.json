@@ -24,6 +24,25 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
+  "jest": {
+    "setupFiles": [
+      "./client/tests/localStorageMock.js"
+    ],
+    "testRegex": "client/tests/.*\\.test\\.(js|jsx)$",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "client/src/**",
+      "!client/src/index.jsx"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/server/",
+      "/build/"
+    ],
+    "testPathIgnorePatterns": [
+      "/client/tests/__mocks__/"
+    ]
+  },
   "engines": {
     "node": "8.11.1",
     "npm": "5.6.0"
@@ -84,6 +103,7 @@
     "mdbootstrap": "^4.5.2",
     "moment": "^2.21.0",
     "morgan": "~1.9.0",
+    "moxios": "^0.4.0",
     "node-sass": "^4.7.2",
     "node-sass-chokidar": "0.0.3",
     "nodemailer": "^4.4.2",
@@ -116,6 +136,7 @@
     "react-waypoint": "^8.0.1",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.7",
     "sequelize": "^4.0.0",

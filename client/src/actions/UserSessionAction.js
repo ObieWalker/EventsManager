@@ -20,16 +20,11 @@ export function setUser(user) {
 const login = userInfo =>
   dispatch => axios.post('/api/v1/users/login', userInfo)
     .then((response) => {
-      const { token } = response.data;
-      localStorage.setItem('token', token);
-      setAuthToken(token);
-      const decoded = jwt.decode(token);
-      dispatch(setUser(decoded));
+      localStorage.setItem('token', response.data.token);
+      setAuthToken(response.data.token);
+      const decoded = jwt.decode(response.data.token);
+      dispatch(setUser(response.data.user));
       toastr.success(`Welcome ${decoded.firstName}`);
-    })
-    .catch((error) => {
-      toastr.error('Please enter a valid email or password combination');
-      return error.message;
     });
 
 export default login;

@@ -1,8 +1,6 @@
 import models, { Center, User } from '../models';
 import { paginateData, paramValidator } from '../helpers/helper';
 
-const Centers = Center;
-const Users = User;
 const { Op } = models.sequelize;
 /**
  * @description center controller
@@ -26,7 +24,7 @@ export default class CentersController {
    * @memberof CentersController
    */
   static createCenter(req, res) {
-    Users.findById(req.decoded.id).then((user) => {
+    User.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
         return res.status(403).json({
           success: false,
@@ -45,7 +43,7 @@ export default class CentersController {
               message: 'Center already exists'
             });
           }
-          Centers.create({
+          Center.create({
             userId: req.decoded.id,
             name: req.body.name,
             address: req.body.address,
@@ -92,7 +90,7 @@ export default class CentersController {
    * @memberof CentersController
    */
   static modifyCenter(req, res) {
-    Users.findById(req.decoded.id).then((user) => {
+    User.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
         return res.status(403).json({
           success: false,
@@ -107,7 +105,7 @@ export default class CentersController {
           message: 'There was an error with the center ID input!'
         });
       }
-      Centers.findById(intId).then((center) => {
+      Center.findById(intId).then((center) => {
         if (!center) {
           // not found
           return res.status(404).json({
@@ -164,7 +162,7 @@ export default class CentersController {
     const filter = req.query.filter || '';
     const facility = req.query.facility || '';
     const capacity = parseInt(req.query.capacity, 10) || 1;
-    return Centers.findAndCountAll({
+    return Center.findAndCountAll({
       where: {
         capacity: {
           [Op.gte]: capacity
@@ -218,7 +216,7 @@ export default class CentersController {
         message: 'There was an error with the center ID input!'
       });
     }
-    Centers.findOne({
+    Center.findOne({
       where: {
         id: intId
       }
@@ -252,7 +250,7 @@ export default class CentersController {
    * @memberof CentersController
    */
   static deleteCenter(req, res) {
-    Users.findById(req.decoded.id).then((user) => {
+    User.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
         return res.status(403).json({
           success: false,
@@ -267,7 +265,7 @@ export default class CentersController {
           message: 'There was an error with the center ID input!'
         });
       }
-      Centers.findById(intId).then((center) => {
+      Center.findById(intId).then((center) => {
         if (!center) {
           // if no centers
           return res.status(400).send({

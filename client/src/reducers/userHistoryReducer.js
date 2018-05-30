@@ -18,7 +18,8 @@ export default (state = initialState, action = {}) => {
     return Object.assign({}, state, { isUserHistoryFetching: action.bool });
   case FETCH_USER_HISTORY_SUCCESS:
     newState = Object.assign({}, state);
-    newState.fetchedUserHistory = newState.fetchedUserHistory.concat(action.history);
+    newState.fetchedUserHistory =
+    newState.fetchedUserHistory.concat(action.history);
     return newState;
   case FETCH_USER_HISTORY_FAILURE:
     return Object.assign({}, state, {

@@ -6,7 +6,6 @@ import {
   CREATE_CENTER_FAILURE
 } from './actionTypes';
 
-
 const isCenterCreating = bool => ({
   type: IS_CENTER_CREATING,
   bool
@@ -23,51 +22,50 @@ const createCenterFailure = error => ({
   error
 });
 // imageUrl
-const addCenter = centerDetails => (
-  (dispatch) => {
-    if (axios.defaults.headers.common.token === '') {
-      axios.defaults.headers.common.token = localStorage.getItem('token');
-    }
-    return axios({
-      method: 'POST',
-      url: '/api/v1/centers',
-      headers: {
-        token: localStorage.getItem('token')
-      },
-      data: centerDetails
-    }).then((response) => {
-      const { message } = response.centerInfo;
-      dispatch(createCenterSuccess(response.centerInfo.center, message));
+const addCenter = centerDetails => (dispatch) => {
+  if (axios.defaults.headers.common.token === '') {
+    axios.defaults.headers.common.token = localStorage.getItem('token');
+  }
+  return axios({
+    method: 'POST',
+    url: '/api/v1/centers',
+    headers: {
+      token: localStorage.getItem('token')
+    },
+    data: centerDetails
+  })
+    .then((response) => {
+      const { message } = response.data;
+      dispatch(createCenterSuccess(response.data.center, message));
       dispatch(isCenterCreating(false));
-    }).catch((error) => {
-      dispatch(createCenterFailure(error.response.centerInfo.message));
+    })
+    .catch((error) => {
+      dispatch(createCenterFailure(error.response.data.message));
       dispatch(isCenterCreating(false));
     });
-  }
-);
+};
 
-const createCenterRequest = center => (
-  (dispatch) => {
-    // let imageUrl = process.env.DEFAULT_IMAGE;
+const createCenterRequest = center => (dispatch) => {
+  // let imageUrl = process.env.DEFAULT_IMAGE;
 
-    dispatch(isCenterCreating(true));
-    // if (center.imageFile.name) {
-    //   delete axios.defaults.headers.common['x-access-token'];
-    //   const imageData = new FormData();
-    //   imageData.append('file', center.imageFile);
-    //   imageData.append('upload_preset', process.env.UPLOAD_PRESET);
+  dispatch(isCenterCreating(true));
+  // if (center.imageFile.name) {
+  //   delete axios.defaults.headers.common['x-access-token'];
+  //   const imageData = new FormData();
+  //   imageData.append('file', center.imageFile);
+  //   imageData.append('upload_preset', process.env.UPLOAD_PRESET);
 
-    //   return axios.post(process.env.CLOUDINARY_URL, imageData)
-    //     .then((response) => {
-    //       imageUrl = response.data.url;
-    //       return dispatch(addCenter(center, imageUrl));
-    //     }).catch(() => {
-    //       dispatch(createCenterFailure('Your upload failed, Please try again.'));
-    //       dispatch(isCenterCreating(false));
-    //     });
-    // }
-    return dispatch(addCenter(center));
-    // imageUrl));
-  }
-);
+  //   return axios.post(process.env.CLOUDINARY_URL, imageData)
+  //     .then((response) => {
+  //       imageUrl = response.data.url;
+  //       return dispatch(addCenter(center, imageUrl));
+  //     }).catch(() => {
+  //       dispatch(
+  // createCenterFailure('Your upload failed, Please try again.'));
+  //       dispatch(isCenterCreating(false));
+  //     });
+  // }
+  return dispatch(addCenter(center));
+  // imageUrl));
+};
 export default createCenterRequest;
