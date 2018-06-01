@@ -85,7 +85,7 @@ export default class UsersController {
         } else {
           bcrypt.compare(req.body.password, user.password, (err, hash) => {
             if (!hash) {
-              res
+              return res
                 .status(403)
                 .json({ success: false, message: 'Wrong email or password' });
             } else if (hash) {
@@ -102,7 +102,7 @@ export default class UsersController {
               const token = jwt.sign(payload, process.env.SECRET, {
                 expiresIn: '24h'
               });
-              res.status(200).json({
+              return res.status(200).json({
                 success: true,
                 message: 'Login Successful!',
                 token,

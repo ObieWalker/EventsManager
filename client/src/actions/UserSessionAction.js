@@ -16,16 +16,30 @@ export function setUser(user) {
   };
 }
 
-
-const login = userInfo =>
-  dispatch => axios.post('/api/v1/users/login', userInfo)
-    .then((response) => {
-      localStorage.setItem('token', response.data.token);
-      setAuthToken(response.data.token);
-      const decoded = jwt.decode(response.data.token);
-      dispatch(setUser(response.data.user));
-      toastr.success(`Welcome ${decoded.firstName}`);
-    });
+const login = (userInfo, history) => (
+  (dispatch) => {
+    const userData = userInfo;
+    return axios({
+      method: 'POST',
+      url: '/api/v1/users/login',
+      data: userData
+    })
+      .then((response) => {
+        localStorage.setItem('token', response.data.token);
+        setAuthToken(response.data.token);
+        const decoded = jwt.decode(response.data.token);
+        dispatch(setUser(response.data.user));
+        if (response.data.user) {
+          if (response.data.user.isAdmin) {
+            history.push('/admin');
+          } else {
+            history.push('/dashboard');
+          }
+        }
+        toastr.success(`Welcome ${decoded.firstName}`);
+      }).catch((error) => {
+        console.log(error);
+      });
+  });
 
 export default login;
-

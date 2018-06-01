@@ -19,6 +19,15 @@ describe('Register User', () => {
   it('should return the initial state', () => {
     expect(registerUserReducer(undefined, {})).toEqual(initialState);
   });
+  it('should handle REGISTERING_USER', () => {
+    const registeringUser = {
+      type: types.REGISTERING_USER,
+      bool: true
+    };
+    expect(registerUserReducer({}, registeringUser)).toEqual({
+      isUserRegistering: true
+    });
+  });
   it('should handle REGISTER_USER_SUCCESS', () => {
     const registerUser = {
       type: types.REGISTER_USER_SUCCESS,
