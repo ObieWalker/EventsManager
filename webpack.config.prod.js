@@ -62,7 +62,7 @@ module.exports = merge(common, {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: 'production',
+        NODE_ENV: JSON.stringify(process.env.SECRET),
         SECRET: JSON.stringify(process.env.SECRET),
         PORT: JSON.stringify(process.env.PORT),
         UPLOAD_PRESET: JSON.stringify(process.env.UPLOAD_PRESET),
