@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common');
 
@@ -32,5 +33,10 @@ module.exports = merge(common, {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(), // enable HMR globally
     new webpack.NamedModulesPlugin(),
+    new Dotenv({
+      path: './.env', // Path to .env file
+      systemvars: true // load all system variables
+      // as well (useful for CI purposes)
+    })
   ]
 });
