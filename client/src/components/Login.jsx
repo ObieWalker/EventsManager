@@ -13,7 +13,7 @@ import verifyToken from '../../helpers/verifyToken';
  * @class Login
  * @extends {Component}
  */
-class Login extends Component {
+export class Login extends Component {
   /**
    * Creates an instance of Login.
    * @param {any} props
@@ -42,6 +42,7 @@ class Login extends Component {
    * @memberof Login
    */
   handleChange(e) {
+    console.log('======heha');
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -51,6 +52,7 @@ class Login extends Component {
    * @memberof Login
    */
   componentDidMount() {
+    console.log('component did mounttttt');
     // checks to see if user already has a verified token and redirects
     if (verifyToken()) {
       const { isAuthenticated, user } = this.props.loginUser;
@@ -68,6 +70,7 @@ class Login extends Component {
    * @memberof Login
    */
   isValid() {
+    console.log('inside validation');
     const { errors, isValid } = signInValidator(this.state);
     if (!isValid) {
       this.setState({ errors });
@@ -97,6 +100,7 @@ class Login extends Component {
    * @memberof Login
    */
   handleUserLogin(e) {
+    console.log('=====testst');
     e.preventDefault();
     const userDetails = {
       email: this.state.email,
@@ -104,17 +108,8 @@ class Login extends Component {
     };
     if (this.isValid()) {
       this.setState({ errors: {} });
-      this.props
-        .login(userDetails)
-        .then(() => {
-          const { isAuthenticated, user } = this.props.loginUser;
-          if (user.isAdmin) {
-            this.props.history.push('/admin');
-          } else if (isAuthenticated && !user.isAdmin) {
-            this.props.history.push('/dashboard');
-          }
-        })
-        .catch(error => console.log(error));
+      console.log('====this.props', this.props);
+      this.props.login(userDetails, this.props.history);
     }
   }
   /**
@@ -179,6 +174,7 @@ class Login extends Component {
               <div className="row">
                 <button
                   type="submit"
+                  id="submit"
                   name="btn_login"
                   className="col s3 btn btn-large waves-effect indigo right"
                   onClick={this.handleUserLogin}

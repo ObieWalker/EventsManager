@@ -37,6 +37,7 @@ const fetchCentersRequest = (
   const searchParams =
   `filter=${filter}&facility=${facility}&capacity=${capacity}`;
   dispatch(isCentersFetching(true));
+  console.log('fetch centers-----');
   return axios({
     method: 'GET',
     url: `/api/v1/centers?${searchParams}&pageNo=${pageNo}&limit=${limit}`
@@ -46,6 +47,7 @@ const fetchCentersRequest = (
       dispatch(isCentersFetching(false));
     })
     .catch((error) => {
+      console.log('get centers error', error);
       toastr.error(error.response.data.message);
       dispatch(fetchCentersFailure(error.response.data.message));
       dispatch(isCentersFetching(false));

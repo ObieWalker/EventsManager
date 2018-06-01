@@ -70,12 +70,14 @@ class UserEvents extends Component {
       this.props.allUserEvents.fetchedUserEvents &&
       this.props.allUserEvents.fetchedUserEvents.length > 0
     ) {
+      console.log('will receive props');
       this.setState({
         userEvents: this.props.allUserEvents.fetchedUserEvents,
         isLoading: false
       });
     }
     if (nextProps !== this.props) {
+      console.log('nextprops');
       this.setState({
         userEvents: nextProps.allUserEvents.fetchedUserEvents,
         isLoading: false
@@ -98,6 +100,7 @@ class UserEvents extends Component {
    * @memberof UserEvents
    */
   handleShowEditModal(event) {
+    console.log('show edit modal');
     this.setState({
       event,
       showModal: true

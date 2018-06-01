@@ -29,7 +29,8 @@
       "es6": true,
       "browser": true,
       "mocha": true,
-      "jquery": true
+      "jquery": true,
+      "jest": true
     },
     "parser": "babel-eslint",
   

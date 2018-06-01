@@ -192,6 +192,7 @@ export default class CentersController {
           pageNo
         }))
       .catch((error) => {
+        console.log('backend error', error);
         res.status(500).json({
           message: 'Your request had an error',
           error
