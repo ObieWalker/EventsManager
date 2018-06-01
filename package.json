@@ -2,7 +2,7 @@
   "name": "event-manager",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run heroku-postbuild && node ./dist/app.js",
+    "start": "npm run heroku-postbuild && node --optimize_for_size --max_old_space_size=920 --gc_interval=100 ./dist/app.js",
     "build:prod:client": "rm -rf build && webpack --progress --config webpack.config.prod.js",
     "build:prod:server": "babel -d ./dist --copy-files ./server -s",
     "build:dev": "webpack --progress --config webpack.config.dev.js",
