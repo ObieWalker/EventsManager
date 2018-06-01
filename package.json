@@ -2,24 +2,33 @@
   "name": "event-manager",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run heroku-postbuild && node --optimize_for_size --max_old_space_size=920 --gc_interval=100 ./dist/app.js",
-    "build:prod:client": "rm -rf build && webpack --progress --config webpack.config.prod.js",
+    "start":
+      "node --optimize_for_size --max_old_space_size=500000 --gc_interval=100 ./dist/app.js",
+    "build:prod:client":
+      "rm -rf build && webpack --progress --config webpack.config.prod.js",
     "build:prod:server": "babel -d ./dist --copy-files ./server -s",
     "build:dev": "webpack --progress --config webpack.config.dev.js",
-    "start:dev": "export NODE_ENV=development && npm run build:dev && nodemon server/entry.js",
+    "start:dev":
+      "export NODE_ENV=development && npm run build:dev && nodemon server/entry.js",
     "build:dev:client": "webpack --progress --config webpack.config.dev.js",
-    "start:dev2": "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
-    "dev": "webpack-dev-server --progress --colors --content-base=./client/public",
+    "start:dev2":
+      "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
+    "dev":
+      "webpack-dev-server --progress --colors --content-base=./client/public",
     "build": "babel src -d dist",
-    "heroku-postbuild": "npm run build:prod:client && npm run build:prod:server",
+    "heroku-postbuild":
+      "npm run build:prod:client && npm run build:prod:server",
     "mocha": "mocha --compilers js:babel-core/register",
     "pretest": "npm run db:migration && NODE_ENV=development",
     "seq:create": "sequelize db:create events_test",
-    "test": "NODE_ENV=development nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
-    "test:dev": "export NODE_ENV=test npm run db:migration:test && nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "test":
+      "NODE_ENV=development nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "test:dev":
+      "export NODE_ENV=test npm run db:migration:test && nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
     "test:client": "jest && nyc --reporter=html --reporter=text",
     "db:migration": "sequelize db:migrate && sequelize db:seed:all",
-    "db:migration:test": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+    "db:migration:test":
+      "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
     "lint": "./node_modules/.bin/eslint",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
@@ -29,21 +38,13 @@
       "./client/tests/localStorageMock.js",
       "<rootDir>./client/src/setupTests.js"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>./client/tests/setups/setupTests.js",
+    "setupTestFrameworkScriptFile":
+      "<rootDir>./client/tests/setups/setupTests.js",
     "testRegex": "client/tests/.*\\.test\\.(js|jsx)$",
     "collectCoverage": true,
-    "collectCoverageFrom": [
-      "client/src/**",
-      "!client/src/index.jsx"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/server/",
-      "/build/"
-    ],
-    "testPathIgnorePatterns": [
-      "/client/tests/__mocks__/"
-    ]
+    "collectCoverageFrom": ["client/src/**", "!client/src/index.jsx"],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/server/", "/build/"],
+    "testPathIgnorePatterns": ["/client/tests/__mocks__/"]
   },
   "dependencies": {
     "auth-js": "0.0.10",
@@ -167,9 +168,7 @@
     "test": "tests"
   },
   "nodemonConfig": {
-    "ignore": [
-      "client/*"
-    ]
+    "ignore": ["client/*"]
   },
   "author": "Obi Walker",
   "license": "ISC",
