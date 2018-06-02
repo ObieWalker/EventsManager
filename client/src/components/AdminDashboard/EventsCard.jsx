@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-materialize';
-import toastr from 'toastr';
 
 /**
  *
