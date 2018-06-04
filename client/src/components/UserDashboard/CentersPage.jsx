@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import toastr from 'toastr';
 import PropTypes from 'prop-types';
-import moment from 'moment';
-import swal from 'sweetalert';
 import ScrollUp from 'react-scroll-up';
 import { Row } from 'react-materialize';
 import Loading from 'react-loading-animation';
 import { Modal } from 'react-bootstrap';
-import BookCenter from './BookCenterModal.jsx';
-import Search from '../Search.jsx';
+import BookCenterModal from './BookCenterModal.jsx';
+import SearchForm from '../Search.jsx';
 import CenterList from '../CenterCard.jsx';
 import EventList from '../EventList.jsx';
 import '../../styles/index.less';
 import addEventAction from '../../actions/addEventAction';
 import getAllCenters from '../../actions/getAllCentersAction';
-import validateForm from '../../../helpers/validators/eventValidator';
 import centerEvents,
 { clearCenterEvents } from '../../actions/getCenterEventsAction';
 
@@ -25,7 +21,7 @@ import centerEvents,
  * @class BookCenter
  * @extends {Component}
  */
-class CentersPage extends Component {
+export class CentersPage extends Component {
   /**
    * @constructor
    * @param {*} props
@@ -48,8 +44,6 @@ class CentersPage extends Component {
 
     this.loadMoreContent = this.loadMoreContent.bind(this);
     this.getMoreCenters = this.getMoreCenters.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.formIsValid = this.formIsValid.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleShowModal = this.handleShowModal.bind(this);
     this.changeSearchState = this.changeSearchState.bind(this);
@@ -149,17 +143,7 @@ class CentersPage extends Component {
       facility
     });
   }
-  /**
-   * @returns {object} void
-   *
-   * @param {any} e
-   * @memberof BookCenter
-   */
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
+
   /**
    *
    * @returns {object} state
@@ -203,59 +187,6 @@ class CentersPage extends Component {
   /**
    *
    *
-   * @returns {object} boolean
-   * @memberof BookCenter
-   */
-  formIsValid() {
-    const { errors, formIsValid } = validateForm(this.state);
-    if (!formIsValid) {
-      this.setState({ errors });
-    }
-    return formIsValid;
-  }
-
-  /**
-   * @returns {object} void
-   *
-   * @param {any} e
-   * @memberof BookCenter
-   */
-  onSubmit(e) {
-    e.preventDefault();
-    if (this.formIsValid()) {
-      this.setState({ errors: {} });
-      const eventDetails = {
-        center: this.state.center.value,
-        eventType: this.state.eventType,
-        date: moment(this.state.date.date).format('YYYY-MM-DD HH:mm:ss'),
-        guestNo: this.state.guestNo
-      };
-      swal({
-        title: 'Are you sure?',
-        text: 'You will be booking the center with the set date.',
-        icon: 'info',
-        dangerMode: true
-      });
-      this.props.addNewEvent(eventDetails).then(() => {
-        const { createSuccess, createError } = this.props;
-        if (createError === '') {
-          toastr.remove();
-          toastr.success(createSuccess);
-        } else {
-          swal({
-            title: 'Unable to add new event',
-            text: createError,
-            icon: 'error',
-            dangerMode: false
-          });
-        }
-        this.clear();
-      });
-    }
-  }
-  /**
-   *
-   *
    * @returns {object} booked center
    * @memberof BookCenter
    */
@@ -267,7 +198,7 @@ class CentersPage extends Component {
           <div>
             <h3>Available Centers.</h3>
             <div className="center">
-              <Search
+              <SearchForm
                 changeSearchState={this.changeSearchState.bind(this)}
                 resetPage={this.resetPage.bind(this)}
               />{' '}
@@ -281,7 +212,7 @@ class CentersPage extends Component {
                     <CenterList
                       key={i}
                       center={center}
-                      handleShowModal={this.handleShowModal.bind(this)}
+                      handleShowModal={this.handleShowModal}
                       getCenterEvents={this.getCenterEvents.bind(this, center)}
                     />
                   ))}
@@ -316,11 +247,13 @@ class CentersPage extends Component {
               <br />
             </div>
           </div>
-          <Modal show={this.state.show} onHide={this.handleClose}>
-            <BookCenter
-              center={this.state.center}
-              handleClose={this.handleClose.bind(this)}
-            />
+          <Modal
+            className="modal-display"
+            bsSize="large"
+            show={this.state.show}
+            onHide={this.handleClose}
+          >
+            <BookCenterModal center={this.state.center} onHide={this.handleClose} />
           </Modal>
         </div>
       );
@@ -328,14 +261,6 @@ class CentersPage extends Component {
     const events = this.props.fetchedCenterEvents;
     return (
       <div>
-        {/* <button
-          className="btn peach-gradient btn-sm
-          glyphicon glyphicon-arrow-left left"
-          onClick={this.revertPageState}
-        >
-          {' '}
-          Go Back
-        </button> */}
         <button
           onClick={this.revertPageState}
           className="animated bounceInUp btn btn-small left"
@@ -384,7 +309,7 @@ CentersPage.propTypes = {
   createSuccess: PropTypes.string,
   createError: PropTypes.string,
   addNewEvent: PropTypes.func,
-  Centers: PropTypes.array,
+  Center: PropTypes.object,
   moreCenters: PropTypes.bool,
   centerEvents: PropTypes.func,
   fetchedCenterEvents: PropTypes.array,

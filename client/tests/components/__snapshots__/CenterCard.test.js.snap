@@ -1,0 +1,1267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Center Card Component renders component successfully 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CenterCard
+    center={Object {}}
+    getCenterEvents={[MockFunction]}
+    handleShowModal={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        style={
+          Object {
+            "margin": "5%",
+          }
+        }
+      >
+        <Col
+          m={6}
+          s={10}
+        >
+          <div
+            className="col 12"
+          >
+            <div
+              className="card card-cascade narrower"
+              style={
+                Object {
+                  "height": "400px",
+                }
+              }
+            >
+              <div
+                className="view overlay"
+              >
+                <img
+                  a={true}
+                  alt="center"
+                  className="card-img-top img-fluid"
+                  src="http://i68.tinypic.com/dh5vk.jpg"
+                />
+                <a>
+                  <div
+                    className="mask rgba-white-slight"
+                  />
+                </a>
+              </div>
+              <div
+                className="card-body"
+                style={
+                  Object {
+                    "padding": "5%",
+                  }
+                }
+              >
+                <h5
+                  className="card-title pink-text pb-2 pt-1"
+                >
+                   
+                </h5>
+                <p
+                  className="card-text"
+                >
+                  , 
+                </p>
+                <p
+                  className="card-text"
+                >
+                  Capacity: 
+                </p>
+                <p>
+                  Information on facilities provided on demand.
+                </p>
+                <button
+                  className="btn btn-primary btn-sm active"
+                  onClick={[Function]}
+                >
+                  Book Center
+                </button>
+                <button
+                  className="btn btn-info btn-sm active"
+                  id="loadMore"
+                  onClick={[Function]}
+                >
+                  Booked Events
+                </button>
+                <br />
+              </div>
+            </div>
+          </div>
+        </Col>
+      </div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Col
+          m={6}
+          s={10}
+        >
+          <div
+            className="col 12"
+          >
+            <div
+              className="card card-cascade narrower"
+              style={
+                Object {
+                  "height": "400px",
+                }
+              }
+            >
+              <div
+                className="view overlay"
+              >
+                <img
+                  a={true}
+                  alt="center"
+                  className="card-img-top img-fluid"
+                  src="http://i68.tinypic.com/dh5vk.jpg"
+                />
+                <a>
+                  <div
+                    className="mask rgba-white-slight"
+                  />
+                </a>
+              </div>
+              <div
+                className="card-body"
+                style={
+                  Object {
+                    "padding": "5%",
+                  }
+                }
+              >
+                <h5
+                  className="card-title pink-text pb-2 pt-1"
+                >
+                   
+                </h5>
+                <p
+                  className="card-text"
+                >
+                  , 
+                </p>
+                <p
+                  className="card-text"
+                >
+                  Capacity: 
+                </p>
+                <p>
+                  Information on facilities provided on demand.
+                </p>
+                <button
+                  className="btn btn-primary btn-sm active"
+                  onClick={[Function]}
+                >
+                  Book Center
+                </button>
+                <button
+                  className="btn btn-info btn-sm active"
+                  id="loadMore"
+                  onClick={[Function]}
+                >
+                  Booked Events
+                </button>
+                <br />
+              </div>
+            </div>
+          </div>
+        </Col>,
+        "style": Object {
+          "margin": "5%",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <div
+            className="col 12"
+          >
+            <div
+              className="card card-cascade narrower"
+              style={
+                Object {
+                  "height": "400px",
+                }
+              }
+            >
+              <div
+                className="view overlay"
+              >
+                <img
+                  a={true}
+                  alt="center"
+                  className="card-img-top img-fluid"
+                  src="http://i68.tinypic.com/dh5vk.jpg"
+                />
+                <a>
+                  <div
+                    className="mask rgba-white-slight"
+                  />
+                </a>
+              </div>
+              <div
+                className="card-body"
+                style={
+                  Object {
+                    "padding": "5%",
+                  }
+                }
+              >
+                <h5
+                  className="card-title pink-text pb-2 pt-1"
+                >
+                   
+                </h5>
+                <p
+                  className="card-text"
+                >
+                  , 
+                </p>
+                <p
+                  className="card-text"
+                >
+                  Capacity: 
+                </p>
+                <p>
+                  Information on facilities provided on demand.
+                </p>
+                <button
+                  className="btn btn-primary btn-sm active"
+                  onClick={[Function]}
+                >
+                  Book Center
+                </button>
+                <button
+                  className="btn btn-info btn-sm active"
+                  id="loadMore"
+                  onClick={[Function]}
+                >
+                  Booked Events
+                </button>
+                <br />
+              </div>
+            </div>
+          </div>,
+          "m": 6,
+          "s": 10,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="card card-cascade narrower"
+              style={
+                Object {
+                  "height": "400px",
+                }
+              }
+            >
+              <div
+                className="view overlay"
+              >
+                <img
+                  a={true}
+                  alt="center"
+                  className="card-img-top img-fluid"
+                  src="http://i68.tinypic.com/dh5vk.jpg"
+                />
+                <a>
+                  <div
+                    className="mask rgba-white-slight"
+                  />
+                </a>
+              </div>
+              <div
+                className="card-body"
+                style={
+                  Object {
+                    "padding": "5%",
+                  }
+                }
+              >
+                <h5
+                  className="card-title pink-text pb-2 pt-1"
+                >
+                   
+                </h5>
+                <p
+                  className="card-text"
+                >
+                  , 
+                </p>
+                <p
+                  className="card-text"
+                >
+                  Capacity: 
+                </p>
+                <p>
+                  Information on facilities provided on demand.
+                </p>
+                <button
+                  className="btn btn-primary btn-sm active"
+                  onClick={[Function]}
+                >
+                  Book Center
+                </button>
+                <button
+                  className="btn btn-info btn-sm active"
+                  id="loadMore"
+                  onClick={[Function]}
+                >
+                  Booked Events
+                </button>
+                <br />
+              </div>
+            </div>,
+            "className": "col 12",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="view overlay"
+                >
+                  <img
+                    a={true}
+                    alt="center"
+                    className="card-img-top img-fluid"
+                    src="http://i68.tinypic.com/dh5vk.jpg"
+                  />
+                  <a>
+                    <div
+                      className="mask rgba-white-slight"
+                    />
+                  </a>
+                </div>,
+                <div
+                  className="card-body"
+                  style={
+                    Object {
+                      "padding": "5%",
+                    }
+                  }
+                >
+                  <h5
+                    className="card-title pink-text pb-2 pt-1"
+                  >
+                     
+                  </h5>
+                  <p
+                    className="card-text"
+                  >
+                    , 
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    Capacity: 
+                  </p>
+                  <p>
+                    Information on facilities provided on demand.
+                  </p>
+                  <button
+                    className="btn btn-primary btn-sm active"
+                    onClick={[Function]}
+                  >
+                    Book Center
+                  </button>
+                  <button
+                    className="btn btn-info btn-sm active"
+                    id="loadMore"
+                    onClick={[Function]}
+                  >
+                    Booked Events
+                  </button>
+                  <br />
+                </div>,
+              ],
+              "className": "card card-cascade narrower",
+              "style": Object {
+                "height": "400px",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <img
+                      a={true}
+                      alt="center"
+                      className="card-img-top img-fluid"
+                      src="http://i68.tinypic.com/dh5vk.jpg"
+                    />,
+                    <a>
+                      <div
+                        className="mask rgba-white-slight"
+                      />
+                    </a>,
+                  ],
+                  "className": "view overlay",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "a": true,
+                      "alt": "center",
+                      "className": "card-img-top img-fluid",
+                      "src": "http://i68.tinypic.com/dh5vk.jpg",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <div
+                        className="mask rgba-white-slight"
+                      />,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "mask rgba-white-slight",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "div",
+                    },
+                    "type": "a",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h5
+                      className="card-title pink-text pb-2 pt-1"
+                    >
+                       
+                    </h5>,
+                    <p
+                      className="card-text"
+                    >
+                      , 
+                    </p>,
+                    <p
+                      className="card-text"
+                    >
+                      Capacity: 
+                    </p>,
+                    <p>
+                      Information on facilities provided on demand.
+                    </p>,
+                    <button
+                      className="btn btn-primary btn-sm active"
+                      onClick={[Function]}
+                    >
+                      Book Center
+                    </button>,
+                    <button
+                      className="btn btn-info btn-sm active"
+                      id="loadMore"
+                      onClick={[Function]}
+                    >
+                      Booked Events
+                    </button>,
+                    <br />,
+                  ],
+                  "className": "card-body",
+                  "style": Object {
+                    "padding": "5%",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        undefined,
+                      ],
+                      "className": "card-title pink-text pb-2 pt-1",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      undefined,
+                    ],
+                    "type": "h5",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        undefined,
+                        ", ",
+                        undefined,
+                      ],
+                      "className": "card-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                      ", ",
+                      undefined,
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Capacity: ",
+                        undefined,
+                      ],
+                      "className": "card-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Capacity: ",
+                      undefined,
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Information on facilities provided on demand.",
+                    },
+                    "ref": null,
+                    "rendered": "Information on facilities provided on demand.",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Book Center",
+                      "className": "btn btn-primary btn-sm active",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "Book Center",
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Booked Events",
+                      "className": "btn btn-info btn-sm active",
+                      "id": "loadMore",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "Booked Events",
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": [Function],
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          style={
+            Object {
+              "margin": "5%",
+            }
+          }
+        >
+          <Col
+            m={6}
+            s={10}
+          >
+            <div
+              className="col 12"
+            >
+              <div
+                className="card card-cascade narrower"
+                style={
+                  Object {
+                    "height": "400px",
+                  }
+                }
+              >
+                <div
+                  className="view overlay"
+                >
+                  <img
+                    a={true}
+                    alt="center"
+                    className="card-img-top img-fluid"
+                    src="http://i68.tinypic.com/dh5vk.jpg"
+                  />
+                  <a>
+                    <div
+                      className="mask rgba-white-slight"
+                    />
+                  </a>
+                </div>
+                <div
+                  className="card-body"
+                  style={
+                    Object {
+                      "padding": "5%",
+                    }
+                  }
+                >
+                  <h5
+                    className="card-title pink-text pb-2 pt-1"
+                  >
+                     
+                  </h5>
+                  <p
+                    className="card-text"
+                  >
+                    , 
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    Capacity: 
+                  </p>
+                  <p>
+                    Information on facilities provided on demand.
+                  </p>
+                  <button
+                    className="btn btn-primary btn-sm active"
+                    onClick={[Function]}
+                  >
+                    Book Center
+                  </button>
+                  <button
+                    className="btn btn-info btn-sm active"
+                    id="loadMore"
+                    onClick={[Function]}
+                  >
+                    Booked Events
+                  </button>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </Col>
+        </div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Col
+            m={6}
+            s={10}
+          >
+            <div
+              className="col 12"
+            >
+              <div
+                className="card card-cascade narrower"
+                style={
+                  Object {
+                    "height": "400px",
+                  }
+                }
+              >
+                <div
+                  className="view overlay"
+                >
+                  <img
+                    a={true}
+                    alt="center"
+                    className="card-img-top img-fluid"
+                    src="http://i68.tinypic.com/dh5vk.jpg"
+                  />
+                  <a>
+                    <div
+                      className="mask rgba-white-slight"
+                    />
+                  </a>
+                </div>
+                <div
+                  className="card-body"
+                  style={
+                    Object {
+                      "padding": "5%",
+                    }
+                  }
+                >
+                  <h5
+                    className="card-title pink-text pb-2 pt-1"
+                  >
+                     
+                  </h5>
+                  <p
+                    className="card-text"
+                  >
+                    , 
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    Capacity: 
+                  </p>
+                  <p>
+                    Information on facilities provided on demand.
+                  </p>
+                  <button
+                    className="btn btn-primary btn-sm active"
+                    onClick={[Function]}
+                  >
+                    Book Center
+                  </button>
+                  <button
+                    className="btn btn-info btn-sm active"
+                    id="loadMore"
+                    onClick={[Function]}
+                  >
+                    Booked Events
+                  </button>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </Col>,
+          "style": Object {
+            "margin": "5%",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <div
+              className="col 12"
+            >
+              <div
+                className="card card-cascade narrower"
+                style={
+                  Object {
+                    "height": "400px",
+                  }
+                }
+              >
+                <div
+                  className="view overlay"
+                >
+                  <img
+                    a={true}
+                    alt="center"
+                    className="card-img-top img-fluid"
+                    src="http://i68.tinypic.com/dh5vk.jpg"
+                  />
+                  <a>
+                    <div
+                      className="mask rgba-white-slight"
+                    />
+                  </a>
+                </div>
+                <div
+                  className="card-body"
+                  style={
+                    Object {
+                      "padding": "5%",
+                    }
+                  }
+                >
+                  <h5
+                    className="card-title pink-text pb-2 pt-1"
+                  >
+                     
+                  </h5>
+                  <p
+                    className="card-text"
+                  >
+                    , 
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    Capacity: 
+                  </p>
+                  <p>
+                    Information on facilities provided on demand.
+                  </p>
+                  <button
+                    className="btn btn-primary btn-sm active"
+                    onClick={[Function]}
+                  >
+                    Book Center
+                  </button>
+                  <button
+                    className="btn btn-info btn-sm active"
+                    id="loadMore"
+                    onClick={[Function]}
+                  >
+                    Booked Events
+                  </button>
+                  <br />
+                </div>
+              </div>
+            </div>,
+            "m": 6,
+            "s": 10,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="card card-cascade narrower"
+                style={
+                  Object {
+                    "height": "400px",
+                  }
+                }
+              >
+                <div
+                  className="view overlay"
+                >
+                  <img
+                    a={true}
+                    alt="center"
+                    className="card-img-top img-fluid"
+                    src="http://i68.tinypic.com/dh5vk.jpg"
+                  />
+                  <a>
+                    <div
+                      className="mask rgba-white-slight"
+                    />
+                  </a>
+                </div>
+                <div
+                  className="card-body"
+                  style={
+                    Object {
+                      "padding": "5%",
+                    }
+                  }
+                >
+                  <h5
+                    className="card-title pink-text pb-2 pt-1"
+                  >
+                     
+                  </h5>
+                  <p
+                    className="card-text"
+                  >
+                    , 
+                  </p>
+                  <p
+                    className="card-text"
+                  >
+                    Capacity: 
+                  </p>
+                  <p>
+                    Information on facilities provided on demand.
+                  </p>
+                  <button
+                    className="btn btn-primary btn-sm active"
+                    onClick={[Function]}
+                  >
+                    Book Center
+                  </button>
+                  <button
+                    className="btn btn-info btn-sm active"
+                    id="loadMore"
+                    onClick={[Function]}
+                  >
+                    Booked Events
+                  </button>
+                  <br />
+                </div>
+              </div>,
+              "className": "col 12",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="view overlay"
+                  >
+                    <img
+                      a={true}
+                      alt="center"
+                      className="card-img-top img-fluid"
+                      src="http://i68.tinypic.com/dh5vk.jpg"
+                    />
+                    <a>
+                      <div
+                        className="mask rgba-white-slight"
+                      />
+                    </a>
+                  </div>,
+                  <div
+                    className="card-body"
+                    style={
+                      Object {
+                        "padding": "5%",
+                      }
+                    }
+                  >
+                    <h5
+                      className="card-title pink-text pb-2 pt-1"
+                    >
+                       
+                    </h5>
+                    <p
+                      className="card-text"
+                    >
+                      , 
+                    </p>
+                    <p
+                      className="card-text"
+                    >
+                      Capacity: 
+                    </p>
+                    <p>
+                      Information on facilities provided on demand.
+                    </p>
+                    <button
+                      className="btn btn-primary btn-sm active"
+                      onClick={[Function]}
+                    >
+                      Book Center
+                    </button>
+                    <button
+                      className="btn btn-info btn-sm active"
+                      id="loadMore"
+                      onClick={[Function]}
+                    >
+                      Booked Events
+                    </button>
+                    <br />
+                  </div>,
+                ],
+                "className": "card card-cascade narrower",
+                "style": Object {
+                  "height": "400px",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <img
+                        a={true}
+                        alt="center"
+                        className="card-img-top img-fluid"
+                        src="http://i68.tinypic.com/dh5vk.jpg"
+                      />,
+                      <a>
+                        <div
+                          className="mask rgba-white-slight"
+                        />
+                      </a>,
+                    ],
+                    "className": "view overlay",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "a": true,
+                        "alt": "center",
+                        "className": "card-img-top img-fluid",
+                        "src": "http://i68.tinypic.com/dh5vk.jpg",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <div
+                          className="mask rgba-white-slight"
+                        />,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "mask rgba-white-slight",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "div",
+                      },
+                      "type": "a",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h5
+                        className="card-title pink-text pb-2 pt-1"
+                      >
+                         
+                      </h5>,
+                      <p
+                        className="card-text"
+                      >
+                        , 
+                      </p>,
+                      <p
+                        className="card-text"
+                      >
+                        Capacity: 
+                      </p>,
+                      <p>
+                        Information on facilities provided on demand.
+                      </p>,
+                      <button
+                        className="btn btn-primary btn-sm active"
+                        onClick={[Function]}
+                      >
+                        Book Center
+                      </button>,
+                      <button
+                        className="btn btn-info btn-sm active"
+                        id="loadMore"
+                        onClick={[Function]}
+                      >
+                        Booked Events
+                      </button>,
+                      <br />,
+                    ],
+                    "className": "card-body",
+                    "style": Object {
+                      "padding": "5%",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          undefined,
+                        ],
+                        "className": "card-title pink-text pb-2 pt-1",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        undefined,
+                      ],
+                      "type": "h5",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          undefined,
+                          ", ",
+                          undefined,
+                        ],
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        undefined,
+                        ", ",
+                        undefined,
+                      ],
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Capacity: ",
+                          undefined,
+                        ],
+                        "className": "card-text",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Capacity: ",
+                        undefined,
+                      ],
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Information on facilities provided on demand.",
+                      },
+                      "ref": null,
+                      "rendered": "Information on facilities provided on demand.",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Book Center",
+                        "className": "btn btn-primary btn-sm active",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Book Center",
+                      "type": "button",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Booked Events",
+                        "className": "btn btn-info btn-sm active",
+                        "id": "loadMore",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Booked Events",
+                      "type": "button",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {},
+                      "ref": null,
+                      "rendered": null,
+                      "type": "br",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

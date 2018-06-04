@@ -49,7 +49,8 @@ describe('Register User', () => {
 describe('Login User', () => {
   const initialState = {
     isAuthenticated: false,
-    user: {}
+    user: {},
+    loginError: ''
   };
   it('should return the initial state', () => {
     expect(loginUserReducer(undefined, {})).toEqual(initialState);
@@ -63,6 +64,15 @@ describe('Login User', () => {
     expect(loginUserReducer({}, loginUser)).toEqual({
       isAuthenticated: true,
       user: users.user1
+    });
+  });
+  it('should handle SET_USER_FAILURE', () => {
+    const loginUserFailure = {
+      type: types.SET_USER_FAILURE,
+      error: 'failure'
+    };
+    expect(loginUserReducer({}, loginUserFailure)).toEqual({
+      loginError: 'failure'
     });
   });
 });

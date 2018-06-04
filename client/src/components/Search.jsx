@@ -11,7 +11,7 @@ import getAllCenters, { clearCenterState }
  * @class Search
  * @extends {Component}
  */
-class Search extends Component {
+export class Search extends Component {
   /**
    * Creates an instance of Search.
    * @param {any} props

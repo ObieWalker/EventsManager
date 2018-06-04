@@ -52,7 +52,7 @@ const EventCard = (props) => {
                             </button>
                             <button
                               className="btn btn-primary btn-danger btn-sm"
-                              onClick={() => props.handleDeleteEvent}
+                              onClick={() => props.handleDeleteEvent()}
                             >
                               Cancel{' '}
                             </button>
@@ -79,14 +79,9 @@ const EventCard = (props) => {
 
 
 EventCard.propTypes = {
-  handleEditEvent: PropTypes.func,
   handleShowEditModal: PropTypes.func,
   handleDeleteEvent: PropTypes.func,
   event: PropTypes.object,
-  name: PropTypes.string,
-  date: PropTypes.string,
-  guestNo: PropTypes.number,
-  email: PropTypes.string
 };
 
 export default EventCard;

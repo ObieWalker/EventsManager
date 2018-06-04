@@ -11,7 +11,7 @@ import logOut from '../actions/logOutAction';
  * @class Header
  * @extends {Component}
  */
-class Header extends Component {
+export class Header extends Component {
   /**
    * Creates an instance of Header.
    * @param {any} props

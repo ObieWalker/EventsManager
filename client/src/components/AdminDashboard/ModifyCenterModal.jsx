@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import toastr from 'toastr';
 import updateCenterRequest from '../../actions/editCenterAction';
 import validateForm from '../../../helpers/validators/centerValidator';
-
+import CenterForm from '../CenterForm.jsx';
 /**
  *
  *
  * @class ModifyCenter
  * @extends {Component}
  */
-class ModifyCenter extends Component {
+export class ModifyCenter extends Component {
   /**
    * Creates an instance of ModifyCenter.
    * @param {any} props
@@ -129,106 +129,27 @@ class ModifyCenter extends Component {
  * @memberof ModifyCenter
  */
   render() {
+    const { errors } = this.state;
+    const { center } = this.props;
     return (
-      <div className="grey lighten-4" style={{
-        display: 'inline-block',
-        width: '100%',
-        padding: '10%',
-        border: '1px solid #EEE'
-      }}>
-        <div className=" col s12">
-          <form className="col s14" onSubmit={this.onSubmit}>
-            <div>
-              <p><label htmlFor="name">Center Name:</label></p></div>
-            <div className="input-field col s12">
-              <input type="text"
-                className="form-control"
-                value ={this.state.name.value}
-                defaultValue={this.props.center.name}
-                onFocus={this.state.handleOnFocus}
-                id='name'
-                name='name'
-                placeholder="" required
-                onChange={this.handleChange}/>
-            </div>
-            <div>
-              <p><label htmlFor="address">Address:</label></p>
-            </div>
-            <div className="input-field col s12">
-              <input type="text"
-                placeholder="Placeholder" required
-                value ={this.state.address.value}
-                onFocus={this.state.handleOnFocus}
-                defaultValue={this.props.center.address}
-                id="address"
-                className="form-control"
-                name='address'
-                onChange={this.handleChange}/>
-            </div>
-            <div>
-              <p><label htmlFor="city">City:</label></p>
-            </div>
-            <div className="input-field col s12">
-              <input type="text"
-                value ={this.state.city.value}
-                onFocus={this.state.handleOnFocus}
-                defaultValue={this.props.center.city}
-                id="city"
-                name='city'
-                className="form-control"
-                placeholder="" required
-                onChange={this.handleChange} />
-            </div>
-            <div>
-              <p><label htmlFor="capacity">Capacity:</label></p>
-            </div>
-            <div className="input-field col s12">
-              <input type="number"
-                value ={this.state.capacity.value}
-                defaultValue={this.props.center.capacity}
-                onFocus={this.state.handleOnFocus}
-                id="capacity"
-                name='capacity'
-                className="form-control"
-                placeholder="" required
-                onChange={this.handleChange} />
-            </div>
-            <div>
-              <p><label htmlFor="facilities">Description/Facilities:</label></p>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <textarea id="facility"
-                  className="materialize-textarea"
-                  defaultValue={this.props.center.facility}
-                  value ={this.state.facility.value}
-                  onFocus={this.state.handleOnFocus}
-                  name='facility'
-                  onChange={this.handleChange} >
-                </textarea>
-              </div>
-            </div>
-            <div className="file-field input-field">
-              <div className="btn">
-                <span>File</span>
-                <input type="file" multiple/>
-              </div>
-              <div className="file-path-wrapper">
-                <input className="file-path validate"
-                  type="text" placeholder="Update Center Picture"/>
-              </div>
-            </div><br/><br/>
-
-            <div className="row center-align">
-              <button
-                className="btn waves-effect waves-light navbar-purple round-btn"
-                type="submit" name="action"
-                onClick={this.updateCenter} >Update Center
-                <i className="material-icons right">send</i>
-              </button>
-            </div>
-          </form>
-        </div>
+      <div>
+        <CenterForm
+          center={center}
+          errors={errors}
+          defaultCenterName={center.name}
+          centerNameValue={this.state.name.value}
+          onChange={this.handleChange}
+          onFocus={this.handleOnFocus}
+          addressValue={this.state.address.value}
+          defaultAddressValue={center.address}
+          cityValue ={this.state.city.value}
+          defaultCityValue={center.city}
+          capacityValue ={this.state.capacity.value}
+          defaultCapacityValue={center.capacity}
+          defaultFacilityValue={center.facility}
+          facilityValue ={this.state.facility.value}
+          modifyOnClick={this.updateCenter}
+        />
       </div>
     );
   }

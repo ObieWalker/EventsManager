@@ -3,7 +3,7 @@ import { Col, NavItem, Nav, Row, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import CentersPage from './CentersPage.jsx';
+import CentersPageTab from './CentersPage.jsx';
 import ViewEvents from './UserEvents.jsx';
 import History from './History.jsx';
 
@@ -13,7 +13,7 @@ import History from './History.jsx';
  * @class Dashboard
  * @extends {Component}
  */
-class Dashboard extends Component {
+export class Dashboard extends Component {
   /**
    *
    *
@@ -71,7 +71,7 @@ class Dashboard extends Component {
             </Col>
             <Col sm={9}>
               <Tab.Content animation>
-                <Tab.Pane eventKey="first"><CentersPage /></Tab.Pane>
+                <Tab.Pane eventKey="first"><CentersPageTab /></Tab.Pane>
                 <Tab.Pane eventKey="second"><ViewEvents /></Tab.Pane>
                 <Tab.Pane eventKey="third"><History /></Tab.Pane>
               </Tab.Content>
@@ -84,9 +84,7 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  UserSessionAction: PropTypes.func,
   loginUser: PropTypes.object,
-  login: PropTypes.func
 };
 
 const mapStateToProps = state => ({

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Row } from 'react-materialize';
 import Loading from 'react-loading-animation';
 import getAllCenters from '../actions/getAllCentersAction';
-import Search from './Search.jsx';
+import SearchComponent from './Search.jsx';
 import CenterList from './CenterCard.jsx';
 
 /**
@@ -14,7 +14,7 @@ import CenterList from './CenterCard.jsx';
  * @class AllCenters
  * @extends {Component}
  */
-class AllCenters extends Component {
+export class AllCenters extends Component {
   /**
    * Creates an instance of AllCenters.
    * @param {any} props
@@ -94,7 +94,7 @@ class AllCenters extends Component {
         <div>
           <h3>All centers and details.</h3>
           <div className="center">
-            <Search /> <br /> <br />
+            <SearchComponent /> <br /> <br />
           </div>
           <div>
             {' '}
