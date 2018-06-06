@@ -42,7 +42,6 @@ export class Login extends Component {
    * @memberof Login
    */
   handleChange(e) {
-    console.log('======heha');
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -52,7 +51,6 @@ export class Login extends Component {
    * @memberof Login
    */
   componentDidMount() {
-    console.log('component did mounttttt');
     // checks to see if user already has a verified token and redirects
     if (verifyToken()) {
       const { isAuthenticated, user } = this.props.loginUser;
@@ -70,7 +68,6 @@ export class Login extends Component {
    * @memberof Login
    */
   isValid() {
-    console.log('inside validation');
     const { errors, isValid } = signInValidator(this.state);
     if (!isValid) {
       this.setState({ errors });
@@ -100,7 +97,6 @@ export class Login extends Component {
    * @memberof Login
    */
   handleUserLogin(e) {
-    console.log('=====testst');
     e.preventDefault();
     const userDetails = {
       email: this.state.email,
@@ -108,7 +104,6 @@ export class Login extends Component {
     };
     if (this.isValid()) {
       this.setState({ errors: {} });
-      console.log('====this.props', this.props);
       this.props.login(userDetails, this.props.history);
     }
   }

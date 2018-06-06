@@ -50,9 +50,8 @@ const login = (userInfo, history) => (dispatch) => {
       toastr.success(`Welcome ${decoded.firstName}`);
     })
     .catch((error) => {
-      dispatch(setUser(error.response.data.message));
+      dispatch(setUserFailure(error.response.data.message));
       toastr.success(error.response.data.message);
-      console.log(error.response.data.message);
     });
 };
 

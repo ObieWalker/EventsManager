@@ -14,7 +14,7 @@ import cancelEvent from '../../actions/cancelEventAction';
  * @class AllEvents
  * @extends {Component}
  */
-class AllEvents extends Component {
+export class AllEvents extends Component {
   /**
    * Creates an instance of AllEvents.
    * @param {any} props
@@ -162,7 +162,7 @@ class AllEvents extends Component {
 
 AllEvents.propTypes = {
   allEvents: PropTypes.object,
-  events: PropTypes.array.isRequired,
+  events: PropTypes.array,
   getAllEvents: PropTypes.func.isRequired,
   fetchedEvents: PropTypes.array,
   cancelEvent: PropTypes.func,

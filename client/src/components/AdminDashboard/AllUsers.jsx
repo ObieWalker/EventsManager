@@ -14,7 +14,7 @@ import deleteUser from '../../actions/deleteUserAction';
  * @class AllUsers
  * @extends {Component}
  */
-class AllUsers extends Component {
+export class AllUsers extends Component {
   /**
    * Creates an instance of AllEvents.
    * @param {any} props

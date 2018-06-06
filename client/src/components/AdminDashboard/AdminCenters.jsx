@@ -18,7 +18,7 @@ import ModifyCenter from './ModifyCenterModal.jsx';
  * @class AdminCenters
  * @extends {Component}
  */
-class AdminCenters extends Component {
+export class AdminCenters extends Component {
   /**
    * Creates an instance of AdminCenters.
    * @param {any} props
@@ -139,6 +139,7 @@ class AdminCenters extends Component {
  * @memberof AdminCenters
  */
   render() {
+    const { moreCenters } = this.props.allCenters;
     return (
       <div>
         <div>
@@ -200,7 +201,7 @@ class AdminCenters extends Component {
               onClick={this.loadMoreContent}
               className="btn btn-primary active"
               id="loadMore"
-              disabled={!this.props.moreCenters}
+              disabled={!moreCenters}
             >
               Load More
             </button>
@@ -226,8 +227,7 @@ AdminCenters.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  allCenters: state.allCenters,
-  moreCenters: state.allCenters.moreCenters
+  allCenters: state.allCenters
 });
 
 

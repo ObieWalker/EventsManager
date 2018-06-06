@@ -3,7 +3,7 @@ import { Col, NavItem, Nav, Row, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import CreateCenter from './CreateCenter.jsx';
+import CreateCenterTab from './CreateCenter.jsx';
 import Centers from './AdminCenters.jsx';
 import Events from './AllEvents.jsx';
 import Users from './AllUsers.jsx';
@@ -14,7 +14,7 @@ import Users from './AllUsers.jsx';
  * @class AdminPage
  * @extends {Component}
  */
-class AdminPage extends Component {
+export class AdminPage extends Component {
   /**
    *
    *
@@ -86,7 +86,7 @@ class AdminPage extends Component {
             <Col sm={9}>
               <Tab.Content animation>
                 <Tab.Pane eventKey="first">
-                  <CreateCenter />
+                  <CreateCenterTab />
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
                   <Centers />
@@ -107,9 +107,7 @@ class AdminPage extends Component {
 }
 
 AdminPage.propTypes = {
-  UserSessionAction: PropTypes.func,
   loginUser: PropTypes.object,
-  login: PropTypes.func
 };
 
 const mapStateToProps = state => ({

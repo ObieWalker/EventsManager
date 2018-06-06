@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import AdminPage from './AdminPage.jsx';
+import Admin from './AdminPage.jsx';
 /**
  *
  *
@@ -17,7 +17,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <AdminPage />
+        <Admin />
       </div>
     );
   }

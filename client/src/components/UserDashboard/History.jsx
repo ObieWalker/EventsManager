@@ -14,7 +14,7 @@ import EventList from './EventsCard.jsx';
  * @class UserEvents
  * @extends {Component}
  */
-class UserHistory extends Component {
+export class UserHistory extends Component {
   /**
    * Creates an instance of UserEvents.
    * @param {any} props

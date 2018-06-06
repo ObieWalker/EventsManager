@@ -93,7 +93,7 @@ describe('delete user actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
-  it('handles DELETE_CENTER_FAILURE when failing to delete a center', () => {
+  it('handles DELETE_USER_FAILURE when failing to delete a user', () => {
     const error = 'No such user';
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -183,6 +183,24 @@ describe('set current user actions', () => {
       });
     });
     const expectedActions = [{ type: types.SET_CURRENT_USER, user }];
+    const store = mockStore({ user: [] });
+    return store.dispatch(userSession(user, [])).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+  it('handles SET_USER_FAILURE for failed log in attempt', () => {
+    const user = users.user1;
+    const error = 'Email or password is incorrect.';
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 404,
+        response: {
+          message: 'Email or password is incorrect.'
+        }
+      });
+    });
+    const expectedActions = [{ type: types.SET_USER_FAILURE, error }];
     const store = mockStore({ user: [] });
     return store.dispatch(userSession(user)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);

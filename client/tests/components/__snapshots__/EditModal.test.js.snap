@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modify Center Component component successfully rendered 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EditModal
+    editEvent={[MockFunction]}
+    event={
+      Object {
+        "Center": Object {
+          "address": "23, Segun Samuel Street",
+          "city": "Denrele",
+          "image": "",
+          "name": "The Hot Abode",
+        },
+        "centerId": 6,
+        "createdAt": "2018-07-24T16:16:11.648Z",
+        "date": "2018-9-04",
+        "eventType": "Meeting",
+        "guestNo": 20,
+        "id": 4,
+        "isCancelled": null,
+        "updatedAt": "2018-07-24T16:16:11.648Z",
+        "userId": 5,
+      }
+    }
+    handleClose={[MockFunction]}
+    hideModal={[MockFunction]}
+    updateError=""
+    updateSuccess=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "dateDefaultValue": "2018-9-04",
+      "dateOnChange": [Function],
+      "dateValue": undefined,
+      "errors": Object {},
+      "event": Object {
+        "Center": Object {
+          "address": "23, Segun Samuel Street",
+          "city": "Denrele",
+          "image": "",
+          "name": "The Hot Abode",
+        },
+        "centerId": 6,
+        "createdAt": "2018-07-24T16:16:11.648Z",
+        "date": "2018-9-04",
+        "eventType": "Meeting",
+        "guestNo": 20,
+        "id": 4,
+        "isCancelled": null,
+        "updatedAt": "2018-07-24T16:16:11.648Z",
+        "userId": 5,
+      },
+      "eventCenter": "The Hot Abode",
+      "eventTypeDefaultValue": "Meeting",
+      "eventTypeValue": undefined,
+      "guestDefaultValue": 20,
+      "guestValue": 20,
+      "onAfterChange": [Function],
+      "onChange": undefined,
+      "onFocus": undefined,
+      "sliderMax": 100000,
+      "sliderOnChange": [Function],
+      "sliderStep": 50,
+      "submitOnClick": [Function],
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "dateDefaultValue": "2018-9-04",
+        "dateOnChange": [Function],
+        "dateValue": undefined,
+        "errors": Object {},
+        "event": Object {
+          "Center": Object {
+            "address": "23, Segun Samuel Street",
+            "city": "Denrele",
+            "image": "",
+            "name": "The Hot Abode",
+          },
+          "centerId": 6,
+          "createdAt": "2018-07-24T16:16:11.648Z",
+          "date": "2018-9-04",
+          "eventType": "Meeting",
+          "guestNo": 20,
+          "id": 4,
+          "isCancelled": null,
+          "updatedAt": "2018-07-24T16:16:11.648Z",
+          "userId": 5,
+        },
+        "eventCenter": "The Hot Abode",
+        "eventTypeDefaultValue": "Meeting",
+        "eventTypeValue": undefined,
+        "guestDefaultValue": 20,
+        "guestValue": 20,
+        "onAfterChange": [Function],
+        "onChange": undefined,
+        "onFocus": undefined,
+        "sliderMax": 100000,
+        "sliderOnChange": [Function],
+        "sliderStep": 50,
+        "submitOnClick": [Function],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

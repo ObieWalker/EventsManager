@@ -8,9 +8,6 @@ import {
 import sendMail from '../helpers/sendMail';
 
 dotenv.config();
-const Events = Event;
-const Centers = Center;
-const Users = User;
 const { Op } = models.sequelize;
 const centerAttributes = ['name', 'address', 'city', 'image'];
 /**
@@ -30,7 +27,7 @@ export default class EventsController {
    * @memberof EventsController
    */
   static createEvent(req, res) {
-    return Events.findOne({
+    return Event.findOne({
       where: {
         centerId: req.body.centerId,
         date: req.body.date
@@ -43,7 +40,7 @@ export default class EventsController {
             'please choose a different day or center.'
         });
       }
-      return Centers.findById(req.body.centerId).then((center) => {
+      return Center.findById(req.body.centerId).then((center) => {
         if (center && center.capacity < parseInt(req.body.guestNo, 10)) {
           return res.status(400).json({
             message:
@@ -51,7 +48,7 @@ export default class EventsController {
               'please pick a bigger venue.'
           });
         }
-        return Events.create({
+        return Event.create({
           userId: req.decoded.id,
           centerId: req.body.centerId,
           eventType: req.body.eventType,
@@ -90,14 +87,14 @@ export default class EventsController {
         message: 'There was an error with the event ID input!'
       });
     }
-    return Events.findById(intId)
+    return Event.findById(intId)
       .then((event) => {
         if (!event) {
           return res.status(404).json({
             message: 'Event does not exist within our records'
           });
         }
-        return Events.findOne({
+        return Event.findOne({
           where: {
             id: {
               [Op.ne]: req.params.id
@@ -112,7 +109,7 @@ export default class EventsController {
               please pick another`
             });
           }
-          return Centers.findById(req.body.centerId).then((center) => {
+          return Center.findById(req.body.centerId).then((center) => {
             if (center.capacity < parseInt(req.body.guestNo, 10)) {
               return res.status(400).json({
                 message:
@@ -166,7 +163,7 @@ export default class EventsController {
         message: 'There was an error with the event ID input!'
       });
     }
-    return Events.findById(req.params.id).then((event) => {
+    return Event.findById(req.params.id).then((event) => {
       if (!event) {
         // if no centers
         return res.status(404).send({
@@ -194,7 +191,7 @@ export default class EventsController {
    * @memberof EventsController
    */
   static cancelEvent(req, res) {
-    Users.findById(req.decoded.id).then((adminUser) => {
+    User.findById(req.decoded.id).then((adminUser) => {
       if (adminUser.isAdmin !== true) {
         return res.status(403).json({
           success: false,
@@ -209,7 +206,7 @@ export default class EventsController {
           message: 'There was an error with the event ID input!'
         });
       }
-      return Events.findOne({
+      return Event.findOne({
         where: {
           id: intId
         },
@@ -286,7 +283,7 @@ export default class EventsController {
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
-    Events.findAndCountAll({
+    Event.findAndCountAll({
       where: {
         date: {
           [Op.gte]: new Date().toDateString()
@@ -329,7 +326,7 @@ export default class EventsController {
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
-    return Events.findAndCountAll({
+    return Event.findAndCountAll({
       where: {
         userId: req.decoded.id,
         date: {
@@ -374,7 +371,7 @@ export default class EventsController {
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
-    return Events.findAndCountAll({
+    return Event.findAndCountAll({
       where: {
         userId: req.decoded.id,
         date: {
@@ -428,7 +425,7 @@ export default class EventsController {
         message: 'There was an error with the center ID input!'
       });
     }
-    return Centers.findOne({
+    return Center.findOne({
       where: {
         id: intId
       }
@@ -439,7 +436,7 @@ export default class EventsController {
           message: 'This center does not exist'
         });
       }
-      return Events.findAndCountAll({
+      return Event.findAndCountAll({
         where: {
           centerId,
           date: {

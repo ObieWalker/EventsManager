@@ -10,7 +10,7 @@ import sendMail from '../actions/sendMailAction';
  * @class ContactUs
  * @extends {Component}
  */
-class ContactUs extends Component {
+export class ContactUs extends Component {
   /**
    * Creates an instance of ContactUs.
    * @param {any} props

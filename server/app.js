@@ -65,13 +65,13 @@ app.get('*', (req, res) => {
 //   next(err);
 // });
 
-// app.all('*', (req, res) => {
-//   res.status(404).json({
-//     error: {
-//       name: 'Error', message: 'Invalid URL Request 🚫'
-//     }
-//   });
-// });
+app.all('*', (req, res) => {
+  res.status(404).json({
+    error: {
+      name: 'Error', message: 'Invalid URL Request 🚫'
+    }
+  });
+});
 
 
 app.listen(port, () => console.log('Server running on port', port));

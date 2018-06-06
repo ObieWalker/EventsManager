@@ -1,0 +1,842 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Center Page Component component successfully rendered 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CentersPage
+    Center={
+      Object {
+        "name": "random",
+      }
+    }
+    addNewEvent={[MockFunction]}
+    allCenters={
+      Object {
+        "centers": Object {
+          "center1": Object {
+            "address": "123, Address I Like",
+            "capacity": 500,
+            "city": "Lagos",
+            "createdAt": "2018-05-25T18:04:41.552Z",
+            "facility": "Parking, Pool and 24hr security",
+            "id": 15,
+            "image": null,
+            "name": "The Best Center",
+            "updatedAt": "2018-05-25T18:04:41.552Z",
+            "userId": 1,
+          },
+          "center2": Object {
+            "address": "Another random address",
+            "capacity": 2000,
+            "city": "Lagos",
+            "createdAt": "2018-07-25T18:04:41.552Z",
+            "facility": "Facilities Jabarata",
+            "id": 17,
+            "image": null,
+            "name": "Center two",
+            "updatedAt": "2018-07-25T18:04:41.552Z",
+            "userId": 2,
+          },
+          "center3": Object {
+            "address": "7, Ikoyi Road, Lekki",
+            "capacity": 3000,
+            "city": "Lagos",
+            "createdAt": "2018-04-25T18:04:41.552Z",
+            "facility": "Wonderful mezanine",
+            "id": 15,
+            "image": null,
+            "name": "Center three",
+            "updatedAt": "2018-04-25T18:04:41.552Z",
+            "userId": 2,
+          },
+        },
+        "moreCenters": false,
+      }
+    }
+    centerEvents={[MockFunction]}
+    clearCenterEvents={[MockFunction]}
+    createError=""
+    createSuccess=""
+    fetchedCenterEvents={
+      Array [
+        Object {
+          "Center": Object {
+            "name": "random",
+          },
+        },
+      ]
+    }
+    getAllCenters={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            1,
+            6,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": Promise {},
+          },
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div>
+          <h3>
+            Available Centers.
+          </h3>
+          <div
+            className="center"
+          >
+            <Connect(Search)
+              changeSearchState={[Function]}
+              resetPage={[Function]}
+            />
+             
+            <br />
+             
+            <br />
+          </div>
+          <div>
+             
+            There are no registered centers.
+            <ScrollUp
+              duration={250}
+              easing="easeOutCubic"
+              showUnder={100}
+              style={
+                Object {
+                  "bottom": 50,
+                  "cursor": "pointer",
+                  "position": "fixed",
+                  "right": 30,
+                  "transitionDelay": "0s",
+                  "transitionDuration": "0.2s",
+                  "transitionTimingFunction": "linear",
+                }
+              }
+              topPosition={0}
+            >
+              <button
+                className="btn btn-floating btn-rounded waves-effect"
+                type="button"
+              >
+                TOP
+              </button>
+            </ScrollUp>
+            <br />
+            <br />
+          </div>
+        </div>,
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          bsSize="large"
+          className="modal-display"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Connect(BookCenter)
+            center=""
+            onHide={[Function]}
+          />
+        </Modal>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Available Centers.
+            </h3>,
+            <div
+              className="center"
+            >
+              <Connect(Search)
+                changeSearchState={[Function]}
+                resetPage={[Function]}
+              />
+               
+              <br />
+               
+              <br />
+            </div>,
+            <div>
+               
+              There are no registered centers.
+              <ScrollUp
+                duration={250}
+                easing="easeOutCubic"
+                showUnder={100}
+                style={
+                  Object {
+                    "bottom": 50,
+                    "cursor": "pointer",
+                    "position": "fixed",
+                    "right": 30,
+                    "transitionDelay": "0s",
+                    "transitionDuration": "0.2s",
+                    "transitionTimingFunction": "linear",
+                  }
+                }
+                topPosition={0}
+              >
+                <button
+                  className="btn btn-floating btn-rounded waves-effect"
+                  type="button"
+                >
+                  TOP
+                </button>
+              </ScrollUp>
+              <br />
+              <br />
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Available Centers.",
+            },
+            "ref": null,
+            "rendered": "Available Centers.",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Connect(Search)
+                  changeSearchState={[Function]}
+                  resetPage={[Function]}
+                />,
+                " ",
+                <br />,
+                " ",
+                <br />,
+              ],
+              "className": "center",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "changeSearchState": [Function],
+                  "resetPage": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              " ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              " ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                "There are no registered centers.",
+                false,
+                <ScrollUp
+                  duration={250}
+                  easing="easeOutCubic"
+                  showUnder={100}
+                  style={
+                    Object {
+                      "bottom": 50,
+                      "cursor": "pointer",
+                      "position": "fixed",
+                      "right": 30,
+                      "transitionDelay": "0s",
+                      "transitionDuration": "0.2s",
+                      "transitionTimingFunction": "linear",
+                    }
+                  }
+                  topPosition={0}
+                >
+                  <button
+                    className="btn btn-floating btn-rounded waves-effect"
+                    type="button"
+                  >
+                    TOP
+                  </button>
+                </ScrollUp>,
+                undefined,
+                <br />,
+                <br />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              "There are no registered centers.",
+              false,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <button
+                    className="btn btn-floating btn-rounded waves-effect"
+                    type="button"
+                  >
+                    TOP
+                  </button>,
+                  "duration": 250,
+                  "easing": "easeOutCubic",
+                  "showUnder": 100,
+                  "style": Object {
+                    "bottom": 50,
+                    "cursor": "pointer",
+                    "position": "fixed",
+                    "right": 30,
+                    "transitionDelay": "0s",
+                    "transitionDuration": "0.2s",
+                    "transitionTimingFunction": "linear",
+                  },
+                  "topPosition": 0,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "TOP",
+                    "className": "btn btn-floating btn-rounded waves-effect",
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": "TOP",
+                  "type": "button",
+                },
+                "type": [Function],
+              },
+              undefined,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "animation": true,
+          "autoFocus": true,
+          "backdrop": true,
+          "bsClass": "modal",
+          "bsSize": "large",
+          "children": <Connect(BookCenter)
+            center=""
+            onHide={[Function]}
+          />,
+          "className": "modal-display",
+          "dialogComponentClass": [Function],
+          "enforceFocus": true,
+          "keyboard": true,
+          "manager": ModalManager {
+            "add": [Function],
+            "containers": Array [],
+            "data": Array [],
+            "handleContainerOverflow": true,
+            "hideSiblingNodes": true,
+            "isTopModal": [Function],
+            "modals": Array [],
+            "remove": [Function],
+          },
+          "onHide": [Function],
+          "renderBackdrop": [Function],
+          "restoreFocus": true,
+          "show": false,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "center": "",
+            "onHide": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            <h3>
+              Available Centers.
+            </h3>
+            <div
+              className="center"
+            >
+              <Connect(Search)
+                changeSearchState={[Function]}
+                resetPage={[Function]}
+              />
+               
+              <br />
+               
+              <br />
+            </div>
+            <div>
+               
+              There are no registered centers.
+              <ScrollUp
+                duration={250}
+                easing="easeOutCubic"
+                showUnder={100}
+                style={
+                  Object {
+                    "bottom": 50,
+                    "cursor": "pointer",
+                    "position": "fixed",
+                    "right": 30,
+                    "transitionDelay": "0s",
+                    "transitionDuration": "0.2s",
+                    "transitionTimingFunction": "linear",
+                  }
+                }
+                topPosition={0}
+              >
+                <button
+                  className="btn btn-floating btn-rounded waves-effect"
+                  type="button"
+                >
+                  TOP
+                </button>
+              </ScrollUp>
+              <br />
+              <br />
+            </div>
+          </div>,
+          <Modal
+            animation={true}
+            autoFocus={true}
+            backdrop={true}
+            bsClass="modal"
+            bsSize="large"
+            className="modal-display"
+            dialogComponentClass={[Function]}
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+          >
+            <Connect(BookCenter)
+              center=""
+              onHide={[Function]}
+            />
+          </Modal>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Available Centers.
+              </h3>,
+              <div
+                className="center"
+              >
+                <Connect(Search)
+                  changeSearchState={[Function]}
+                  resetPage={[Function]}
+                />
+                 
+                <br />
+                 
+                <br />
+              </div>,
+              <div>
+                 
+                There are no registered centers.
+                <ScrollUp
+                  duration={250}
+                  easing="easeOutCubic"
+                  showUnder={100}
+                  style={
+                    Object {
+                      "bottom": 50,
+                      "cursor": "pointer",
+                      "position": "fixed",
+                      "right": 30,
+                      "transitionDelay": "0s",
+                      "transitionDuration": "0.2s",
+                      "transitionTimingFunction": "linear",
+                    }
+                  }
+                  topPosition={0}
+                >
+                  <button
+                    className="btn btn-floating btn-rounded waves-effect"
+                    type="button"
+                  >
+                    TOP
+                  </button>
+                </ScrollUp>
+                <br />
+                <br />
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Available Centers.",
+              },
+              "ref": null,
+              "rendered": "Available Centers.",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Connect(Search)
+                    changeSearchState={[Function]}
+                    resetPage={[Function]}
+                  />,
+                  " ",
+                  <br />,
+                  " ",
+                  <br />,
+                ],
+                "className": "center",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "changeSearchState": [Function],
+                    "resetPage": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                " ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                " ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  "There are no registered centers.",
+                  false,
+                  <ScrollUp
+                    duration={250}
+                    easing="easeOutCubic"
+                    showUnder={100}
+                    style={
+                      Object {
+                        "bottom": 50,
+                        "cursor": "pointer",
+                        "position": "fixed",
+                        "right": 30,
+                        "transitionDelay": "0s",
+                        "transitionDuration": "0.2s",
+                        "transitionTimingFunction": "linear",
+                      }
+                    }
+                    topPosition={0}
+                  >
+                    <button
+                      className="btn btn-floating btn-rounded waves-effect"
+                      type="button"
+                    >
+                      TOP
+                    </button>
+                  </ScrollUp>,
+                  undefined,
+                  <br />,
+                  <br />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                "There are no registered centers.",
+                false,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <button
+                      className="btn btn-floating btn-rounded waves-effect"
+                      type="button"
+                    >
+                      TOP
+                    </button>,
+                    "duration": 250,
+                    "easing": "easeOutCubic",
+                    "showUnder": 100,
+                    "style": Object {
+                      "bottom": 50,
+                      "cursor": "pointer",
+                      "position": "fixed",
+                      "right": 30,
+                      "transitionDelay": "0s",
+                      "transitionDuration": "0.2s",
+                      "transitionTimingFunction": "linear",
+                    },
+                    "topPosition": 0,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "TOP",
+                      "className": "btn btn-floating btn-rounded waves-effect",
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "TOP",
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+                undefined,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "animation": true,
+            "autoFocus": true,
+            "backdrop": true,
+            "bsClass": "modal",
+            "bsSize": "large",
+            "children": <Connect(BookCenter)
+              center=""
+              onHide={[Function]}
+            />,
+            "className": "modal-display",
+            "dialogComponentClass": [Function],
+            "enforceFocus": true,
+            "keyboard": true,
+            "manager": ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            },
+            "onHide": [Function],
+            "renderBackdrop": [Function],
+            "restoreFocus": true,
+            "show": false,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "center": "",
+              "onHide": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,669 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event card for upcoming events Component renders component successfully 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EventCard
+    address=""
+    center={Object {}}
+    city=""
+    event={
+      Object {
+        "Center": Object {},
+      }
+    }
+    facility=""
+    getAllCenters={[MockFunction]}
+    getCenterEvents={[MockFunction]}
+    handleShowModal={[MockFunction]}
+    name=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <Col
+        m={4}
+        s={10}
+      >
+        <div
+          className="col 12"
+        >
+          <div
+            className="card elegant-color white-text"
+            style={
+              Object {
+                "borderRadius": "10%",
+                "padding": "5%",
+                "width": "18rem",
+              }
+            }
+          >
+            <div
+              className="card-body"
+            >
+              <h5
+                className="card-title white-text"
+              />
+              <p
+                className="card-text white-text"
+              >
+                Address: 
+                , 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Date: 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Guest Estimate: 
+              </p>
+              <hr
+                className="hr-light"
+              />
+            </div>
+          </div>
+        </div>
+      </Col>,
+      "style": Object {
+        "margin": "5%",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <div
+          className="col 12"
+        >
+          <div
+            className="card elegant-color white-text"
+            style={
+              Object {
+                "borderRadius": "10%",
+                "padding": "5%",
+                "width": "18rem",
+              }
+            }
+          >
+            <div
+              className="card-body"
+            >
+              <h5
+                className="card-title white-text"
+              />
+              <p
+                className="card-text white-text"
+              >
+                Address: 
+                , 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Date: 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Guest Estimate: 
+              </p>
+              <hr
+                className="hr-light"
+              />
+            </div>
+          </div>
+        </div>,
+        "m": 4,
+        "s": 10,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="card elegant-color white-text"
+            style={
+              Object {
+                "borderRadius": "10%",
+                "padding": "5%",
+                "width": "18rem",
+              }
+            }
+          >
+            <div
+              className="card-body"
+            >
+              <h5
+                className="card-title white-text"
+              />
+              <p
+                className="card-text white-text"
+              >
+                Address: 
+                , 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Date: 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Guest Estimate: 
+              </p>
+              <hr
+                className="hr-light"
+              />
+            </div>
+          </div>,
+          "className": "col 12",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="card-body"
+            >
+              <h5
+                className="card-title white-text"
+              />
+              <p
+                className="card-text white-text"
+              >
+                Address: 
+                , 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Date: 
+              </p>
+              <p
+                className="card-text white-text"
+              >
+                Guest Estimate: 
+              </p>
+              <hr
+                className="hr-light"
+              />
+            </div>,
+            "className": "card elegant-color white-text",
+            "style": Object {
+              "borderRadius": "10%",
+              "padding": "5%",
+              "width": "18rem",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h5
+                  className="card-title white-text"
+                />,
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 
+                  , 
+                </p>,
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                </p>,
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                </p>,
+                <hr
+                  className="hr-light"
+                />,
+              ],
+              "className": "card-body",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "className": "card-title white-text",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "h5",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Address: ",
+                    undefined,
+                    ", ",
+                    undefined,
+                  ],
+                  "className": "card-text white-text",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Address: ",
+                  undefined,
+                  ", ",
+                  undefined,
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Date: ",
+                    undefined,
+                  ],
+                  "className": "card-text white-text",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Date: ",
+                  undefined,
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Guest Estimate: ",
+                    undefined,
+                  ],
+                  "className": "card-text white-text",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Guest Estimate: ",
+                  undefined,
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "hr-light",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "hr",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Col
+          m={4}
+          s={10}
+        >
+          <div
+            className="col 12"
+          >
+            <div
+              className="card elegant-color white-text"
+              style={
+                Object {
+                  "borderRadius": "10%",
+                  "padding": "5%",
+                  "width": "18rem",
+                }
+              }
+            >
+              <div
+                className="card-body"
+              >
+                <h5
+                  className="card-title white-text"
+                />
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 
+                  , 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                </p>
+                <hr
+                  className="hr-light"
+                />
+              </div>
+            </div>
+          </div>
+        </Col>,
+        "style": Object {
+          "margin": "5%",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <div
+            className="col 12"
+          >
+            <div
+              className="card elegant-color white-text"
+              style={
+                Object {
+                  "borderRadius": "10%",
+                  "padding": "5%",
+                  "width": "18rem",
+                }
+              }
+            >
+              <div
+                className="card-body"
+              >
+                <h5
+                  className="card-title white-text"
+                />
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 
+                  , 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                </p>
+                <hr
+                  className="hr-light"
+                />
+              </div>
+            </div>
+          </div>,
+          "m": 4,
+          "s": 10,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="card elegant-color white-text"
+              style={
+                Object {
+                  "borderRadius": "10%",
+                  "padding": "5%",
+                  "width": "18rem",
+                }
+              }
+            >
+              <div
+                className="card-body"
+              >
+                <h5
+                  className="card-title white-text"
+                />
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 
+                  , 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                </p>
+                <hr
+                  className="hr-light"
+                />
+              </div>
+            </div>,
+            "className": "col 12",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="card-body"
+              >
+                <h5
+                  className="card-title white-text"
+                />
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 
+                  , 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                </p>
+                <hr
+                  className="hr-light"
+                />
+              </div>,
+              "className": "card elegant-color white-text",
+              "style": Object {
+                "borderRadius": "10%",
+                "padding": "5%",
+                "width": "18rem",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h5
+                    className="card-title white-text"
+                  />,
+                  <p
+                    className="card-text white-text"
+                  >
+                    Address: 
+                    , 
+                  </p>,
+                  <p
+                    className="card-text white-text"
+                  >
+                    Date: 
+                  </p>,
+                  <p
+                    className="card-text white-text"
+                  >
+                    Guest Estimate: 
+                  </p>,
+                  <hr
+                    className="hr-light"
+                  />,
+                ],
+                "className": "card-body",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": "card-title white-text",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "h5",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Address: ",
+                      undefined,
+                      ", ",
+                      undefined,
+                    ],
+                    "className": "card-text white-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Address: ",
+                    undefined,
+                    ", ",
+                    undefined,
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Date: ",
+                      undefined,
+                    ],
+                    "className": "card-text white-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Date: ",
+                    undefined,
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Guest Estimate: ",
+                      undefined,
+                    ],
+                    "className": "card-text white-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Guest Estimate: ",
+                    undefined,
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "hr-light",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "hr",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": [Function],
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

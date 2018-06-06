@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import Footer from './Footer.jsx';
 import Testimonials from './Testimonials.jsx';
-import Login from './Login.jsx';
-
+import LoginComponent from './Login.jsx';
+/**
+ *
+ *
+ * @class Home
+ * @extends {Component}
+ */
 class Home extends Component {
+  /**
+   *
+   *
+   * @returns {object} landing page
+   * @memberof Home
+   */
   render() {
     return (
       <div>
         {/* <Carousel /> */}
-        <Login />
+        <LoginComponent />
         <Testimonials />
         <br/> <br/>
         <Footer />

@@ -1,0 +1,1255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testimonials Component renders component successfully 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Testimonials />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <br />,
+        <br />,
+        <hr />,
+        <h3>
+          Testimonials
+        </h3>,
+        <Row>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+        </Row>,
+        <Row>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+          <Col
+            m={3}
+            s={5}
+          >
+            <CardPanel
+              className="teal lighten-4 black-text"
+            >
+              <span>
+                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              </span>
+            </CardPanel>
+          </Col>
+        </Row>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "hr",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Testimonials",
+        },
+        "ref": null,
+        "rendered": "Testimonials",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>,
+              "m": 3,
+              "s": 5,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>,
+                "className": "teal lighten-4 black-text",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                },
+                "ref": null,
+                "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <br />,
+          <br />,
+          <hr />,
+          <h3>
+            Testimonials
+          </h3>,
+          <Row>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+          </Row>,
+          <Row>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+            <Col
+              m={3}
+              s={5}
+            >
+              <CardPanel
+                className="teal lighten-4 black-text"
+              >
+                <span>
+                  I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                </span>
+              </CardPanel>
+            </Col>
+          </Row>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "hr",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Testimonials",
+          },
+          "ref": null,
+          "rendered": "Testimonials",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+              <Col
+                m={3}
+                s={5}
+              >
+                <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>
+              </Col>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <CardPanel
+                  className="teal lighten-4 black-text"
+                >
+                  <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>
+                </CardPanel>,
+                "m": 3,
+                "s": 5,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <span>
+                    I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                  </span>,
+                  "className": "teal lighten-4 black-text",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  },
+                  "ref": null,
+                  "rendered": "I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.",
+                  "type": "span",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

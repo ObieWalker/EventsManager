@@ -11,7 +11,7 @@ import getUsersEventsRequest from '../../actions/getUserEventsAction';
 import deleteEventAction from '../../actions/deleteEventAction';
 // import editEventAction from '../../actions/editEventAction';
 import EventList from './EventsCard.jsx';
-import EditModal from './EditModal.jsx';
+import EditForm from './EditModal.jsx';
 
 /**
  *
@@ -19,7 +19,7 @@ import EditModal from './EditModal.jsx';
  * @class UserEvents
  * @extends {Component}
  */
-class UserEvents extends Component {
+export class UserEvents extends Component {
   /**
    * Creates an instance of UserEvents.
    * @param {any} props
@@ -36,7 +36,6 @@ class UserEvents extends Component {
       showModal: false
     };
 
-    this.handleEditEvent = this.handleEditEvent.bind(this);
     this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
     this.loadMoreContent = this.loadMoreContent.bind(this);
     this.getMoreEvents = this.getMoreEvents.bind(this);
@@ -70,14 +69,12 @@ class UserEvents extends Component {
       this.props.allUserEvents.fetchedUserEvents &&
       this.props.allUserEvents.fetchedUserEvents.length > 0
     ) {
-      console.log('will receive props');
       this.setState({
         userEvents: this.props.allUserEvents.fetchedUserEvents,
         isLoading: false
       });
     }
     if (nextProps !== this.props) {
-      console.log('nextprops');
       this.setState({
         userEvents: nextProps.allUserEvents.fetchedUserEvents,
         isLoading: false
@@ -85,14 +82,6 @@ class UserEvents extends Component {
     }
   }
 
-  /**
-   * @returns {null} null
-   *
-   * @memberof UserEvents
-   */
-  handleEditEvent() {
-    // this.props.editEvent();
-  }
   /**
    * @returns {object} state
    *
@@ -229,7 +218,7 @@ class UserEvents extends Component {
           onHide={this.handleClose}
           bsSize="large"
         >
-          <EditModal event={this.state.event} />
+          <EditForm event={this.state.event} hideModal={this.handleClose} />
         </Modal>
       </div>
     );

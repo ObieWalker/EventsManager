@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import PropTypes from 'prop-types';
+import CenterForm from '../CenterForm.jsx';
 
-import validateImage from '../../../helpers/validators/validateImage';
+// import validateImage from '../../../helpers/validators/validateImage';
 import validateForm from '../../../helpers/validators/centerValidator';
 
 import createCenterRequest from '../../actions/addCenterAction';
@@ -16,7 +17,7 @@ import createCenterRequest from '../../actions/addCenterAction';
  * @class CreateCenter
  * @extends {Component}
  */
-class CreateCenter extends Component {
+export class CreateCenter extends Component {
   /**
    * Creates an instance of CreateCenter.
    * @param {any} props
@@ -38,7 +39,7 @@ class CreateCenter extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.formIsValid = this.formIsValid.bind(this);
     this.handleOnFocus = this.handleOnFocus.bind(this);
-    this.handleImage = this.handleImage.bind(this);
+    // this.handleImage = this.handleImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.clear = this.clear.bind(this);
   }
@@ -70,33 +71,33 @@ class CreateCenter extends Component {
    * @param {any} event
    * @memberof CreateCenter
    */
-  handleImage(event) {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const filereader = new FileReader();
-      validateImage(filereader, file, (fileType) => {
-        if (
-          fileType === 'image/png' ||
-          fileType === 'image/gif' ||
-          fileType === 'image/jpeg'
-        ) {
-          this.setState({ uploadedImage: file });
-          filereader.onload = (e) => {
-            this.setState({ imageSrc: e.target.result });
-          };
-          filereader.readAsDataURL(file);
-        } else {
-          toastr.clear();
-          toastr.error('please provide a valid image file');
-        }
-      });
-    } else {
-      this.setState({
-        defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',
-        uploadedImage: ''
-      });
-    }
-  }
+  // handleImage(event) {
+  //   if (event.target.files && event.target.files[0]) {
+  //     const file = event.target.files[0];
+  //     const filereader = new FileReader();
+  //     validateImage(filereader, file, (fileType) => {
+  //       if (
+  //         fileType === 'image/png' ||
+  //         fileType === 'image/gif' ||
+  //         fileType === 'image/jpeg'
+  //       ) {
+  //         this.setState({ uploadedImage: file });
+  //         filereader.onload = (e) => {
+  //           this.setState({ imageSrc: e.target.result });
+  //         };
+  //         filereader.readAsDataURL(file);
+  //       } else {
+  //         toastr.clear();
+  //         toastr.error('please provide a valid image file');
+  //       }
+  //     });
+  //   } else {
+  //     this.setState({
+  //       defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',
+  //       uploadedImage: ''
+  //     });
+  //   }
+  // }
   /**
    * @returns {object} state
    *
@@ -168,129 +169,21 @@ class CreateCenter extends Component {
    */
   render() {
     return (
+      // <CenterForm
+
+      // />
       <div>
-        <div className="col-lg-8 col-xs-12 col-centered">
-          <div
-            className="grey lighten-4"
-            style={{
-              display: 'inline-block',
-              width: '80%',
-              margin: '5%',
-              padding: '5%',
-              border: '1px solid #EEE'
-            }}
-          >
-            <div className="row">
-              <div className="nav-wrapper">
-                <div className="col-lg-12 col-xs-12 col-centered" />
-              </div>
-            </div>
-            <div className="input-field col s12">
-              <h4 className="brand-logo col s12">Add Center Information.</h4>
-              <form className="col s14" onSubmit={this.onSubmit}>
-                <div className="input-field col s12">
-                  <label htmlFor="name">Center Name:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={this.state.name.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="name"
-                    name="name"
-                    placeholder=""
-                    required
-                    onChange={this.handleChange}
-                  />
-                </div>
-
-                <div className="input-field col s12">
-                  <label>Address:</label>
-                  <input
-                    type="text"
-                    value={this.state.address.value}
-                    onFocus={this.state.handleOnFocus}
-                    id="address"
-                    className="form-control"
-                    name="address"
-                    placeholder=""
-                    required
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="row">
-                  <div className="input-field col s8">
-                    <label>City:</label>
-                    <input
-                      type="text"
-                      value={this.state.city.value}
-                      onFocus={this.state.handleOnFocus}
-                      id="city"
-                      name="city"
-                      className="form-control"
-                      placeholder=""
-                      required
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="input-field col s4">
-                    <label>Capacity:</label>
-                    <input
-                      type="number"
-                      value={this.state.capacity.value}
-                      onFocus={this.state.handleOnFocus}
-                      id="capacity"
-                      name="capacity"
-                      className="form-control"
-                      placeholder=""
-                      required
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="input-field col s12">
-                    <textarea
-                      id="facility"
-                      className="materialize-textarea"
-                      value={this.state.facility.value}
-                      onFocus={this.state.handleOnFocus}
-                      name="facility"
-                      onChange={this.handleChange}
-                    />
-                    <label htmlFor="facilities">
-                      Center Description/Facilities:
-                    </label>
-                  </div>
-                </div>
-                <div className="file-field input-field">
-                  <div className="btn">
-                    <span>File</span>
-                    <input type="file" multiple />
-                  </div>
-                  <div className="file-path-wrapper">
-                    <input
-                      className="file-path validate"
-                      type="text"
-                      placeholder="Upload Center Picture"
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="waves-effect waves-light
-                  btn right hoverable indigo"
-                >
-                  <i className="large material-icons right" aria-hidden="true">
-                    {' '}
-                    done
-                  </i>Add Center
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+        <h4 className="brand-logo col s8">Add Center Information</h4>
+        <CenterForm
+          centerNameValue={this.state.name.value}
+          onChange={this.handleChange}
+          onFocus={this.handleOnFocus}
+          addressValue={this.state.address.value}
+          cityValue ={this.state.city.value}
+          capacityValue ={this.state.capacity.value}
+          facilityValue ={this.state.facility.value}
+          createCenter={this.onSubmit}
+        />
       </div>
     );
   }

@@ -6,7 +6,6 @@ import { paginateUsers, paramValidator } from '../helpers/helper';
 import contactUs from '../helpers/contactUs';
 
 dotenv.config();
-const Users = User;
 const saltRound = 13;
 /**
  * @description user controller
@@ -25,7 +24,7 @@ export default class UsersController {
    * @memberof UsersController
    */
   static signup(req, res) {
-    return Users.findOne({
+    return User.findOne({
       where: {
         email: req.body.email.toLowerCase()
       }
@@ -42,7 +41,7 @@ export default class UsersController {
       } // password encrypt at 2 raised to power 13
       const myPassword = bcrypt.hashSync(req.body.password, saltRound);
       // creates account
-      return Users.create({
+      return User.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
@@ -73,7 +72,7 @@ export default class UsersController {
    * @memberof UsersController
    */
   static signin(req, res) {
-    Users.findOne({
+    User.findOne({
       where: { email: req.body.email.toLowerCase() }
     })
       .then((user) => {
@@ -132,14 +131,14 @@ export default class UsersController {
     let offset = 0;
     const pageNo = parseInt(req.query.pageNo, 10) || 1;
     offset = limit * (pageNo - 1);
-    Users.findById(req.decoded.id).then((user) => {
+    User.findById(req.decoded.id).then((user) => {
       if (user.isAdmin !== true) {
         return res.status(403).json({
           success: false,
           message: 'You do not have the admin privileges to do this'
         });
       }
-      return Users.findAndCountAll({
+      return User.findAndCountAll({
         order: [['id', 'DESC']],
         limit,
         offset
@@ -166,7 +165,7 @@ export default class UsersController {
    * @memberof UsersController
    */
   static setAsAdmin(req, res) {
-    Users.findById(req.decoded.id).then((adminUser) => {
+    User.findById(req.decoded.id).then((adminUser) => {
       if (adminUser.isAdmin !== true) {
         return res.status(403).json({
           success: false,
@@ -180,7 +179,7 @@ export default class UsersController {
           message: 'There was an error with the user ID input!'
         });
       }
-      Users.findById(id).then((user) => {
+      User.findById(id).then((user) => {
         if (!user) {
           // not found
           return res
@@ -218,7 +217,7 @@ export default class UsersController {
    * @memberof UsersController
    */
   static deleteUser(req, res) {
-    Users.findById(req.decoded.id).then((adminUser) => {
+    User.findById(req.decoded.id).then((adminUser) => {
       if (adminUser.isAdmin !== true) {
         return res.status(403).json({
           success: false,
@@ -233,7 +232,7 @@ export default class UsersController {
           message: 'There was an error with the user ID input!'
         });
       }
-      Users.findById(intId).then((user) => {
+      User.findById(intId).then((user) => {
         if (!user) {
           // not found
           return res

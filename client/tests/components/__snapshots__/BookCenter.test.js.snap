@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book Center Component component successfully rendered 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <BookCenter
+    addNewEvent={[MockFunction]}
+    center={
+      Object {
+        "address": "random address",
+        "capacity": 500,
+        "city": "random",
+        "facility": "Tables and Chairs",
+        "name": "random",
+      }
+    }
+    createError=""
+    createSuccess=""
+    hideModal={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "bookCenterValue": undefined,
+      "bookDateValue": undefined,
+      "bookOnSubmit": [Function],
+      "center": Object {
+        "address": "random address",
+        "capacity": 500,
+        "city": "random",
+        "facility": "Tables and Chairs",
+        "name": "random",
+      },
+      "centerName": "random",
+      "dateOnChange": [Function],
+      "errors": Object {},
+      "guestValue": 100,
+      "onAfterChange": [Function],
+      "onChange": [Function],
+      "onFocus": [Function],
+      "sliderMax": 100000,
+      "sliderOnChange": [Function],
+      "sliderStep": 50,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "bookCenterValue": undefined,
+        "bookDateValue": undefined,
+        "bookOnSubmit": [Function],
+        "center": Object {
+          "address": "random address",
+          "capacity": 500,
+          "city": "random",
+          "facility": "Tables and Chairs",
+          "name": "random",
+        },
+        "centerName": "random",
+        "dateOnChange": [Function],
+        "errors": Object {},
+        "guestValue": 100,
+        "onAfterChange": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "sliderMax": 100000,
+        "sliderOnChange": [Function],
+        "sliderStep": 50,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

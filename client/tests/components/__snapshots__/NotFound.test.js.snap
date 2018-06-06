@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Not Found Component renders component successfully 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NotFound />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="not-found lead"
+      >
+        <br />
+        <br />
+        <i
+          className="large material-icons center"
+        >
+          warning
+        </i>
+            
+        <img
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
+          style={
+            Object {
+              "display": "block",
+              "height": 400,
+              "margin": "auto",
+              "position": "relative",
+              "width": 400,
+            }
+          }
+        />
+        <center>
+          <Link
+            className="animated bounceInUp btn btn-large"
+            replace={false}
+            to="/"
+          >
+            Back to Home Page
+          </Link>
+        </center>
+      </div>,
+      "className": "bg-faded",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <br />,
+          <br />,
+          <i
+            className="large material-icons center"
+          >
+            warning
+          </i>,
+          "    ",
+          <img
+            src={
+              Object {
+                "process": [Function],
+              }
+            }
+            style={
+              Object {
+                "display": "block",
+                "height": 400,
+                "margin": "auto",
+                "position": "relative",
+                "width": 400,
+              }
+            }
+          />,
+          <center>
+            <Link
+              className="animated bounceInUp btn btn-large"
+              replace={false}
+              to="/"
+            >
+              Back to Home Page
+            </Link>
+          </center>,
+        ],
+        "className": "not-found lead",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "warning",
+            "className": "large material-icons center",
+          },
+          "ref": null,
+          "rendered": "warning",
+          "type": "i",
+        },
+        "    ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "src": Object {
+              "process": [Function],
+            },
+            "style": Object {
+              "display": "block",
+              "height": 400,
+              "margin": "auto",
+              "position": "relative",
+              "width": 400,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Link
+              className="animated bounceInUp btn btn-large"
+              replace={false}
+              to="/"
+            >
+              Back to Home Page
+            </Link>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Back to Home Page",
+              "className": "animated bounceInUp btn btn-large",
+              "replace": false,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Back to Home Page",
+            "type": [Function],
+          },
+          "type": "center",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="not-found lead"
+        >
+          <br />
+          <br />
+          <i
+            className="large material-icons center"
+          >
+            warning
+          </i>
+              
+          <img
+            src={
+              Object {
+                "process": [Function],
+              }
+            }
+            style={
+              Object {
+                "display": "block",
+                "height": 400,
+                "margin": "auto",
+                "position": "relative",
+                "width": 400,
+              }
+            }
+          />
+          <center>
+            <Link
+              className="animated bounceInUp btn btn-large"
+              replace={false}
+              to="/"
+            >
+              Back to Home Page
+            </Link>
+          </center>
+        </div>,
+        "className": "bg-faded",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <br />,
+            <br />,
+            <i
+              className="large material-icons center"
+            >
+              warning
+            </i>,
+            "    ",
+            <img
+              src={
+                Object {
+                  "process": [Function],
+                }
+              }
+              style={
+                Object {
+                  "display": "block",
+                  "height": 400,
+                  "margin": "auto",
+                  "position": "relative",
+                  "width": 400,
+                }
+              }
+            />,
+            <center>
+              <Link
+                className="animated bounceInUp btn btn-large"
+                replace={false}
+                to="/"
+              >
+                Back to Home Page
+              </Link>
+            </center>,
+          ],
+          "className": "not-found lead",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "warning",
+              "className": "large material-icons center",
+            },
+            "ref": null,
+            "rendered": "warning",
+            "type": "i",
+          },
+          "    ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "src": Object {
+                "process": [Function],
+              },
+              "style": Object {
+                "display": "block",
+                "height": 400,
+                "margin": "auto",
+                "position": "relative",
+                "width": 400,
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="animated bounceInUp btn btn-large"
+                replace={false}
+                to="/"
+              >
+                Back to Home Page
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Back to Home Page",
+                "className": "animated bounceInUp btn btn-large",
+                "replace": false,
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": "Back to Home Page",
+              "type": [Function],
+            },
+            "type": "center",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
