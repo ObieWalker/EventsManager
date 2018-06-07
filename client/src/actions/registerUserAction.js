@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toastr from 'toastr';
 import { setAuthToken } from '../../helpers/setAuthToken';
 import {
   REGISTERING_USER,
@@ -10,9 +11,9 @@ const registeringUser = bool => ({
   type: REGISTERING_USER,
   bool
 });
-const registerUserSuccess = userInfo => ({
+const registerUserSuccess = userMessage => ({
   type: REGISTER_USER_SUCCESS,
-  payload: userInfo
+  payload: userMessage
 });
 
 const registerUserFailure = error => ({
@@ -20,20 +21,22 @@ const registerUserFailure = error => ({
   error
 });
 
-const registerUser = userInfo => (dispatch) => {
+const registerUser = userInfo => ((dispatch) => {
   dispatch(registeringUser(true));
   return axios
     .post('/api/v1/users', userInfo)
-    .then((res) => {
-      const { token } = res.data;
+    .then((response) => {
+      const { token } = response.data;
       localStorage.setItem('token', token);
       setAuthToken(token);
-      dispatch(registerUserSuccess(userInfo));
+      dispatch(registerUserSuccess(response.data.message));
+      dispatch(registeringUser(false));
     })
     .catch((error) => {
-      localStorage.setItem('message', error.response.data.message);
+      toastr.error(error.response.data.message);
       dispatch(registerUserFailure(error.response.data.message));
       dispatch(registeringUser(false));
     });
-};
+}
+);
 export default registerUser;

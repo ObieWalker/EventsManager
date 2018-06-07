@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import toastr from 'toastr';
 import swal from 'sweetalert';
 import moment from 'moment';
 
 import editEventAction from '../../actions/editEventAction';
 import validateForm from '../../../helpers/validators/eventValidator';
-import CenterFormModal from '../EventFormModal.jsx';
+import EventModal from '../EventFormModal.jsx';
 
 /**
  *
@@ -119,7 +118,6 @@ export class EditModal extends Component {
    */
   onSubmit(e) {
     e.preventDefault();
-    console.log('inside on submit');
     if (this.formIsValid()) {
       this.setState({ errors: {} });
       const modifiedEvent = {
@@ -135,21 +133,26 @@ export class EditModal extends Component {
         Date: ${this.state.date}
         guest Est.: ${modifiedEvent.guestNo}`,
         icon: 'info',
-        dangerMode: true
-      });
-      this.props.editEvent(modifiedEvent).then(() => {
-        this.props.hideModal();
-        if (this.props.updateError === '') {
-          toastr.success(this.props.updateSuccess);
-        } else {
-          swal({
-            title: 'Unable to add new event',
-            text: this.props.updateError,
-            icon: 'error',
-            dangerMode: false
-          });
-        }
-      });
+        buttons: true,
+        dangerMode: false
+      })
+        .then((willEdit) => {
+          if (willEdit) {
+            this.props.editEvent(modifiedEvent);
+          }
+        })
+        .then(() => {
+          if (this.props.updateError === '') {
+            this.props.hideModal();
+          } else {
+            swal({
+              title: 'Unable to modify this event',
+              text: this.props.updateError,
+              icon: 'error',
+              dangerMode: false
+            });
+          }
+        });
     }
   }
   /**
@@ -162,7 +165,7 @@ export class EditModal extends Component {
     const { errors } = this.state;
     const { event } = this.props;
     return (
-      <CenterFormModal
+      <EventModal
         event={event}
         errors={errors}
         eventCenter={event.Center.name}
@@ -179,7 +182,9 @@ export class EditModal extends Component {
         guestDefaultValue={this.props.event.guestNo}
         sliderOnChange={this.onSliderChange}
         onAfterChange={this.onAfterChange}
-        submitOnClick={() => { this.onSubmit(); }}
+        submitOnClick={(e) => {
+          this.onSubmit(e);
+        }}
       />
     );
   }

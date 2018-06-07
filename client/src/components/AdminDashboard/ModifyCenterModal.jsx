@@ -90,6 +90,7 @@ export class ModifyCenter extends Component {
   isValid() {
     const { errors, isValid } = validateForm(this.state);
     if (!isValid) {
+      console.log('errors', errors);
       this.setState({ errors });
     }
     return isValid;
@@ -102,37 +103,41 @@ export class ModifyCenter extends Component {
    * @memberof ModifyCenter
    */
   updateCenter(e) {
+    console.log('update center =====');
     e.preventDefault();
-    // if (this.isValid()) {
-    this.setState({ errors: {} });
-    const newCenterDetails = this.state;
-    this.props.modifyCenter(newCenterDetails, this.props.center.id)
-      .then(() => {
-        const { updateSuccess, updateError } = this.props;
-        if (updateError === '') {
-          // clear toasts before showing new
-          toastr.remove();
-          toastr.success(updateSuccess);
-        } else {
-          toastr.remove();
-          toastr.error(updateError);
-        }
-        this.reset();
-      });
-    // }
+    if (this.isValid()) {
+      console.log('it is valid');
+      this.setState({ errors: {} });
+      const newCenterDetails = this.state;
+      this.props
+        .modifyCenter(newCenterDetails, this.props.center.id)
+        .then(() => {
+          const { updateSuccess, updateError } = this.props;
+          if (updateError === '') {
+            // clear toasts before showing new
+            toastr.remove();
+            toastr.success(updateSuccess);
+            this.props.onHide();
+          } else {
+            toastr.remove();
+            toastr.error(updateError);
+          }
+          this.reset();
+        });
+    }
   }
 
   /**
- *
- *
- * @returns {object} updated center
- * @memberof ModifyCenter
- */
+   *
+   *
+   * @returns {object} updated center
+   * @memberof ModifyCenter
+   */
   render() {
     const { errors } = this.state;
     const { center } = this.props;
     return (
-      <div>
+      <div className="modifyCenterForm">
         <CenterForm
           center={center}
           errors={errors}
@@ -142,13 +147,14 @@ export class ModifyCenter extends Component {
           onFocus={this.handleOnFocus}
           addressValue={this.state.address.value}
           defaultAddressValue={center.address}
-          cityValue ={this.state.city.value}
+          cityValue={this.state.city.value}
           defaultCityValue={center.city}
-          capacityValue ={this.state.capacity.value}
+          capacityValue={this.state.capacity.value}
           defaultCapacityValue={center.capacity}
           defaultFacilityValue={center.facility}
-          facilityValue ={this.state.facility.value}
+          facilityValue={this.state.facility.value}
           modifyOnClick={this.updateCenter}
+          // defaultImage={this.state.uploadedImage || defaultImageUrl}
         />
       </div>
     );
@@ -159,7 +165,8 @@ ModifyCenter.propTypes = {
   modifyCenter: PropTypes.func,
   isCenterUpdating: PropTypes.bool,
   updateSuccess: PropTypes.string,
-  updateError: PropTypes.string
+  updateError: PropTypes.string,
+  onHide: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -168,8 +175,11 @@ const mapStateToProps = state => ({
   updateError: state.updateCenter.updateCenterError
 });
 
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  modifyCenter: updateCenterRequest
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      modifyCenter: updateCenterRequest
+    },
+    dispatch
+  );
 export default connect(mapStateToProps, mapDispatchToProps)(ModifyCenter);

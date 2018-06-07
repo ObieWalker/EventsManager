@@ -1,4 +1,4 @@
-import models, { Center, User } from '../models';
+import models, { Center } from '../models';
 import { paginateData, paramValidator } from '../helpers/helper';
 
 const { Op } = models.sequelize;
@@ -24,57 +24,49 @@ export default class CentersController {
    * @memberof CentersController
    */
   static createCenter(req, res) {
-    User.findById(req.decoded.id).then((user) => {
-      if (user.isAdmin !== true) {
-        return res.status(403).json({
-          success: false,
-          message: 'You do not have the admin privileges to do this'
-        });
+    Center.findOne({
+      where: {
+        name: req.body.name,
+        address: req.body.address
       }
-      Center.findOne({
-        where: {
-          name: req.body.name,
-          address: req.body.address
-        }
-      })
-        .then((matchCenter) => {
-          if (matchCenter) {
-            return res.status(409).json({
-              message: 'Center already exists'
-            });
-          }
-          Center.create({
-            userId: req.decoded.id,
-            name: req.body.name,
-            address: req.body.address,
-            facility: req.body.facility,
-            capacity: req.body.capacity,
-            city: req.body.city,
-            image: req.body.image
-          })
-            .then((center) => {
-              res.status(201).json({
-                success: true,
-                message: 'The center has been added',
-                center
-              });
-            })
-            .catch((error) => {
-              res.status(400).json({
-                success: false,
-                message: 'Your request could not be processed',
-                error: error.messsage
-              });
-            });
-        })
-        .catch((error) => {
-          res.status(403).json({
-            success: false,
-            message: 'You do not have the admin rights to add a center',
-            error
+    })
+      .then((matchCenter) => {
+        if (matchCenter) {
+          return res.status(409).json({
+            message: 'Center already exists'
           });
+        }
+        Center.create({
+          userId: req.decoded.id,
+          name: req.body.name,
+          address: req.body.address,
+          facility: req.body.facility,
+          capacity: req.body.capacity,
+          city: req.body.city,
+          image: req.body.image
+        })
+          .then((center) => {
+            res.status(201).json({
+              success: true,
+              message: 'The center has been added',
+              center
+            });
+          })
+          .catch((error) => {
+            res.status(400).json({
+              success: false,
+              message: 'Your request could not be processed',
+              error: error.messsage
+            });
+          });
+      })
+      .catch((error) => {
+        res.status(403).json({
+          success: false,
+          message: 'You do not have the admin rights to add a center',
+          error
         });
-    });
+      });
   }
   /**
    * @returns {object} center
@@ -90,55 +82,47 @@ export default class CentersController {
    * @memberof CentersController
    */
   static modifyCenter(req, res) {
-    User.findById(req.decoded.id).then((user) => {
-      if (user.isAdmin !== true) {
-        return res.status(403).json({
-          success: false,
-          message: 'You do not have the admin privileges to do this'
-        });
-      }
-      const { id } = req.params;
-      const intId = parseInt(id, 10);
-      if (paramValidator(id) === true) {
-        return res.status(400).json({
-          success: false,
-          message: 'There was an error with the center ID input!'
-        });
-      }
-      Center.findById(intId).then((center) => {
-        if (!center) {
-          // not found
-          return res.status(404).json({
-            success: true,
-            message: 'No center found'
-          });
-        }
-        return center
-          .update({
-            userId: req.decoded.id,
-            name: req.body.name,
-            address: req.body.address,
-            facility: req.body.facility,
-            capacity: req.body.capacity,
-            city: req.body.city,
-            image: req.body.image
-          })
-          .then(() => {
-            center.reload().then(() =>
-              res.status(200).json({
-                success: true,
-                message: 'The center has been modified',
-                updated: center
-              }));
-          })
-          .catch((err) => {
-            res.status(500).json({
-              success: false,
-              message: 'Could not update',
-              error: err
-            });
-          });
+    const { id } = req.params;
+    const intId = parseInt(id, 10);
+    if (paramValidator(id) === true) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the center ID input!'
       });
+    }
+    Center.findById(intId).then((center) => {
+      if (!center) {
+        // not found
+        return res.status(404).json({
+          success: true,
+          message: 'No center found'
+        });
+      }
+      return center
+        .update({
+          userId: req.decoded.id,
+          name: req.body.name,
+          address: req.body.address,
+          facility: req.body.facility,
+          capacity: req.body.capacity,
+          city: req.body.city,
+          image: req.body.image
+        })
+        .then(() => {
+          center.reload().then(() =>
+            res.status(200).json({
+              success: true,
+              message: 'The center has been modified',
+              updated: center
+            }));
+        })
+        .catch((err) => {
+          res.status(500).json({
+            success: false,
+            message: 'Could not update',
+            error: err
+          });
+        });
     });
   }
   /**
@@ -251,37 +235,29 @@ export default class CentersController {
    * @memberof CentersController
    */
   static deleteCenter(req, res) {
-    User.findById(req.decoded.id).then((user) => {
-      if (user.isAdmin !== true) {
-        return res.status(403).json({
-          success: false,
-          message: 'You do not have the admin privileges to do this'
-        });
-      }
-      const { id } = req.params;
-      const intId = parseInt(id, 10);
-      if (paramValidator(id) === true) {
-        return res.status(400).json({
-          success: false,
-          message: 'There was an error with the center ID input!'
-        });
-      }
-      Center.findById(intId).then((center) => {
-        if (!center) {
-          // if no centers
-          return res.status(400).send({
-            success: false,
-            message: 'No such center'
-          });
-        } // else remove
-        return center
-          .destroy()
-          .then(res.status(200).send({
-            success: true,
-            message: 'The center has been deleted!'
-          }))
-          .catch(error => res.status(400).send(error));
+    const { id } = req.params;
+    const intId = parseInt(id, 10);
+    if (paramValidator(id) === true) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the center ID input!'
       });
+    }
+    Center.findById(intId).then((center) => {
+      if (!center) {
+        // if no centers
+        return res.status(400).send({
+          success: false,
+          message: 'No such center'
+        });
+      } // else remove
+      return center
+        .destroy()
+        .then(res.status(200).send({
+          success: true,
+          message: 'The center has been deleted!'
+        }))
+        .catch(error => res.status(400).send(error));
     });
   }
 }

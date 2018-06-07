@@ -127,7 +127,7 @@ export class Login extends Component {
                 <i className="material-icons prefix">contacts</i>
                 <input
                   className="validate"
-                  value={this.state.email.value}
+                  // value={this.state.email.value}
                   error={this.state.errors.email}
                   onFocus={this.state.handleOnFocus}
                   type="email"
@@ -137,6 +137,9 @@ export class Login extends Component {
                 />
                 <label htmlFor="email">Enter your email</label>
               </div>
+              {this.state.errors.email && (
+                <span id="emailError" className="red-text">{this.state.errors.email}</span>
+              )}
             </div>
 
             <div className="row">
@@ -144,7 +147,7 @@ export class Login extends Component {
                 <i className="material-icons prefix">vpn_key</i>
                 <input
                   className="validate"
-                  value={this.state.password.value}
+                  // value={this.state.password.value}
                   onFocus={this.state.handleOnFocus}
                   type="password"
                   name="password"
@@ -154,7 +157,7 @@ export class Login extends Component {
                 <label htmlFor="password">Enter your password</label>
               </div>
               {this.state.errors.password && (
-                <span>{this.state.errors.password}</span>
+                <span id="passwordError" className="red-text">{this.state.errors.password}</span>
               )}
 
               <label style={{ float: 'right' }}>

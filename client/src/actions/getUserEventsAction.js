@@ -18,7 +18,6 @@ const fetchUserEventsSuccess = events => ({
   events
 });
 
-
 const fetchUserEventsFailure = error => ({
   type: FETCH_USER_EVENTS_FAILURE,
   error
@@ -34,7 +33,9 @@ const getUserEventsRequest = (pageNo, limit) => (
       dispatch(fetchUserEventsSuccess(response.data.events));
       dispatch(isUsersEventsFetching(false));
     }).catch((error) => {
-      toastr.error(error.response.data.message);
+      if (error.response.data.message !== 'No events available') {
+        toastr.error(error.response.data.message);
+      }
       dispatch(fetchUserEventsFailure(error.response.data.message));
       dispatch(isUsersEventsFetching(false));
     });

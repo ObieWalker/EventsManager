@@ -92,6 +92,9 @@ export class Header extends Component {
             >
               The Events Manager
             </Link>
+            {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+              <i className="material-icons">menu</i>
+            </a> */}
             <ul
               className="right hide-on-med-and-down"
               style={{ paddingRight: '20px' }}
@@ -114,7 +117,7 @@ export class Header extends Component {
                   <Link to="/">
                     <button
                       type="button"
-                      className="btn-danger btn-sm"
+                      className="btn-danger btn-sm signout"
                       onClick={this.handleLogOut}
                     >
                       Log Out{' '}

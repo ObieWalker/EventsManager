@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ScrollUp from 'react-scroll-up';
 import { Row } from 'react-materialize';
 import Loading from 'react-loading-animation';
-import { Modal } from 'react-bootstrap';
+import Dialog from 'material-ui/Dialog';
 import BookCenterModal from './BookCenterModal.jsx';
 import SearchForm from '../Search.jsx';
 import CenterList from '../CenterCard.jsx';
@@ -13,8 +13,8 @@ import EventList from '../EventList.jsx';
 import '../../styles/index.less';
 import addEventAction from '../../actions/addEventAction';
 import getAllCenters from '../../actions/getAllCentersAction';
-import centerEvents,
-{ clearCenterEvents } from '../../actions/getCenterEventsAction';
+import centerEvents, { clearCenterEvents }
+  from '../../actions/getCenterEventsAction';
 
 /**
  *
@@ -239,6 +239,7 @@ export class CentersPage extends Component {
                   className="btn btn-primary active"
                   id="loadMore"
                   disabled={!this.props.moreCenters}
+                  style={{ position: 'center' }}
                 >
                   Load More
                 </button>
@@ -247,14 +248,17 @@ export class CentersPage extends Component {
               <br />
             </div>
           </div>
-          <Modal
-            className="modal-display"
-            bsSize="large"
-            show={this.state.show}
-            onHide={this.handleClose}
+          <Dialog
+            open={this.state.show}
+            onRequestClose={this.handleClose}
+            autoScrollBodyContent={true}
+            // onHide={this.handleClose}
           >
-            <BookCenterModal center={this.state.center} onHide={this.handleClose} />
-          </Modal>
+            <BookCenterModal
+              center={this.state.center}
+              onHide={this.handleClose}
+            />
+          </Dialog>
         </div>
       );
     }
@@ -271,10 +275,10 @@ export class CentersPage extends Component {
         <div>
           {events && events.length > 0 ? (
             <div>
-              <h3>
+              <h4>
                 Upcoming Events at{' '}
                 {this.props.fetchedCenterEvents[0].Center.name}
-              </h3>
+              </h4>
               <Row>
                 {events.map((event, i) => <EventList key={i} event={event} />)}
               </Row>

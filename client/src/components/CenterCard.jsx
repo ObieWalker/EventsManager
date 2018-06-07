@@ -17,7 +17,7 @@ const CenterCard = (props) => {
                 <img
                   className="card-img-top img-fluid"
                   src="http://i68.tinypic.com/dh5vk.jpg"
-                  alt="center"a
+                  alt="center"
                 />
                 <a>
                   <div className="mask rgba-white-slight" />
@@ -43,13 +43,14 @@ const CenterCard = (props) => {
                 <button
                   onClick={() => { handleShowModal(center); }}
                   className="btn btn-primary btn-sm active"
+                  id="book-center-btn"
                 >
                   Book Center
                 </button>
                 <button
                   onClick={() => { getCenterEvents(center); }}
                   className="btn btn-info btn-sm active"
-                  id="loadMore"
+                  id="booked-events-btn"
                 >
                   Booked Events
                 </button>

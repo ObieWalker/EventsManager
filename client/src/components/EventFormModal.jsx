@@ -7,7 +7,7 @@ const SliderWithTooltip = createSliderWithTooltip(Slider);
 const EventForm = (props) => {
   const {
     errors,
-    center,
+    // center,
     event,
     eventCenter,
     centerName,
@@ -33,19 +33,27 @@ const EventForm = (props) => {
       className="card card-image"
       style={{
         backgroundImage: "url('http://i68.tinypic.com/dh5vk.jpg')",
-        width: '120%',
-        height: '100%',
-        paddingRight: '35%',
-        paddingLeft: '5%',
-        paddingTop: '0px',
-        marginLeft: '-2.5%'
+        // width: '120%',
+        // height: '400%',
+        // paddingRight: '35%',
+        // paddingLeft: '5%',
+        // paddingTop: '5%',
+        // marginLeft: '-4.5%',
+        // marginTop: '-4%',
+        // paddingBottom: '5%'
+
+        width: '110%',
+        minHeight: '91vh',
+        padding: '5% 5% 5% 5%',
+        marginLeft: '-4.5%',
+        marginBottom: '-1%',
+        marginTop: '-8%'
       }}
     >
-      <section className="form-dark">
-        <div className="text-uppercase card-title font-weight-bold blue-text ">
-          Venue: <h4>{eventCenter || centerName}</h4>
+      <section className="form-dark" style={{ justifyContent: 'center' }}>
+        <div className="text-uppercase card-title font-weight-bold white-text ">
+          <h4 className="modal-header">{eventCenter || centerName}</h4>
         </div>
-
         <br />
         <br />
         <div>
@@ -72,10 +80,11 @@ const EventForm = (props) => {
                 <br />
               </label>
               {errors.eventType && (
-                <p className="red-text">{errors.eventType}</p>
+                <p id="eventTypeError" className="red-text">
+                  {errors.eventType}
+                </p>
               )}
             </div>
-            <br />
             <br />
             <div className="row">
               <div className="input-field col s6 blue-text font-weight-bold">
@@ -93,18 +102,22 @@ const EventForm = (props) => {
                 </label>
               </div>
             </div>
-            {errors.date && <p className="red-text">{errors.date}</p>}
+            {errors.date && (
+              <p id="dateError" className="red-text">
+                {errors.date}
+              </p>
+            )}
             <div>
               <p className="range-field">
                 <label htmlFor="range">Approximate number of guests:</label>
               </p>
             </div>
             {guestValue > 99990 ? (
-              <p className="text-monospace font-weight-bold blue-text">
+              <p className="text-monospace font-weight-bold white-text">
                 Over {guestValue}
               </p>
             ) : (
-              <p className="text-monospace font-weight-bold blue-text">
+              <p className="text-monospace font-weight-bold white-text">
                 Approximately {guestValue}
               </p>
             )}
@@ -117,13 +130,20 @@ const EventForm = (props) => {
               onChange={sliderOnChange}
               onAfterChange={onAfterChange}
             />
-            {errors.guestNo && <p className="red-text">{errors.guestNo}</p>}
+            {errors.guestNo && (
+              <p id="guestNoError" className="red-text">
+                {errors.guestNo}
+              </p>
+            )}
             <br />
             <br />
             {event ? (
               <button
-                onClick={submitOnClick}
+                onClick={(e) => {
+                  submitOnClick(e);
+                }}
                 type="submit"
+                id="update-event"
                 className="waves-effect waves-light btn right hoverable indigo"
               >
                 <i className="large material-icons right" aria-hidden="true">
@@ -132,8 +152,9 @@ const EventForm = (props) => {
               </button>
             ) : (
               <button
+                style={{ marginBottom: '10px' }}
                 onClick={() => {
-                  bookOnSubmit(center.id);
+                  bookOnSubmit();
                 }}
                 type="submit"
                 className="waves-effect waves-light btn right hoverable indigo"
@@ -173,7 +194,7 @@ EventForm.propTypes = {
   submitOnClick: PropTypes.func,
   bookOnSubmit: PropTypes.func,
   centerName: PropTypes.string,
-  center: PropTypes.object,
+  center: PropTypes.object
 };
 
 export default EventForm;

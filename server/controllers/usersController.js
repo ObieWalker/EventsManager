@@ -50,15 +50,17 @@ export default class UsersController {
         loginTime: Date.now(),
         email: req.body.email.toLowerCase()
       })
-        .then(user =>
-          res.status(201).json({
-            message: 'Your account has been created!, Your details',
+        .then((user) => {
+          const message = 'Your account has been created!, Your details';
+          return res.status(201).json({
+            message,
             user: {
-              Firstname: user.firstName,
-              Lastname: user.lastName,
-              Email: user.email
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email
             }
-          }))
+          });
+        })
         .catch(error =>
           res.status(500).json({ message: 'Server Error', error }));
     });
@@ -77,39 +79,38 @@ export default class UsersController {
     })
       .then((user) => {
         if (!user) {
-          res.status(404).send({
+          return res.status(404).send({
             success: false,
             message: 'Wrong email or password'
           });
-        } else {
-          bcrypt.compare(req.body.password, user.password, (err, hash) => {
-            if (!hash) {
-              return res
-                .status(403)
-                .json({ success: false, message: 'Wrong email or password' });
-            } else if (hash) {
-              const payload = {
-                firstName: user.firstName,
-                lastName: user.lastName,
-                email: user.email,
-                username: user.username,
-                id: user.id,
-                isAdmin: user.isAdmin,
-                loginTime: Date.now(),
-                createdAt: user.createdAt
-              };
-              const token = jwt.sign(payload, process.env.SECRET, {
-                expiresIn: '24h'
-              });
-              return res.status(200).json({
-                success: true,
-                message: 'Login Successful!',
-                token,
-                user
-              });
-            }
-          });
         }
+        bcrypt.compare(req.body.password, user.password, (err, hash) => {
+          if (!hash) {
+            return res
+              .status(403)
+              .json({ success: false, message: 'Wrong email or password' });
+          } else if (hash) {
+            const payload = {
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email,
+              username: user.username,
+              id: user.id,
+              isAdmin: user.isAdmin,
+              loginTime: Date.now(),
+              createdAt: user.createdAt
+            };
+            const token = jwt.sign(payload, process.env.SECRET, {
+              expiresIn: '24h'
+            });
+            return res.status(200).json({
+              success: true,
+              message: 'Login Successful!',
+              token,
+              user
+            });
+          }
+        });
       })
       .catch((error) => {
         res.status(400).send({
@@ -165,47 +166,39 @@ export default class UsersController {
    * @memberof UsersController
    */
   static setAsAdmin(req, res) {
-    User.findById(req.decoded.id).then((adminUser) => {
-      if (adminUser.isAdmin !== true) {
-        return res.status(403).json({
-          success: false,
-          message: 'You do not have the admin privileges to do this'
-        });
-      }
-      const { id } = req.params;
-      if (paramValidator(id) === true) {
-        return res.status(400).json({
-          success: false,
-          message: 'There was an error with the user ID input!'
-        });
-      }
-      User.findById(id).then((user) => {
-        if (!user) {
-          // not found
-          return res
-            .status(404)
-            .json({ success: true, message: 'No user found' });
-        }
-        return user
-          .update({
-            isAdmin: !user.isAdmin
-          })
-          .then(() => {
-            user.reload().then(() =>
-              res.status(200).json({
-                success: true,
-                message: "The user's details have been modified",
-                user
-              }));
-          })
-          .catch((err) => {
-            res.status(500).json({
-              success: false,
-              message: 'Could not update user status',
-              error: err
-            });
-          });
+    const { id } = req.params;
+    if (paramValidator(id) === true) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the user ID input!'
       });
+    }
+    User.findById(id).then((user) => {
+      if (!user) {
+        // not found
+        return res
+          .status(404)
+          .json({ success: true, message: 'No user found' });
+      }
+      return user
+        .update({
+          isAdmin: !user.isAdmin
+        })
+        .then(() => {
+          user.reload().then(() =>
+            res.status(200).json({
+              success: true,
+              message: "The user's details have been modified",
+              user
+            }));
+        })
+        .catch((err) => {
+          res.status(500).json({
+            success: false,
+            message: 'Could not update user status',
+            error: err
+          });
+        });
     });
   }
   /**
@@ -217,44 +210,36 @@ export default class UsersController {
    * @memberof UsersController
    */
   static deleteUser(req, res) {
-    User.findById(req.decoded.id).then((adminUser) => {
-      if (adminUser.isAdmin !== true) {
-        return res.status(403).json({
-          success: false,
-          message: 'You do not have the admin privileges to do this'
-        });
-      }
-      const { id } = req.params;
-      const intId = parseInt(id, 10);
-      if (paramValidator(id) === true) {
-        return res.status(400).json({
-          success: false,
-          message: 'There was an error with the user ID input!'
-        });
-      }
-      User.findById(intId).then((user) => {
-        if (!user) {
-          // not found
-          return res
-            .status(404)
-            .json({ success: true, message: 'No user found' });
-        }
-        return user
-          .destroy()
-          .then(() =>
-            res.status(200).json({
-              success: true,
-              message: "This user's account has been deleted",
-              updated: user
-            }))
-          .catch((err) => {
-            res.status(500).json({
-              success: false,
-              message: 'Unable to delete user',
-              error: err
-            });
-          });
+    const { id } = req.params;
+    const intId = parseInt(id, 10);
+    if (paramValidator(id) === true) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the user ID input!'
       });
+    }
+    User.findById(intId).then((user) => {
+      if (!user) {
+        // not found
+        return res
+          .status(404)
+          .json({ success: true, message: 'No user found' });
+      }
+      return user
+        .destroy()
+        .then(() =>
+          res.status(200).json({
+            success: true,
+            message: "This user's account has been deleted",
+            updated: user
+          }))
+        .catch((err) => {
+          res.status(500).json({
+            success: false,
+            message: 'Unable to delete user',
+            error: err
+          });
+        });
     });
   }
   /**

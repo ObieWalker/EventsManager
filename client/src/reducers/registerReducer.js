@@ -14,7 +14,7 @@ const registerReducer = (state = initialState, action) => {
   case REGISTERING_USER:
     return Object.assign({}, state, { isUserRegistering: action.bool });
   case REGISTER_USER_SUCCESS:
-    return [action.payload, ...state];
+    return Object.assign({}, state, { registerUserSuccess: action.payload });
   case REGISTER_USER_FAILURE:
     return Object.assign({}, state, { registerUserError: action.error });
   default:

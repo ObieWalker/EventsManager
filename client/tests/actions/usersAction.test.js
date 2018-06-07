@@ -222,7 +222,7 @@ describe('set current user actions', () => {
     moxios.uninstall();
   });
   it('handles REGISTER_USER_SUCCESS to register a user', () => {
-    const payload = users.user1;
+    const payload = 'Login Successful!';
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
@@ -232,7 +232,8 @@ describe('set current user actions', () => {
     });
     const expectedActions = [
       { type: types.REGISTERING_USER, bool: true },
-      { type: types.REGISTER_USER_SUCCESS, payload }
+      { type: types.REGISTER_USER_SUCCESS, payload },
+      { type: types.REGISTERING_USER, bool: false }
     ];
     const store = mockStore({ user: {} });
     return store.dispatch(registerUser(payload)).then(() => {

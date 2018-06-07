@@ -34,10 +34,10 @@ const centerValidator = (data) => {
   }
 
   if (!validator.isNumeric(capacity)) {
-    errors.name = 'You have to enter a numeric value.';
+    errors.capacity = 'You have to enter a numeric value.';
   }
 
-  return { errors, formIsValid: isEmpty(errors) };
+  return { errors, isValid: isEmpty(errors) };
 };
 
 export default centerValidator;

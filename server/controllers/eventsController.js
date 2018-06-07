@@ -57,14 +57,15 @@ export default class EventsController {
         })
           .then(newEvent =>
             res.status(201).json({
-              messgae: 'Your event has been booked',
+              message: `Your ${newEvent.eventType} has been booked`,
               newEvent
             }))
-          .catch(error =>
+          .catch((error) => {
             res.status(400).json({
               message: 'Your request could not be processed',
               error
-            }));
+            });
+          });
       });
     });
   }
@@ -111,6 +112,8 @@ export default class EventsController {
           }
           return Center.findById(req.body.centerId).then((center) => {
             if (center.capacity < parseInt(req.body.guestNo, 10)) {
+              console.log('center capacity==>>', center.capacity);
+              console.log('guest number==>>', req.body.guestNo);
               return res.status(400).json({
                 message:
                   'The center cannot hold your guest estimate, ' +

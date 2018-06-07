@@ -34,7 +34,9 @@ const getUserHistoryRequest = (pageNo, limit) => (
       dispatch(fetchUserHistorySuccess(response.data.events));
       dispatch(isUsersHistoryFetching(false));
     }).catch((error) => {
-      toastr.error(error.response.data.message);
+      if (error.response.data.message !== 'No events available') {
+        toastr.error(error.response.data.message);
+      }
       dispatch(fetchUserHistoryFailure(error.response.data.message));
       dispatch(isUsersHistoryFetching(false));
     });

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import swal from 'sweetalert';
 
 import {
   IS_CENTER_CREATING,
@@ -40,6 +41,12 @@ const addCenter = centerDetails => (dispatch) => {
       dispatch(isCenterCreating(false));
     })
     .catch((error) => {
+      swal({
+        title: 'Unable to add center',
+        text: error.response.data.message,
+        icon: 'error',
+        dangerMode: false,
+      });
       dispatch(createCenterFailure(error.response.data.message));
       dispatch(isCenterCreating(false));
     });

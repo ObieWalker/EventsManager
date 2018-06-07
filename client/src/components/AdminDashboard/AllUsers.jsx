@@ -203,16 +203,16 @@ export class AllUsers extends Component {
                             <button
                               onClick={this.changeStatus.bind(this, user)}
                               type="button"
-                              className="btn-warning btn-sm"
+                              className="btn-warning btn-sm modi"
                             >
-                              Change Admin Status
+                              Modify Role
                             </button>
                           </td>
                           <td>
                             <button
                               onClick={this.handleDelete.bind(this, user)}
                               type="button"
-                              className="btn-danger btn-sm"
+                              className="btn-danger btn-sm del"
                             >
                               Delete User
                             </button>
