@@ -19,7 +19,7 @@ export default class validate {
     req.checkBody('email', 'You did not enter a valid email').isEmail();
     req.checkBody('email', 'You did not enter a valid email').notEmpty();
     req.sanitizeBody('email').normalizeEmail({
-      gmail_remove_subaddress: false, gmail_remove_dots: true
+      gmail_remove_subaddress: false, gmail_remove_dots: false
     });
     req.checkBody('firstName', 'Please enter your first name').notEmpty();
     req.checkBody('lastName', 'Please enter your last name').notEmpty();
@@ -57,7 +57,7 @@ export default class validate {
   static signInValidator(req, res, next) {
     req.checkBody('email', 'Please enter a valid email!').isEmail();
     req.sanitizeBody('email').normalizeEmail({
-      gmail_remove_subaddress: false, gmail_remove_dots: true
+      gmail_remove_subaddress: false, gmail_remove_dots: false
     });
     req.checkBody('password', 'You must enter a passwword').notEmpty();
     req.checkBody(

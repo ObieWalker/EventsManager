@@ -4,6 +4,7 @@ import EventsController from '../controllers/eventsController';
 import CentersController from '../controllers/centersController';
 import auth from '../middlewares/authenticator';
 import validator from '../middlewares/validator';
+import AdminCheck from '../middlewares/adminCheck';
 
 // versioning our api
 const apiv1 = express.Router();
@@ -12,8 +13,18 @@ const apiv1 = express.Router();
 apiv1.post('/users', validator.signUpValidator, UsersController.signup);
 apiv1.post('/users/login', validator.signInValidator, UsersController.signin);
 apiv1.get('/users/', auth.authenticate, UsersController.getAllUsers);
-apiv1.put('/users/:id', auth.authenticate, UsersController.setAsAdmin);
-apiv1.delete('/users/:id', auth.authenticate, UsersController.deleteUser);
+apiv1.put(
+  '/users/:id',
+  auth.authenticate,
+  AdminCheck.isAdmin,
+  UsersController.setAsAdmin
+);
+apiv1.delete(
+  '/users/:id',
+  auth.authenticate,
+  AdminCheck.isAdmin,
+  UsersController.deleteUser
+);
 
 
 // event routes
@@ -22,11 +33,21 @@ apiv1.post(
   EventsController.createEvent
 );
 apiv1.get('/events/', EventsController.allEvents);
-apiv1.get('/user/events/', auth.authenticate, EventsController.getUserEvents);
-apiv1.get('/user/history/', auth.authenticate, EventsController.getUserHistory);
+apiv1.get(
+  '/user/events/',
+  auth.authenticate,
+  EventsController.getUserEvents
+);
+apiv1.get(
+  '/user/history/',
+  auth.authenticate,
+  EventsController.getUserHistory
+);
 apiv1.put(
-  '/events/:id', auth.authenticate,
-  validator.eventValidation, EventsController.editEvent
+  '/events/:id',
+  auth.authenticate,
+  validator.eventValidation,
+  EventsController.editEvent
 );
 apiv1.delete(
   '/events/:id',
@@ -44,16 +65,27 @@ apiv1.delete(
 
 // center routes
 apiv1.post(
-  '/centers', auth.authenticate,
-  validator.centerValidation, CentersController.createCenter
+  '/centers',
+  auth.authenticate,
+  AdminCheck.isAdmin,
+  validator.centerValidation,
+  CentersController.createCenter
 );
 apiv1.put(
-  '/centers/:id', auth.authenticate,
-  validator.centerValidation, CentersController.modifyCenter
+  '/centers/:id',
+  auth.authenticate,
+  AdminCheck.isAdmin,
+  validator.centerValidation,
+  CentersController.modifyCenter
 );
 apiv1.get('/centers', CentersController.getAllCenters);
 apiv1.get('/centers/:id', CentersController.getCenterDetails);
-apiv1.delete('/centers/:id', auth.authenticate, CentersController.deleteCenter);
+apiv1.delete(
+  '/centers/:id',
+  auth.authenticate,
+  AdminCheck.isAdmin,
+  CentersController.deleteCenter
+);
 
 
 apiv1.post('/admin/contact/', UsersController.contactAdmin);
