@@ -54,9 +54,9 @@ export default class UsersController {
           res.status(201).json({
             message: 'Your account has been created!, Your details',
             user: {
-              Firstname: user.firstName,
-              Lastname: user.lastName,
-              Email: user.email
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email
             }
           }))
         .catch(error =>
