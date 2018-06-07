@@ -193,6 +193,10 @@ module.exports = describe('Tests for the user', () => {
           res.body.should.have
             .property('message')
             .to.equal('Your account has been created!, Your details');
+          res.body.should.have
+            .property('user')
+            .property('firstName')
+            .to.equal('testfn');
           done();
         });
     });
@@ -293,6 +297,9 @@ module.exports = describe('Tests for the user', () => {
             expect(res).to.be.status(200);
             res.body.should.have.a('object');
             res.body.should.have.property('token');
+            res.body.should.have.property('user')
+              .property('firstName')
+              .to.equal('testfn');
             helper.setUserToken(res.body.token);
             done();
           });

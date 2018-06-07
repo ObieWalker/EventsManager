@@ -54,9 +54,9 @@ export default class UsersController {
           res.status(201).json({
             message: 'Your account has been created!, Your details',
             user: {
-              Firstname: user.firstName,
-              Lastname: user.lastName,
-              Email: user.email
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email
             }
           }))
         .catch(error =>
@@ -165,47 +165,39 @@ export default class UsersController {
    * @memberof UsersController
    */
   static setAsAdmin(req, res) {
-    User.findById(req.decoded.id).then((adminUser) => {
-      if (adminUser.isAdmin !== true) {
-        return res.status(403).json({
-          success: false,
-          message: 'You do not have the admin privileges to do this'
-        });
-      }
-      const { id } = req.params;
-      if (paramValidator(id) === true) {
-        return res.status(400).json({
-          success: false,
-          message: 'There was an error with the user ID input!'
-        });
-      }
-      User.findById(id).then((user) => {
-        if (!user) {
-          // not found
-          return res
-            .status(404)
-            .json({ success: true, message: 'No user found' });
-        }
-        return user
-          .update({
-            isAdmin: !user.isAdmin
-          })
-          .then(() => {
-            user.reload().then(() =>
-              res.status(200).json({
-                success: true,
-                message: "The user's details have been modified",
-                user
-              }));
-          })
-          .catch((err) => {
-            res.status(500).json({
-              success: false,
-              message: 'Could not update user status',
-              error: err
-            });
-          });
+    const { id } = req.params;
+    if (paramValidator(id) === true) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the user ID input!'
       });
+    }
+    User.findById(id).then((user) => {
+      if (!user) {
+        // not found
+        return res
+          .status(404)
+          .json({ success: true, message: 'No user found' });
+      }
+      return user
+        .update({
+          isAdmin: !user.isAdmin
+        })
+        .then(() => {
+          user.reload().then(() =>
+            res.status(200).json({
+              success: true,
+              message: "The user's details have been modified",
+              user
+            }));
+        })
+        .catch((err) => {
+          res.status(500).json({
+            success: false,
+            message: 'Could not update user status',
+            error: err
+          });
+        });
     });
   }
   /**
@@ -217,44 +209,36 @@ export default class UsersController {
    * @memberof UsersController
    */
   static deleteUser(req, res) {
-    User.findById(req.decoded.id).then((adminUser) => {
-      if (adminUser.isAdmin !== true) {
-        return res.status(403).json({
-          success: false,
-          message: 'You do not have the admin privileges to do this'
-        });
-      }
-      const { id } = req.params;
-      const intId = parseInt(id, 10);
-      if (paramValidator(id) === true) {
-        return res.status(400).json({
-          success: false,
-          message: 'There was an error with the user ID input!'
-        });
-      }
-      User.findById(intId).then((user) => {
-        if (!user) {
-          // not found
-          return res
-            .status(404)
-            .json({ success: true, message: 'No user found' });
-        }
-        return user
-          .destroy()
-          .then(() =>
-            res.status(200).json({
-              success: true,
-              message: "This user's account has been deleted",
-              updated: user
-            }))
-          .catch((err) => {
-            res.status(500).json({
-              success: false,
-              message: 'Unable to delete user',
-              error: err
-            });
-          });
+    const { id } = req.params;
+    const intId = parseInt(id, 10);
+    if (paramValidator(id) === true) {
+      return res.status(400).json({
+        success: false,
+        message: 'There was an error with the user ID input!'
       });
+    }
+    User.findById(intId).then((user) => {
+      if (!user) {
+        // not found
+        return res
+          .status(404)
+          .json({ success: true, message: 'No user found' });
+      }
+      return user
+        .destroy()
+        .then(() =>
+          res.status(200).json({
+            success: true,
+            message: "This user's account has been deleted",
+            updated: user
+          }))
+        .catch((err) => {
+          res.status(500).json({
+            success: false,
+            message: 'Unable to delete user',
+            error: err
+          });
+        });
     });
   }
   /**
