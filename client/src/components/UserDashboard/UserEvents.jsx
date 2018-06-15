@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Row } from 'react-materialize';
 import ScrollUp from 'react-scroll-up';
 import PropTypes from 'prop-types';
-import { Modal } from 'react-bootstrap';
+import Dialog from 'material-ui/Dialog';
 import swal from 'sweetalert';
 import Loading from 'react-loading-animation';
 import getUsersEventsRequest from '../../actions/getUserEventsAction';
@@ -164,7 +164,7 @@ export class UserEvents extends Component {
   render() {
     const Events = this.state.userEvents;
     return (
-      <div>
+      <div style={{ margin: 'auto' }}>
         <h3>All Your Upcoming Events.</h3>
         <div>
           {' '}
@@ -179,7 +179,6 @@ export class UserEvents extends Component {
                     this,
                     event
                   )}
-                  handleEditEvent={this.handleEditEvent.bind(this, event)}
                 />
               ))}
             </Row>
@@ -205,6 +204,7 @@ export class UserEvents extends Component {
               className="btn btn-primary active"
               id="loadMore"
               disabled={!this.props.moreEvents}
+              style={{ margin: 'auto' }}
             >
               Load More
             </button>
@@ -212,14 +212,13 @@ export class UserEvents extends Component {
           <br />
           <br />
         </div>
-        <Modal
-          className="modal-display"
-          show={this.state.showModal}
-          onHide={this.handleClose}
-          bsSize="large"
+        <Dialog
+          open={this.state.showModal}
+          onRequestClose={this.handleClose}
+          autoScrollBodyContent={true}
         >
           <EditForm event={this.state.event} hideModal={this.handleClose} />
-        </Modal>
+        </Dialog>
       </div>
     );
   }

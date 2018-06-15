@@ -154,12 +154,14 @@ export class BookCenter extends Component {
    * @param {any} centerId
    * @memberof BookCenter
    */
-  onSubmit(e, centerId) {
+  onSubmit() {
+    const e = { preventDefault: () => undefined };
+    const { center } = this.props;
     e.preventDefault();
     if (this.formIsValid()) {
       this.setState({ errors: {} });
       const eventDetails = {
-        centerId,
+        centerId: center.id,
         eventType: this.state.eventType,
         date: moment(this.state.date.date).format('YYYY-MM-DD HH:mm:ss'),
         guestNo: this.state.guestNo
@@ -171,20 +173,13 @@ export class BookCenter extends Component {
         dangerMode: true
       });
       this.props.addNewEvent(eventDetails).then(() => {
-        this.props.hideModal();
+        this.clear();
         const { createSuccess, createError } = this.props;
         if (createError === '') {
+          this.props.onHide();
           toastr.remove();
           toastr.success(createSuccess);
-        } else {
-          swal({
-            title: 'Unable to add new event',
-            text: createError,
-            icon: 'error',
-            dangerMode: false
-          });
         }
-        this.clear();
       });
     }
   }
@@ -212,9 +207,8 @@ export class BookCenter extends Component {
         sliderStep={this.state.step}
         sliderOnChange={this.onSliderChange}
         onAfterChange={this.onAfterChange}
-        bookOnSubmit={() => {
-          this.onSubmit(center.id);
-        }}
+        bookOnSubmit={this.onSubmit}
+
       />
     );
   }
@@ -225,9 +219,13 @@ BookCenter.propTypes = {
   createSuccess: PropTypes.string,
   createError: PropTypes.string,
   addNewEvent: PropTypes.func,
-  hideModal: PropTypes.func
+  onHide: PropTypes.func
 };
 
+const mapStateToProps = state => ({
+  createError: state.createEvent.createEventError,
+  createSuccess: state.createEvent.createEventSuccess
+});
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
@@ -236,4 +234,4 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(null, mapDispatchToProps)(BookCenter);
+export default connect(mapStateToProps, mapDispatchToProps)(BookCenter);

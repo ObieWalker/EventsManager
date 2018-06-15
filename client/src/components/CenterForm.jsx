@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const CenterForm = (props) => {
   const {
     center,
+    errors,
     defaultCenterName,
     onFocus,
     onChange,
@@ -17,12 +18,15 @@ const CenterForm = (props) => {
     facilityValue,
     defaultFacilityValue,
     modifyOnClick,
-    createCenter
+    createCenter,
+    defaultImage,
+    uploadImage
   } = props;
   return (
-    <div>
+    <div className="centerForm" id={center && 'modifyDiv'}>
       {/* <div className="col-lg-12 col-xs-12 col-centered">
       <p> test</p> */}
+      {center && <h3 className="center">Modify Center Details</h3>}
       <div
         className="grey lighten-4"
         style={{
@@ -34,13 +38,16 @@ const CenterForm = (props) => {
         }}
       >
         {/* <div className="input-field col s12"> */}
-        <form className="">
+        <form className="formation">
           <div className="input-field col s12">
-            <label htmlFor="name" className="active">Center Name:</label>
+            <label htmlFor="name" className="active">
+              Center Name:
+            </label>
             <input
               type="text"
               className="form-control"
               value={centerNameValue}
+              error={props.errors}
               defaultValue={defaultCenterName || ''}
               onFocus={onFocus}
               id="name"
@@ -48,6 +55,11 @@ const CenterForm = (props) => {
               required
               onChange={onChange}
             />
+            {errors.name && (
+              <span id="centerNamerError" className="red-text">
+                {errors.name}
+              </span>
+            )}
           </div>
 
           <div className="input-field col s12">
@@ -98,23 +110,30 @@ const CenterForm = (props) => {
           <div className="row">
             <div className="input-field col s12">
               <textarea
-                id="facility"
+                id={ defaultCityValue ? 'modifyFacility' : 'facility'}
                 className="materialize-textarea"
                 value={facilityValue}
                 defaultValue={defaultFacilityValue || ''}
-                name="facility"
+                name={
+                  defaultCityValue ? 'modifyFacility' : 'facility'
+                }
                 onFocus={onFocus}
                 onChange={onChange}
               />
               <label htmlFor="facilities" className="active">
-                    Center Description/Facilities:
+                Center Description/Facilities:
               </label>
             </div>
           </div>
           <div className="file-field input-field">
             <div className="btn">
               <span>File</span>
-              <input type="file" multiple />
+              <input
+                type="file"
+                name="image"
+                defaultValue={defaultImage || ''}
+                onChange={uploadImage}
+              />
             </div>
             <div className="file-path-wrapper">
               <input
@@ -124,42 +143,48 @@ const CenterForm = (props) => {
               />
             </div>
           </div>
-          {center ?
+          {center ? (
             <button
               type="submit"
+              id="update-center"
               className="waves-effect waves-light
-            btn right hoverable indigo"
-              onClick={() => { modifyOnClick(); }}
+            btn right hoverable dark-green"
+              onClick={(e) => {
+                modifyOnClick(e);
+              }}
             >
               <i className="large material-icons right" aria-hidden="true">
                 {' '}
                 done
               </i>Update Center
             </button>
-            :
+          ) : (
             <button
               type="submit"
-              className="waves-effect waves-light
-              btn right hoverable indigo"
-              onClick={() => { createCenter(); }}
+              id="create-center"
+              className="waves-effect waves-dark
+              btn right hoverable dark-green"
+              onClick={(e) => {
+                createCenter(e);
+              }}
             >
               <i className="large material-icons right" aria-hidden="true">
                 {' '}
-                  done
+                done
               </i>Add Center
             </button>
-
-          }
+          )}
         </form>
       </div>
     </div>
-  /* </div> */
+    /* </div> */
     // </div>
   );
 };
 
 CenterForm.propTypes = {
   center: PropTypes.object,
+  errors: PropTypes.object,
   defaultCenterName: PropTypes.string,
   onFocus: PropTypes.func,
   onChange: PropTypes.func,
@@ -173,7 +198,9 @@ CenterForm.propTypes = {
   facilityValue: PropTypes.string,
   defaultFacilityValue: PropTypes.string,
   modifyOnClick: PropTypes.func,
-  createCenter: PropTypes.func
+  createCenter: PropTypes.func,
+  uploadImage: PropTypes.func,
+  defaultImage: PropTypes.string
 };
 
 export default CenterForm;

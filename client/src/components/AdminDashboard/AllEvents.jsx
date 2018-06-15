@@ -114,7 +114,7 @@ export class AllEvents extends Component {
     const { events } = this.state;
     return (
       <div>
-        <h3>All Events and details.</h3>
+        <h3 className="center">All Events and details.</h3>
         <div>
           {events && events.length > 0 ? (
             <Row>
@@ -122,7 +122,7 @@ export class AllEvents extends Component {
                 <EventsCard
                   key={i}
                   event={event}
-                  cancelEvent={this.cancelEvent.bind(this)}
+                  cancelEvent={this.cancelEvent.bind(this, event.id)}
                 />
               ))}
             </Row>

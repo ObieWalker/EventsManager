@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
+import Loading from 'react-loading-animation';
 import PropTypes from 'prop-types';
 import CenterForm from '../CenterForm.jsx';
-
-// import validateImage from '../../../helpers/validators/validateImage';
+import validateImage from '../../../helpers/validators/validateImage';
 import validateForm from '../../../helpers/validators/centerValidator';
 
 import createCenterRequest from '../../actions/addCenterAction';
@@ -33,13 +33,14 @@ export class CreateCenter extends Component {
       facility: '',
       uploadedImage: {},
       defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',
-      errors: {}
+      errors: {},
+      isLoading: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.formIsValid = this.formIsValid.bind(this);
     this.handleOnFocus = this.handleOnFocus.bind(this);
-    // this.handleImage = this.handleImage.bind(this);
+    this.handleImage = this.handleImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.clear = this.clear.bind(this);
   }
@@ -71,33 +72,33 @@ export class CreateCenter extends Component {
    * @param {any} event
    * @memberof CreateCenter
    */
-  // handleImage(event) {
-  //   if (event.target.files && event.target.files[0]) {
-  //     const file = event.target.files[0];
-  //     const filereader = new FileReader();
-  //     validateImage(filereader, file, (fileType) => {
-  //       if (
-  //         fileType === 'image/png' ||
-  //         fileType === 'image/gif' ||
-  //         fileType === 'image/jpeg'
-  //       ) {
-  //         this.setState({ uploadedImage: file });
-  //         filereader.onload = (e) => {
-  //           this.setState({ imageSrc: e.target.result });
-  //         };
-  //         filereader.readAsDataURL(file);
-  //       } else {
-  //         toastr.clear();
-  //         toastr.error('please provide a valid image file');
-  //       }
-  //     });
-  //   } else {
-  //     this.setState({
-  //       defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',
-  //       uploadedImage: ''
-  //     });
-  //   }
-  // }
+  handleImage(event) {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const filereader = new FileReader();
+      validateImage(filereader, file, (fileType) => {
+        if (
+          fileType === 'image/png' ||
+          fileType === 'image/gif' ||
+          fileType === 'image/jpeg'
+        ) {
+          this.setState({ uploadedImage: file });
+          filereader.onload = (e) => {
+            this.setState({ imageSrc: e.target.result });
+          };
+          filereader.readAsDataURL(file);
+        } else {
+          toastr.clear();
+          toastr.error('please provide a valid image file');
+        }
+      });
+    } else {
+      this.setState({
+        defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',
+        uploadedImage: ''
+      });
+    }
+  }
   /**
    * @returns {object} state
    *
@@ -122,11 +123,11 @@ export class CreateCenter extends Component {
    * @memberof CreateCenter
    */
   formIsValid() {
-    const { errors, formIsValid } = validateForm(this.state);
-    if (!formIsValid) {
+    const { errors, isValid } = validateForm(this.state);
+    if (!isValid) {
       this.setState({ errors });
     }
-    return formIsValid;
+    return isValid;
   }
 
   /**
@@ -138,7 +139,7 @@ export class CreateCenter extends Component {
   onSubmit(e) {
     e.preventDefault();
     if (this.formIsValid()) {
-      this.setState({ errors: {} });
+      this.setState({ errors: {}, isLoading: true });
       const centerDetails = {
         name: this.state.name,
         address: this.state.address,
@@ -151,12 +152,13 @@ export class CreateCenter extends Component {
         if (createError === '') {
           // clear toasts before showing new
           toastr.remove();
+          this.setState({ isLoading: false });
           toastr.success(createSuccess);
+          this.clear();
         } else {
           toastr.remove();
           toastr.error(createError);
         }
-        this.clear();
       });
     }
   }
@@ -173,16 +175,23 @@ export class CreateCenter extends Component {
 
       // />
       <div>
-        <h4 className="brand-logo col s8">Add Center Information</h4>
+        <h4 className="center">Add Center Information</h4>
+        {this.state.isLoading === true && (
+          <div>
+            <p>Loading...</p> <Loading />
+          </div>
+        )}
         <CenterForm
-          centerNameValue={this.state.name.value}
+          errors={this.state.errors}
+          centerNameValue={this.state.name}
           onChange={this.handleChange}
           onFocus={this.handleOnFocus}
-          addressValue={this.state.address.value}
-          cityValue ={this.state.city.value}
-          capacityValue ={this.state.capacity.value}
-          facilityValue ={this.state.facility.value}
+          addressValue={this.state.address}
+          cityValue={this.state.city}
+          capacityValue={this.state.capacity}
+          facilityValue={this.state.facility}
           createCenter={this.onSubmit}
+          uploadImage={this.handleImage}
         />
       </div>
     );

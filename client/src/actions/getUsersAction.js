@@ -37,6 +37,9 @@ const fetchUsersRequest =
         dispatch(fetchUsersSuccess(response.data.users));
         dispatch(isUsersFetching(false));
       }).catch((error) => {
+        if (error.response.data.message !== 'No users available') {
+          toastr.error(error.response.data.message);
+        }
         toastr.error(error.response.data.message);
         dispatch(fetchUsersFailure(error.response.data.message));
         dispatch(isUsersFetching(false));

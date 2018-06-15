@@ -33,7 +33,10 @@ describe('Register User', () => {
       type: types.REGISTER_USER_SUCCESS,
       payload: users.user1
     };
-    expect(registerUserReducer(state, registerUser)).toEqual([users.user1]);
+    expect(registerUserReducer(state, registerUser)).toEqual({
+      registerUserSuccess: users.user1
+    }
+    );
   });
   it('should handle REGISTER_USER_FAILURE', () => {
     const registerUser = {

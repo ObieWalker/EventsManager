@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Loading from 'react-loading-animation';
 import { bindActionCreators } from 'redux';
 import registerUserAction from '../actions/registerUserAction';
+import login from '../actions/UserSessionAction';
 import validator from '../../helpers/validators/register';
 import verifyToken from '../../helpers/verifyToken';
 
@@ -28,7 +30,8 @@ export class Register extends Component {
       username: '',
       password: '',
       verifyPassword: '',
-      errors: {}
+      errors: {},
+      isLoading: false
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -75,7 +78,10 @@ export class Register extends Component {
   onSubmit(e) {
     e.preventDefault();
     if (this.isValid()) {
-      this.setState({ errors: {} });
+      this.setState({
+        errors: {},
+        isLoading: true
+      });
       const userDetails = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -84,12 +90,20 @@ export class Register extends Component {
         password: this.state.password,
         verifyPassword: this.state.verifyPassword
       };
-      this.props
-        .registerUserAction(userDetails)
+      this.props.registerUserAction(userDetails)
         .then(() => {
-          this.props.history.push('/');
-        })
-        .catch(error => this.setState({ errors: error.response.data.errors }));
+          const { registerUserError } = this.props.registerUser;
+          if (registerUserError === '') {
+            const userLogin = {
+              email: userDetails.email,
+              password: userDetails.password
+            };
+            this.props.login(userLogin, this.props.history);
+          }
+        });
+      this.setState({
+        isLoading: false
+      });
     }
   }
   /**
@@ -117,39 +131,42 @@ export class Register extends Component {
         <br />
         <br />
         <div style={{ width: '40%', margin: '0 30%' }}>
+          {this.state.isLoading === true && (
+            <div>
+              <p>Loading...</p> <Loading />
+            </div>
+          )}
           <form className="col s14">
             <div className="row">
               <div className="input-field  col s6">
                 <i className="material-icons prefix">contacts</i>
                 <input
-                  id="first_name"
+                  id="firstName"
                   onChange={this.handleChange}
-                  value={this.state.firstName}
                   onFocus={this.handleOnFocus}
                   name="firstName"
                   type="text"
-                  className="validate"
+                  className="validate firstName"
                 />
-                <label htmlFor="first_name">First Name</label>
+                <label htmlFor="firstName">First Name</label>
                 {this.state.errors.firstName && (
-                  <span className="error">{this.state.errors.firstName}</span>
+                  <span id="firstNameError" className="red-text">{this.state.errors.firstName}</span>
                 )}
               </div>
 
               <div className="input-field col s6">
                 <i className="material-icons prefix">contacts</i>
                 <input
-                  id="last_name"
+                  id="lastName"
                   onChange={this.handleChange}
-                  value={this.state.lastName}
                   onFocus={this.handleOnFocus}
                   name="lastName"
                   type="text"
-                  className="validate"
+                  className="validate lastName"
                 />
-                <label htmlFor="last_name">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 {this.state.errors.lastName && (
-                  <span className="error">{this.state.errors.lastName}</span>
+                  <span id="lastNameError" className="red-text">{this.state.errors.lastName}</span>
                 )}
               </div>
             </div>
@@ -160,15 +177,14 @@ export class Register extends Component {
                 <input
                   id="username"
                   onChange={this.handleChange}
-                  value={this.state.username}
                   onFocus={this.handleOnFocus}
                   name="username"
                   type="text"
-                  className="validate"
+                  className="validate username"
                 />
                 <label htmlFor="username">Username</label>
                 {this.state.errors.username && (
-                  <span className="error">{this.state.errors.username}</span>
+                  <span id="usernameError" className="red-text">{this.state.errors.username}</span>
                 )}
               </div>
 
@@ -178,14 +194,13 @@ export class Register extends Component {
                   id="email"
                   onChange={this.handleChange}
                   onFocus={this.handleOnFocus}
-                  value={this.state.email}
                   name="email"
                   type="email"
-                  className="validate"
+                  className="validate email"
                 />
                 <label htmlFor="email">Email</label>
                 {this.state.errors.email && (
-                  <span className="error">{this.state.errors.email}</span>
+                  <span id="emailError" className="red-text">{this.state.errors.email}</span>
                 )}
               </div>
             </div>
@@ -196,14 +211,14 @@ export class Register extends Component {
                 <input
                   id="password"
                   onChange={this.handleChange}
-                  value={this.state.password}
                   onFocus={this.handleOnFocus}
                   name="password"
                   type="password"
+                  className="password"
                 />
                 <label htmlFor="password">Password</label>
                 {this.state.errors.password && (
-                  <span className="error">{this.state.errors.password}</span>
+                  <span id="passwordError" className="red-text">{this.state.errors.password}</span>
                 )}
               </div>
 
@@ -212,29 +227,28 @@ export class Register extends Component {
                 <input
                   id="password2"
                   onChange={this.handleChange}
-                  value={this.state.verifyPassword}
                   onFocus={this.handleOnFocus}
                   name="verifyPassword"
                   type="password"
-                  className="validate"
+                  className="validate verifyPassword"
                 />
                 <label htmlFor="password2">Retype Password</label>
                 {this.state.errors.verifyPassword && (
-                  <span className="error">
+                  <span className="red-text">
                     {this.state.errors.verifyPassword}
                   </span>
                 )}
               </div>
             </div>
 
-            <a
+            <button
               className="waves-effect waves-light btn right hoverable indigo"
               onClick={this.onSubmit}
               // disabled={isEnabled}
               type="submit"
             >
               <i className="large material-icons right">done</i>register
-            </a>
+            </button>
             <br />
           </form>
           <div className="text-white">
@@ -254,6 +268,8 @@ export class Register extends Component {
 
 Register.propTypes = {
   registerUserAction: PropTypes.func,
+  registerUser: PropTypes.object,
+  login: PropTypes.func,
   history: PropTypes.object
 };
 
@@ -264,7 +280,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      registerUserAction
+      registerUserAction,
+      login
     },
     dispatch
   );

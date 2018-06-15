@@ -9,7 +9,7 @@ const EventCard = (props) => {
   const today = Date.now();
   if (event) {
     return (
-      <div style={{ margin: '5%' }}>
+      <div style={{ margin: '1%', float: 'left', display: 'inlineBlock' }}>
         <Col s={10} m={4}>
           <div className="col 12">
             <div
@@ -23,20 +23,23 @@ const EventCard = (props) => {
             >
               <div className="card-body">
                 <h5 className="card-title white-text">{event.eventType}</h5>
+
                 <h6 className="card-subtitle mb-2 text-muted white-text">
-                  Center: {event.Center.name}
+                  {event.Center
+                    ? `Center: ${event.Center.name}`
+                    : 'This center has been removed'}
                 </h6>
                 <p className="card-text white-text">Date: {event.date}</p>
                 <p className="card-text white-text">
-                  Address {event.Center.address}
+                  {event.Center && `Address: ${event.Center.address}`}
                 </p>
                 <p className="card-text white-text">
                   Guest Estimate: {event.guestNo}
                 </p>
                 <hr className="hr-light" />
-                {event.isCancelled ? (
+                {event.isCancelled || !event.Center ? (
                   <h6 className="red-text">
-                    Apologies!!! This event was cancelled.
+                    Apologies!!! This event has been cancelled.
                   </h6>
                 ) : (
                   <div>
@@ -77,11 +80,10 @@ const EventCard = (props) => {
   }
 };
 
-
 EventCard.propTypes = {
   handleShowEditModal: PropTypes.func,
   handleDeleteEvent: PropTypes.func,
-  event: PropTypes.object,
+  event: PropTypes.object
 };
 
 export default EventCard;

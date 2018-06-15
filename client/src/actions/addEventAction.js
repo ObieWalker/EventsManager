@@ -47,6 +47,7 @@ const addEvent = eventDetails => (
       dispatch(createEventSuccess(response.data.newEvent, message));
       dispatch(isEventCreating(false));
     }).catch((error) => {
+      console.log('errorr=========>>', error.response.data.message);
       swal({
         title: 'Unable to make booking.',
         text: error.response.data.message,
