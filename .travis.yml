@@ -26,4 +26,5 @@ before_script:
 after_success:
   - NODE_ENV=development npm run coverage
   - npm run jest
+  - npm run coveralls
 
