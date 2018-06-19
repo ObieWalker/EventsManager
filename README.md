@@ -1,11 +1,9 @@
 # EventsManager
 [![Maintainability](https://api.codeclimate.com/v1/badges/215078ce2fd0ee631fc5/maintainability)](https://codeclimate.com/github/ObieWalker/EventsManager/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/215078ce2fd0ee631fc5/test_coverage)](https://codeclimate.com/github/ObieWalker/EventsManager/test_coverage)
-
 [![Build Status](https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop)](https://travis-ci.org/ObieWalker/EventsManager)
 
-[![Coverage Status](https://coveralls.io/repos/github/ObieWalker/EventsManager/badge.svg?branch=develop)](https://coveralls.io/github/ObieWalker/EventsManager?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/ObieWalker/EventsManager/badge.svg)](https://coveralls.io/github/ObieWalker/EventsManager)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
