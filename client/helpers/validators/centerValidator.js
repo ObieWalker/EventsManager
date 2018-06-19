@@ -33,7 +33,7 @@ const centerValidator = (data) => {
     errors.city = 'Please enter the city of the center';
   }
 
-  if (!validator.isNumeric(capacity)) {
+  if (Number.isNaN(capacity)) {
     errors.capacity = 'You have to enter a numeric value.';
   }
 

@@ -42,25 +42,21 @@ ShallowWrapper {
           Sign in to your account.
            
         </h5>,
+        undefined,
         <br />,
         " ",
         <br />,
         <div
-          style={
-            Object {
-              "margin": "0 30%",
-              "width": "40%",
-            }
-          }
+          style={Object {}}
         >
           <form
-            className="col s12"
+            className="col s12 m6 push-m3 l4 push-l4"
           >
             <div
               className="row"
             >
               <div
-                className="input-field col s12"
+                className="input-field col s12 m6 push-m3 l4 push-l4"
               >
                 <i
                   className="material-icons prefix"
@@ -85,7 +81,7 @@ ShallowWrapper {
               className="row"
             >
               <div
-                className="input-field col s12"
+                className="input-field col s12 m6 push-m3 l4 push-l4"
               >
                 <i
                   className="material-icons prefix"
@@ -105,39 +101,39 @@ ShallowWrapper {
                   Enter your password
                 </label>
               </div>
-              <label
-                style={
-                  Object {
-                    "float": "right",
-                  }
-                }
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col s12 m6 push-m3 l4 push-l4"
               >
-                <a
-                  className="red-text darken-3"
-                  href="#!"
-                >
-                  <b>
-                    Forgot Password?
-                  </b>
-                </a>
-              </label>
+                <p>
+                                
+                  Do not have an account? You can register 
+                  <Link
+                    replace={false}
+                    to="/register"
+                  >
+                    here
+                  </Link>
+                </p>
+              </div>
             </div>
             <br />
-            <center>
-              <div
-                className="row"
+            <div
+              className="row col s12 m6 push-m3 l2 push-l4"
+            >
+              <button
+                className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                id="submit"
+                name="btn_login"
+                onClick={[Function]}
+                type="submit"
               >
-                <button
-                  className="col s3 btn btn-large waves-effect indigo right"
-                  id="submit"
-                  name="btn_login"
-                  onClick={[Function]}
-                  type="submit"
-                >
-                  Login
-                </button>
-              </div>
-            </center>
+                Login
+              </button>
+            </div>
           </form>
         </div>,
       ],
@@ -165,6 +161,7 @@ ShallowWrapper {
         ],
         "type": "h5",
       },
+      undefined,
       Object {
         "instance": null,
         "key": undefined,
@@ -190,13 +187,13 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <form
-            className="col s12"
+            className="col s12 m6 push-m3 l4 push-l4"
           >
             <div
               className="row"
             >
               <div
-                className="input-field col s12"
+                className="input-field col s12 m6 push-m3 l4 push-l4"
               >
                 <i
                   className="material-icons prefix"
@@ -221,7 +218,7 @@ ShallowWrapper {
               className="row"
             >
               <div
-                className="input-field col s12"
+                className="input-field col s12 m6 push-m3 l4 push-l4"
               >
                 <i
                   className="material-icons prefix"
@@ -241,44 +238,41 @@ ShallowWrapper {
                   Enter your password
                 </label>
               </div>
-              <label
-                style={
-                  Object {
-                    "float": "right",
-                  }
-                }
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col s12 m6 push-m3 l4 push-l4"
               >
-                <a
-                  className="red-text darken-3"
-                  href="#!"
-                >
-                  <b>
-                    Forgot Password?
-                  </b>
-                </a>
-              </label>
+                <p>
+                                
+                  Do not have an account? You can register 
+                  <Link
+                    replace={false}
+                    to="/register"
+                  >
+                    here
+                  </Link>
+                </p>
+              </div>
             </div>
             <br />
-            <center>
-              <div
-                className="row"
+            <div
+              className="row col s12 m6 push-m3 l2 push-l4"
+            >
+              <button
+                className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                id="submit"
+                name="btn_login"
+                onClick={[Function]}
+                type="submit"
               >
-                <button
-                  className="col s3 btn btn-large waves-effect indigo right"
-                  id="submit"
-                  name="btn_login"
-                  onClick={[Function]}
-                  type="submit"
-                >
-                  Login
-                </button>
-              </div>
-            </center>
+                Login
+              </button>
+            </div>
           </form>,
-          "style": Object {
-            "margin": "0 30%",
-            "width": "40%",
-          },
+          "style": Object {},
         },
         "ref": null,
         "rendered": Object {
@@ -291,7 +285,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s12"
+                  className="input-field col s12 m6 push-m3 l4 push-l4"
                 >
                   <i
                     className="material-icons prefix"
@@ -316,7 +310,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s12"
+                  className="input-field col s12 m6 push-m3 l4 push-l4"
                 >
                   <i
                     className="material-icons prefix"
@@ -336,41 +330,41 @@ ShallowWrapper {
                     Enter your password
                   </label>
                 </div>
-                <label
-                  style={
-                    Object {
-                      "float": "right",
-                    }
-                  }
+              </div>,
+              <div
+                className="row"
+              >
+                <div
+                  className="col s12 m6 push-m3 l4 push-l4"
                 >
-                  <a
-                    className="red-text darken-3"
-                    href="#!"
-                  >
-                    <b>
-                      Forgot Password?
-                    </b>
-                  </a>
-                </label>
+                  <p>
+                                  
+                    Do not have an account? You can register 
+                    <Link
+                      replace={false}
+                      to="/register"
+                    >
+                      here
+                    </Link>
+                  </p>
+                </div>
               </div>,
               <br />,
-              <center>
-                <div
-                  className="row"
+              <div
+                className="row col s12 m6 push-m3 l2 push-l4"
+              >
+                <button
+                  className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                  id="submit"
+                  name="btn_login"
+                  onClick={[Function]}
+                  type="submit"
                 >
-                  <button
-                    className="col s3 btn btn-large waves-effect indigo right"
-                    id="submit"
-                    name="btn_login"
-                    onClick={[Function]}
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </div>
-              </center>,
+                  Login
+                </button>
+              </div>,
             ],
-            "className": "col s12",
+            "className": "col s12 m6 push-m3 l4 push-l4",
           },
           "ref": null,
           "rendered": Array [
@@ -379,103 +373,108 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <div
-                  className="input-field col s12"
-                >
-                  <i
-                    className="material-icons prefix"
+                "children": Array [
+                  <div
+                    className="input-field col s12 m6 push-m3 l4 push-l4"
                   >
-                    contacts
-                  </i>
-                  <input
-                    className="validate"
-                    id="email"
-                    name="email"
-                    onChange={[Function]}
-                    type="email"
-                  />
-                  <label
-                    htmlFor="email"
-                  >
-                    Enter your email
-                  </label>
-                </div>,
-                "className": "row",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
                     <i
                       className="material-icons prefix"
                     >
                       contacts
-                    </i>,
+                    </i>
                     <input
                       className="validate"
                       id="email"
                       name="email"
                       onChange={[Function]}
                       type="email"
-                    />,
+                    />
                     <label
                       htmlFor="email"
                     >
                       Enter your email
-                    </label>,
-                  ],
-                  "className": "input-field col s12",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "contacts",
-                      "className": "material-icons prefix",
-                    },
-                    "ref": null,
-                    "rendered": "contacts",
-                    "type": "i",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "className": "validate",
-                      "error": undefined,
-                      "id": "email",
-                      "name": "email",
-                      "onChange": [Function],
-                      "onFocus": undefined,
-                      "type": "email",
-                      "value": undefined,
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": "input",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Enter your email",
-                      "htmlFor": "email",
-                    },
-                    "ref": null,
-                    "rendered": "Enter your email",
-                    "type": "label",
-                  },
+                    </label>
+                  </div>,
+                  undefined,
                 ],
-                "type": "div",
+                "className": "row",
               },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <i
+                        className="material-icons prefix"
+                      >
+                        contacts
+                      </i>,
+                      <input
+                        className="validate"
+                        id="email"
+                        name="email"
+                        onChange={[Function]}
+                        type="email"
+                      />,
+                      <label
+                        htmlFor="email"
+                      >
+                        Enter your email
+                      </label>,
+                    ],
+                    "className": "input-field col s12 m6 push-m3 l4 push-l4",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "contacts",
+                        "className": "material-icons prefix",
+                      },
+                      "ref": null,
+                      "rendered": "contacts",
+                      "type": "i",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "validate",
+                        "error": undefined,
+                        "id": "email",
+                        "name": "email",
+                        "onChange": [Function],
+                        "onFocus": undefined,
+                        "type": "email",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Enter your email",
+                        "htmlFor": "email",
+                      },
+                      "ref": null,
+                      "rendered": "Enter your email",
+                      "type": "label",
+                    },
+                  ],
+                  "type": "div",
+                },
+                undefined,
+              ],
               "type": "div",
             },
             Object {
@@ -485,7 +484,7 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <div
-                    className="input-field col s12"
+                    className="input-field col s12 m6 push-m3 l4 push-l4"
                   >
                     <i
                       className="material-icons prefix"
@@ -506,22 +505,6 @@ ShallowWrapper {
                     </label>
                   </div>,
                   undefined,
-                  <label
-                    style={
-                      Object {
-                        "float": "right",
-                      }
-                    }
-                  >
-                    <a
-                      className="red-text darken-3"
-                      href="#!"
-                    >
-                      <b>
-                        Forgot Password?
-                      </b>
-                    </a>
-                  </label>,
                 ],
                 "className": "row",
               },
@@ -551,7 +534,7 @@ ShallowWrapper {
                         Enter your password
                       </label>,
                     ],
-                    "className": "input-field col s12",
+                    "className": "input-field col s12 m6 push-m3 l4 push-l4",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -578,7 +561,6 @@ ShallowWrapper {
                         "onChange": [Function],
                         "onFocus": undefined,
                         "type": "password",
-                        "value": undefined,
                       },
                       "ref": null,
                       "rendered": null,
@@ -600,52 +582,87 @@ ShallowWrapper {
                   "type": "div",
                 },
                 undefined,
-                Object {
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="col s12 m6 push-m3 l4 push-l4"
+                >
+                  <p>
+                                  
+                    Do not have an account? You can register 
+                    <Link
+                      replace={false}
+                      to="/register"
+                    >
+                      here
+                    </Link>
+                  </p>
+                </div>,
+                "className": "row",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <p>
+                                  
+                    Do not have an account? You can register 
+                    <Link
+                      replace={false}
+                      to="/register"
+                    >
+                      here
+                    </Link>
+                  </p>,
+                  "className": "col s12 m6 push-m3 l4 push-l4",
+                },
+                "ref": null,
+                "rendered": Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <a
-                      className="red-text darken-3"
-                      href="#!"
-                    >
-                      <b>
-                        Forgot Password?
-                      </b>
-                    </a>,
-                    "style": Object {
-                      "float": "right",
-                    },
+                    "children": Array [
+                      "              ",
+                      "Do not have an account? You can register ",
+                      <Link
+                        replace={false}
+                        to="/register"
+                      >
+                        here
+                      </Link>,
+                    ],
                   },
                   "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": <b>
-                        Forgot Password?
-                      </b>,
-                      "className": "red-text darken-3",
-                      "href": "#!",
-                    },
-                    "ref": null,
-                    "rendered": Object {
+                  "rendered": Array [
+                    "              ",
+                    "Do not have an account? You can register ",
+                    Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "host",
+                      "nodeType": "class",
                       "props": Object {
-                        "children": "Forgot Password?",
+                        "children": "here",
+                        "replace": false,
+                        "to": "/register",
                       },
                       "ref": null,
-                      "rendered": "Forgot Password?",
-                      "type": "b",
+                      "rendered": "here",
+                      "type": [Function],
                     },
-                    "type": "a",
-                  },
-                  "type": "label",
+                  ],
+                  "type": "p",
                 },
-              ],
+                "type": "div",
+              },
               "type": "div",
             },
             Object {
@@ -662,19 +679,16 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <div
-                  className="row"
+                "children": <button
+                  className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                  id="submit"
+                  name="btn_login"
+                  onClick={[Function]}
+                  type="submit"
                 >
-                  <button
-                    className="col s3 btn btn-large waves-effect indigo right"
-                    id="submit"
-                    name="btn_login"
-                    onClick={[Function]}
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </div>,
+                  Login
+                </button>,
+                "className": "row col s12 m6 push-m3 l2 push-l4",
               },
               "ref": null,
               "rendered": Object {
@@ -682,37 +696,18 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <button
-                    className="col s3 btn btn-large waves-effect indigo right"
-                    id="submit"
-                    name="btn_login"
-                    onClick={[Function]}
-                    type="submit"
-                  >
-                    Login
-                  </button>,
-                  "className": "row",
+                  "children": "Login",
+                  "className": "col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo",
+                  "id": "submit",
+                  "name": "btn_login",
+                  "onClick": [Function],
+                  "type": "submit",
                 },
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Login",
-                    "className": "col s3 btn btn-large waves-effect indigo right",
-                    "id": "submit",
-                    "name": "btn_login",
-                    "onClick": [Function],
-                    "type": "submit",
-                  },
-                  "ref": null,
-                  "rendered": "Login",
-                  "type": "button",
-                },
-                "type": "div",
+                "rendered": "Login",
+                "type": "button",
               },
-              "type": "center",
+              "type": "div",
             },
           ],
           "type": "form",
@@ -740,25 +735,21 @@ ShallowWrapper {
             Sign in to your account.
              
           </h5>,
+          undefined,
           <br />,
           " ",
           <br />,
           <div
-            style={
-              Object {
-                "margin": "0 30%",
-                "width": "40%",
-              }
-            }
+            style={Object {}}
           >
             <form
-              className="col s12"
+              className="col s12 m6 push-m3 l4 push-l4"
             >
               <div
                 className="row"
               >
                 <div
-                  className="input-field col s12"
+                  className="input-field col s12 m6 push-m3 l4 push-l4"
                 >
                   <i
                     className="material-icons prefix"
@@ -783,7 +774,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s12"
+                  className="input-field col s12 m6 push-m3 l4 push-l4"
                 >
                   <i
                     className="material-icons prefix"
@@ -803,39 +794,39 @@ ShallowWrapper {
                     Enter your password
                   </label>
                 </div>
-                <label
-                  style={
-                    Object {
-                      "float": "right",
-                    }
-                  }
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="col s12 m6 push-m3 l4 push-l4"
                 >
-                  <a
-                    className="red-text darken-3"
-                    href="#!"
-                  >
-                    <b>
-                      Forgot Password?
-                    </b>
-                  </a>
-                </label>
+                  <p>
+                                  
+                    Do not have an account? You can register 
+                    <Link
+                      replace={false}
+                      to="/register"
+                    >
+                      here
+                    </Link>
+                  </p>
+                </div>
               </div>
               <br />
-              <center>
-                <div
-                  className="row"
+              <div
+                className="row col s12 m6 push-m3 l2 push-l4"
+              >
+                <button
+                  className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                  id="submit"
+                  name="btn_login"
+                  onClick={[Function]}
+                  type="submit"
                 >
-                  <button
-                    className="col s3 btn btn-large waves-effect indigo right"
-                    id="submit"
-                    name="btn_login"
-                    onClick={[Function]}
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </div>
-              </center>
+                  Login
+                </button>
+              </div>
             </form>
           </div>,
         ],
@@ -863,6 +854,7 @@ ShallowWrapper {
           ],
           "type": "h5",
         },
+        undefined,
         Object {
           "instance": null,
           "key": undefined,
@@ -888,13 +880,13 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <form
-              className="col s12"
+              className="col s12 m6 push-m3 l4 push-l4"
             >
               <div
                 className="row"
               >
                 <div
-                  className="input-field col s12"
+                  className="input-field col s12 m6 push-m3 l4 push-l4"
                 >
                   <i
                     className="material-icons prefix"
@@ -919,7 +911,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s12"
+                  className="input-field col s12 m6 push-m3 l4 push-l4"
                 >
                   <i
                     className="material-icons prefix"
@@ -939,44 +931,41 @@ ShallowWrapper {
                     Enter your password
                   </label>
                 </div>
-                <label
-                  style={
-                    Object {
-                      "float": "right",
-                    }
-                  }
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="col s12 m6 push-m3 l4 push-l4"
                 >
-                  <a
-                    className="red-text darken-3"
-                    href="#!"
-                  >
-                    <b>
-                      Forgot Password?
-                    </b>
-                  </a>
-                </label>
+                  <p>
+                                  
+                    Do not have an account? You can register 
+                    <Link
+                      replace={false}
+                      to="/register"
+                    >
+                      here
+                    </Link>
+                  </p>
+                </div>
               </div>
               <br />
-              <center>
-                <div
-                  className="row"
+              <div
+                className="row col s12 m6 push-m3 l2 push-l4"
+              >
+                <button
+                  className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                  id="submit"
+                  name="btn_login"
+                  onClick={[Function]}
+                  type="submit"
                 >
-                  <button
-                    className="col s3 btn btn-large waves-effect indigo right"
-                    id="submit"
-                    name="btn_login"
-                    onClick={[Function]}
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </div>
-              </center>
+                  Login
+                </button>
+              </div>
             </form>,
-            "style": Object {
-              "margin": "0 30%",
-              "width": "40%",
-            },
+            "style": Object {},
           },
           "ref": null,
           "rendered": Object {
@@ -989,7 +978,7 @@ ShallowWrapper {
                   className="row"
                 >
                   <div
-                    className="input-field col s12"
+                    className="input-field col s12 m6 push-m3 l4 push-l4"
                   >
                     <i
                       className="material-icons prefix"
@@ -1014,7 +1003,7 @@ ShallowWrapper {
                   className="row"
                 >
                   <div
-                    className="input-field col s12"
+                    className="input-field col s12 m6 push-m3 l4 push-l4"
                   >
                     <i
                       className="material-icons prefix"
@@ -1034,41 +1023,41 @@ ShallowWrapper {
                       Enter your password
                     </label>
                   </div>
-                  <label
-                    style={
-                      Object {
-                        "float": "right",
-                      }
-                    }
+                </div>,
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col s12 m6 push-m3 l4 push-l4"
                   >
-                    <a
-                      className="red-text darken-3"
-                      href="#!"
-                    >
-                      <b>
-                        Forgot Password?
-                      </b>
-                    </a>
-                  </label>
+                    <p>
+                                    
+                      Do not have an account? You can register 
+                      <Link
+                        replace={false}
+                        to="/register"
+                      >
+                        here
+                      </Link>
+                    </p>
+                  </div>
                 </div>,
                 <br />,
-                <center>
-                  <div
-                    className="row"
+                <div
+                  className="row col s12 m6 push-m3 l2 push-l4"
+                >
+                  <button
+                    className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                    id="submit"
+                    name="btn_login"
+                    onClick={[Function]}
+                    type="submit"
                   >
-                    <button
-                      className="col s3 btn btn-large waves-effect indigo right"
-                      id="submit"
-                      name="btn_login"
-                      onClick={[Function]}
-                      type="submit"
-                    >
-                      Login
-                    </button>
-                  </div>
-                </center>,
+                    Login
+                  </button>
+                </div>,
               ],
-              "className": "col s12",
+              "className": "col s12 m6 push-m3 l4 push-l4",
             },
             "ref": null,
             "rendered": Array [
@@ -1077,103 +1066,108 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <div
-                    className="input-field col s12"
-                  >
-                    <i
-                      className="material-icons prefix"
+                  "children": Array [
+                    <div
+                      className="input-field col s12 m6 push-m3 l4 push-l4"
                     >
-                      contacts
-                    </i>
-                    <input
-                      className="validate"
-                      id="email"
-                      name="email"
-                      onChange={[Function]}
-                      type="email"
-                    />
-                    <label
-                      htmlFor="email"
-                    >
-                      Enter your email
-                    </label>
-                  </div>,
-                  "className": "row",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
                       <i
                         className="material-icons prefix"
                       >
                         contacts
-                      </i>,
+                      </i>
                       <input
                         className="validate"
                         id="email"
                         name="email"
                         onChange={[Function]}
                         type="email"
-                      />,
+                      />
                       <label
                         htmlFor="email"
                       >
                         Enter your email
-                      </label>,
-                    ],
-                    "className": "input-field col s12",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "contacts",
-                        "className": "material-icons prefix",
-                      },
-                      "ref": null,
-                      "rendered": "contacts",
-                      "type": "i",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "className": "validate",
-                        "error": undefined,
-                        "id": "email",
-                        "name": "email",
-                        "onChange": [Function],
-                        "onFocus": undefined,
-                        "type": "email",
-                        "value": undefined,
-                      },
-                      "ref": null,
-                      "rendered": null,
-                      "type": "input",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "Enter your email",
-                        "htmlFor": "email",
-                      },
-                      "ref": null,
-                      "rendered": "Enter your email",
-                      "type": "label",
-                    },
+                      </label>
+                    </div>,
+                    undefined,
                   ],
-                  "type": "div",
+                  "className": "row",
                 },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <i
+                          className="material-icons prefix"
+                        >
+                          contacts
+                        </i>,
+                        <input
+                          className="validate"
+                          id="email"
+                          name="email"
+                          onChange={[Function]}
+                          type="email"
+                        />,
+                        <label
+                          htmlFor="email"
+                        >
+                          Enter your email
+                        </label>,
+                      ],
+                      "className": "input-field col s12 m6 push-m3 l4 push-l4",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "contacts",
+                          "className": "material-icons prefix",
+                        },
+                        "ref": null,
+                        "rendered": "contacts",
+                        "type": "i",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "validate",
+                          "error": undefined,
+                          "id": "email",
+                          "name": "email",
+                          "onChange": [Function],
+                          "onFocus": undefined,
+                          "type": "email",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Enter your email",
+                          "htmlFor": "email",
+                        },
+                        "ref": null,
+                        "rendered": "Enter your email",
+                        "type": "label",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  undefined,
+                ],
                 "type": "div",
               },
               Object {
@@ -1183,7 +1177,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <div
-                      className="input-field col s12"
+                      className="input-field col s12 m6 push-m3 l4 push-l4"
                     >
                       <i
                         className="material-icons prefix"
@@ -1204,22 +1198,6 @@ ShallowWrapper {
                       </label>
                     </div>,
                     undefined,
-                    <label
-                      style={
-                        Object {
-                          "float": "right",
-                        }
-                      }
-                    >
-                      <a
-                        className="red-text darken-3"
-                        href="#!"
-                      >
-                        <b>
-                          Forgot Password?
-                        </b>
-                      </a>
-                    </label>,
                   ],
                   "className": "row",
                 },
@@ -1249,7 +1227,7 @@ ShallowWrapper {
                           Enter your password
                         </label>,
                       ],
-                      "className": "input-field col s12",
+                      "className": "input-field col s12 m6 push-m3 l4 push-l4",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -1276,7 +1254,6 @@ ShallowWrapper {
                           "onChange": [Function],
                           "onFocus": undefined,
                           "type": "password",
-                          "value": undefined,
                         },
                         "ref": null,
                         "rendered": null,
@@ -1298,52 +1275,87 @@ ShallowWrapper {
                     "type": "div",
                   },
                   undefined,
-                  Object {
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="col s12 m6 push-m3 l4 push-l4"
+                  >
+                    <p>
+                                    
+                      Do not have an account? You can register 
+                      <Link
+                        replace={false}
+                        to="/register"
+                      >
+                        here
+                      </Link>
+                    </p>
+                  </div>,
+                  "className": "row",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <p>
+                                    
+                      Do not have an account? You can register 
+                      <Link
+                        replace={false}
+                        to="/register"
+                      >
+                        here
+                      </Link>
+                    </p>,
+                    "className": "col s12 m6 push-m3 l4 push-l4",
+                  },
+                  "ref": null,
+                  "rendered": Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <a
-                        className="red-text darken-3"
-                        href="#!"
-                      >
-                        <b>
-                          Forgot Password?
-                        </b>
-                      </a>,
-                      "style": Object {
-                        "float": "right",
-                      },
+                      "children": Array [
+                        "              ",
+                        "Do not have an account? You can register ",
+                        <Link
+                          replace={false}
+                          to="/register"
+                        >
+                          here
+                        </Link>,
+                      ],
                     },
                     "ref": null,
-                    "rendered": Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": <b>
-                          Forgot Password?
-                        </b>,
-                        "className": "red-text darken-3",
-                        "href": "#!",
-                      },
-                      "ref": null,
-                      "rendered": Object {
+                    "rendered": Array [
+                      "              ",
+                      "Do not have an account? You can register ",
+                      Object {
                         "instance": null,
                         "key": undefined,
-                        "nodeType": "host",
+                        "nodeType": "class",
                         "props": Object {
-                          "children": "Forgot Password?",
+                          "children": "here",
+                          "replace": false,
+                          "to": "/register",
                         },
                         "ref": null,
-                        "rendered": "Forgot Password?",
-                        "type": "b",
+                        "rendered": "here",
+                        "type": [Function],
                       },
-                      "type": "a",
-                    },
-                    "type": "label",
+                    ],
+                    "type": "p",
                   },
-                ],
+                  "type": "div",
+                },
                 "type": "div",
               },
               Object {
@@ -1360,19 +1372,16 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <div
-                    className="row"
+                  "children": <button
+                    className="col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo"
+                    id="submit"
+                    name="btn_login"
+                    onClick={[Function]}
+                    type="submit"
                   >
-                    <button
-                      className="col s3 btn btn-large waves-effect indigo right"
-                      id="submit"
-                      name="btn_login"
-                      onClick={[Function]}
-                      type="submit"
-                    >
-                      Login
-                    </button>
-                  </div>,
+                    Login
+                  </button>,
+                  "className": "row col s12 m6 push-m3 l2 push-l4",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -1380,37 +1389,18 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <button
-                      className="col s3 btn btn-large waves-effect indigo right"
-                      id="submit"
-                      name="btn_login"
-                      onClick={[Function]}
-                      type="submit"
-                    >
-                      Login
-                    </button>,
-                    "className": "row",
+                    "children": "Login",
+                    "className": "col s4 push-s4 m4 push-m4 l2 push-l5 btn btn-small waves-effect indigo",
+                    "id": "submit",
+                    "name": "btn_login",
+                    "onClick": [Function],
+                    "type": "submit",
                   },
                   "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Login",
-                      "className": "col s3 btn btn-large waves-effect indigo right",
-                      "id": "submit",
-                      "name": "btn_login",
-                      "onClick": [Function],
-                      "type": "submit",
-                    },
-                    "ref": null,
-                    "rendered": "Login",
-                    "type": "button",
-                  },
-                  "type": "div",
+                  "rendered": "Login",
+                  "type": "button",
                 },
-                "type": "center",
+                "type": "div",
               },
             ],
             "type": "form",

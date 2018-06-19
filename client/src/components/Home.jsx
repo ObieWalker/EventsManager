@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './Footer.jsx';
-import Testimonials from './Testimonials.jsx';
+// import Testimonials from './Testimonials.jsx';
 import LoginComponent from './Login.jsx';
 /**
  *
@@ -19,8 +19,9 @@ class Home extends Component {
     return (
       <div>
         {/* <Carousel /> */}
+        <br /><br /><br />
         <LoginComponent />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <br/> <br/>
         <Footer />
       </div>

@@ -23,14 +23,21 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h4
-          className="brand-logo col s8"
+          className="center"
         >
           Add Center Information
         </h4>,
+        false,
         <CenterForm
+          addressValue=""
+          centerNameValue=""
+          cityValue=""
           createCenter={[Function]}
+          errors={Object {}}
+          facilityValue=""
           onChange={[Function]}
           onFocus={[Function]}
+          uploadImage={[Function]}
         />,
       ],
     },
@@ -42,25 +49,28 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Add Center Information",
-          "className": "brand-logo col s8",
+          "className": "center",
         },
         "ref": null,
         "rendered": "Add Center Information",
         "type": "h4",
       },
+      false,
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "addressValue": undefined,
+          "addressValue": "",
           "capacityValue": undefined,
-          "centerNameValue": undefined,
-          "cityValue": undefined,
+          "centerNameValue": "",
+          "cityValue": "",
           "createCenter": [Function],
-          "facilityValue": undefined,
+          "errors": Object {},
+          "facilityValue": "",
           "onChange": [Function],
           "onFocus": [Function],
+          "uploadImage": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -77,14 +87,21 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h4
-            className="brand-logo col s8"
+            className="center"
           >
             Add Center Information
           </h4>,
+          false,
           <CenterForm
+            addressValue=""
+            centerNameValue=""
+            cityValue=""
             createCenter={[Function]}
+            errors={Object {}}
+            facilityValue=""
             onChange={[Function]}
             onFocus={[Function]}
+            uploadImage={[Function]}
           />,
         ],
       },
@@ -96,25 +113,28 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Add Center Information",
-            "className": "brand-logo col s8",
+            "className": "center",
           },
           "ref": null,
           "rendered": "Add Center Information",
           "type": "h4",
         },
+        false,
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "addressValue": undefined,
+            "addressValue": "",
             "capacityValue": undefined,
-            "centerNameValue": undefined,
-            "cityValue": undefined,
+            "centerNameValue": "",
+            "cityValue": "",
             "createCenter": [Function],
-            "facilityValue": undefined,
+            "errors": Object {},
+            "facilityValue": "",
             "onChange": [Function],
             "onFocus": [Function],
+            "uploadImage": [Function],
           },
           "ref": null,
           "rendered": null,

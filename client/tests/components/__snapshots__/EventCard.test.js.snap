@@ -60,35 +60,41 @@ ShallowWrapper {
             <div
               className="card-body"
             >
-              <h5
-                className="card-title white-text"
+              <div
+                style={
+                  Object {
+                    "minHeight": "9rem",
+                  }
+                }
               >
-                Meeting
-              </h5>
-              <h6
-                className="card-subtitle mb-2 text-muted white-text"
-              >
-                Center: 
-                The Hot Abode
-              </h6>
-              <p
-                className="card-text white-text"
-              >
-                Date: 
-                2018-9-04
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Address 
-                23, Segun Samuel Street
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Guest Estimate: 
-                20
-              </p>
+                <h5
+                  className="card-title white-text"
+                >
+                  Meeting
+                </h5>
+                <h6
+                  className="card-subtitle mb-2 text-muted white-text"
+                >
+                  Center: The Hot Abode
+                </h6>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                  2018-9-04
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 23, Segun Samuel Street
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                  20
+                </p>
+              </div>
               <hr
                 className="hr-light"
               />
@@ -116,7 +122,9 @@ ShallowWrapper {
         </div>
       </Col>,
       "style": Object {
-        "margin": "5%",
+        "display": "inlineBlock",
+        "float": "left",
+        "margin": "1%",
       },
     },
     "ref": null,
@@ -142,35 +150,41 @@ ShallowWrapper {
             <div
               className="card-body"
             >
-              <h5
-                className="card-title white-text"
+              <div
+                style={
+                  Object {
+                    "minHeight": "9rem",
+                  }
+                }
               >
-                Meeting
-              </h5>
-              <h6
-                className="card-subtitle mb-2 text-muted white-text"
-              >
-                Center: 
-                The Hot Abode
-              </h6>
-              <p
-                className="card-text white-text"
-              >
-                Date: 
-                2018-9-04
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Address 
-                23, Segun Samuel Street
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Guest Estimate: 
-                20
-              </p>
+                <h5
+                  className="card-title white-text"
+                >
+                  Meeting
+                </h5>
+                <h6
+                  className="card-subtitle mb-2 text-muted white-text"
+                >
+                  Center: The Hot Abode
+                </h6>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                  2018-9-04
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 23, Segun Samuel Street
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                  20
+                </p>
+              </div>
               <hr
                 className="hr-light"
               />
@@ -219,35 +233,41 @@ ShallowWrapper {
             <div
               className="card-body"
             >
-              <h5
-                className="card-title white-text"
+              <div
+                style={
+                  Object {
+                    "minHeight": "9rem",
+                  }
+                }
               >
-                Meeting
-              </h5>
-              <h6
-                className="card-subtitle mb-2 text-muted white-text"
-              >
-                Center: 
-                The Hot Abode
-              </h6>
-              <p
-                className="card-text white-text"
-              >
-                Date: 
-                2018-9-04
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Address 
-                23, Segun Samuel Street
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Guest Estimate: 
-                20
-              </p>
+                <h5
+                  className="card-title white-text"
+                >
+                  Meeting
+                </h5>
+                <h6
+                  className="card-subtitle mb-2 text-muted white-text"
+                >
+                  Center: The Hot Abode
+                </h6>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                  2018-9-04
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 23, Segun Samuel Street
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                  20
+                </p>
+              </div>
               <hr
                 className="hr-light"
               />
@@ -283,35 +303,41 @@ ShallowWrapper {
             "children": <div
               className="card-body"
             >
-              <h5
-                className="card-title white-text"
+              <div
+                style={
+                  Object {
+                    "minHeight": "9rem",
+                  }
+                }
               >
-                Meeting
-              </h5>
-              <h6
-                className="card-subtitle mb-2 text-muted white-text"
-              >
-                Center: 
-                The Hot Abode
-              </h6>
-              <p
-                className="card-text white-text"
-              >
-                Date: 
-                2018-9-04
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Address 
-                23, Segun Samuel Street
-              </p>
-              <p
-                className="card-text white-text"
-              >
-                Guest Estimate: 
-                20
-              </p>
+                <h5
+                  className="card-title white-text"
+                >
+                  Meeting
+                </h5>
+                <h6
+                  className="card-subtitle mb-2 text-muted white-text"
+                >
+                  Center: The Hot Abode
+                </h6>
+                <p
+                  className="card-text white-text"
+                >
+                  Date: 
+                  2018-9-04
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Address: 23, Segun Samuel Street
+                </p>
+                <p
+                  className="card-text white-text"
+                >
+                  Guest Estimate: 
+                  20
+                </p>
+              </div>
               <hr
                 className="hr-light"
               />
@@ -350,35 +376,41 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <h5
-                  className="card-title white-text"
+                <div
+                  style={
+                    Object {
+                      "minHeight": "9rem",
+                    }
+                  }
                 >
-                  Meeting
-                </h5>,
-                <h6
-                  className="card-subtitle mb-2 text-muted white-text"
-                >
-                  Center: 
-                  The Hot Abode
-                </h6>,
-                <p
-                  className="card-text white-text"
-                >
-                  Date: 
-                  2018-9-04
-                </p>,
-                <p
-                  className="card-text white-text"
-                >
-                  Address 
-                  23, Segun Samuel Street
-                </p>,
-                <p
-                  className="card-text white-text"
-                >
-                  Guest Estimate: 
-                  20
-                </p>,
+                  <h5
+                    className="card-title white-text"
+                  >
+                    Meeting
+                  </h5>
+                  <h6
+                    className="card-subtitle mb-2 text-muted white-text"
+                  >
+                    Center: The Hot Abode
+                  </h6>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Date: 
+                    2018-9-04
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Address: 23, Segun Samuel Street
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Guest Estimate: 
+                    20
+                  </p>
+                </div>,
                 <hr
                   className="hr-light"
                 />,
@@ -411,84 +443,115 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Meeting",
-                  "className": "card-title white-text",
-                },
-                "ref": null,
-                "rendered": "Meeting",
-                "type": "h5",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
                   "children": Array [
-                    "Center: ",
-                    "The Hot Abode",
+                    <h5
+                      className="card-title white-text"
+                    >
+                      Meeting
+                    </h5>,
+                    <h6
+                      className="card-subtitle mb-2 text-muted white-text"
+                    >
+                      Center: The Hot Abode
+                    </h6>,
+                    <p
+                      className="card-text white-text"
+                    >
+                      Date: 
+                      2018-9-04
+                    </p>,
+                    <p
+                      className="card-text white-text"
+                    >
+                      Address: 23, Segun Samuel Street
+                    </p>,
+                    <p
+                      className="card-text white-text"
+                    >
+                      Guest Estimate: 
+                      20
+                    </p>,
                   ],
-                  "className": "card-subtitle mb-2 text-muted white-text",
+                  "style": Object {
+                    "minHeight": "9rem",
+                  },
                 },
                 "ref": null,
                 "rendered": Array [
-                  "Center: ",
-                  "The Hot Abode",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Meeting",
+                      "className": "card-title white-text",
+                    },
+                    "ref": null,
+                    "rendered": "Meeting",
+                    "type": "h5",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Center: The Hot Abode",
+                      "className": "card-subtitle mb-2 text-muted white-text",
+                    },
+                    "ref": null,
+                    "rendered": "Center: The Hot Abode",
+                    "type": "h6",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Date: ",
+                        "2018-9-04",
+                      ],
+                      "className": "card-text white-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Date: ",
+                      "2018-9-04",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Address: 23, Segun Samuel Street",
+                      "className": "card-text white-text",
+                    },
+                    "ref": null,
+                    "rendered": "Address: 23, Segun Samuel Street",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Guest Estimate: ",
+                        20,
+                      ],
+                      "className": "card-text white-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Guest Estimate: ",
+                      20,
+                    ],
+                    "type": "p",
+                  },
                 ],
-                "type": "h6",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    "Date: ",
-                    "2018-9-04",
-                  ],
-                  "className": "card-text white-text",
-                },
-                "ref": null,
-                "rendered": Array [
-                  "Date: ",
-                  "2018-9-04",
-                ],
-                "type": "p",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    "Address ",
-                    "23, Segun Samuel Street",
-                  ],
-                  "className": "card-text white-text",
-                },
-                "ref": null,
-                "rendered": Array [
-                  "Address ",
-                  "23, Segun Samuel Street",
-                ],
-                "type": "p",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    "Guest Estimate: ",
-                    20,
-                  ],
-                  "className": "card-text white-text",
-                },
-                "ref": null,
-                "rendered": Array [
-                  "Guest Estimate: ",
-                  20,
-                ],
-                "type": "p",
+                "type": "div",
               },
               Object {
                 "instance": null,
@@ -647,35 +710,41 @@ ShallowWrapper {
               <div
                 className="card-body"
               >
-                <h5
-                  className="card-title white-text"
+                <div
+                  style={
+                    Object {
+                      "minHeight": "9rem",
+                    }
+                  }
                 >
-                  Meeting
-                </h5>
-                <h6
-                  className="card-subtitle mb-2 text-muted white-text"
-                >
-                  Center: 
-                  The Hot Abode
-                </h6>
-                <p
-                  className="card-text white-text"
-                >
-                  Date: 
-                  2018-9-04
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Address 
-                  23, Segun Samuel Street
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Guest Estimate: 
-                  20
-                </p>
+                  <h5
+                    className="card-title white-text"
+                  >
+                    Meeting
+                  </h5>
+                  <h6
+                    className="card-subtitle mb-2 text-muted white-text"
+                  >
+                    Center: The Hot Abode
+                  </h6>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Date: 
+                    2018-9-04
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Address: 23, Segun Samuel Street
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Guest Estimate: 
+                    20
+                  </p>
+                </div>
                 <hr
                   className="hr-light"
                 />
@@ -703,7 +772,9 @@ ShallowWrapper {
           </div>
         </Col>,
         "style": Object {
-          "margin": "5%",
+          "display": "inlineBlock",
+          "float": "left",
+          "margin": "1%",
         },
       },
       "ref": null,
@@ -729,35 +800,41 @@ ShallowWrapper {
               <div
                 className="card-body"
               >
-                <h5
-                  className="card-title white-text"
+                <div
+                  style={
+                    Object {
+                      "minHeight": "9rem",
+                    }
+                  }
                 >
-                  Meeting
-                </h5>
-                <h6
-                  className="card-subtitle mb-2 text-muted white-text"
-                >
-                  Center: 
-                  The Hot Abode
-                </h6>
-                <p
-                  className="card-text white-text"
-                >
-                  Date: 
-                  2018-9-04
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Address 
-                  23, Segun Samuel Street
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Guest Estimate: 
-                  20
-                </p>
+                  <h5
+                    className="card-title white-text"
+                  >
+                    Meeting
+                  </h5>
+                  <h6
+                    className="card-subtitle mb-2 text-muted white-text"
+                  >
+                    Center: The Hot Abode
+                  </h6>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Date: 
+                    2018-9-04
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Address: 23, Segun Samuel Street
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Guest Estimate: 
+                    20
+                  </p>
+                </div>
                 <hr
                   className="hr-light"
                 />
@@ -806,35 +883,41 @@ ShallowWrapper {
               <div
                 className="card-body"
               >
-                <h5
-                  className="card-title white-text"
+                <div
+                  style={
+                    Object {
+                      "minHeight": "9rem",
+                    }
+                  }
                 >
-                  Meeting
-                </h5>
-                <h6
-                  className="card-subtitle mb-2 text-muted white-text"
-                >
-                  Center: 
-                  The Hot Abode
-                </h6>
-                <p
-                  className="card-text white-text"
-                >
-                  Date: 
-                  2018-9-04
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Address 
-                  23, Segun Samuel Street
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Guest Estimate: 
-                  20
-                </p>
+                  <h5
+                    className="card-title white-text"
+                  >
+                    Meeting
+                  </h5>
+                  <h6
+                    className="card-subtitle mb-2 text-muted white-text"
+                  >
+                    Center: The Hot Abode
+                  </h6>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Date: 
+                    2018-9-04
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Address: 23, Segun Samuel Street
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Guest Estimate: 
+                    20
+                  </p>
+                </div>
                 <hr
                   className="hr-light"
                 />
@@ -870,35 +953,41 @@ ShallowWrapper {
               "children": <div
                 className="card-body"
               >
-                <h5
-                  className="card-title white-text"
+                <div
+                  style={
+                    Object {
+                      "minHeight": "9rem",
+                    }
+                  }
                 >
-                  Meeting
-                </h5>
-                <h6
-                  className="card-subtitle mb-2 text-muted white-text"
-                >
-                  Center: 
-                  The Hot Abode
-                </h6>
-                <p
-                  className="card-text white-text"
-                >
-                  Date: 
-                  2018-9-04
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Address 
-                  23, Segun Samuel Street
-                </p>
-                <p
-                  className="card-text white-text"
-                >
-                  Guest Estimate: 
-                  20
-                </p>
+                  <h5
+                    className="card-title white-text"
+                  >
+                    Meeting
+                  </h5>
+                  <h6
+                    className="card-subtitle mb-2 text-muted white-text"
+                  >
+                    Center: The Hot Abode
+                  </h6>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Date: 
+                    2018-9-04
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Address: 23, Segun Samuel Street
+                  </p>
+                  <p
+                    className="card-text white-text"
+                  >
+                    Guest Estimate: 
+                    20
+                  </p>
+                </div>
                 <hr
                   className="hr-light"
                 />
@@ -937,35 +1026,41 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <h5
-                    className="card-title white-text"
+                  <div
+                    style={
+                      Object {
+                        "minHeight": "9rem",
+                      }
+                    }
                   >
-                    Meeting
-                  </h5>,
-                  <h6
-                    className="card-subtitle mb-2 text-muted white-text"
-                  >
-                    Center: 
-                    The Hot Abode
-                  </h6>,
-                  <p
-                    className="card-text white-text"
-                  >
-                    Date: 
-                    2018-9-04
-                  </p>,
-                  <p
-                    className="card-text white-text"
-                  >
-                    Address 
-                    23, Segun Samuel Street
-                  </p>,
-                  <p
-                    className="card-text white-text"
-                  >
-                    Guest Estimate: 
-                    20
-                  </p>,
+                    <h5
+                      className="card-title white-text"
+                    >
+                      Meeting
+                    </h5>
+                    <h6
+                      className="card-subtitle mb-2 text-muted white-text"
+                    >
+                      Center: The Hot Abode
+                    </h6>
+                    <p
+                      className="card-text white-text"
+                    >
+                      Date: 
+                      2018-9-04
+                    </p>
+                    <p
+                      className="card-text white-text"
+                    >
+                      Address: 23, Segun Samuel Street
+                    </p>
+                    <p
+                      className="card-text white-text"
+                    >
+                      Guest Estimate: 
+                      20
+                    </p>
+                  </div>,
                   <hr
                     className="hr-light"
                   />,
@@ -998,84 +1093,115 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Meeting",
-                    "className": "card-title white-text",
-                  },
-                  "ref": null,
-                  "rendered": "Meeting",
-                  "type": "h5",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
                     "children": Array [
-                      "Center: ",
-                      "The Hot Abode",
+                      <h5
+                        className="card-title white-text"
+                      >
+                        Meeting
+                      </h5>,
+                      <h6
+                        className="card-subtitle mb-2 text-muted white-text"
+                      >
+                        Center: The Hot Abode
+                      </h6>,
+                      <p
+                        className="card-text white-text"
+                      >
+                        Date: 
+                        2018-9-04
+                      </p>,
+                      <p
+                        className="card-text white-text"
+                      >
+                        Address: 23, Segun Samuel Street
+                      </p>,
+                      <p
+                        className="card-text white-text"
+                      >
+                        Guest Estimate: 
+                        20
+                      </p>,
                     ],
-                    "className": "card-subtitle mb-2 text-muted white-text",
+                    "style": Object {
+                      "minHeight": "9rem",
+                    },
                   },
                   "ref": null,
                   "rendered": Array [
-                    "Center: ",
-                    "The Hot Abode",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Meeting",
+                        "className": "card-title white-text",
+                      },
+                      "ref": null,
+                      "rendered": "Meeting",
+                      "type": "h5",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Center: The Hot Abode",
+                        "className": "card-subtitle mb-2 text-muted white-text",
+                      },
+                      "ref": null,
+                      "rendered": "Center: The Hot Abode",
+                      "type": "h6",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Date: ",
+                          "2018-9-04",
+                        ],
+                        "className": "card-text white-text",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Date: ",
+                        "2018-9-04",
+                      ],
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Address: 23, Segun Samuel Street",
+                        "className": "card-text white-text",
+                      },
+                      "ref": null,
+                      "rendered": "Address: 23, Segun Samuel Street",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Guest Estimate: ",
+                          20,
+                        ],
+                        "className": "card-text white-text",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Guest Estimate: ",
+                        20,
+                      ],
+                      "type": "p",
+                    },
                   ],
-                  "type": "h6",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      "Date: ",
-                      "2018-9-04",
-                    ],
-                    "className": "card-text white-text",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "Date: ",
-                    "2018-9-04",
-                  ],
-                  "type": "p",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      "Address ",
-                      "23, Segun Samuel Street",
-                    ],
-                    "className": "card-text white-text",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "Address ",
-                    "23, Segun Samuel Street",
-                  ],
-                  "type": "p",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      "Guest Estimate: ",
-                      20,
-                    ],
-                    "className": "card-text white-text",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "Guest Estimate: ",
-                    20,
-                  ],
-                  "type": "p",
+                  "type": "div",
                 },
                 Object {
                   "instance": null,

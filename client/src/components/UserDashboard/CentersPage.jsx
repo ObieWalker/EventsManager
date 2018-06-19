@@ -13,8 +13,7 @@ import EventList from '../EventList.jsx';
 import '../../styles/index.less';
 import addEventAction from '../../actions/addEventAction';
 import getAllCenters from '../../actions/getAllCentersAction';
-import centerEvents, { clearCenterEvents }
-  from '../../actions/getCenterEventsAction';
+import centerEvents, { clearCenterEvents } from '../../actions/getCenterEventsAction';
 
 /**
  *
@@ -265,20 +264,29 @@ export class CentersPage extends Component {
     const events = this.props.fetchedCenterEvents;
     return (
       <div>
-        <button
+        {/* <button
           onClick={this.revertPageState}
           className="animated bounceInUp btn btn-small left"
         >
           <i className="large material-icons">reply</i>
           Go Back
-        </button>
+        </button> */}
         <div>
           {events && events.length > 0 ? (
             <div>
-              <h4>
-                Upcoming Events at{' '}
-                {this.props.fetchedCenterEvents[0].Center.name}
-              </h4>
+              <div className="row">
+                <h4>
+                  Upcoming Events at{' '}
+                  {this.props.fetchedCenterEvents[0].Center.name}
+                </h4>
+                <button
+                  onClick={this.revertPageState}
+                  className="animated bounceInUp btn btn-small left"
+                >
+                  <i className="large material-icons">reply</i>
+                  Go Back
+                </button>
+              </div>
               <Row>
                 {events.map((event, i) => <EventList key={i} event={event} />)}
               </Row>

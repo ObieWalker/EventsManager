@@ -90,7 +90,6 @@ export class ModifyCenter extends Component {
   isValid() {
     const { errors, isValid } = validateForm(this.state);
     if (!isValid) {
-      console.log('errors', errors);
       this.setState({ errors });
     }
     return isValid;
@@ -103,10 +102,8 @@ export class ModifyCenter extends Component {
    * @memberof ModifyCenter
    */
   updateCenter(e) {
-    console.log('update center =====');
     e.preventDefault();
     if (this.isValid()) {
-      console.log('it is valid');
       this.setState({ errors: {} });
       const newCenterDetails = this.state;
       this.props

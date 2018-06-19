@@ -16,6 +16,7 @@ const defaultCityValue = '';
 let capacityValue, defaultCapacityValue;
 const facilityValue = '';
 const defaultFacilityValue = '';
+const errors = {};
 
 const createCenter = jest.fn();
 const modifyOnClick = jest.fn();
@@ -38,7 +39,8 @@ const getComponent = () => {
       facilityValue,
       defaultFacilityValue,
       modifyOnClick,
-      createCenter
+      createCenter,
+      errors
     };
     mountedForm = shallow(<CenterForm {...props} />);
   }

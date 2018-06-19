@@ -1,5 +1,5 @@
 import axios from 'axios';
-import toastr from 'toastr';
+// import toastr from 'toastr';
 import { setAuthToken } from '../../helpers/setAuthToken';
 import {
   REGISTERING_USER,
@@ -21,7 +21,7 @@ const registerUserFailure = error => ({
   error
 });
 
-const registerUser = userInfo => ((dispatch) => {
+const registerUser = userInfo => (dispatch) => {
   dispatch(registeringUser(true));
   return axios
     .post('/api/v1/users', userInfo)
@@ -33,10 +33,9 @@ const registerUser = userInfo => ((dispatch) => {
       dispatch(registeringUser(false));
     })
     .catch((error) => {
-      toastr.error(error.response.data.message);
+      // toastr.error(error.response.data.message);
       dispatch(registerUserFailure(error.response.data.message));
       dispatch(registeringUser(false));
     });
-}
-);
+};
 export default registerUser;

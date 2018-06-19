@@ -29,7 +29,6 @@ export function setUserFailure(error) {
   };
 }
 const login = (userInfo, history) => (dispatch) => {
-  console.log('inside login function');
   const userData = userInfo;
   return axios({
     method: 'POST',
@@ -37,7 +36,6 @@ const login = (userInfo, history) => (dispatch) => {
     data: userData
   })
     .then((response) => {
-      console.log('response from login function');
       localStorage.setItem('token', response.data.token);
       setAuthToken(response.data.token);
       const decoded = jwt.decode(response.data.token);
