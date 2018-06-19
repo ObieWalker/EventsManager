@@ -18,10 +18,12 @@ services:
 cache:
   directories:
    - "node_modules"
-
+env:
+  - CODECOV_TOKEN=aeaac1a1-79a2-45bd-b260-8b23ea0037e3
 before_script:
   - psql -c "create database events_test;" -U postgres
   - psql -c "create database events_dev;" -U postgres
+  - npm install -g codecov
 
 after_success:
   - NODE_ENV=development npm run coverage
