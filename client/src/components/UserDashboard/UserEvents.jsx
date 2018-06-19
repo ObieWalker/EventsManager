@@ -89,7 +89,6 @@ export class UserEvents extends Component {
    * @memberof UserEvents
    */
   handleShowEditModal(event) {
-    console.log('show edit modal');
     this.setState({
       event,
       showModal: true

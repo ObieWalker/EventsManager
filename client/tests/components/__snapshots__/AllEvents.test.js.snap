@@ -44,7 +44,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h3>
+        <h3
+          className="center"
+        >
           All Events and details.
         </h3>,
         <div>
@@ -86,6 +88,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "All Events and details.",
+          "className": "center",
         },
         "ref": null,
         "rendered": "All Events and details.",
@@ -205,7 +208,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h3>
+          <h3
+            className="center"
+          >
             All Events and details.
           </h3>,
           <div>
@@ -247,6 +252,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "All Events and details.",
+            "className": "center",
           },
           "ref": null,
           "rendered": "All Events and details.",

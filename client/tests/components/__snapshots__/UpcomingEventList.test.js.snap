@@ -78,7 +78,9 @@ ShallowWrapper {
         </div>
       </Col>,
       "style": Object {
-        "margin": "5%",
+        "display": "inlineBlock",
+        "float": "left",
+        "margin": "1%",
       },
     },
     "ref": null,
@@ -394,7 +396,9 @@ ShallowWrapper {
           </div>
         </Col>,
         "style": Object {
-          "margin": "5%",
+          "display": "inlineBlock",
+          "float": "left",
+          "margin": "1%",
         },
       },
       "ref": null,

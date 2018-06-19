@@ -154,8 +154,8 @@ export class BookCenter extends Component {
    * @param {any} centerId
    * @memberof BookCenter
    */
-  onSubmit() {
-    const e = { preventDefault: () => undefined };
+  onSubmit(e) {
+    // const e = { preventDefault: () => undefined };
     const { center } = this.props;
     e.preventDefault();
     if (this.formIsValid()) {
@@ -215,7 +215,7 @@ export class BookCenter extends Component {
 }
 
 BookCenter.propTypes = {
-  center: PropTypes.Object,
+  center: PropTypes.object,
   createSuccess: PropTypes.string,
   createError: PropTypes.string,
   addNewEvent: PropTypes.func,

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import history from '../../history';
-import Header from './Header.jsx';
+import HeaderComp from './Header.jsx';
 import Home from './Home.jsx';
-import Register from './Register.jsx';
-import ContactUs from './ContactUs.jsx';
+import RegisterComp from './Register.jsx';
+import ContactUsComp from './ContactUs.jsx';
 // import Centers from './Centers.jsx';
 import UDashboard from './UserDashboard/Main.jsx';
 import AdminDashboard from './AdminDashboard/Dashboard.jsx';
@@ -29,12 +29,12 @@ export default class App extends Component {
     return (
       <Router history={history}>
         <div style={{ textAlign: 'center' }}>
-          <Header />
+          <HeaderComp />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Home} />
-            <Route exact path="/register" component={Register} />
-            <Route path="/contact-us" component={ContactUs} />
+            <Route exact path="/register" component={RegisterComp} />
+            <Route path="/contact-us" component={ContactUsComp} />
             <Route
               path="/dashboard"
               component={RequireAuthentication(UDashboard)}

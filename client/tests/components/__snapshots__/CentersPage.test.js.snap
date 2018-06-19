@@ -144,38 +144,19 @@ ShallowWrapper {
             <br />
           </div>
         </div>,
-        <Modal
-          animation={true}
-          autoFocus={true}
-          backdrop={true}
-          bsClass="modal"
-          bsSize="large"
-          className="modal-display"
-          dialogComponentClass={[Function]}
-          enforceFocus={true}
-          keyboard={true}
-          manager={
-            ModalManager {
-              "add": [Function],
-              "containers": Array [],
-              "data": Array [],
-              "handleContainerOverflow": true,
-              "hideSiblingNodes": true,
-              "isTopModal": [Function],
-              "modals": Array [],
-              "remove": [Function],
-            }
-          }
-          onHide={[Function]}
-          renderBackdrop={[Function]}
-          restoreFocus={true}
-          show={false}
+        <Dialog
+          autoDetectWindowHeight={true}
+          autoScrollBodyContent={true}
+          modal={false}
+          onRequestClose={[Function]}
+          open={false}
+          repositionOnUpdate={true}
         >
           <Connect(BookCenter)
             center=""
             onHide={[Function]}
           />
-        </Modal>,
+        </Dialog>,
       ],
     },
     "ref": null,
@@ -414,33 +395,16 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "animation": true,
-          "autoFocus": true,
-          "backdrop": true,
-          "bsClass": "modal",
-          "bsSize": "large",
+          "autoDetectWindowHeight": true,
+          "autoScrollBodyContent": true,
           "children": <Connect(BookCenter)
             center=""
             onHide={[Function]}
           />,
-          "className": "modal-display",
-          "dialogComponentClass": [Function],
-          "enforceFocus": true,
-          "keyboard": true,
-          "manager": ModalManager {
-            "add": [Function],
-            "containers": Array [],
-            "data": Array [],
-            "handleContainerOverflow": true,
-            "hideSiblingNodes": true,
-            "isTopModal": [Function],
-            "modals": Array [],
-            "remove": [Function],
-          },
-          "onHide": [Function],
-          "renderBackdrop": [Function],
-          "restoreFocus": true,
-          "show": false,
+          "modal": false,
+          "onRequestClose": [Function],
+          "open": false,
+          "repositionOnUpdate": true,
         },
         "ref": null,
         "rendered": Object {
@@ -514,38 +478,19 @@ ShallowWrapper {
               <br />
             </div>
           </div>,
-          <Modal
-            animation={true}
-            autoFocus={true}
-            backdrop={true}
-            bsClass="modal"
-            bsSize="large"
-            className="modal-display"
-            dialogComponentClass={[Function]}
-            enforceFocus={true}
-            keyboard={true}
-            manager={
-              ModalManager {
-                "add": [Function],
-                "containers": Array [],
-                "data": Array [],
-                "handleContainerOverflow": true,
-                "hideSiblingNodes": true,
-                "isTopModal": [Function],
-                "modals": Array [],
-                "remove": [Function],
-              }
-            }
-            onHide={[Function]}
-            renderBackdrop={[Function]}
-            restoreFocus={true}
-            show={false}
+          <Dialog
+            autoDetectWindowHeight={true}
+            autoScrollBodyContent={true}
+            modal={false}
+            onRequestClose={[Function]}
+            open={false}
+            repositionOnUpdate={true}
           >
             <Connect(BookCenter)
               center=""
               onHide={[Function]}
             />
-          </Modal>,
+          </Dialog>,
         ],
       },
       "ref": null,
@@ -784,33 +729,16 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "animation": true,
-            "autoFocus": true,
-            "backdrop": true,
-            "bsClass": "modal",
-            "bsSize": "large",
+            "autoDetectWindowHeight": true,
+            "autoScrollBodyContent": true,
             "children": <Connect(BookCenter)
               center=""
               onHide={[Function]}
             />,
-            "className": "modal-display",
-            "dialogComponentClass": [Function],
-            "enforceFocus": true,
-            "keyboard": true,
-            "manager": ModalManager {
-              "add": [Function],
-              "containers": Array [],
-              "data": Array [],
-              "handleContainerOverflow": true,
-              "hideSiblingNodes": true,
-              "isTopModal": [Function],
-              "modals": Array [],
-              "remove": [Function],
-            },
-            "onHide": [Function],
-            "renderBackdrop": [Function],
-            "restoreFocus": true,
-            "show": false,
+            "modal": false,
+            "onRequestClose": [Function],
+            "open": false,
+            "repositionOnUpdate": true,
           },
           "ref": null,
           "rendered": Object {

@@ -26,6 +26,6 @@ describe('Home Component', () => {
     wrapper = getComponent();
     expect(wrapper.find('div').length).toBe(1);
     expect(wrapper.find('Footer').length).toBe(1);
-    expect(wrapper.find('br').length).toBe(2);
+    expect(wrapper.find('br').length).toBe(5);
   });
 });

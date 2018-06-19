@@ -6,7 +6,7 @@ const EventCard = (props) => {
   const { event } = props;
   if (!event.isCancelled) {
     return (
-      <div style={{ margin: '5%' }}>
+      <div style={{ margin: '1%', float: 'left', display: 'inlineBlock' }}>
         <Col s={10} m={4}>
           <div className="col 12">
             <div

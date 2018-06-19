@@ -17,14 +17,12 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <div
-        className="container"
-      >
+      "children": <div>
         <div
           className="row"
         >
           <div
-            className="col l6 s12"
+            className="col l12 s12"
           >
             <h5
               className="white-text"
@@ -39,32 +37,14 @@ ShallowWrapper {
           </div>
           <div
             className="col l4 offset-l2 s12"
-          >
-            <h5
-              className="white-text"
-            >
-              Links
-            </h5>
-            <ul>
-              <li>
-                <a
-                  className="white-text"
-                  href="all-events.html"
-                >
-                  All Events
-                </a>
-              </li>
-              <li>
-                <a
-                  className="white-text"
-                  href="all-centers.html"
-                >
-                  All Centers
-                </a>
-              </li>
-            </ul>
-          </div>
+          />
         </div>
+        <div />
+        <br />
+        <br />
+        <div
+          className="row"
+        />
       </div>,
       "className": "page-footer indigo index-footer footer-padding",
     },
@@ -74,309 +54,12 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <div
-          className="row"
-        >
-          <div
-            className="col l6 s12"
-          >
-            <h5
-              className="white-text"
-            >
-               The Events Manager
-            </h5>
-            <p
-              className="grey-text text-lighten-4"
-            >
-              © Obi Walker (Andela 2017)
-            </p>
-          </div>
-          <div
-            className="col l4 offset-l2 s12"
-          >
-            <h5
-              className="white-text"
-            >
-              Links
-            </h5>
-            <ul>
-              <li>
-                <a
-                  className="white-text"
-                  href="all-events.html"
-                >
-                  All Events
-                </a>
-              </li>
-              <li>
-                <a
-                  className="white-text"
-                  href="all-centers.html"
-                >
-                  All Centers
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>,
-        "className": "container",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <div
-              className="col l6 s12"
-            >
-              <h5
-                className="white-text"
-              >
-                 The Events Manager
-              </h5>
-              <p
-                className="grey-text text-lighten-4"
-              >
-                © Obi Walker (Andela 2017)
-              </p>
-            </div>,
-            <div
-              className="col l4 offset-l2 s12"
-            >
-              <h5
-                className="white-text"
-              >
-                Links
-              </h5>
-              <ul>
-                <li>
-                  <a
-                    className="white-text"
-                    href="all-events.html"
-                  >
-                    All Events
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="white-text"
-                    href="all-centers.html"
-                  >
-                    All Centers
-                  </a>
-                </li>
-              </ul>
-            </div>,
-          ],
-          "className": "row",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <h5
-                  className="white-text"
-                >
-                   The Events Manager
-                </h5>,
-                <p
-                  className="grey-text text-lighten-4"
-                >
-                  © Obi Walker (Andela 2017)
-                </p>,
-              ],
-              "className": "col l6 s12",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": " The Events Manager",
-                  "className": "white-text",
-                },
-                "ref": null,
-                "rendered": " The Events Manager",
-                "type": "h5",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "© Obi Walker (Andela 2017)",
-                  "className": "grey-text text-lighten-4",
-                },
-                "ref": null,
-                "rendered": "© Obi Walker (Andela 2017)",
-                "type": "p",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <h5
-                  className="white-text"
-                >
-                  Links
-                </h5>,
-                <ul>
-                  <li>
-                    <a
-                      className="white-text"
-                      href="all-events.html"
-                    >
-                      All Events
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="white-text"
-                      href="all-centers.html"
-                    >
-                      All Centers
-                    </a>
-                  </li>
-                </ul>,
-              ],
-              "className": "col l4 offset-l2 s12",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Links",
-                  "className": "white-text",
-                },
-                "ref": null,
-                "rendered": "Links",
-                "type": "h5",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <li>
-                      <a
-                        className="white-text"
-                        href="all-events.html"
-                      >
-                        All Events
-                      </a>
-                    </li>,
-                    <li>
-                      <a
-                        className="white-text"
-                        href="all-centers.html"
-                      >
-                        All Centers
-                      </a>
-                    </li>,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": <a
-                        className="white-text"
-                        href="all-events.html"
-                      >
-                        All Events
-                      </a>,
-                    },
-                    "ref": null,
-                    "rendered": Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "All Events",
-                        "className": "white-text",
-                        "href": "all-events.html",
-                      },
-                      "ref": null,
-                      "rendered": "All Events",
-                      "type": "a",
-                    },
-                    "type": "li",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": <a
-                        className="white-text"
-                        href="all-centers.html"
-                      >
-                        All Centers
-                      </a>,
-                    },
-                    "ref": null,
-                    "rendered": Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "All Centers",
-                        "className": "white-text",
-                        "href": "all-centers.html",
-                      },
-                      "ref": null,
-                      "rendered": "All Centers",
-                      "type": "a",
-                    },
-                    "type": "li",
-                  },
-                ],
-                "type": "ul",
-              },
-            ],
-            "type": "div",
-          },
-        ],
-        "type": "div",
-      },
-      "type": "div",
-    },
-    "type": "footer",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
-          className="container"
-        >
+        "children": Array [
           <div
             className="row"
           >
             <div
-              className="col l6 s12"
+              className="col l12 s12"
             >
               <h5
                 className="white-text"
@@ -391,97 +74,26 @@ ShallowWrapper {
             </div>
             <div
               className="col l4 offset-l2 s12"
-            >
-              <h5
-                className="white-text"
-              >
-                Links
-              </h5>
-              <ul>
-                <li>
-                  <a
-                    className="white-text"
-                    href="all-events.html"
-                  >
-                    All Events
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="white-text"
-                    href="all-centers.html"
-                  >
-                    All Centers
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>,
-        "className": "page-footer indigo index-footer footer-padding",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <div
-            className="row"
-          >
-            <div
-              className="col l6 s12"
-            >
-              <h5
-                className="white-text"
-              >
-                 The Events Manager
-              </h5>
-              <p
-                className="grey-text text-lighten-4"
-              >
-                © Obi Walker (Andela 2017)
-              </p>
-            </div>
-            <div
-              className="col l4 offset-l2 s12"
-            >
-              <h5
-                className="white-text"
-              >
-                Links
-              </h5>
-              <ul>
-                <li>
-                  <a
-                    className="white-text"
-                    href="all-events.html"
-                  >
-                    All Events
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="white-text"
-                    href="all-centers.html"
-                  >
-                    All Centers
-                  </a>
-                </li>
-              </ul>
-            </div>
+            />
           </div>,
-          "className": "container",
-        },
-        "ref": null,
-        "rendered": Object {
+          <div />,
+          <br />,
+          <br />,
+          <div
+            className="row"
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": Array [
               <div
-                className="col l6 s12"
+                className="col l12 s12"
               >
                 <h5
                   className="white-text"
@@ -496,31 +108,7 @@ ShallowWrapper {
               </div>,
               <div
                 className="col l4 offset-l2 s12"
-              >
-                <h5
-                  className="white-text"
-                >
-                  Links
-                </h5>
-                <ul>
-                  <li>
-                    <a
-                      className="white-text"
-                      href="all-events.html"
-                    >
-                      All Events
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="white-text"
-                      href="all-centers.html"
-                    >
-                      All Centers
-                    </a>
-                  </li>
-                </ul>
-              </div>,
+              />,
             ],
             "className": "row",
           },
@@ -543,7 +131,7 @@ ShallowWrapper {
                     © Obi Walker (Andela 2017)
                   </p>,
                 ],
-                "className": "col l6 s12",
+                "className": "col l12 s12",
               },
               "ref": null,
               "rendered": Array [
@@ -579,138 +167,262 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": Array [
-                  <h5
-                    className="white-text"
-                  >
-                    Links
-                  </h5>,
-                  <ul>
-                    <li>
-                      <a
-                        className="white-text"
-                        href="all-events.html"
-                      >
-                        All Events
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="white-text"
-                        href="all-centers.html"
-                      >
-                        All Centers
-                      </a>
-                    </li>
-                  </ul>,
-                ],
                 "className": "col l4 offset-l2 s12",
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Links",
-                    "className": "white-text",
-                  },
-                  "ref": null,
-                  "rendered": "Links",
-                  "type": "h5",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      <li>
-                        <a
-                          className="white-text"
-                          href="all-events.html"
-                        >
-                          All Events
-                        </a>
-                      </li>,
-                      <li>
-                        <a
-                          className="white-text"
-                          href="all-centers.html"
-                        >
-                          All Centers
-                        </a>
-                      </li>,
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": <a
-                          className="white-text"
-                          href="all-events.html"
-                        >
-                          All Events
-                        </a>,
-                      },
-                      "ref": null,
-                      "rendered": Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "children": "All Events",
-                          "className": "white-text",
-                          "href": "all-events.html",
-                        },
-                        "ref": null,
-                        "rendered": "All Events",
-                        "type": "a",
-                      },
-                      "type": "li",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": <a
-                          className="white-text"
-                          href="all-centers.html"
-                        >
-                          All Centers
-                        </a>,
-                      },
-                      "ref": null,
-                      "rendered": Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "children": "All Centers",
-                          "className": "white-text",
-                          "href": "all-centers.html",
-                        },
-                        "ref": null,
-                        "rendered": "All Centers",
-                        "type": "a",
-                      },
-                      "type": "li",
-                    },
-                  ],
-                  "type": "ul",
-                },
-              ],
+              "rendered": null,
               "type": "div",
             },
           ],
           "type": "div",
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "row",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "footer",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div>
+          <div
+            className="row"
+          >
+            <div
+              className="col l12 s12"
+            >
+              <h5
+                className="white-text"
+              >
+                 The Events Manager
+              </h5>
+              <p
+                className="grey-text text-lighten-4"
+              >
+                © Obi Walker (Andela 2017)
+              </p>
+            </div>
+            <div
+              className="col l4 offset-l2 s12"
+            />
+          </div>
+          <div />
+          <br />
+          <br />
+          <div
+            className="row"
+          />
+        </div>,
+        "className": "page-footer indigo index-footer footer-padding",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="row"
+            >
+              <div
+                className="col l12 s12"
+              >
+                <h5
+                  className="white-text"
+                >
+                   The Events Manager
+                </h5>
+                <p
+                  className="grey-text text-lighten-4"
+                >
+                  © Obi Walker (Andela 2017)
+                </p>
+              </div>
+              <div
+                className="col l4 offset-l2 s12"
+              />
+            </div>,
+            <div />,
+            <br />,
+            <br />,
+            <div
+              className="row"
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="col l12 s12"
+                >
+                  <h5
+                    className="white-text"
+                  >
+                     The Events Manager
+                  </h5>
+                  <p
+                    className="grey-text text-lighten-4"
+                  >
+                    © Obi Walker (Andela 2017)
+                  </p>
+                </div>,
+                <div
+                  className="col l4 offset-l2 s12"
+                />,
+              ],
+              "className": "row",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h5
+                      className="white-text"
+                    >
+                       The Events Manager
+                    </h5>,
+                    <p
+                      className="grey-text text-lighten-4"
+                    >
+                      © Obi Walker (Andela 2017)
+                    </p>,
+                  ],
+                  "className": "col l12 s12",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": " The Events Manager",
+                      "className": "white-text",
+                    },
+                    "ref": null,
+                    "rendered": " The Events Manager",
+                    "type": "h5",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "© Obi Walker (Andela 2017)",
+                      "className": "grey-text text-lighten-4",
+                    },
+                    "ref": null,
+                    "rendered": "© Obi Walker (Andela 2017)",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "col l4 offset-l2 s12",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "row",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
         "type": "div",
       },
       "type": "footer",

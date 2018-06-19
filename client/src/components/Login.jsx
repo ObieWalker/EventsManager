@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import signInValidator from '../../helpers/validators/signIn';
 import login from '../actions/UserSessionAction';
 import verifyToken from '../../helpers/verifyToken';
@@ -119,11 +119,14 @@ export class Login extends Component {
         <h5 style={{ fontFamily: 'serif', marginTop: '5%' }}>
           Sign in to your account.{' '}
         </h5>
+        {this.props.loginUser.loginError && (
+          <h6 className="red-text">{this.props.loginUser.loginError}</h6>
+        )}
         <br /> <br />
-        <div style={{ width: '40%', margin: '0 30%' }}>
-          <form className="col s12">
+        <div style={{}}>
+          <form className="col s12 m6 push-m3 l4 push-l4">
             <div className="row">
-              <div className="input-field col s12">
+              <div className="input-field col s12 m6 push-m3 l4 push-l4">
                 <i className="material-icons prefix">contacts</i>
                 <input
                   className="validate"
@@ -138,12 +141,14 @@ export class Login extends Component {
                 <label htmlFor="email">Enter your email</label>
               </div>
               {this.state.errors.email && (
-                <span id="emailError" className="red-text">{this.state.errors.email}</span>
+                <span id="emailError" className="red-text">
+                  {this.state.errors.email}
+                </span>
               )}
             </div>
 
             <div className="row">
-              <div className="input-field col s12">
+              <div className="input-field col s12 m6 push-m3 l4 push-l4">
                 <i className="material-icons prefix">vpn_key</i>
                 <input
                   className="validate"
@@ -157,30 +162,35 @@ export class Login extends Component {
                 <label htmlFor="password">Enter your password</label>
               </div>
               {this.state.errors.password && (
-                <span id="passwordError" className="red-text">{this.state.errors.password}</span>
+                <span id="passwordError" className="red-text">
+                  {this.state.errors.password}
+                </span>
               )}
-
-              <label style={{ float: 'right' }}>
-                <a className="red-text darken-3" href="#!">
-                  <b>Forgot Password?</b>
-                </a>
-              </label>
             </div>
-
-            <br />
-            <center>
-              <div className="row">
-                <button
-                  type="submit"
-                  id="submit"
-                  name="btn_login"
-                  className="col s3 btn btn-large waves-effect indigo right"
-                  onClick={this.handleUserLogin}
-                >
-                  Login
-                </button>
+            <div className="row">
+              <div className="col s12 m6 push-m3 l4 push-l4">
+                <p>
+                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  {'Do not have an account? You can register '}
+                  <Link to="/register">here</Link>
+                </p>
               </div>
-            </center>
+            </div>
+            <br />
+            <div className="row col s12 m6 push-m3 l2 push-l4">
+              <button
+                type="submit"
+                id="submit"
+                name="btn_login"
+                className="col s4 push-s4
+                  m4 push-m4 l2 push-l5
+                  btn btn-small waves-effect indigo"
+                onClick={this.handleUserLogin}
+              >
+                Login
+              </button>
+            </div>
           </form>
         </div>
       </div>

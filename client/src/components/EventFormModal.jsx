@@ -126,7 +126,7 @@ const EventForm = (props) => {
               max={sliderMax}
               value={guestValue}
               step={sliderStep}
-              defaultValue={guestDefaultValue || ''}
+              defaultValue={guestDefaultValue || null}
               onChange={sliderOnChange}
               onAfterChange={onAfterChange}
             />

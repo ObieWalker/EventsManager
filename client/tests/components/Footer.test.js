@@ -25,10 +25,8 @@ describe('Footer Component', () => {
   it('renders component successfully', () => {
     wrapper = getComponent();
     expect(wrapper.find('footer').length).toBe(1);
-    expect(wrapper.find('div').length).toBe(4);
+    expect(wrapper.find('div').length).toBe(6);
     expect(wrapper.find('p').length).toBe(1);
-    expect(wrapper.find('h5').length).toBe(2);
-    expect(wrapper.find('ul').length).toBe(1);
-    expect(wrapper.find('a').length).toBe(2);
+    expect(wrapper.find('h5').length).toBe(1);
   });
 });

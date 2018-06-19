@@ -34,7 +34,7 @@ describe('Center Card Component', () => {
     wrapper = getComponent();
     expect(wrapper.find('Col').length).toBe(1);
     expect(wrapper.find('button').length).toBe(2);
-    expect(wrapper.find('div').length).toBe(7);
+    expect(wrapper.find('div').length).toBe(8);
     expect(wrapper.find('p').length).toBe(3);
     expect(wrapper.find('h5').length).toBe(1);
     expect(wrapper.find('h6').length).toBe(1);

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Loading from 'react-loading-animation';
 import { bindActionCreators } from 'redux';
+import Footer from './Footer.jsx';
 import registerUserAction from '../actions/registerUserAction';
 import login from '../actions/UserSessionAction';
 import validator from '../../helpers/validators/register';
@@ -90,17 +91,16 @@ export class Register extends Component {
         password: this.state.password,
         verifyPassword: this.state.verifyPassword
       };
-      this.props.registerUserAction(userDetails)
-        .then(() => {
-          const { registerUserError } = this.props.registerUser;
-          if (registerUserError === '') {
-            const userLogin = {
-              email: userDetails.email,
-              password: userDetails.password
-            };
-            this.props.login(userLogin, this.props.history);
-          }
-        });
+      this.props.registerUserAction(userDetails).then(() => {
+        const { registerUserError } = this.props.registerUser;
+        if (registerUserError === '') {
+          const userLogin = {
+            email: userDetails.email,
+            password: userDetails.password
+          };
+          this.props.login(userLogin, this.props.history);
+        }
+      });
       this.setState({
         isLoading: false
       });
@@ -128,17 +128,22 @@ export class Register extends Component {
     return (
       <div>
         <br />
+        <h3 style={{ fontFamily: 'serif' }}>Enter Registration Details.</h3>
+        <hr />
+        {this.props.registerUser.registerUserError && (
+          <h6 className="red-text">
+            {this.props.registerUser.registerUserError}
+          </h6>
+        )}
         <br />
-        <br />
-        <div style={{ width: '40%', margin: '0 30%' }}>
-          {this.state.isLoading === true && (
-            <div>
+        <div className="container">
+          {this.state.isLoading === true ||
+            this.props.registerUser.isUserRegistering ? <div>
               <p>Loading...</p> <Loading />
-            </div>
-          )}
-          <form className="col s14">
+            </div> : null}
+          <form className="col s12 m6 push-m3 l4 push-l4">
             <div className="row">
-              <div className="input-field  col s6">
+              <div className="input-field col s12 m6 l6">
                 <i className="material-icons prefix">contacts</i>
                 <input
                   id="firstName"
@@ -150,11 +155,13 @@ export class Register extends Component {
                 />
                 <label htmlFor="firstName">First Name</label>
                 {this.state.errors.firstName && (
-                  <span id="firstNameError" className="red-text">{this.state.errors.firstName}</span>
+                  <span id="firstNameError" className="red-text">
+                    {this.state.errors.firstName}
+                  </span>
                 )}
               </div>
 
-              <div className="input-field col s6">
+              <div className="input-field col s12 m6 l6">
                 <i className="material-icons prefix">contacts</i>
                 <input
                   id="lastName"
@@ -166,13 +173,15 @@ export class Register extends Component {
                 />
                 <label htmlFor="lastName">Last Name</label>
                 {this.state.errors.lastName && (
-                  <span id="lastNameError" className="red-text">{this.state.errors.lastName}</span>
+                  <span id="lastNameError" className="red-text">
+                    {this.state.errors.lastName}
+                  </span>
                 )}
               </div>
             </div>
 
             <div className="row">
-              <div className="input-field col s6">
+              <div className="input-field col s12 m6 l6">
                 <i className="material-icons prefix">account_circle</i>
                 <input
                   id="username"
@@ -184,11 +193,13 @@ export class Register extends Component {
                 />
                 <label htmlFor="username">Username</label>
                 {this.state.errors.username && (
-                  <span id="usernameError" className="red-text">{this.state.errors.username}</span>
+                  <span id="usernameError" className="red-text">
+                    {this.state.errors.username}
+                  </span>
                 )}
               </div>
 
-              <div className="input-field col s6">
+              <div className="input-field col s12 m6 l6">
                 <i className="material-icons prefix">email</i>
                 <input
                   id="email"
@@ -200,13 +211,15 @@ export class Register extends Component {
                 />
                 <label htmlFor="email">Email</label>
                 {this.state.errors.email && (
-                  <span id="emailError" className="red-text">{this.state.errors.email}</span>
+                  <span id="emailError" className="red-text">
+                    {this.state.errors.email}
+                  </span>
                 )}
               </div>
             </div>
 
             <div className="row">
-              <div className="input-field col s6">
+              <div className="input-field col s12 m6 l6">
                 <i className="material-icons prefix">vpn_key</i>
                 <input
                   id="password"
@@ -218,11 +231,13 @@ export class Register extends Component {
                 />
                 <label htmlFor="password">Password</label>
                 {this.state.errors.password && (
-                  <span id="passwordError" className="red-text">{this.state.errors.password}</span>
+                  <span id="passwordError" className="red-text">
+                    {this.state.errors.password}
+                  </span>
                 )}
               </div>
 
-              <div className="input-field col s6">
+              <div className="input-field col s12 m6 l6">
                 <i className="material-icons prefix">replay</i>
                 <input
                   id="password2"
@@ -240,7 +255,14 @@ export class Register extends Component {
                 )}
               </div>
             </div>
-
+            <div>
+              <div>
+                <p>
+                  {'Already have an account? '}
+                  <Link to="/">Click here to Sign In </Link>
+                </p>
+              </div>
+            </div>
             <button
               className="waves-effect waves-light btn right hoverable indigo"
               onClick={this.onSubmit}
@@ -251,16 +273,12 @@ export class Register extends Component {
             </button>
             <br />
           </form>
-          <div className="text-white">
-            <div>
-              <p>
-                {'Already have an account? '}
-                <Link to="/">Click here to Sign In </Link>
-              </p>
-            </div>
-          </div>
+          <br />
         </div>
-        {/* </Modal> */}
+        <br />
+        <br />
+        <br />
+        <Footer />
       </div>
     );
   }

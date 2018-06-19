@@ -26,6 +26,7 @@ ShallowWrapper {
     defaultAddressValue=""
     defaultCityValue=""
     defaultFacilityValue=""
+    errors={Object {}}
     facilityValue=""
     modifyOnClick={[MockFunction]}
     onChange={[MockFunction]}
@@ -43,1040 +44,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <div
-        className="grey lighten-4"
-        style={
-          Object {
-            "border": "1px solid #EEE",
-            "display": "inline-block",
-            "margin": "5%",
-            "padding": "5%",
-            "width": "80%",
-          }
-        }
-      >
-        <form
-          className=""
+      "children": Array [
+        <h3
+          className="center"
         >
-          <div
-            className="input-field col s12"
-          >
-            <label
-              className="active"
-              htmlFor="name"
-            >
-              Center Name:
-            </label>
-            <input
-              className="form-control"
-              defaultValue=""
-              id="name"
-              name="name"
-              onChange={[MockFunction]}
-              onFocus={[MockFunction]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            className="input-field col s12"
-          >
-            <label
-              className="active"
-            >
-              Address:
-            </label>
-            <input
-              className="form-control"
-              defaultValue=""
-              id="address"
-              name="address"
-              onChange={[MockFunction]}
-              onFocus={[MockFunction]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            className="row"
-          >
-            <div
-              className="input-field col s8"
-            >
-              <label
-                className="active"
-              >
-                City:
-              </label>
-              <input
-                className="form-control"
-                defaultValue=""
-                id="city"
-                name="city"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                required={true}
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="input-field col s4"
-            >
-              <label
-                className="active"
-              >
-                Capacity:
-              </label>
-              <input
-                className="form-control"
-                defaultValue=""
-                id="capacity"
-                name="capacity"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                required={true}
-                type="number"
-              />
-            </div>
-          </div>
-          <div
-            className="row"
-          >
-            <div
-              className="input-field col s12"
-            >
-              <textarea
-                className="materialize-textarea"
-                defaultValue=""
-                id="facility"
-                name="facility"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                value=""
-              />
-              <label
-                className="active"
-                htmlFor="facilities"
-              >
-                Center Description/Facilities:
-              </label>
-            </div>
-          </div>
-          <div
-            className="file-field input-field"
-          >
-            <div
-              className="btn"
-            >
-              <span>
-                File
-              </span>
-              <input
-                multiple={true}
-                type="file"
-              />
-            </div>
-            <div
-              className="file-path-wrapper"
-            >
-              <input
-                className="file-path validate"
-                placeholder="Upload Center Picture"
-                type="text"
-              />
-            </div>
-          </div>
-          <button
-            className="waves-effect waves-light btn right hoverable indigo"
-            onClick={[Function]}
-            type="submit"
-          >
-            <i
-              aria-hidden="true"
-              className="large material-icons right"
-            >
-               
-              done
-            </i>
-            Update Center
-          </button>
-        </form>
-      </div>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <form
-          className=""
-        >
-          <div
-            className="input-field col s12"
-          >
-            <label
-              className="active"
-              htmlFor="name"
-            >
-              Center Name:
-            </label>
-            <input
-              className="form-control"
-              defaultValue=""
-              id="name"
-              name="name"
-              onChange={[MockFunction]}
-              onFocus={[MockFunction]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            className="input-field col s12"
-          >
-            <label
-              className="active"
-            >
-              Address:
-            </label>
-            <input
-              className="form-control"
-              defaultValue=""
-              id="address"
-              name="address"
-              onChange={[MockFunction]}
-              onFocus={[MockFunction]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            className="row"
-          >
-            <div
-              className="input-field col s8"
-            >
-              <label
-                className="active"
-              >
-                City:
-              </label>
-              <input
-                className="form-control"
-                defaultValue=""
-                id="city"
-                name="city"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                required={true}
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="input-field col s4"
-            >
-              <label
-                className="active"
-              >
-                Capacity:
-              </label>
-              <input
-                className="form-control"
-                defaultValue=""
-                id="capacity"
-                name="capacity"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                required={true}
-                type="number"
-              />
-            </div>
-          </div>
-          <div
-            className="row"
-          >
-            <div
-              className="input-field col s12"
-            >
-              <textarea
-                className="materialize-textarea"
-                defaultValue=""
-                id="facility"
-                name="facility"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                value=""
-              />
-              <label
-                className="active"
-                htmlFor="facilities"
-              >
-                Center Description/Facilities:
-              </label>
-            </div>
-          </div>
-          <div
-            className="file-field input-field"
-          >
-            <div
-              className="btn"
-            >
-              <span>
-                File
-              </span>
-              <input
-                multiple={true}
-                type="file"
-              />
-            </div>
-            <div
-              className="file-path-wrapper"
-            >
-              <input
-                className="file-path validate"
-                placeholder="Upload Center Picture"
-                type="text"
-              />
-            </div>
-          </div>
-          <button
-            className="waves-effect waves-light btn right hoverable indigo"
-            onClick={[Function]}
-            type="submit"
-          >
-            <i
-              aria-hidden="true"
-              className="large material-icons right"
-            >
-               
-              done
-            </i>
-            Update Center
-          </button>
-        </form>,
-        "className": "grey lighten-4",
-        "style": Object {
-          "border": "1px solid #EEE",
-          "display": "inline-block",
-          "margin": "5%",
-          "padding": "5%",
-          "width": "80%",
-        },
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <div
-              className="input-field col s12"
-            >
-              <label
-                className="active"
-                htmlFor="name"
-              >
-                Center Name:
-              </label>
-              <input
-                className="form-control"
-                defaultValue=""
-                id="name"
-                name="name"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                required={true}
-                type="text"
-                value=""
-              />
-            </div>,
-            <div
-              className="input-field col s12"
-            >
-              <label
-                className="active"
-              >
-                Address:
-              </label>
-              <input
-                className="form-control"
-                defaultValue=""
-                id="address"
-                name="address"
-                onChange={[MockFunction]}
-                onFocus={[MockFunction]}
-                required={true}
-                type="text"
-                value=""
-              />
-            </div>,
-            <div
-              className="row"
-            >
-              <div
-                className="input-field col s8"
-              >
-                <label
-                  className="active"
-                >
-                  City:
-                </label>
-                <input
-                  className="form-control"
-                  defaultValue=""
-                  id="city"
-                  name="city"
-                  onChange={[MockFunction]}
-                  onFocus={[MockFunction]}
-                  required={true}
-                  type="text"
-                  value=""
-                />
-              </div>
-              <div
-                className="input-field col s4"
-              >
-                <label
-                  className="active"
-                >
-                  Capacity:
-                </label>
-                <input
-                  className="form-control"
-                  defaultValue=""
-                  id="capacity"
-                  name="capacity"
-                  onChange={[MockFunction]}
-                  onFocus={[MockFunction]}
-                  required={true}
-                  type="number"
-                />
-              </div>
-            </div>,
-            <div
-              className="row"
-            >
-              <div
-                className="input-field col s12"
-              >
-                <textarea
-                  className="materialize-textarea"
-                  defaultValue=""
-                  id="facility"
-                  name="facility"
-                  onChange={[MockFunction]}
-                  onFocus={[MockFunction]}
-                  value=""
-                />
-                <label
-                  className="active"
-                  htmlFor="facilities"
-                >
-                  Center Description/Facilities:
-                </label>
-              </div>
-            </div>,
-            <div
-              className="file-field input-field"
-            >
-              <div
-                className="btn"
-              >
-                <span>
-                  File
-                </span>
-                <input
-                  multiple={true}
-                  type="file"
-                />
-              </div>
-              <div
-                className="file-path-wrapper"
-              >
-                <input
-                  className="file-path validate"
-                  placeholder="Upload Center Picture"
-                  type="text"
-                />
-              </div>
-            </div>,
-            <button
-              className="waves-effect waves-light btn right hoverable indigo"
-              onClick={[Function]}
-              type="submit"
-            >
-              <i
-                aria-hidden="true"
-                className="large material-icons right"
-              >
-                 
-                done
-              </i>
-              Update Center
-            </button>,
-          ],
-          "className": "",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <label
-                  className="active"
-                  htmlFor="name"
-                >
-                  Center Name:
-                </label>,
-                <input
-                  className="form-control"
-                  defaultValue=""
-                  id="name"
-                  name="name"
-                  onChange={[MockFunction]}
-                  onFocus={[MockFunction]}
-                  required={true}
-                  type="text"
-                  value=""
-                />,
-              ],
-              "className": "input-field col s12",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Center Name:",
-                  "className": "active",
-                  "htmlFor": "name",
-                },
-                "ref": null,
-                "rendered": "Center Name:",
-                "type": "label",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "className": "form-control",
-                  "defaultValue": "",
-                  "id": "name",
-                  "name": "name",
-                  "onChange": [MockFunction],
-                  "onFocus": [MockFunction],
-                  "required": true,
-                  "type": "text",
-                  "value": "",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "input",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <label
-                  className="active"
-                >
-                  Address:
-                </label>,
-                <input
-                  className="form-control"
-                  defaultValue=""
-                  id="address"
-                  name="address"
-                  onChange={[MockFunction]}
-                  onFocus={[MockFunction]}
-                  required={true}
-                  type="text"
-                  value=""
-                />,
-              ],
-              "className": "input-field col s12",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Address:",
-                  "className": "active",
-                },
-                "ref": null,
-                "rendered": "Address:",
-                "type": "label",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "className": "form-control",
-                  "defaultValue": "",
-                  "id": "address",
-                  "name": "address",
-                  "onChange": [MockFunction],
-                  "onFocus": [MockFunction],
-                  "required": true,
-                  "type": "text",
-                  "value": "",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "input",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <div
-                  className="input-field col s8"
-                >
-                  <label
-                    className="active"
-                  >
-                    City:
-                  </label>
-                  <input
-                    className="form-control"
-                    defaultValue=""
-                    id="city"
-                    name="city"
-                    onChange={[MockFunction]}
-                    onFocus={[MockFunction]}
-                    required={true}
-                    type="text"
-                    value=""
-                  />
-                </div>,
-                <div
-                  className="input-field col s4"
-                >
-                  <label
-                    className="active"
-                  >
-                    Capacity:
-                  </label>
-                  <input
-                    className="form-control"
-                    defaultValue=""
-                    id="capacity"
-                    name="capacity"
-                    onChange={[MockFunction]}
-                    onFocus={[MockFunction]}
-                    required={true}
-                    type="number"
-                  />
-                </div>,
-              ],
-              "className": "row",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <label
-                      className="active"
-                    >
-                      City:
-                    </label>,
-                    <input
-                      className="form-control"
-                      defaultValue=""
-                      id="city"
-                      name="city"
-                      onChange={[MockFunction]}
-                      onFocus={[MockFunction]}
-                      required={true}
-                      type="text"
-                      value=""
-                    />,
-                  ],
-                  "className": "input-field col s8",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "City:",
-                      "className": "active",
-                    },
-                    "ref": null,
-                    "rendered": "City:",
-                    "type": "label",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "className": "form-control",
-                      "defaultValue": "",
-                      "id": "city",
-                      "name": "city",
-                      "onChange": [MockFunction],
-                      "onFocus": [MockFunction],
-                      "required": true,
-                      "type": "text",
-                      "value": "",
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": "input",
-                  },
-                ],
-                "type": "div",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <label
-                      className="active"
-                    >
-                      Capacity:
-                    </label>,
-                    <input
-                      className="form-control"
-                      defaultValue=""
-                      id="capacity"
-                      name="capacity"
-                      onChange={[MockFunction]}
-                      onFocus={[MockFunction]}
-                      required={true}
-                      type="number"
-                    />,
-                  ],
-                  "className": "input-field col s4",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Capacity:",
-                      "className": "active",
-                    },
-                    "ref": null,
-                    "rendered": "Capacity:",
-                    "type": "label",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "className": "form-control",
-                      "defaultValue": "",
-                      "id": "capacity",
-                      "name": "capacity",
-                      "onChange": [MockFunction],
-                      "onFocus": [MockFunction],
-                      "required": true,
-                      "type": "number",
-                      "value": undefined,
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": "input",
-                  },
-                ],
-                "type": "div",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <div
-                className="input-field col s12"
-              >
-                <textarea
-                  className="materialize-textarea"
-                  defaultValue=""
-                  id="facility"
-                  name="facility"
-                  onChange={[MockFunction]}
-                  onFocus={[MockFunction]}
-                  value=""
-                />
-                <label
-                  className="active"
-                  htmlFor="facilities"
-                >
-                  Center Description/Facilities:
-                </label>
-              </div>,
-              "className": "row",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <textarea
-                    className="materialize-textarea"
-                    defaultValue=""
-                    id="facility"
-                    name="facility"
-                    onChange={[MockFunction]}
-                    onFocus={[MockFunction]}
-                    value=""
-                  />,
-                  <label
-                    className="active"
-                    htmlFor="facilities"
-                  >
-                    Center Description/Facilities:
-                  </label>,
-                ],
-                "className": "input-field col s12",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "className": "materialize-textarea",
-                    "defaultValue": "",
-                    "id": "facility",
-                    "name": "facility",
-                    "onChange": [MockFunction],
-                    "onFocus": [MockFunction],
-                    "value": "",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "textarea",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Center Description/Facilities:",
-                    "className": "active",
-                    "htmlFor": "facilities",
-                  },
-                  "ref": null,
-                  "rendered": "Center Description/Facilities:",
-                  "type": "label",
-                },
-              ],
-              "type": "div",
-            },
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <div
-                  className="btn"
-                >
-                  <span>
-                    File
-                  </span>
-                  <input
-                    multiple={true}
-                    type="file"
-                  />
-                </div>,
-                <div
-                  className="file-path-wrapper"
-                >
-                  <input
-                    className="file-path validate"
-                    placeholder="Upload Center Picture"
-                    type="text"
-                  />
-                </div>,
-              ],
-              "className": "file-field input-field",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <span>
-                      File
-                    </span>,
-                    <input
-                      multiple={true}
-                      type="file"
-                    />,
-                  ],
-                  "className": "btn",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "File",
-                    },
-                    "ref": null,
-                    "rendered": "File",
-                    "type": "span",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "multiple": true,
-                      "type": "file",
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": "input",
-                  },
-                ],
-                "type": "div",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <input
-                    className="file-path validate"
-                    placeholder="Upload Center Picture"
-                    type="text"
-                  />,
-                  "className": "file-path-wrapper",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "className": "file-path validate",
-                    "placeholder": "Upload Center Picture",
-                    "type": "text",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "input",
-                },
-                "type": "div",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <i
-                  aria-hidden="true"
-                  className="large material-icons right"
-                >
-                   
-                  done
-                </i>,
-                "Update Center",
-              ],
-              "className": "waves-effect waves-light btn right hoverable indigo",
-              "onClick": [Function],
-              "type": "submit",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "aria-hidden": "true",
-                  "children": Array [
-                    " ",
-                    "done",
-                  ],
-                  "className": "large material-icons right",
-                },
-                "ref": null,
-                "rendered": Array [
-                  " ",
-                  "done",
-                ],
-                "type": "i",
-              },
-              "Update Center",
-            ],
-            "type": "button",
-          },
-        ],
-        "type": "form",
-      },
-      "type": "div",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
+          Modify Center Details
+        </h3>,
+        <div
           className="grey lighten-4"
           style={
             Object {
@@ -1089,7 +63,7 @@ ShallowWrapper {
           }
         >
           <form
-            className=""
+            className="formation"
           >
             <div
               className="input-field col s12"
@@ -1102,7 +76,7 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
-                defaultValue=""
+                error={Object {}}
                 id="name"
                 name="name"
                 onChange={[MockFunction]}
@@ -1122,7 +96,6 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
-                defaultValue=""
                 id="address"
                 name="address"
                 onChange={[MockFunction]}
@@ -1145,7 +118,6 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
-                  defaultValue=""
                   id="city"
                   name="city"
                   onChange={[MockFunction]}
@@ -1165,7 +137,6 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
-                  defaultValue=""
                   id="capacity"
                   name="capacity"
                   onChange={[MockFunction]}
@@ -1183,7 +154,6 @@ ShallowWrapper {
               >
                 <textarea
                   className="materialize-textarea"
-                  defaultValue=""
                   id="facility"
                   name="facility"
                   onChange={[MockFunction]}
@@ -1208,7 +178,8 @@ ShallowWrapper {
                   File
                 </span>
                 <input
-                  multiple={true}
+                  defaultValue=""
+                  name="image"
                   type="file"
                 />
               </div>
@@ -1223,7 +194,8 @@ ShallowWrapper {
               </div>
             </div>
             <button
-              className="waves-effect waves-light btn right hoverable indigo"
+              className="waves-effect waves-light btn right hoverable dark-green"
+              id="update-center"
               onClick={[Function]}
               type="submit"
             >
@@ -1238,15 +210,31 @@ ShallowWrapper {
             </button>
           </form>
         </div>,
+      ],
+      "className": "centerForm",
+      "id": "modifyDiv",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Modify Center Details",
+          "className": "center",
+        },
+        "ref": null,
+        "rendered": "Modify Center Details",
+        "type": "h3",
       },
-      "ref": null,
-      "rendered": Object {
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": <form
-            className=""
+            className="formation"
           >
             <div
               className="input-field col s12"
@@ -1259,7 +247,7 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
-                defaultValue=""
+                error={Object {}}
                 id="name"
                 name="name"
                 onChange={[MockFunction]}
@@ -1279,7 +267,6 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
-                defaultValue=""
                 id="address"
                 name="address"
                 onChange={[MockFunction]}
@@ -1302,7 +289,6 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
-                  defaultValue=""
                   id="city"
                   name="city"
                   onChange={[MockFunction]}
@@ -1322,7 +308,6 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
-                  defaultValue=""
                   id="capacity"
                   name="capacity"
                   onChange={[MockFunction]}
@@ -1340,7 +325,6 @@ ShallowWrapper {
               >
                 <textarea
                   className="materialize-textarea"
-                  defaultValue=""
                   id="facility"
                   name="facility"
                   onChange={[MockFunction]}
@@ -1365,7 +349,8 @@ ShallowWrapper {
                   File
                 </span>
                 <input
-                  multiple={true}
+                  defaultValue=""
+                  name="image"
                   type="file"
                 />
               </div>
@@ -1380,7 +365,8 @@ ShallowWrapper {
               </div>
             </div>
             <button
-              className="waves-effect waves-light btn right hoverable indigo"
+              className="waves-effect waves-light btn right hoverable dark-green"
+              id="update-center"
               onClick={[Function]}
               type="submit"
             >
@@ -1421,7 +407,7 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
-                  defaultValue=""
+                  error={Object {}}
                   id="name"
                   name="name"
                   onChange={[MockFunction]}
@@ -1441,7 +427,6 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
-                  defaultValue=""
                   id="address"
                   name="address"
                   onChange={[MockFunction]}
@@ -1464,7 +449,6 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
-                    defaultValue=""
                     id="city"
                     name="city"
                     onChange={[MockFunction]}
@@ -1484,7 +468,6 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
-                    defaultValue=""
                     id="capacity"
                     name="capacity"
                     onChange={[MockFunction]}
@@ -1502,7 +485,6 @@ ShallowWrapper {
                 >
                   <textarea
                     className="materialize-textarea"
-                    defaultValue=""
                     id="facility"
                     name="facility"
                     onChange={[MockFunction]}
@@ -1527,7 +509,8 @@ ShallowWrapper {
                     File
                   </span>
                   <input
-                    multiple={true}
+                    defaultValue=""
+                    name="image"
                     type="file"
                   />
                 </div>
@@ -1542,7 +525,8 @@ ShallowWrapper {
                 </div>
               </div>,
               <button
-                className="waves-effect waves-light btn right hoverable indigo"
+                className="waves-effect waves-light btn right hoverable dark-green"
+                id="update-center"
                 onClick={[Function]}
                 type="submit"
               >
@@ -1556,7 +540,7 @@ ShallowWrapper {
                 Update Center
               </button>,
             ],
-            "className": "",
+            "className": "formation",
           },
           "ref": null,
           "rendered": Array [
@@ -1574,7 +558,7 @@ ShallowWrapper {
                   </label>,
                   <input
                     className="form-control"
-                    defaultValue=""
+                    error={Object {}}
                     id="name"
                     name="name"
                     onChange={[MockFunction]}
@@ -1583,6 +567,7 @@ ShallowWrapper {
                     type="text"
                     value=""
                   />,
+                  undefined,
                 ],
                 "className": "input-field col s12",
               },
@@ -1607,7 +592,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "className": "form-control",
-                    "defaultValue": "",
+                    "error": Object {},
                     "id": "name",
                     "name": "name",
                     "onChange": [MockFunction],
@@ -1620,6 +605,7 @@ ShallowWrapper {
                   "rendered": null,
                   "type": "input",
                 },
+                undefined,
               ],
               "type": "div",
             },
@@ -1636,7 +622,6 @@ ShallowWrapper {
                   </label>,
                   <input
                     className="form-control"
-                    defaultValue=""
                     id="address"
                     name="address"
                     onChange={[MockFunction]}
@@ -1668,7 +653,6 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "className": "form-control",
-                    "defaultValue": "",
                     "id": "address",
                     "name": "address",
                     "onChange": [MockFunction],
@@ -1700,7 +684,6 @@ ShallowWrapper {
                     </label>
                     <input
                       className="form-control"
-                      defaultValue=""
                       id="city"
                       name="city"
                       onChange={[MockFunction]}
@@ -1720,7 +703,6 @@ ShallowWrapper {
                     </label>
                     <input
                       className="form-control"
-                      defaultValue=""
                       id="capacity"
                       name="capacity"
                       onChange={[MockFunction]}
@@ -1747,7 +729,6 @@ ShallowWrapper {
                       </label>,
                       <input
                         className="form-control"
-                        defaultValue=""
                         id="city"
                         name="city"
                         onChange={[MockFunction]}
@@ -1779,7 +760,6 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "className": "form-control",
-                        "defaultValue": "",
                         "id": "city",
                         "name": "city",
                         "onChange": [MockFunction],
@@ -1808,7 +788,6 @@ ShallowWrapper {
                       </label>,
                       <input
                         className="form-control"
-                        defaultValue=""
                         id="capacity"
                         name="capacity"
                         onChange={[MockFunction]}
@@ -1839,7 +818,6 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "className": "form-control",
-                        "defaultValue": "",
                         "id": "capacity",
                         "name": "capacity",
                         "onChange": [MockFunction],
@@ -1868,7 +846,6 @@ ShallowWrapper {
                 >
                   <textarea
                     className="materialize-textarea"
-                    defaultValue=""
                     id="facility"
                     name="facility"
                     onChange={[MockFunction]}
@@ -1893,7 +870,6 @@ ShallowWrapper {
                   "children": Array [
                     <textarea
                       className="materialize-textarea"
-                      defaultValue=""
                       id="facility"
                       name="facility"
                       onChange={[MockFunction]}
@@ -1917,7 +893,6 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "className": "materialize-textarea",
-                      "defaultValue": "",
                       "id": "facility",
                       "name": "facility",
                       "onChange": [MockFunction],
@@ -1959,7 +934,8 @@ ShallowWrapper {
                       File
                     </span>
                     <input
-                      multiple={true}
+                      defaultValue=""
+                      name="image"
                       type="file"
                     />
                   </div>,
@@ -1987,7 +963,8 @@ ShallowWrapper {
                         File
                       </span>,
                       <input
-                        multiple={true}
+                        defaultValue=""
+                        name="image"
                         type="file"
                       />,
                     ],
@@ -2011,7 +988,9 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "multiple": true,
+                        "defaultValue": "",
+                        "name": "image",
+                        "onChange": undefined,
                         "type": "file",
                       },
                       "ref": null,
@@ -2067,7 +1046,8 @@ ShallowWrapper {
                   </i>,
                   "Update Center",
                 ],
-                "className": "waves-effect waves-light btn right hoverable indigo",
+                "className": "waves-effect waves-light btn right hoverable dark-green",
+                "id": "update-center",
                 "onClick": [Function],
                 "type": "submit",
               },
@@ -2101,6 +1081,1053 @@ ShallowWrapper {
         },
         "type": "div",
       },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3
+            className="center"
+          >
+            Modify Center Details
+          </h3>,
+          <div
+            className="grey lighten-4"
+            style={
+              Object {
+                "border": "1px solid #EEE",
+                "display": "inline-block",
+                "margin": "5%",
+                "padding": "5%",
+                "width": "80%",
+              }
+            }
+          >
+            <form
+              className="formation"
+            >
+              <div
+                className="input-field col s12"
+              >
+                <label
+                  className="active"
+                  htmlFor="name"
+                >
+                  Center Name:
+                </label>
+                <input
+                  className="form-control"
+                  error={Object {}}
+                  id="name"
+                  name="name"
+                  onChange={[MockFunction]}
+                  onFocus={[MockFunction]}
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                className="input-field col s12"
+              >
+                <label
+                  className="active"
+                >
+                  Address:
+                </label>
+                <input
+                  className="form-control"
+                  id="address"
+                  name="address"
+                  onChange={[MockFunction]}
+                  onFocus={[MockFunction]}
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="input-field col s8"
+                >
+                  <label
+                    className="active"
+                  >
+                    City:
+                  </label>
+                  <input
+                    className="form-control"
+                    id="city"
+                    name="city"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="input-field col s4"
+                >
+                  <label
+                    className="active"
+                  >
+                    Capacity:
+                  </label>
+                  <input
+                    className="form-control"
+                    id="capacity"
+                    name="capacity"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    required={true}
+                    type="number"
+                  />
+                </div>
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="input-field col s12"
+                >
+                  <textarea
+                    className="materialize-textarea"
+                    id="facility"
+                    name="facility"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    value=""
+                  />
+                  <label
+                    className="active"
+                    htmlFor="facilities"
+                  >
+                    Center Description/Facilities:
+                  </label>
+                </div>
+              </div>
+              <div
+                className="file-field input-field"
+              >
+                <div
+                  className="btn"
+                >
+                  <span>
+                    File
+                  </span>
+                  <input
+                    defaultValue=""
+                    name="image"
+                    type="file"
+                  />
+                </div>
+                <div
+                  className="file-path-wrapper"
+                >
+                  <input
+                    className="file-path validate"
+                    placeholder="Upload Center Picture"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <button
+                className="waves-effect waves-light btn right hoverable dark-green"
+                id="update-center"
+                onClick={[Function]}
+                type="submit"
+              >
+                <i
+                  aria-hidden="true"
+                  className="large material-icons right"
+                >
+                   
+                  done
+                </i>
+                Update Center
+              </button>
+            </form>
+          </div>,
+        ],
+        "className": "centerForm",
+        "id": "modifyDiv",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Modify Center Details",
+            "className": "center",
+          },
+          "ref": null,
+          "rendered": "Modify Center Details",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <form
+              className="formation"
+            >
+              <div
+                className="input-field col s12"
+              >
+                <label
+                  className="active"
+                  htmlFor="name"
+                >
+                  Center Name:
+                </label>
+                <input
+                  className="form-control"
+                  error={Object {}}
+                  id="name"
+                  name="name"
+                  onChange={[MockFunction]}
+                  onFocus={[MockFunction]}
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                className="input-field col s12"
+              >
+                <label
+                  className="active"
+                >
+                  Address:
+                </label>
+                <input
+                  className="form-control"
+                  id="address"
+                  name="address"
+                  onChange={[MockFunction]}
+                  onFocus={[MockFunction]}
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="input-field col s8"
+                >
+                  <label
+                    className="active"
+                  >
+                    City:
+                  </label>
+                  <input
+                    className="form-control"
+                    id="city"
+                    name="city"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="input-field col s4"
+                >
+                  <label
+                    className="active"
+                  >
+                    Capacity:
+                  </label>
+                  <input
+                    className="form-control"
+                    id="capacity"
+                    name="capacity"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    required={true}
+                    type="number"
+                  />
+                </div>
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="input-field col s12"
+                >
+                  <textarea
+                    className="materialize-textarea"
+                    id="facility"
+                    name="facility"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    value=""
+                  />
+                  <label
+                    className="active"
+                    htmlFor="facilities"
+                  >
+                    Center Description/Facilities:
+                  </label>
+                </div>
+              </div>
+              <div
+                className="file-field input-field"
+              >
+                <div
+                  className="btn"
+                >
+                  <span>
+                    File
+                  </span>
+                  <input
+                    defaultValue=""
+                    name="image"
+                    type="file"
+                  />
+                </div>
+                <div
+                  className="file-path-wrapper"
+                >
+                  <input
+                    className="file-path validate"
+                    placeholder="Upload Center Picture"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <button
+                className="waves-effect waves-light btn right hoverable dark-green"
+                id="update-center"
+                onClick={[Function]}
+                type="submit"
+              >
+                <i
+                  aria-hidden="true"
+                  className="large material-icons right"
+                >
+                   
+                  done
+                </i>
+                Update Center
+              </button>
+            </form>,
+            "className": "grey lighten-4",
+            "style": Object {
+              "border": "1px solid #EEE",
+              "display": "inline-block",
+              "margin": "5%",
+              "padding": "5%",
+              "width": "80%",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="input-field col s12"
+                >
+                  <label
+                    className="active"
+                    htmlFor="name"
+                  >
+                    Center Name:
+                  </label>
+                  <input
+                    className="form-control"
+                    error={Object {}}
+                    id="name"
+                    name="name"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>,
+                <div
+                  className="input-field col s12"
+                >
+                  <label
+                    className="active"
+                  >
+                    Address:
+                  </label>
+                  <input
+                    className="form-control"
+                    id="address"
+                    name="address"
+                    onChange={[MockFunction]}
+                    onFocus={[MockFunction]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>,
+                <div
+                  className="row"
+                >
+                  <div
+                    className="input-field col s8"
+                  >
+                    <label
+                      className="active"
+                    >
+                      City:
+                    </label>
+                    <input
+                      className="form-control"
+                      id="city"
+                      name="city"
+                      onChange={[MockFunction]}
+                      onFocus={[MockFunction]}
+                      required={true}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="input-field col s4"
+                  >
+                    <label
+                      className="active"
+                    >
+                      Capacity:
+                    </label>
+                    <input
+                      className="form-control"
+                      id="capacity"
+                      name="capacity"
+                      onChange={[MockFunction]}
+                      onFocus={[MockFunction]}
+                      required={true}
+                      type="number"
+                    />
+                  </div>
+                </div>,
+                <div
+                  className="row"
+                >
+                  <div
+                    className="input-field col s12"
+                  >
+                    <textarea
+                      className="materialize-textarea"
+                      id="facility"
+                      name="facility"
+                      onChange={[MockFunction]}
+                      onFocus={[MockFunction]}
+                      value=""
+                    />
+                    <label
+                      className="active"
+                      htmlFor="facilities"
+                    >
+                      Center Description/Facilities:
+                    </label>
+                  </div>
+                </div>,
+                <div
+                  className="file-field input-field"
+                >
+                  <div
+                    className="btn"
+                  >
+                    <span>
+                      File
+                    </span>
+                    <input
+                      defaultValue=""
+                      name="image"
+                      type="file"
+                    />
+                  </div>
+                  <div
+                    className="file-path-wrapper"
+                  >
+                    <input
+                      className="file-path validate"
+                      placeholder="Upload Center Picture"
+                      type="text"
+                    />
+                  </div>
+                </div>,
+                <button
+                  className="waves-effect waves-light btn right hoverable dark-green"
+                  id="update-center"
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="large material-icons right"
+                  >
+                     
+                    done
+                  </i>
+                  Update Center
+                </button>,
+              ],
+              "className": "formation",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      className="active"
+                      htmlFor="name"
+                    >
+                      Center Name:
+                    </label>,
+                    <input
+                      className="form-control"
+                      error={Object {}}
+                      id="name"
+                      name="name"
+                      onChange={[MockFunction]}
+                      onFocus={[MockFunction]}
+                      required={true}
+                      type="text"
+                      value=""
+                    />,
+                    undefined,
+                  ],
+                  "className": "input-field col s12",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Center Name:",
+                      "className": "active",
+                      "htmlFor": "name",
+                    },
+                    "ref": null,
+                    "rendered": "Center Name:",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "form-control",
+                      "error": Object {},
+                      "id": "name",
+                      "name": "name",
+                      "onChange": [MockFunction],
+                      "onFocus": [MockFunction],
+                      "required": true,
+                      "type": "text",
+                      "value": "",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  undefined,
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <label
+                      className="active"
+                    >
+                      Address:
+                    </label>,
+                    <input
+                      className="form-control"
+                      id="address"
+                      name="address"
+                      onChange={[MockFunction]}
+                      onFocus={[MockFunction]}
+                      required={true}
+                      type="text"
+                      value=""
+                    />,
+                  ],
+                  "className": "input-field col s12",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Address:",
+                      "className": "active",
+                    },
+                    "ref": null,
+                    "rendered": "Address:",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "form-control",
+                      "id": "address",
+                      "name": "address",
+                      "onChange": [MockFunction],
+                      "onFocus": [MockFunction],
+                      "required": true,
+                      "type": "text",
+                      "value": "",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="input-field col s8"
+                    >
+                      <label
+                        className="active"
+                      >
+                        City:
+                      </label>
+                      <input
+                        className="form-control"
+                        id="city"
+                        name="city"
+                        onChange={[MockFunction]}
+                        onFocus={[MockFunction]}
+                        required={true}
+                        type="text"
+                        value=""
+                      />
+                    </div>,
+                    <div
+                      className="input-field col s4"
+                    >
+                      <label
+                        className="active"
+                      >
+                        Capacity:
+                      </label>
+                      <input
+                        className="form-control"
+                        id="capacity"
+                        name="capacity"
+                        onChange={[MockFunction]}
+                        onFocus={[MockFunction]}
+                        required={true}
+                        type="number"
+                      />
+                    </div>,
+                  ],
+                  "className": "row",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="active"
+                        >
+                          City:
+                        </label>,
+                        <input
+                          className="form-control"
+                          id="city"
+                          name="city"
+                          onChange={[MockFunction]}
+                          onFocus={[MockFunction]}
+                          required={true}
+                          type="text"
+                          value=""
+                        />,
+                      ],
+                      "className": "input-field col s8",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "City:",
+                          "className": "active",
+                        },
+                        "ref": null,
+                        "rendered": "City:",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "form-control",
+                          "id": "city",
+                          "name": "city",
+                          "onChange": [MockFunction],
+                          "onFocus": [MockFunction],
+                          "required": true,
+                          "type": "text",
+                          "value": "",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="active"
+                        >
+                          Capacity:
+                        </label>,
+                        <input
+                          className="form-control"
+                          id="capacity"
+                          name="capacity"
+                          onChange={[MockFunction]}
+                          onFocus={[MockFunction]}
+                          required={true}
+                          type="number"
+                        />,
+                      ],
+                      "className": "input-field col s4",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Capacity:",
+                          "className": "active",
+                        },
+                        "ref": null,
+                        "rendered": "Capacity:",
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "form-control",
+                          "id": "capacity",
+                          "name": "capacity",
+                          "onChange": [MockFunction],
+                          "onFocus": [MockFunction],
+                          "required": true,
+                          "type": "number",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="input-field col s12"
+                  >
+                    <textarea
+                      className="materialize-textarea"
+                      id="facility"
+                      name="facility"
+                      onChange={[MockFunction]}
+                      onFocus={[MockFunction]}
+                      value=""
+                    />
+                    <label
+                      className="active"
+                      htmlFor="facilities"
+                    >
+                      Center Description/Facilities:
+                    </label>
+                  </div>,
+                  "className": "row",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <textarea
+                        className="materialize-textarea"
+                        id="facility"
+                        name="facility"
+                        onChange={[MockFunction]}
+                        onFocus={[MockFunction]}
+                        value=""
+                      />,
+                      <label
+                        className="active"
+                        htmlFor="facilities"
+                      >
+                        Center Description/Facilities:
+                      </label>,
+                    ],
+                    "className": "input-field col s12",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "materialize-textarea",
+                        "id": "facility",
+                        "name": "facility",
+                        "onChange": [MockFunction],
+                        "onFocus": [MockFunction],
+                        "value": "",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "textarea",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Center Description/Facilities:",
+                        "className": "active",
+                        "htmlFor": "facilities",
+                      },
+                      "ref": null,
+                      "rendered": "Center Description/Facilities:",
+                      "type": "label",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="btn"
+                    >
+                      <span>
+                        File
+                      </span>
+                      <input
+                        defaultValue=""
+                        name="image"
+                        type="file"
+                      />
+                    </div>,
+                    <div
+                      className="file-path-wrapper"
+                    >
+                      <input
+                        className="file-path validate"
+                        placeholder="Upload Center Picture"
+                        type="text"
+                      />
+                    </div>,
+                  ],
+                  "className": "file-field input-field",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <span>
+                          File
+                        </span>,
+                        <input
+                          defaultValue=""
+                          name="image"
+                          type="file"
+                        />,
+                      ],
+                      "className": "btn",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "File",
+                        },
+                        "ref": null,
+                        "rendered": "File",
+                        "type": "span",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "defaultValue": "",
+                          "name": "image",
+                          "onChange": undefined,
+                          "type": "file",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <input
+                        className="file-path validate"
+                        placeholder="Upload Center Picture"
+                        type="text"
+                      />,
+                      "className": "file-path-wrapper",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "file-path validate",
+                        "placeholder": "Upload Center Picture",
+                        "type": "text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      aria-hidden="true"
+                      className="large material-icons right"
+                    >
+                       
+                      done
+                    </i>,
+                    "Update Center",
+                  ],
+                  "className": "waves-effect waves-light btn right hoverable dark-green",
+                  "id": "update-center",
+                  "onClick": [Function],
+                  "type": "submit",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "aria-hidden": "true",
+                      "children": Array [
+                        " ",
+                        "done",
+                      ],
+                      "className": "large material-icons right",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "done",
+                    ],
+                    "type": "i",
+                  },
+                  "Update Center",
+                ],
+                "type": "button",
+              },
+            ],
+            "type": "form",
+          },
+          "type": "div",
+        },
+      ],
       "type": "div",
     },
   ],

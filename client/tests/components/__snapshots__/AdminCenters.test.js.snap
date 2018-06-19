@@ -129,46 +129,20 @@ ShallowWrapper {
             </button>
           </ScrollUp>
         </div>,
-        <div
-          style={
-            Object {
-              "height": "1000px",
-            }
-          }
+        <Dialog
+          autoDetectWindowHeight={true}
+          autoScrollBodyContent={true}
+          className="modalIdentify"
+          modal={false}
+          onRequestClose={[Function]}
+          open={false}
+          repositionOnUpdate={true}
         >
-          <Modal
-            animation={true}
-            autoFocus={true}
-            backdrop={true}
-            bsClass="modal"
-            dialogComponentClass={[Function]}
-            enforceFocus={true}
-            keyboard={true}
-            manager={
-              ModalManager {
-                "add": [Function],
-                "containers": Array [],
-                "data": Array [],
-                "handleContainerOverflow": true,
-                "hideSiblingNodes": true,
-                "isTopModal": [Function],
-                "modals": Array [],
-                "remove": [Function],
-              }
-            }
+          <Connect(ModifyCenter)
+            className="formIdentify"
             onHide={[Function]}
-            renderBackdrop={[Function]}
-            restoreFocus={true}
-            show={false}
-          >
-            <ModalBody
-              bsClass="modal-body"
-              componentClass="div"
-            >
-              <Connect(ModifyCenter) />
-            </ModalBody>
-          </Modal>
-        </div>,
+          />
+        </Dialog>,
       ],
     },
     "ref": null,
@@ -381,43 +355,19 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
-          "children": <Modal
-            animation={true}
-            autoFocus={true}
-            backdrop={true}
-            bsClass="modal"
-            dialogComponentClass={[Function]}
-            enforceFocus={true}
-            keyboard={true}
-            manager={
-              ModalManager {
-                "add": [Function],
-                "containers": Array [],
-                "data": Array [],
-                "handleContainerOverflow": true,
-                "hideSiblingNodes": true,
-                "isTopModal": [Function],
-                "modals": Array [],
-                "remove": [Function],
-              }
-            }
+          "autoDetectWindowHeight": true,
+          "autoScrollBodyContent": true,
+          "children": <Connect(ModifyCenter)
+            className="formIdentify"
             onHide={[Function]}
-            renderBackdrop={[Function]}
-            restoreFocus={true}
-            show={false}
-          >
-            <ModalBody
-              bsClass="modal-body"
-              componentClass="div"
-            >
-              <Connect(ModifyCenter) />
-            </ModalBody>
-          </Modal>,
-          "style": Object {
-            "height": "1000px",
-          },
+          />,
+          "className": "modalIdentify",
+          "modal": false,
+          "onRequestClose": [Function],
+          "open": false,
+          "repositionOnUpdate": true,
         },
         "ref": null,
         "rendered": Object {
@@ -425,61 +375,15 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "animation": true,
-            "autoFocus": true,
-            "backdrop": true,
-            "bsClass": "modal",
-            "children": <ModalBody
-              bsClass="modal-body"
-              componentClass="div"
-            >
-              <Connect(ModifyCenter) />
-            </ModalBody>,
-            "dialogComponentClass": [Function],
-            "enforceFocus": true,
-            "keyboard": true,
-            "manager": ModalManager {
-              "add": [Function],
-              "containers": Array [],
-              "data": Array [],
-              "handleContainerOverflow": true,
-              "hideSiblingNodes": true,
-              "isTopModal": [Function],
-              "modals": Array [],
-              "remove": [Function],
-            },
+            "center": undefined,
+            "className": "formIdentify",
             "onHide": [Function],
-            "renderBackdrop": [Function],
-            "restoreFocus": true,
-            "show": false,
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "bsClass": "modal-body",
-              "children": <Connect(ModifyCenter) />,
-              "componentClass": "div",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "center": undefined,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            "type": [Function],
-          },
+          "rendered": null,
           "type": [Function],
         },
-        "type": "div",
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -539,46 +443,20 @@ ShallowWrapper {
               </button>
             </ScrollUp>
           </div>,
-          <div
-            style={
-              Object {
-                "height": "1000px",
-              }
-            }
+          <Dialog
+            autoDetectWindowHeight={true}
+            autoScrollBodyContent={true}
+            className="modalIdentify"
+            modal={false}
+            onRequestClose={[Function]}
+            open={false}
+            repositionOnUpdate={true}
           >
-            <Modal
-              animation={true}
-              autoFocus={true}
-              backdrop={true}
-              bsClass="modal"
-              dialogComponentClass={[Function]}
-              enforceFocus={true}
-              keyboard={true}
-              manager={
-                ModalManager {
-                  "add": [Function],
-                  "containers": Array [],
-                  "data": Array [],
-                  "handleContainerOverflow": true,
-                  "hideSiblingNodes": true,
-                  "isTopModal": [Function],
-                  "modals": Array [],
-                  "remove": [Function],
-                }
-              }
+            <Connect(ModifyCenter)
+              className="formIdentify"
               onHide={[Function]}
-              renderBackdrop={[Function]}
-              restoreFocus={true}
-              show={false}
-            >
-              <ModalBody
-                bsClass="modal-body"
-                componentClass="div"
-              >
-                <Connect(ModifyCenter) />
-              </ModalBody>
-            </Modal>
-          </div>,
+            />
+          </Dialog>,
         ],
       },
       "ref": null,
@@ -791,43 +669,19 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
-            "children": <Modal
-              animation={true}
-              autoFocus={true}
-              backdrop={true}
-              bsClass="modal"
-              dialogComponentClass={[Function]}
-              enforceFocus={true}
-              keyboard={true}
-              manager={
-                ModalManager {
-                  "add": [Function],
-                  "containers": Array [],
-                  "data": Array [],
-                  "handleContainerOverflow": true,
-                  "hideSiblingNodes": true,
-                  "isTopModal": [Function],
-                  "modals": Array [],
-                  "remove": [Function],
-                }
-              }
+            "autoDetectWindowHeight": true,
+            "autoScrollBodyContent": true,
+            "children": <Connect(ModifyCenter)
+              className="formIdentify"
               onHide={[Function]}
-              renderBackdrop={[Function]}
-              restoreFocus={true}
-              show={false}
-            >
-              <ModalBody
-                bsClass="modal-body"
-                componentClass="div"
-              >
-                <Connect(ModifyCenter) />
-              </ModalBody>
-            </Modal>,
-            "style": Object {
-              "height": "1000px",
-            },
+            />,
+            "className": "modalIdentify",
+            "modal": false,
+            "onRequestClose": [Function],
+            "open": false,
+            "repositionOnUpdate": true,
           },
           "ref": null,
           "rendered": Object {
@@ -835,61 +689,15 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "animation": true,
-              "autoFocus": true,
-              "backdrop": true,
-              "bsClass": "modal",
-              "children": <ModalBody
-                bsClass="modal-body"
-                componentClass="div"
-              >
-                <Connect(ModifyCenter) />
-              </ModalBody>,
-              "dialogComponentClass": [Function],
-              "enforceFocus": true,
-              "keyboard": true,
-              "manager": ModalManager {
-                "add": [Function],
-                "containers": Array [],
-                "data": Array [],
-                "handleContainerOverflow": true,
-                "hideSiblingNodes": true,
-                "isTopModal": [Function],
-                "modals": Array [],
-                "remove": [Function],
-              },
+              "center": undefined,
+              "className": "formIdentify",
               "onHide": [Function],
-              "renderBackdrop": [Function],
-              "restoreFocus": true,
-              "show": false,
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "bsClass": "modal-body",
-                "children": <Connect(ModifyCenter) />,
-                "componentClass": "div",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "center": undefined,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": [Function],
-            },
+            "rendered": null,
             "type": [Function],
           },
-          "type": "div",
+          "type": [Function],
         },
       ],
       "type": "div",

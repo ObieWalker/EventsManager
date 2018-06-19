@@ -22,20 +22,22 @@ const EventCard = (props) => {
               }}
             >
               <div className="card-body">
-                <h5 className="card-title white-text">{event.eventType}</h5>
+                <div style={{ minHeight: '9rem' }}>
+                  <h5 className="card-title white-text">{event.eventType}</h5>
 
-                <h6 className="card-subtitle mb-2 text-muted white-text">
-                  {event.Center
-                    ? `Center: ${event.Center.name}`
-                    : 'This center has been removed'}
-                </h6>
-                <p className="card-text white-text">Date: {event.date}</p>
-                <p className="card-text white-text">
-                  {event.Center && `Address: ${event.Center.address}`}
-                </p>
-                <p className="card-text white-text">
-                  Guest Estimate: {event.guestNo}
-                </p>
+                  <h6 className="card-subtitle mb-2 text-muted white-text">
+                    {event.Center
+                      ? `Center: ${event.Center.name}`
+                      : 'This center has been removed'}
+                  </h6>
+                  <p className="card-text white-text">Date: {event.date}</p>
+                  <p className="card-text white-text">
+                    {event.Center && `Address: ${event.Center.address}`}
+                  </p>
+                  <p className="card-text white-text">
+                    Guest Estimate: {event.guestNo}
+                  </p>
+                </div>
                 <hr className="hr-light" />
                 {event.isCancelled || !event.Center ? (
                   <h6 className="red-text">

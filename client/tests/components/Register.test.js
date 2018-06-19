@@ -16,12 +16,16 @@ const history = {
 const registerUserAction = jest.fn(() => Promise.resolve());
 const mockStore = configureStore();
 let wrapper;
+const registerUser = {
+  registerUserError: ''
+};
 
 const getComponent = () => {
   if (!mountedRegister) {
     props = {
       registerUserAction,
-      history
+      history,
+      registerUser
     };
     history.push = jest.fn();
     mountedRegister = shallow(<Register {...props} />);
@@ -38,13 +42,13 @@ describe('Register Component', () => {
   });
 
   it('updates state on input change', () => {
-    wrapper.find('#first_name').simulate('change', {
+    wrapper.find('#firstName').simulate('change', {
       target: { name: 'firstName', value: 'obi' }
     });
     expect(wrapper.state().firstName).toBe('obi');
   });
   it('updates state on input change', () => {
-    wrapper.find('#last_name').simulate('change', {
+    wrapper.find('#lastName').simulate('change', {
       target: { name: 'lastName', value: 'walker' }
     });
     expect(wrapper.state().lastName).toBe('walker');

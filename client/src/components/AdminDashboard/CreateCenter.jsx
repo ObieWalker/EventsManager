@@ -29,7 +29,7 @@ export class CreateCenter extends Component {
       name: '',
       address: '',
       city: '',
-      capacity: '',
+      capacity: undefined,
       facility: '',
       uploadedImage: {},
       defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',

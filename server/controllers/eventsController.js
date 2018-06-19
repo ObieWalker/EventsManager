@@ -112,8 +112,6 @@ export default class EventsController {
           }
           return Center.findById(req.body.centerId).then((center) => {
             if (center.capacity < parseInt(req.body.guestNo, 10)) {
-              console.log('center capacity==>>', center.capacity);
-              console.log('guest number==>>', req.body.guestNo);
               return res.status(400).json({
                 message:
                   'The center cannot hold your guest estimate, ' +

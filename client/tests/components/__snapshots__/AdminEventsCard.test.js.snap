@@ -54,7 +54,7 @@ ShallowWrapper {
             <h6
               className="card-subtitle mb-2 text-muted white-text"
             >
-              @ 
+              @ undefined
             </h6>
             <p
               className="card-text white-text"
@@ -74,7 +74,9 @@ ShallowWrapper {
         </div>
       </Col>,
       "style": Object {
-        "margin": "5%",
+        "display": "inlineBlock",
+        "float": "left",
+        "margin": "1%",
       },
     },
     "ref": null,
@@ -103,7 +105,7 @@ ShallowWrapper {
             <h6
               className="card-subtitle mb-2 text-muted white-text"
             >
-              @ 
+              @ undefined
             </h6>
             <p
               className="card-text white-text"
@@ -140,7 +142,7 @@ ShallowWrapper {
               <h6
                 className="card-subtitle mb-2 text-muted white-text"
               >
-                @ 
+                @ undefined
               </h6>
               <p
                 className="card-text white-text"
@@ -180,7 +182,7 @@ ShallowWrapper {
                 <h6
                   className="card-subtitle mb-2 text-muted white-text"
                 >
-                  @ 
+                  @ undefined
                 </h6>,
                 <p
                   className="card-text white-text"
@@ -212,17 +214,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": Array [
-                    "@ ",
-                    undefined,
-                  ],
+                  "children": "@ undefined",
                   "className": "card-subtitle mb-2 text-muted white-text",
                 },
                 "ref": null,
-                "rendered": Array [
-                  "@ ",
-                  undefined,
-                ],
+                "rendered": "@ undefined",
                 "type": "h6",
               },
               Object {
@@ -308,7 +304,7 @@ ShallowWrapper {
               <h6
                 className="card-subtitle mb-2 text-muted white-text"
               >
-                @ 
+                @ undefined
               </h6>
               <p
                 className="card-text white-text"
@@ -328,7 +324,9 @@ ShallowWrapper {
           </div>
         </Col>,
         "style": Object {
-          "margin": "5%",
+          "display": "inlineBlock",
+          "float": "left",
+          "margin": "1%",
         },
       },
       "ref": null,
@@ -357,7 +355,7 @@ ShallowWrapper {
               <h6
                 className="card-subtitle mb-2 text-muted white-text"
               >
-                @ 
+                @ undefined
               </h6>
               <p
                 className="card-text white-text"
@@ -394,7 +392,7 @@ ShallowWrapper {
                 <h6
                   className="card-subtitle mb-2 text-muted white-text"
                 >
-                  @ 
+                  @ undefined
                 </h6>
                 <p
                   className="card-text white-text"
@@ -434,7 +432,7 @@ ShallowWrapper {
                   <h6
                     className="card-subtitle mb-2 text-muted white-text"
                   >
-                    @ 
+                    @ undefined
                   </h6>,
                   <p
                     className="card-text white-text"
@@ -466,17 +464,11 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": Array [
-                      "@ ",
-                      undefined,
-                    ],
+                    "children": "@ undefined",
                     "className": "card-subtitle mb-2 text-muted white-text",
                   },
                   "ref": null,
-                  "rendered": Array [
-                    "@ ",
-                    undefined,
-                  ],
+                  "rendered": "@ undefined",
                   "type": "h6",
                 },
                 Object {

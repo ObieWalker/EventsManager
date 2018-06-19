@@ -10,6 +10,11 @@ ShallowWrapper {
         "push": [MockFunction],
       }
     }
+    registerUser={
+      Object {
+        "registerUserError": "",
+      }
+    }
     registerUserAction={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -26,24 +31,29 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <br />,
-        <br />,
-        <br />,
-        <div
+        <h3
           style={
             Object {
-              "margin": "0 30%",
-              "width": "40%",
+              "fontFamily": "serif",
             }
           }
         >
+          Enter Registration Details.
+        </h3>,
+        <hr />,
+        "",
+        <br />,
+        <div
+          className="container"
+        >
           <form
-            className="col s14"
+            className="col s12 m6 push-m3 l4 push-l4"
           >
             <div
               className="row"
             >
               <div
-                className="input-field  col s6"
+                className="input-field col s12 m6 l6"
               >
                 <i
                   className="material-icons prefix"
@@ -51,22 +61,21 @@ ShallowWrapper {
                   contacts
                 </i>
                 <input
-                  className="validate"
-                  id="first_name"
+                  className="validate firstName"
+                  id="firstName"
                   name="firstName"
                   onChange={[Function]}
                   onFocus={[Function]}
                   type="text"
-                  value=""
                 />
                 <label
-                  htmlFor="first_name"
+                  htmlFor="firstName"
                 >
                   First Name
                 </label>
               </div>
               <div
-                className="input-field col s6"
+                className="input-field col s12 m6 l6"
               >
                 <i
                   className="material-icons prefix"
@@ -74,16 +83,15 @@ ShallowWrapper {
                   contacts
                 </i>
                 <input
-                  className="validate"
-                  id="last_name"
+                  className="validate lastName"
+                  id="lastName"
                   name="lastName"
                   onChange={[Function]}
                   onFocus={[Function]}
                   type="text"
-                  value=""
                 />
                 <label
-                  htmlFor="last_name"
+                  htmlFor="lastName"
                 >
                   Last Name
                 </label>
@@ -93,7 +101,7 @@ ShallowWrapper {
               className="row"
             >
               <div
-                className="input-field col s6"
+                className="input-field col s12 m6 l6"
               >
                 <i
                   className="material-icons prefix"
@@ -101,13 +109,12 @@ ShallowWrapper {
                   account_circle
                 </i>
                 <input
-                  className="validate"
+                  className="validate username"
                   id="username"
                   name="username"
                   onChange={[Function]}
                   onFocus={[Function]}
                   type="text"
-                  value=""
                 />
                 <label
                   htmlFor="username"
@@ -116,7 +123,7 @@ ShallowWrapper {
                 </label>
               </div>
               <div
-                className="input-field col s6"
+                className="input-field col s12 m6 l6"
               >
                 <i
                   className="material-icons prefix"
@@ -124,13 +131,12 @@ ShallowWrapper {
                   email
                 </i>
                 <input
-                  className="validate"
+                  className="validate email"
                   id="email"
                   name="email"
                   onChange={[Function]}
                   onFocus={[Function]}
                   type="email"
-                  value=""
                 />
                 <label
                   htmlFor="email"
@@ -143,7 +149,7 @@ ShallowWrapper {
               className="row"
             >
               <div
-                className="input-field col s6"
+                className="input-field col s12 m6 l6"
               >
                 <i
                   className="material-icons prefix"
@@ -151,12 +157,12 @@ ShallowWrapper {
                   vpn_key
                 </i>
                 <input
+                  className="password"
                   id="password"
                   name="password"
                   onChange={[Function]}
                   onFocus={[Function]}
                   type="password"
-                  value=""
                 />
                 <label
                   htmlFor="password"
@@ -165,7 +171,7 @@ ShallowWrapper {
                 </label>
               </div>
               <div
-                className="input-field col s6"
+                className="input-field col s12 m6 l6"
               >
                 <i
                   className="material-icons prefix"
@@ -173,13 +179,12 @@ ShallowWrapper {
                   replay
                 </i>
                 <input
-                  className="validate"
+                  className="validate verifyPassword"
                   id="password2"
                   name="verifyPassword"
                   onChange={[Function]}
                   onFocus={[Function]}
                   type="password"
-                  value=""
                 />
                 <label
                   htmlFor="password2"
@@ -188,7 +193,20 @@ ShallowWrapper {
                 </label>
               </div>
             </div>
-            <a
+            <div>
+              <div>
+                <p>
+                  Already have an account? 
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    Click here to Sign In 
+                  </Link>
+                </p>
+              </div>
+            </div>
+            <button
               className="waves-effect waves-light btn right hoverable indigo"
               onClick={[Function]}
               type="submit"
@@ -199,25 +217,15 @@ ShallowWrapper {
                 done
               </i>
               register
-            </a>
+            </button>
             <br />
           </form>
-          <div
-            className="text-white"
-          >
-            <div>
-              <p>
-                Already have an account? 
-                <Link
-                  replace={false}
-                  to="/"
-                >
-                  Click here to Sign In 
-                </Link>
-              </p>
-            </div>
-          </div>
+          <br />
         </div>,
+        <br />,
+        <br />,
+        <br />,
+        <Footer />,
       ],
     },
     "ref": null,
@@ -235,11 +243,26 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
+        "props": Object {
+          "children": "Enter Registration Details.",
+          "style": Object {
+            "fontFamily": "serif",
+          },
+        },
+        "ref": null,
+        "rendered": "Enter Registration Details.",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
         "props": Object {},
         "ref": null,
         "rendered": null,
-        "type": "br",
+        "type": "hr",
       },
+      "",
       Object {
         "instance": null,
         "key": undefined,
@@ -255,14 +278,15 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            null,
             <form
-              className="col s14"
+              className="col s12 m6 push-m3 l4 push-l4"
             >
               <div
                 className="row"
               >
                 <div
-                  className="input-field  col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -270,22 +294,21 @@ ShallowWrapper {
                     contacts
                   </i>
                   <input
-                    className="validate"
-                    id="first_name"
+                    className="validate firstName"
+                    id="firstName"
                     name="firstName"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="text"
-                    value=""
                   />
                   <label
-                    htmlFor="first_name"
+                    htmlFor="firstName"
                   >
                     First Name
                   </label>
                 </div>
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -293,16 +316,15 @@ ShallowWrapper {
                     contacts
                   </i>
                   <input
-                    className="validate"
-                    id="last_name"
+                    className="validate lastName"
+                    id="lastName"
                     name="lastName"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="text"
-                    value=""
                   />
                   <label
-                    htmlFor="last_name"
+                    htmlFor="lastName"
                   >
                     Last Name
                   </label>
@@ -312,7 +334,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -320,13 +342,12 @@ ShallowWrapper {
                     account_circle
                   </i>
                   <input
-                    className="validate"
+                    className="validate username"
                     id="username"
                     name="username"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="text"
-                    value=""
                   />
                   <label
                     htmlFor="username"
@@ -335,7 +356,7 @@ ShallowWrapper {
                   </label>
                 </div>
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -343,13 +364,12 @@ ShallowWrapper {
                     email
                   </i>
                   <input
-                    className="validate"
+                    className="validate email"
                     id="email"
                     name="email"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="email"
-                    value=""
                   />
                   <label
                     htmlFor="email"
@@ -362,7 +382,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -370,12 +390,12 @@ ShallowWrapper {
                     vpn_key
                   </i>
                   <input
+                    className="password"
                     id="password"
                     name="password"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="password"
-                    value=""
                   />
                   <label
                     htmlFor="password"
@@ -384,7 +404,7 @@ ShallowWrapper {
                   </label>
                 </div>
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -392,13 +412,12 @@ ShallowWrapper {
                     replay
                   </i>
                   <input
-                    className="validate"
+                    className="validate verifyPassword"
                     id="password2"
                     name="verifyPassword"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="password"
-                    value=""
                   />
                   <label
                     htmlFor="password2"
@@ -407,7 +426,20 @@ ShallowWrapper {
                   </label>
                 </div>
               </div>
-              <a
+              <div>
+                <div>
+                  <p>
+                    Already have an account? 
+                    <Link
+                      replace={false}
+                      to="/"
+                    >
+                      Click here to Sign In 
+                    </Link>
+                  </p>
+                </div>
+              </div>
+              <button
                 className="waves-effect waves-light btn right hoverable indigo"
                 onClick={[Function]}
                 type="submit"
@@ -418,32 +450,16 @@ ShallowWrapper {
                   done
                 </i>
                 register
-              </a>
+              </button>
               <br />
             </form>,
-            <div
-              className="text-white"
-            >
-              <div>
-                <p>
-                  Already have an account? 
-                  <Link
-                    replace={false}
-                    to="/"
-                  >
-                    Click here to Sign In 
-                  </Link>
-                </p>
-              </div>
-            </div>,
+            <br />,
           ],
-          "style": Object {
-            "margin": "0 30%",
-            "width": "40%",
-          },
+          "className": "container",
         },
         "ref": null,
         "rendered": Array [
+          null,
           Object {
             "instance": null,
             "key": undefined,
@@ -454,7 +470,7 @@ ShallowWrapper {
                   className="row"
                 >
                   <div
-                    className="input-field  col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -462,22 +478,21 @@ ShallowWrapper {
                       contacts
                     </i>
                     <input
-                      className="validate"
-                      id="first_name"
+                      className="validate firstName"
+                      id="firstName"
                       name="firstName"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
-                      value=""
                     />
                     <label
-                      htmlFor="first_name"
+                      htmlFor="firstName"
                     >
                       First Name
                     </label>
                   </div>
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -485,16 +500,15 @@ ShallowWrapper {
                       contacts
                     </i>
                     <input
-                      className="validate"
-                      id="last_name"
+                      className="validate lastName"
+                      id="lastName"
                       name="lastName"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
-                      value=""
                     />
                     <label
-                      htmlFor="last_name"
+                      htmlFor="lastName"
                     >
                       Last Name
                     </label>
@@ -504,7 +518,7 @@ ShallowWrapper {
                   className="row"
                 >
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -512,13 +526,12 @@ ShallowWrapper {
                       account_circle
                     </i>
                     <input
-                      className="validate"
+                      className="validate username"
                       id="username"
                       name="username"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
-                      value=""
                     />
                     <label
                       htmlFor="username"
@@ -527,7 +540,7 @@ ShallowWrapper {
                     </label>
                   </div>
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -535,13 +548,12 @@ ShallowWrapper {
                       email
                     </i>
                     <input
-                      className="validate"
+                      className="validate email"
                       id="email"
                       name="email"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="email"
-                      value=""
                     />
                     <label
                       htmlFor="email"
@@ -554,7 +566,7 @@ ShallowWrapper {
                   className="row"
                 >
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -562,12 +574,12 @@ ShallowWrapper {
                       vpn_key
                     </i>
                     <input
+                      className="password"
                       id="password"
                       name="password"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="password"
-                      value=""
                     />
                     <label
                       htmlFor="password"
@@ -576,7 +588,7 @@ ShallowWrapper {
                     </label>
                   </div>
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -584,13 +596,12 @@ ShallowWrapper {
                       replay
                     </i>
                     <input
-                      className="validate"
+                      className="validate verifyPassword"
                       id="password2"
                       name="verifyPassword"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="password"
-                      value=""
                     />
                     <label
                       htmlFor="password2"
@@ -599,7 +610,20 @@ ShallowWrapper {
                     </label>
                   </div>
                 </div>,
-                <a
+                <div>
+                  <div>
+                    <p>
+                      Already have an account? 
+                      <Link
+                        replace={false}
+                        to="/"
+                      >
+                        Click here to Sign In 
+                      </Link>
+                    </p>
+                  </div>
+                </div>,
+                <button
                   className="waves-effect waves-light btn right hoverable indigo"
                   onClick={[Function]}
                   type="submit"
@@ -610,10 +634,10 @@ ShallowWrapper {
                     done
                   </i>
                   register
-                </a>,
+                </button>,
                 <br />,
               ],
-              "className": "col s14",
+              "className": "col s12 m6 push-m3 l4 push-l4",
             },
             "ref": null,
             "rendered": Array [
@@ -624,7 +648,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <div
-                      className="input-field  col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -632,22 +656,21 @@ ShallowWrapper {
                         contacts
                       </i>
                       <input
-                        className="validate"
-                        id="first_name"
+                        className="validate firstName"
+                        id="firstName"
                         name="firstName"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="text"
-                        value=""
                       />
                       <label
-                        htmlFor="first_name"
+                        htmlFor="firstName"
                       >
                         First Name
                       </label>
                     </div>,
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -655,16 +678,15 @@ ShallowWrapper {
                         contacts
                       </i>
                       <input
-                        className="validate"
-                        id="last_name"
+                        className="validate lastName"
+                        id="lastName"
                         name="lastName"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="text"
-                        value=""
                       />
                       <label
-                        htmlFor="last_name"
+                        htmlFor="lastName"
                       >
                         Last Name
                       </label>
@@ -686,22 +708,21 @@ ShallowWrapper {
                           contacts
                         </i>,
                         <input
-                          className="validate"
-                          id="first_name"
+                          className="validate firstName"
+                          id="firstName"
                           name="firstName"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="text"
-                          value=""
                         />,
                         <label
-                          htmlFor="first_name"
+                          htmlFor="firstName"
                         >
                           First Name
                         </label>,
                         undefined,
                       ],
-                      "className": "input-field  col s6",
+                      "className": "input-field col s12 m6 l6",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -722,13 +743,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "className": "validate",
-                          "id": "first_name",
+                          "className": "validate firstName",
+                          "id": "firstName",
                           "name": "firstName",
                           "onChange": [Function],
                           "onFocus": [Function],
                           "type": "text",
-                          "value": "",
                         },
                         "ref": null,
                         "rendered": null,
@@ -740,7 +760,7 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "children": "First Name",
-                          "htmlFor": "first_name",
+                          "htmlFor": "firstName",
                         },
                         "ref": null,
                         "rendered": "First Name",
@@ -762,22 +782,21 @@ ShallowWrapper {
                           contacts
                         </i>,
                         <input
-                          className="validate"
-                          id="last_name"
+                          className="validate lastName"
+                          id="lastName"
                           name="lastName"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="text"
-                          value=""
                         />,
                         <label
-                          htmlFor="last_name"
+                          htmlFor="lastName"
                         >
                           Last Name
                         </label>,
                         undefined,
                       ],
-                      "className": "input-field col s6",
+                      "className": "input-field col s12 m6 l6",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -798,13 +817,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "className": "validate",
-                          "id": "last_name",
+                          "className": "validate lastName",
+                          "id": "lastName",
                           "name": "lastName",
                           "onChange": [Function],
                           "onFocus": [Function],
                           "type": "text",
-                          "value": "",
                         },
                         "ref": null,
                         "rendered": null,
@@ -816,7 +834,7 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "children": "Last Name",
-                          "htmlFor": "last_name",
+                          "htmlFor": "lastName",
                         },
                         "ref": null,
                         "rendered": "Last Name",
@@ -836,7 +854,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -844,13 +862,12 @@ ShallowWrapper {
                         account_circle
                       </i>
                       <input
-                        className="validate"
+                        className="validate username"
                         id="username"
                         name="username"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="text"
-                        value=""
                       />
                       <label
                         htmlFor="username"
@@ -859,7 +876,7 @@ ShallowWrapper {
                       </label>
                     </div>,
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -867,13 +884,12 @@ ShallowWrapper {
                         email
                       </i>
                       <input
-                        className="validate"
+                        className="validate email"
                         id="email"
                         name="email"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="email"
-                        value=""
                       />
                       <label
                         htmlFor="email"
@@ -898,13 +914,12 @@ ShallowWrapper {
                           account_circle
                         </i>,
                         <input
-                          className="validate"
+                          className="validate username"
                           id="username"
                           name="username"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="text"
-                          value=""
                         />,
                         <label
                           htmlFor="username"
@@ -913,7 +928,7 @@ ShallowWrapper {
                         </label>,
                         undefined,
                       ],
-                      "className": "input-field col s6",
+                      "className": "input-field col s12 m6 l6",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -934,13 +949,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "className": "validate",
+                          "className": "validate username",
                           "id": "username",
                           "name": "username",
                           "onChange": [Function],
                           "onFocus": [Function],
                           "type": "text",
-                          "value": "",
                         },
                         "ref": null,
                         "rendered": null,
@@ -974,13 +988,12 @@ ShallowWrapper {
                           email
                         </i>,
                         <input
-                          className="validate"
+                          className="validate email"
                           id="email"
                           name="email"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="email"
-                          value=""
                         />,
                         <label
                           htmlFor="email"
@@ -989,7 +1002,7 @@ ShallowWrapper {
                         </label>,
                         undefined,
                       ],
-                      "className": "input-field col s6",
+                      "className": "input-field col s12 m6 l6",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -1010,13 +1023,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "className": "validate",
+                          "className": "validate email",
                           "id": "email",
                           "name": "email",
                           "onChange": [Function],
                           "onFocus": [Function],
                           "type": "email",
-                          "value": "",
                         },
                         "ref": null,
                         "rendered": null,
@@ -1048,7 +1060,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1056,12 +1068,12 @@ ShallowWrapper {
                         vpn_key
                       </i>
                       <input
+                        className="password"
                         id="password"
                         name="password"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="password"
-                        value=""
                       />
                       <label
                         htmlFor="password"
@@ -1070,7 +1082,7 @@ ShallowWrapper {
                       </label>
                     </div>,
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1078,13 +1090,12 @@ ShallowWrapper {
                         replay
                       </i>
                       <input
-                        className="validate"
+                        className="validate verifyPassword"
                         id="password2"
                         name="verifyPassword"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="password"
-                        value=""
                       />
                       <label
                         htmlFor="password2"
@@ -1109,12 +1120,12 @@ ShallowWrapper {
                           vpn_key
                         </i>,
                         <input
+                          className="password"
                           id="password"
                           name="password"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="password"
-                          value=""
                         />,
                         <label
                           htmlFor="password"
@@ -1123,7 +1134,7 @@ ShallowWrapper {
                         </label>,
                         undefined,
                       ],
-                      "className": "input-field col s6",
+                      "className": "input-field col s12 m6 l6",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -1144,12 +1155,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
+                          "className": "password",
                           "id": "password",
                           "name": "password",
                           "onChange": [Function],
                           "onFocus": [Function],
                           "type": "password",
-                          "value": "",
                         },
                         "ref": null,
                         "rendered": null,
@@ -1183,13 +1194,12 @@ ShallowWrapper {
                           replay
                         </i>,
                         <input
-                          className="validate"
+                          className="validate verifyPassword"
                           id="password2"
                           name="verifyPassword"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="password"
-                          value=""
                         />,
                         <label
                           htmlFor="password2"
@@ -1198,7 +1208,7 @@ ShallowWrapper {
                         </label>,
                         undefined,
                       ],
-                      "className": "input-field col s6",
+                      "className": "input-field col s12 m6 l6",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -1219,13 +1229,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "className": "validate",
+                          "className": "validate verifyPassword",
                           "id": "password2",
                           "name": "verifyPassword",
                           "onChange": [Function],
                           "onFocus": [Function],
                           "type": "password",
-                          "value": "",
                         },
                         "ref": null,
                         "rendered": null,
@@ -1248,6 +1257,78 @@ ShallowWrapper {
                     "type": "div",
                   },
                 ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div>
+                    <p>
+                      Already have an account? 
+                      <Link
+                        replace={false}
+                        to="/"
+                      >
+                        Click here to Sign In 
+                      </Link>
+                    </p>
+                  </div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <p>
+                      Already have an account? 
+                      <Link
+                        replace={false}
+                        to="/"
+                      >
+                        Click here to Sign In 
+                      </Link>
+                    </p>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Already have an account? ",
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          Click here to Sign In 
+                        </Link>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Already have an account? ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "Click here to Sign In ",
+                          "replace": false,
+                          "to": "/",
+                        },
+                        "ref": null,
+                        "rendered": "Click here to Sign In ",
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "p",
+                  },
+                  "type": "div",
+                },
                 "type": "div",
               },
               Object {
@@ -1283,7 +1364,7 @@ ShallowWrapper {
                   },
                   "register",
                 ],
-                "type": "a",
+                "type": "button",
               },
               Object {
                 "instance": null,
@@ -1301,77 +1382,49 @@ ShallowWrapper {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
-            "props": Object {
-              "children": <div>
-                <p>
-                  Already have an account? 
-                  <Link
-                    replace={false}
-                    to="/"
-                  >
-                    Click here to Sign In 
-                  </Link>
-                </p>
-              </div>,
-              "className": "text-white",
-            },
+            "props": Object {},
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <p>
-                  Already have an account? 
-                  <Link
-                    replace={false}
-                    to="/"
-                  >
-                    Click here to Sign In 
-                  </Link>
-                </p>,
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    "Already have an account? ",
-                    <Link
-                      replace={false}
-                      to="/"
-                    >
-                      Click here to Sign In 
-                    </Link>,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  "Already have an account? ",
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "children": "Click here to Sign In ",
-                      "replace": false,
-                      "to": "/",
-                    },
-                    "ref": null,
-                    "rendered": "Click here to Sign In ",
-                    "type": [Function],
-                  },
-                ],
-                "type": "p",
-              },
-              "type": "div",
-            },
-            "type": "div",
+            "rendered": null,
+            "type": "br",
           },
         ],
         "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -1384,24 +1437,29 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <br />,
-          <br />,
-          <br />,
-          <div
+          <h3
             style={
               Object {
-                "margin": "0 30%",
-                "width": "40%",
+                "fontFamily": "serif",
               }
             }
           >
+            Enter Registration Details.
+          </h3>,
+          <hr />,
+          "",
+          <br />,
+          <div
+            className="container"
+          >
             <form
-              className="col s14"
+              className="col s12 m6 push-m3 l4 push-l4"
             >
               <div
                 className="row"
               >
                 <div
-                  className="input-field  col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -1409,22 +1467,21 @@ ShallowWrapper {
                     contacts
                   </i>
                   <input
-                    className="validate"
-                    id="first_name"
+                    className="validate firstName"
+                    id="firstName"
                     name="firstName"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="text"
-                    value=""
                   />
                   <label
-                    htmlFor="first_name"
+                    htmlFor="firstName"
                   >
                     First Name
                   </label>
                 </div>
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -1432,16 +1489,15 @@ ShallowWrapper {
                     contacts
                   </i>
                   <input
-                    className="validate"
-                    id="last_name"
+                    className="validate lastName"
+                    id="lastName"
                     name="lastName"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="text"
-                    value=""
                   />
                   <label
-                    htmlFor="last_name"
+                    htmlFor="lastName"
                   >
                     Last Name
                   </label>
@@ -1451,7 +1507,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -1459,13 +1515,12 @@ ShallowWrapper {
                     account_circle
                   </i>
                   <input
-                    className="validate"
+                    className="validate username"
                     id="username"
                     name="username"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="text"
-                    value=""
                   />
                   <label
                     htmlFor="username"
@@ -1474,7 +1529,7 @@ ShallowWrapper {
                   </label>
                 </div>
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -1482,13 +1537,12 @@ ShallowWrapper {
                     email
                   </i>
                   <input
-                    className="validate"
+                    className="validate email"
                     id="email"
                     name="email"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="email"
-                    value=""
                   />
                   <label
                     htmlFor="email"
@@ -1501,7 +1555,7 @@ ShallowWrapper {
                 className="row"
               >
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -1509,12 +1563,12 @@ ShallowWrapper {
                     vpn_key
                   </i>
                   <input
+                    className="password"
                     id="password"
                     name="password"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="password"
-                    value=""
                   />
                   <label
                     htmlFor="password"
@@ -1523,7 +1577,7 @@ ShallowWrapper {
                   </label>
                 </div>
                 <div
-                  className="input-field col s6"
+                  className="input-field col s12 m6 l6"
                 >
                   <i
                     className="material-icons prefix"
@@ -1531,13 +1585,12 @@ ShallowWrapper {
                     replay
                   </i>
                   <input
-                    className="validate"
+                    className="validate verifyPassword"
                     id="password2"
                     name="verifyPassword"
                     onChange={[Function]}
                     onFocus={[Function]}
                     type="password"
-                    value=""
                   />
                   <label
                     htmlFor="password2"
@@ -1546,7 +1599,20 @@ ShallowWrapper {
                   </label>
                 </div>
               </div>
-              <a
+              <div>
+                <div>
+                  <p>
+                    Already have an account? 
+                    <Link
+                      replace={false}
+                      to="/"
+                    >
+                      Click here to Sign In 
+                    </Link>
+                  </p>
+                </div>
+              </div>
+              <button
                 className="waves-effect waves-light btn right hoverable indigo"
                 onClick={[Function]}
                 type="submit"
@@ -1557,25 +1623,15 @@ ShallowWrapper {
                   done
                 </i>
                 register
-              </a>
+              </button>
               <br />
             </form>
-            <div
-              className="text-white"
-            >
-              <div>
-                <p>
-                  Already have an account? 
-                  <Link
-                    replace={false}
-                    to="/"
-                  >
-                    Click here to Sign In 
-                  </Link>
-                </p>
-              </div>
-            </div>
+            <br />
           </div>,
+          <br />,
+          <br />,
+          <br />,
+          <Footer />,
         ],
       },
       "ref": null,
@@ -1593,11 +1649,26 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
+          "props": Object {
+            "children": "Enter Registration Details.",
+            "style": Object {
+              "fontFamily": "serif",
+            },
+          },
+          "ref": null,
+          "rendered": "Enter Registration Details.",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "br",
+          "type": "hr",
         },
+        "",
         Object {
           "instance": null,
           "key": undefined,
@@ -1613,14 +1684,15 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
+              null,
               <form
-                className="col s14"
+                className="col s12 m6 push-m3 l4 push-l4"
               >
                 <div
                   className="row"
                 >
                   <div
-                    className="input-field  col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -1628,22 +1700,21 @@ ShallowWrapper {
                       contacts
                     </i>
                     <input
-                      className="validate"
-                      id="first_name"
+                      className="validate firstName"
+                      id="firstName"
                       name="firstName"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
-                      value=""
                     />
                     <label
-                      htmlFor="first_name"
+                      htmlFor="firstName"
                     >
                       First Name
                     </label>
                   </div>
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -1651,16 +1722,15 @@ ShallowWrapper {
                       contacts
                     </i>
                     <input
-                      className="validate"
-                      id="last_name"
+                      className="validate lastName"
+                      id="lastName"
                       name="lastName"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
-                      value=""
                     />
                     <label
-                      htmlFor="last_name"
+                      htmlFor="lastName"
                     >
                       Last Name
                     </label>
@@ -1670,7 +1740,7 @@ ShallowWrapper {
                   className="row"
                 >
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -1678,13 +1748,12 @@ ShallowWrapper {
                       account_circle
                     </i>
                     <input
-                      className="validate"
+                      className="validate username"
                       id="username"
                       name="username"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
-                      value=""
                     />
                     <label
                       htmlFor="username"
@@ -1693,7 +1762,7 @@ ShallowWrapper {
                     </label>
                   </div>
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -1701,13 +1770,12 @@ ShallowWrapper {
                       email
                     </i>
                     <input
-                      className="validate"
+                      className="validate email"
                       id="email"
                       name="email"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="email"
-                      value=""
                     />
                     <label
                       htmlFor="email"
@@ -1720,7 +1788,7 @@ ShallowWrapper {
                   className="row"
                 >
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -1728,12 +1796,12 @@ ShallowWrapper {
                       vpn_key
                     </i>
                     <input
+                      className="password"
                       id="password"
                       name="password"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="password"
-                      value=""
                     />
                     <label
                       htmlFor="password"
@@ -1742,7 +1810,7 @@ ShallowWrapper {
                     </label>
                   </div>
                   <div
-                    className="input-field col s6"
+                    className="input-field col s12 m6 l6"
                   >
                     <i
                       className="material-icons prefix"
@@ -1750,13 +1818,12 @@ ShallowWrapper {
                       replay
                     </i>
                     <input
-                      className="validate"
+                      className="validate verifyPassword"
                       id="password2"
                       name="verifyPassword"
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="password"
-                      value=""
                     />
                     <label
                       htmlFor="password2"
@@ -1765,7 +1832,20 @@ ShallowWrapper {
                     </label>
                   </div>
                 </div>
-                <a
+                <div>
+                  <div>
+                    <p>
+                      Already have an account? 
+                      <Link
+                        replace={false}
+                        to="/"
+                      >
+                        Click here to Sign In 
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+                <button
                   className="waves-effect waves-light btn right hoverable indigo"
                   onClick={[Function]}
                   type="submit"
@@ -1776,32 +1856,16 @@ ShallowWrapper {
                     done
                   </i>
                   register
-                </a>
+                </button>
                 <br />
               </form>,
-              <div
-                className="text-white"
-              >
-                <div>
-                  <p>
-                    Already have an account? 
-                    <Link
-                      replace={false}
-                      to="/"
-                    >
-                      Click here to Sign In 
-                    </Link>
-                  </p>
-                </div>
-              </div>,
+              <br />,
             ],
-            "style": Object {
-              "margin": "0 30%",
-              "width": "40%",
-            },
+            "className": "container",
           },
           "ref": null,
           "rendered": Array [
+            null,
             Object {
               "instance": null,
               "key": undefined,
@@ -1812,7 +1876,7 @@ ShallowWrapper {
                     className="row"
                   >
                     <div
-                      className="input-field  col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1820,22 +1884,21 @@ ShallowWrapper {
                         contacts
                       </i>
                       <input
-                        className="validate"
-                        id="first_name"
+                        className="validate firstName"
+                        id="firstName"
                         name="firstName"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="text"
-                        value=""
                       />
                       <label
-                        htmlFor="first_name"
+                        htmlFor="firstName"
                       >
                         First Name
                       </label>
                     </div>
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1843,16 +1906,15 @@ ShallowWrapper {
                         contacts
                       </i>
                       <input
-                        className="validate"
-                        id="last_name"
+                        className="validate lastName"
+                        id="lastName"
                         name="lastName"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="text"
-                        value=""
                       />
                       <label
-                        htmlFor="last_name"
+                        htmlFor="lastName"
                       >
                         Last Name
                       </label>
@@ -1862,7 +1924,7 @@ ShallowWrapper {
                     className="row"
                   >
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1870,13 +1932,12 @@ ShallowWrapper {
                         account_circle
                       </i>
                       <input
-                        className="validate"
+                        className="validate username"
                         id="username"
                         name="username"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="text"
-                        value=""
                       />
                       <label
                         htmlFor="username"
@@ -1885,7 +1946,7 @@ ShallowWrapper {
                       </label>
                     </div>
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1893,13 +1954,12 @@ ShallowWrapper {
                         email
                       </i>
                       <input
-                        className="validate"
+                        className="validate email"
                         id="email"
                         name="email"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="email"
-                        value=""
                       />
                       <label
                         htmlFor="email"
@@ -1912,7 +1972,7 @@ ShallowWrapper {
                     className="row"
                   >
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1920,12 +1980,12 @@ ShallowWrapper {
                         vpn_key
                       </i>
                       <input
+                        className="password"
                         id="password"
                         name="password"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="password"
-                        value=""
                       />
                       <label
                         htmlFor="password"
@@ -1934,7 +1994,7 @@ ShallowWrapper {
                       </label>
                     </div>
                     <div
-                      className="input-field col s6"
+                      className="input-field col s12 m6 l6"
                     >
                       <i
                         className="material-icons prefix"
@@ -1942,13 +2002,12 @@ ShallowWrapper {
                         replay
                       </i>
                       <input
-                        className="validate"
+                        className="validate verifyPassword"
                         id="password2"
                         name="verifyPassword"
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="password"
-                        value=""
                       />
                       <label
                         htmlFor="password2"
@@ -1957,7 +2016,20 @@ ShallowWrapper {
                       </label>
                     </div>
                   </div>,
-                  <a
+                  <div>
+                    <div>
+                      <p>
+                        Already have an account? 
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          Click here to Sign In 
+                        </Link>
+                      </p>
+                    </div>
+                  </div>,
+                  <button
                     className="waves-effect waves-light btn right hoverable indigo"
                     onClick={[Function]}
                     type="submit"
@@ -1968,10 +2040,10 @@ ShallowWrapper {
                       done
                     </i>
                     register
-                  </a>,
+                  </button>,
                   <br />,
                 ],
-                "className": "col s14",
+                "className": "col s12 m6 push-m3 l4 push-l4",
               },
               "ref": null,
               "rendered": Array [
@@ -1982,7 +2054,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       <div
-                        className="input-field  col s6"
+                        className="input-field col s12 m6 l6"
                       >
                         <i
                           className="material-icons prefix"
@@ -1990,22 +2062,21 @@ ShallowWrapper {
                           contacts
                         </i>
                         <input
-                          className="validate"
-                          id="first_name"
+                          className="validate firstName"
+                          id="firstName"
                           name="firstName"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="text"
-                          value=""
                         />
                         <label
-                          htmlFor="first_name"
+                          htmlFor="firstName"
                         >
                           First Name
                         </label>
                       </div>,
                       <div
-                        className="input-field col s6"
+                        className="input-field col s12 m6 l6"
                       >
                         <i
                           className="material-icons prefix"
@@ -2013,16 +2084,15 @@ ShallowWrapper {
                           contacts
                         </i>
                         <input
-                          className="validate"
-                          id="last_name"
+                          className="validate lastName"
+                          id="lastName"
                           name="lastName"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="text"
-                          value=""
                         />
                         <label
-                          htmlFor="last_name"
+                          htmlFor="lastName"
                         >
                           Last Name
                         </label>
@@ -2044,22 +2114,21 @@ ShallowWrapper {
                             contacts
                           </i>,
                           <input
-                            className="validate"
-                            id="first_name"
+                            className="validate firstName"
+                            id="firstName"
                             name="firstName"
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="text"
-                            value=""
                           />,
                           <label
-                            htmlFor="first_name"
+                            htmlFor="firstName"
                           >
                             First Name
                           </label>,
                           undefined,
                         ],
-                        "className": "input-field  col s6",
+                        "className": "input-field col s12 m6 l6",
                       },
                       "ref": null,
                       "rendered": Array [
@@ -2080,13 +2149,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "className": "validate",
-                            "id": "first_name",
+                            "className": "validate firstName",
+                            "id": "firstName",
                             "name": "firstName",
                             "onChange": [Function],
                             "onFocus": [Function],
                             "type": "text",
-                            "value": "",
                           },
                           "ref": null,
                           "rendered": null,
@@ -2098,7 +2166,7 @@ ShallowWrapper {
                           "nodeType": "host",
                           "props": Object {
                             "children": "First Name",
-                            "htmlFor": "first_name",
+                            "htmlFor": "firstName",
                           },
                           "ref": null,
                           "rendered": "First Name",
@@ -2120,22 +2188,21 @@ ShallowWrapper {
                             contacts
                           </i>,
                           <input
-                            className="validate"
-                            id="last_name"
+                            className="validate lastName"
+                            id="lastName"
                             name="lastName"
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="text"
-                            value=""
                           />,
                           <label
-                            htmlFor="last_name"
+                            htmlFor="lastName"
                           >
                             Last Name
                           </label>,
                           undefined,
                         ],
-                        "className": "input-field col s6",
+                        "className": "input-field col s12 m6 l6",
                       },
                       "ref": null,
                       "rendered": Array [
@@ -2156,13 +2223,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "className": "validate",
-                            "id": "last_name",
+                            "className": "validate lastName",
+                            "id": "lastName",
                             "name": "lastName",
                             "onChange": [Function],
                             "onFocus": [Function],
                             "type": "text",
-                            "value": "",
                           },
                           "ref": null,
                           "rendered": null,
@@ -2174,7 +2240,7 @@ ShallowWrapper {
                           "nodeType": "host",
                           "props": Object {
                             "children": "Last Name",
-                            "htmlFor": "last_name",
+                            "htmlFor": "lastName",
                           },
                           "ref": null,
                           "rendered": "Last Name",
@@ -2194,7 +2260,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       <div
-                        className="input-field col s6"
+                        className="input-field col s12 m6 l6"
                       >
                         <i
                           className="material-icons prefix"
@@ -2202,13 +2268,12 @@ ShallowWrapper {
                           account_circle
                         </i>
                         <input
-                          className="validate"
+                          className="validate username"
                           id="username"
                           name="username"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="text"
-                          value=""
                         />
                         <label
                           htmlFor="username"
@@ -2217,7 +2282,7 @@ ShallowWrapper {
                         </label>
                       </div>,
                       <div
-                        className="input-field col s6"
+                        className="input-field col s12 m6 l6"
                       >
                         <i
                           className="material-icons prefix"
@@ -2225,13 +2290,12 @@ ShallowWrapper {
                           email
                         </i>
                         <input
-                          className="validate"
+                          className="validate email"
                           id="email"
                           name="email"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="email"
-                          value=""
                         />
                         <label
                           htmlFor="email"
@@ -2256,13 +2320,12 @@ ShallowWrapper {
                             account_circle
                           </i>,
                           <input
-                            className="validate"
+                            className="validate username"
                             id="username"
                             name="username"
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="text"
-                            value=""
                           />,
                           <label
                             htmlFor="username"
@@ -2271,7 +2334,7 @@ ShallowWrapper {
                           </label>,
                           undefined,
                         ],
-                        "className": "input-field col s6",
+                        "className": "input-field col s12 m6 l6",
                       },
                       "ref": null,
                       "rendered": Array [
@@ -2292,13 +2355,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "className": "validate",
+                            "className": "validate username",
                             "id": "username",
                             "name": "username",
                             "onChange": [Function],
                             "onFocus": [Function],
                             "type": "text",
-                            "value": "",
                           },
                           "ref": null,
                           "rendered": null,
@@ -2332,13 +2394,12 @@ ShallowWrapper {
                             email
                           </i>,
                           <input
-                            className="validate"
+                            className="validate email"
                             id="email"
                             name="email"
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="email"
-                            value=""
                           />,
                           <label
                             htmlFor="email"
@@ -2347,7 +2408,7 @@ ShallowWrapper {
                           </label>,
                           undefined,
                         ],
-                        "className": "input-field col s6",
+                        "className": "input-field col s12 m6 l6",
                       },
                       "ref": null,
                       "rendered": Array [
@@ -2368,13 +2429,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "className": "validate",
+                            "className": "validate email",
                             "id": "email",
                             "name": "email",
                             "onChange": [Function],
                             "onFocus": [Function],
                             "type": "email",
-                            "value": "",
                           },
                           "ref": null,
                           "rendered": null,
@@ -2406,7 +2466,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       <div
-                        className="input-field col s6"
+                        className="input-field col s12 m6 l6"
                       >
                         <i
                           className="material-icons prefix"
@@ -2414,12 +2474,12 @@ ShallowWrapper {
                           vpn_key
                         </i>
                         <input
+                          className="password"
                           id="password"
                           name="password"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="password"
-                          value=""
                         />
                         <label
                           htmlFor="password"
@@ -2428,7 +2488,7 @@ ShallowWrapper {
                         </label>
                       </div>,
                       <div
-                        className="input-field col s6"
+                        className="input-field col s12 m6 l6"
                       >
                         <i
                           className="material-icons prefix"
@@ -2436,13 +2496,12 @@ ShallowWrapper {
                           replay
                         </i>
                         <input
-                          className="validate"
+                          className="validate verifyPassword"
                           id="password2"
                           name="verifyPassword"
                           onChange={[Function]}
                           onFocus={[Function]}
                           type="password"
-                          value=""
                         />
                         <label
                           htmlFor="password2"
@@ -2467,12 +2526,12 @@ ShallowWrapper {
                             vpn_key
                           </i>,
                           <input
+                            className="password"
                             id="password"
                             name="password"
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="password"
-                            value=""
                           />,
                           <label
                             htmlFor="password"
@@ -2481,7 +2540,7 @@ ShallowWrapper {
                           </label>,
                           undefined,
                         ],
-                        "className": "input-field col s6",
+                        "className": "input-field col s12 m6 l6",
                       },
                       "ref": null,
                       "rendered": Array [
@@ -2502,12 +2561,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
+                            "className": "password",
                             "id": "password",
                             "name": "password",
                             "onChange": [Function],
                             "onFocus": [Function],
                             "type": "password",
-                            "value": "",
                           },
                           "ref": null,
                           "rendered": null,
@@ -2541,13 +2600,12 @@ ShallowWrapper {
                             replay
                           </i>,
                           <input
-                            className="validate"
+                            className="validate verifyPassword"
                             id="password2"
                             name="verifyPassword"
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="password"
-                            value=""
                           />,
                           <label
                             htmlFor="password2"
@@ -2556,7 +2614,7 @@ ShallowWrapper {
                           </label>,
                           undefined,
                         ],
-                        "className": "input-field col s6",
+                        "className": "input-field col s12 m6 l6",
                       },
                       "ref": null,
                       "rendered": Array [
@@ -2577,13 +2635,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "className": "validate",
+                            "className": "validate verifyPassword",
                             "id": "password2",
                             "name": "verifyPassword",
                             "onChange": [Function],
                             "onFocus": [Function],
                             "type": "password",
-                            "value": "",
                           },
                           "ref": null,
                           "rendered": null,
@@ -2606,6 +2663,78 @@ ShallowWrapper {
                       "type": "div",
                     },
                   ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div>
+                      <p>
+                        Already have an account? 
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          Click here to Sign In 
+                        </Link>
+                      </p>
+                    </div>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <p>
+                        Already have an account? 
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          Click here to Sign In 
+                        </Link>
+                      </p>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Already have an account? ",
+                          <Link
+                            replace={false}
+                            to="/"
+                          >
+                            Click here to Sign In 
+                          </Link>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Already have an account? ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "Click here to Sign In ",
+                            "replace": false,
+                            "to": "/",
+                          },
+                          "ref": null,
+                          "rendered": "Click here to Sign In ",
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "p",
+                    },
+                    "type": "div",
+                  },
                   "type": "div",
                 },
                 Object {
@@ -2641,7 +2770,7 @@ ShallowWrapper {
                     },
                     "register",
                   ],
-                  "type": "a",
+                  "type": "button",
                 },
                 Object {
                   "instance": null,
@@ -2659,77 +2788,49 @@ ShallowWrapper {
               "instance": null,
               "key": undefined,
               "nodeType": "host",
-              "props": Object {
-                "children": <div>
-                  <p>
-                    Already have an account? 
-                    <Link
-                      replace={false}
-                      to="/"
-                    >
-                      Click here to Sign In 
-                    </Link>
-                  </p>
-                </div>,
-                "className": "text-white",
-              },
+              "props": Object {},
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <p>
-                    Already have an account? 
-                    <Link
-                      replace={false}
-                      to="/"
-                    >
-                      Click here to Sign In 
-                    </Link>
-                  </p>,
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      "Already have an account? ",
-                      <Link
-                        replace={false}
-                        to="/"
-                      >
-                        Click here to Sign In 
-                      </Link>,
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "Already have an account? ",
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "class",
-                      "props": Object {
-                        "children": "Click here to Sign In ",
-                        "replace": false,
-                        "to": "/",
-                      },
-                      "ref": null,
-                      "rendered": "Click here to Sign In ",
-                      "type": [Function],
-                    },
-                  ],
-                  "type": "p",
-                },
-                "type": "div",
-              },
-              "type": "div",
+              "rendered": null,
+              "type": "br",
             },
           ],
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
       ],
       "type": "div",

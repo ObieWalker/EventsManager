@@ -180,6 +180,7 @@
       "client/*"
     ]
   },
+  "proxy": "http://localhost:3000/",
   "author": "Obi Walker",
   "license": "ISC",
   "devDependencies": {

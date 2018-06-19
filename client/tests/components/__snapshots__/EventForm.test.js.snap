@@ -37,12 +37,18 @@ ShallowWrapper {
     "props": Object {
       "children": <section
         className="form-dark"
+        style={
+          Object {
+            "justifyContent": "center",
+          }
+        }
       >
         <div
-          className="text-uppercase card-title font-weight-bold blue-text "
+          className="text-uppercase card-title font-weight-bold white-text "
         >
-          Venue: 
-          <h4>
+          <h4
+            className="modal-header"
+          >
             
           </h4>
         </div>
@@ -105,7 +111,6 @@ ShallowWrapper {
               </label>
             </div>
             <br />
-            <br />
             <div
               className="row"
             >
@@ -140,12 +145,12 @@ ShallowWrapper {
               </p>
             </div>
             <p
-              className="text-monospace font-weight-bold blue-text"
+              className="text-monospace font-weight-bold white-text"
             >
               Approximately 
             </p>
             <ComponentWrapper
-              defaultValue=""
+              defaultValue={null}
               handleStyle={
                 Array [
                   Object {},
@@ -160,7 +165,8 @@ ShallowWrapper {
             <br />
             <button
               className="waves-effect waves-light btn right hoverable indigo"
-              onClick={[MockFunction]}
+              id="update-event"
+              onClick={[Function]}
               type="submit"
             >
               <i
@@ -177,12 +183,12 @@ ShallowWrapper {
       "className": "card card-image",
       "style": Object {
         "backgroundImage": "url('http://i68.tinypic.com/dh5vk.jpg')",
-        "height": "100%",
-        "marginLeft": "-2.5%",
-        "paddingLeft": "5%",
-        "paddingRight": "35%",
-        "paddingTop": "0px",
-        "width": "120%",
+        "marginBottom": "-1%",
+        "marginLeft": "-4.5%",
+        "marginTop": "-8%",
+        "minHeight": "91vh",
+        "padding": "5% 5% 5% 5%",
+        "width": "110%",
       },
     },
     "ref": null,
@@ -193,10 +199,11 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className="text-uppercase card-title font-weight-bold blue-text "
+            className="text-uppercase card-title font-weight-bold white-text "
           >
-            Venue: 
-            <h4>
+            <h4
+              className="modal-header"
+            >
               
             </h4>
           </div>,
@@ -259,7 +266,6 @@ ShallowWrapper {
                 </label>
               </div>
               <br />
-              <br />
               <div
                 className="row"
               >
@@ -294,12 +300,12 @@ ShallowWrapper {
                 </p>
               </div>
               <p
-                className="text-monospace font-weight-bold blue-text"
+                className="text-monospace font-weight-bold white-text"
               >
                 Approximately 
               </p>
               <ComponentWrapper
-                defaultValue=""
+                defaultValue={null}
                 handleStyle={
                   Array [
                     Object {},
@@ -314,7 +320,8 @@ ShallowWrapper {
               <br />
               <button
                 className="waves-effect waves-light btn right hoverable indigo"
-                onClick={[MockFunction]}
+                id="update-event"
+                onClick={[Function]}
                 type="submit"
               >
                 <i
@@ -329,6 +336,9 @@ ShallowWrapper {
           </div>,
         ],
         "className": "form-dark",
+        "style": Object {
+          "justifyContent": "center",
+        },
       },
       "ref": null,
       "rendered": Array [
@@ -337,29 +347,26 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              "Venue: ",
-              <h4>
-                
-              </h4>,
-            ],
-            "className": "text-uppercase card-title font-weight-bold blue-text ",
+            "children": <h4
+              className="modal-header"
+            >
+              
+            </h4>,
+            "className": "text-uppercase card-title font-weight-bold white-text ",
           },
           "ref": null,
-          "rendered": Array [
-            "Venue: ",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "",
-              },
-              "ref": null,
-              "rendered": "",
-              "type": "h4",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "",
+              "className": "modal-header",
             },
-          ],
+            "ref": null,
+            "rendered": "",
+            "type": "h4",
+          },
           "type": "div",
         },
         Object {
@@ -441,7 +448,6 @@ ShallowWrapper {
                 </label>
               </div>
               <br />
-              <br />
               <div
                 className="row"
               >
@@ -476,12 +482,12 @@ ShallowWrapper {
                 </p>
               </div>
               <p
-                className="text-monospace font-weight-bold blue-text"
+                className="text-monospace font-weight-bold white-text"
               >
                 Approximately 
               </p>
               <ComponentWrapper
-                defaultValue=""
+                defaultValue={null}
                 handleStyle={
                   Array [
                     Object {},
@@ -496,7 +502,8 @@ ShallowWrapper {
               <br />
               <button
                 className="waves-effect waves-light btn right hoverable indigo"
-                onClick={[MockFunction]}
+                id="update-event"
+                onClick={[Function]}
                 type="submit"
               >
                 <i
@@ -569,7 +576,6 @@ ShallowWrapper {
                   </label>
                 </div>,
                 <br />,
-                <br />,
                 <div
                   className="row"
                 >
@@ -605,12 +611,12 @@ ShallowWrapper {
                   </p>
                 </div>,
                 <p
-                  className="text-monospace font-weight-bold blue-text"
+                  className="text-monospace font-weight-bold white-text"
                 >
                   Approximately 
                 </p>,
                 <ComponentWrapper
-                  defaultValue=""
+                  defaultValue={null}
                   handleStyle={
                     Array [
                       Object {},
@@ -626,7 +632,8 @@ ShallowWrapper {
                 <br />,
                 <button
                   className="waves-effect waves-light btn right hoverable indigo"
-                  onClick={[MockFunction]}
+                  id="update-event"
+                  onClick={[Function]}
                   type="submit"
                 >
                   <i
@@ -878,15 +885,6 @@ ShallowWrapper {
                 "instance": null,
                 "key": undefined,
                 "nodeType": "host",
-                "props": Object {},
-                "ref": null,
-                "rendered": null,
-                "type": "br",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
                 "props": Object {
                   "children": <div
                     className="input-field col s6 blue-text font-weight-bold"
@@ -1024,7 +1022,7 @@ ShallowWrapper {
                     "Approximately ",
                     undefined,
                   ],
-                  "className": "text-monospace font-weight-bold blue-text",
+                  "className": "text-monospace font-weight-bold white-text",
                 },
                 "ref": null,
                 "rendered": Array [
@@ -1038,7 +1036,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "defaultValue": "",
+                  "defaultValue": null,
                   "handleStyle": Array [
                     Object {},
                   ],
@@ -1088,7 +1086,8 @@ ShallowWrapper {
                     "Update Event",
                   ],
                   "className": "waves-effect waves-light btn right hoverable indigo",
-                  "onClick": [MockFunction],
+                  "id": "update-event",
+                  "onClick": [Function],
                   "type": "submit",
                 },
                 "ref": null,
@@ -1128,12 +1127,18 @@ ShallowWrapper {
       "props": Object {
         "children": <section
           className="form-dark"
+          style={
+            Object {
+              "justifyContent": "center",
+            }
+          }
         >
           <div
-            className="text-uppercase card-title font-weight-bold blue-text "
+            className="text-uppercase card-title font-weight-bold white-text "
           >
-            Venue: 
-            <h4>
+            <h4
+              className="modal-header"
+            >
               
             </h4>
           </div>
@@ -1196,7 +1201,6 @@ ShallowWrapper {
                 </label>
               </div>
               <br />
-              <br />
               <div
                 className="row"
               >
@@ -1231,12 +1235,12 @@ ShallowWrapper {
                 </p>
               </div>
               <p
-                className="text-monospace font-weight-bold blue-text"
+                className="text-monospace font-weight-bold white-text"
               >
                 Approximately 
               </p>
               <ComponentWrapper
-                defaultValue=""
+                defaultValue={null}
                 handleStyle={
                   Array [
                     Object {},
@@ -1251,7 +1255,8 @@ ShallowWrapper {
               <br />
               <button
                 className="waves-effect waves-light btn right hoverable indigo"
-                onClick={[MockFunction]}
+                id="update-event"
+                onClick={[Function]}
                 type="submit"
               >
                 <i
@@ -1268,12 +1273,12 @@ ShallowWrapper {
         "className": "card card-image",
         "style": Object {
           "backgroundImage": "url('http://i68.tinypic.com/dh5vk.jpg')",
-          "height": "100%",
-          "marginLeft": "-2.5%",
-          "paddingLeft": "5%",
-          "paddingRight": "35%",
-          "paddingTop": "0px",
-          "width": "120%",
+          "marginBottom": "-1%",
+          "marginLeft": "-4.5%",
+          "marginTop": "-8%",
+          "minHeight": "91vh",
+          "padding": "5% 5% 5% 5%",
+          "width": "110%",
         },
       },
       "ref": null,
@@ -1284,10 +1289,11 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="text-uppercase card-title font-weight-bold blue-text "
+              className="text-uppercase card-title font-weight-bold white-text "
             >
-              Venue: 
-              <h4>
+              <h4
+                className="modal-header"
+              >
                 
               </h4>
             </div>,
@@ -1350,7 +1356,6 @@ ShallowWrapper {
                   </label>
                 </div>
                 <br />
-                <br />
                 <div
                   className="row"
                 >
@@ -1385,12 +1390,12 @@ ShallowWrapper {
                   </p>
                 </div>
                 <p
-                  className="text-monospace font-weight-bold blue-text"
+                  className="text-monospace font-weight-bold white-text"
                 >
                   Approximately 
                 </p>
                 <ComponentWrapper
-                  defaultValue=""
+                  defaultValue={null}
                   handleStyle={
                     Array [
                       Object {},
@@ -1405,7 +1410,8 @@ ShallowWrapper {
                 <br />
                 <button
                   className="waves-effect waves-light btn right hoverable indigo"
-                  onClick={[MockFunction]}
+                  id="update-event"
+                  onClick={[Function]}
                   type="submit"
                 >
                   <i
@@ -1420,6 +1426,9 @@ ShallowWrapper {
             </div>,
           ],
           "className": "form-dark",
+          "style": Object {
+            "justifyContent": "center",
+          },
         },
         "ref": null,
         "rendered": Array [
@@ -1428,29 +1437,26 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                "Venue: ",
-                <h4>
-                  
-                </h4>,
-              ],
-              "className": "text-uppercase card-title font-weight-bold blue-text ",
+              "children": <h4
+                className="modal-header"
+              >
+                
+              </h4>,
+              "className": "text-uppercase card-title font-weight-bold white-text ",
             },
             "ref": null,
-            "rendered": Array [
-              "Venue: ",
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "",
-                },
-                "ref": null,
-                "rendered": "",
-                "type": "h4",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "",
+                "className": "modal-header",
               },
-            ],
+              "ref": null,
+              "rendered": "",
+              "type": "h4",
+            },
             "type": "div",
           },
           Object {
@@ -1532,7 +1538,6 @@ ShallowWrapper {
                   </label>
                 </div>
                 <br />
-                <br />
                 <div
                   className="row"
                 >
@@ -1567,12 +1572,12 @@ ShallowWrapper {
                   </p>
                 </div>
                 <p
-                  className="text-monospace font-weight-bold blue-text"
+                  className="text-monospace font-weight-bold white-text"
                 >
                   Approximately 
                 </p>
                 <ComponentWrapper
-                  defaultValue=""
+                  defaultValue={null}
                   handleStyle={
                     Array [
                       Object {},
@@ -1587,7 +1592,8 @@ ShallowWrapper {
                 <br />
                 <button
                   className="waves-effect waves-light btn right hoverable indigo"
-                  onClick={[MockFunction]}
+                  id="update-event"
+                  onClick={[Function]}
                   type="submit"
                 >
                   <i
@@ -1660,7 +1666,6 @@ ShallowWrapper {
                     </label>
                   </div>,
                   <br />,
-                  <br />,
                   <div
                     className="row"
                   >
@@ -1696,12 +1701,12 @@ ShallowWrapper {
                     </p>
                   </div>,
                   <p
-                    className="text-monospace font-weight-bold blue-text"
+                    className="text-monospace font-weight-bold white-text"
                   >
                     Approximately 
                   </p>,
                   <ComponentWrapper
-                    defaultValue=""
+                    defaultValue={null}
                     handleStyle={
                       Array [
                         Object {},
@@ -1717,7 +1722,8 @@ ShallowWrapper {
                   <br />,
                   <button
                     className="waves-effect waves-light btn right hoverable indigo"
-                    onClick={[MockFunction]}
+                    id="update-event"
+                    onClick={[Function]}
                     type="submit"
                   >
                     <i
@@ -1969,15 +1975,6 @@ ShallowWrapper {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "br",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
                   "props": Object {
                     "children": <div
                       className="input-field col s6 blue-text font-weight-bold"
@@ -2115,7 +2112,7 @@ ShallowWrapper {
                       "Approximately ",
                       undefined,
                     ],
-                    "className": "text-monospace font-weight-bold blue-text",
+                    "className": "text-monospace font-weight-bold white-text",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -2129,7 +2126,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "defaultValue": "",
+                    "defaultValue": null,
                     "handleStyle": Array [
                       Object {},
                     ],
@@ -2179,7 +2176,8 @@ ShallowWrapper {
                       "Update Event",
                     ],
                     "className": "waves-effect waves-light btn right hoverable indigo",
-                    "onClick": [MockFunction],
+                    "id": "update-event",
+                    "onClick": [Function],
                     "type": "submit",
                   },
                   "ref": null,
