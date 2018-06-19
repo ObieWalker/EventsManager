@@ -3,13 +3,13 @@
 
 [![Build Status](https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop)](https://travis-ci.org/ObieWalker/EventsManager)
 
-[![Coverage Status](https://coveralls.io/repos/github/ObieWalker/EventsManager/badge.svg)](https://coveralls.io/github/ObieWalker/EventsManager)
+[![Coverage Status](https://coveralls.io/repos/github/ObieWalker/EventsManager/badge.svg?branch=develop)](https://coveralls.io/github/ObieWalker/EventsManager?branch=develop)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-https://obievents.herokuapp.com/ <<Heroku>>
+https://obievents.herokuapp.com/
 
-https://obiewalker.github.io/EventsManager/  <<gh-pages>>
+https://obiewalker.github.io/EventsManager/
 
 ### What the project does
   - This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with appropriate venues.
