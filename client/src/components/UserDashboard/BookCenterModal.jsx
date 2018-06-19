@@ -156,8 +156,8 @@ export class BookCenter extends Component {
    */
   onSubmit(e) {
     // const e = { preventDefault: () => undefined };
-    const { center } = this.props;
     e.preventDefault();
+    const { center } = this.props;
     if (this.formIsValid()) {
       this.setState({ errors: {} });
       const eventDetails = {
@@ -207,8 +207,9 @@ export class BookCenter extends Component {
         sliderStep={this.state.step}
         sliderOnChange={this.onSliderChange}
         onAfterChange={this.onAfterChange}
-        bookOnSubmit={this.onSubmit}
-
+        bookOnSubmit={(e) => {
+          this.onSubmit(e);
+        }}
       />
     );
   }
