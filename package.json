@@ -16,7 +16,7 @@
     "pretest": "npm run db:migration && NODE_ENV=development",
     "seq:create": "sequelize db:create events_test",
     "test": "NODE_ENV=development nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
-    "test:dev": "export NODE_ENV=test && npm run db:migration:test && nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "test:dev": "export NODE_ENV=test && npm run db:migration:test && nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec && codecov",
     "test:client": "jest -u && codecov",
     "db:migration": "sequelize db:migrate && sequelize db:seed:all",
     "db:migration:test": "export NODE_ENV=test && sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",

@@ -153,8 +153,8 @@ const EventForm = (props) => {
             ) : (
               <button
                 style={{ marginBottom: '10px' }}
-                onClick={() => {
-                  bookOnSubmit();
+                onClick={(e) => {
+                  bookOnSubmit(e);
                 }}
                 type="submit"
                 className="waves-effect waves-light btn right hoverable indigo"
