@@ -5,7 +5,8 @@ node_js:
 
 script:
   - NODE_ENV=development npm run pretest
-
+  - npm run test:dev
+  
 install:
   - npm install
   - npm install -g codecov
@@ -27,6 +28,5 @@ before_script:
 
 after_success:
   - NODE_ENV=development npm run coverage
-  - npm run jest
   - npm run coveralls
 
