@@ -8,6 +8,7 @@ import updateRoleReducer from '../../src/reducers/updateRoleReducer';
 import deleteUserReducer from '../../src/reducers/deleteUserReducer';
 import * as types from '../../src/actions/actionTypes';
 import { users } from '../__mocks__/usersData';
+import { fetched } from '../__mocks__/usersData';
 
 describe('Register User', () => {
   const initialState = {
@@ -35,8 +36,7 @@ describe('Register User', () => {
     };
     expect(registerUserReducer(state, registerUser)).toEqual({
       registerUserSuccess: users.user1
-    }
-    );
+    });
   });
   it('should handle REGISTER_USER_FAILURE', () => {
     const registerUser = {
@@ -128,6 +128,8 @@ describe('Get Users', () => {
     fetchedUsers: [],
     moreUsers: true
   };
+  const user = users.user1;
+
   it('should return the initial state', () => {
     expect(getUsersReducer(undefined, {})).toEqual(initialState);
   });
@@ -147,6 +149,28 @@ describe('Get Users', () => {
     };
     expect(getUsersReducer(state, getUsersSuccess)).toEqual({
       fetchedUsers: [users],
+      moreUsers: true
+    });
+  });
+  it('should handle MODIFY_USER_ROLE', () => {
+    state.fetchedUsers = fetched;
+    const modify = {
+      type: types.MODIFY_USER_ROLE,
+      user
+    };
+    expect(getUsersReducer(state, modify)).toEqual({
+      fetchedUsers: fetched,
+      moreUsers: true
+    });
+  });
+  it('should handle DELETE_USER', () => {
+    const id = 15;
+    const deleteUser = {
+      type: types.DELETE_USER,
+      id
+    };
+    expect(getUsersReducer(state, deleteUser)).toEqual({
+      fetchedUsers: [],
       moreUsers: true
     });
   });

@@ -9,13 +9,13 @@ const CenterForm = (props) => {
     onFocus,
     onChange,
     centerNameValue,
-    addressValue,
+    // addressValue,
     defaultAddressValue,
-    cityValue,
+    // cityValue,
     defaultCityValue,
-    capacityValue,
+    // capacityValue,
     defaultCapacityValue,
-    facilityValue,
+    // facilityValue,
     defaultFacilityValue,
     modifyOnClick,
     createCenter,
@@ -31,7 +31,7 @@ const CenterForm = (props) => {
         className="grey lighten-4"
         style={{
           display: 'inline-block',
-          width: '80%',
+          width: '90%',
           margin: '5%',
           padding: '5%',
           border: '1px solid #EEE'
@@ -46,9 +46,9 @@ const CenterForm = (props) => {
             <input
               type="text"
               className="form-control"
-              value={defaultCenterName || centerNameValue}
+              // value={centerNameValue}
               error={props.errors}
-              // defaultValue={defaultCenterName || ''}
+              defaultValue={centerNameValue || defaultCenterName || ''}
               onFocus={onFocus}
               id="name"
               name="name"
@@ -66,8 +66,8 @@ const CenterForm = (props) => {
             <label className="active">Address:</label>
             <input
               type="text"
-              value={defaultAddressValue || addressValue}
-              // defaultValue={defaultAddressValue || ''}
+              // value={addressValue}
+              defaultValue={defaultAddressValue || ''}
               id="address"
               className="form-control"
               name="address"
@@ -81,8 +81,8 @@ const CenterForm = (props) => {
               <label className="active">City:</label>
               <input
                 type="text"
-                value={defaultCityValue || cityValue}
-                // defaultValue={defaultCityValue || ''}
+                // value={cityValue}
+                defaultValue={defaultCityValue || ''}
                 id="city"
                 name="city"
                 className="form-control"
@@ -95,8 +95,8 @@ const CenterForm = (props) => {
               <label className="active">Capacity:</label>
               <input
                 type="number"
-                value={defaultCapacityValue || capacityValue}
-                // defaultValue={defaultCapacityValue || ''}
+                // value={capacityValue}
+                defaultValue={defaultCapacityValue || ''}
                 id="capacity"
                 name="capacity"
                 className="form-control"
@@ -110,13 +110,11 @@ const CenterForm = (props) => {
           <div className="row">
             <div className="input-field col s12">
               <textarea
-                id={ defaultCityValue ? 'modifyFacility' : 'facility'}
+                id={defaultCityValue ? 'modifyFacility' : 'facility'}
                 className="materialize-textarea"
-                value={defaultFacilityValue || facilityValue}
-                // defaultValue={defaultFacilityValue || ''}
-                name={
-                  defaultCityValue ? 'modifyFacility' : 'facility'
-                }
+                // value={facilityValue}
+                defaultValue={defaultFacilityValue || ''}
+                name={defaultCityValue ? 'modifyFacility' : 'facility'}
                 onFocus={onFocus}
                 onChange={onChange}
               />
@@ -131,6 +129,7 @@ const CenterForm = (props) => {
               <input
                 type="file"
                 name="image"
+                id="image"
                 defaultValue={defaultImage || ''}
                 onChange={uploadImage}
               />
@@ -193,7 +192,7 @@ CenterForm.propTypes = {
   defaultAddressValue: PropTypes.string,
   cityValue: PropTypes.string,
   defaultCityValue: PropTypes.string,
-  capacityValue: PropTypes.string,
+  capacityValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultCapacityValue: PropTypes.number,
   facilityValue: PropTypes.string,
   defaultFacilityValue: PropTypes.string,

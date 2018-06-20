@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import CenterForm from '../CenterForm.jsx';
 import validateImage from '../../../helpers/validators/validateImage';
 import validateForm from '../../../helpers/validators/centerValidator';
+import clearForm from '../../../helpers/clearForm';
 
 import createCenterRequest from '../../actions/addCenterAction';
 // import success from '../../actions/'
@@ -39,7 +40,7 @@ export class CreateCenter extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.formIsValid = this.formIsValid.bind(this);
-    this.handleOnFocus = this.handleOnFocus.bind(this);
+
     this.handleImage = this.handleImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.clear = this.clear.bind(this);
@@ -55,17 +56,7 @@ export class CreateCenter extends Component {
       [e.target.name]: e.target.value
     });
   }
-  /**
-   * @returns {object} state
-   *
-   * @param {any} e
-   * @memberof CreateCenter
-   */
-  handleOnFocus(e) {
-    this.setState({
-      errors: Object.assign({}, this.state.errors, { [e.target.name]: '' })
-    });
-  }
+
   /**
    * @returns {object} state
    *
@@ -149,12 +140,13 @@ export class CreateCenter extends Component {
       };
       this.props.createCenter(centerDetails).then(() => {
         const { createSuccess, createError } = this.props;
+
         if (createError === '') {
           // clear toasts before showing new
           toastr.remove();
           this.setState({ isLoading: false });
           toastr.success(createSuccess);
-          this.clear();
+          clearForm(['name', 'address', 'city', 'capacity', 'facility']);
         } else {
           toastr.remove();
           toastr.error(createError);

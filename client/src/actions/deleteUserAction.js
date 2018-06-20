@@ -5,7 +5,8 @@ import toastr from 'toastr';
 import {
   IS_USER_DELETING,
   DELETE_USER_SUCCESS,
-  DELETE_USER_FAILURE
+  DELETE_USER_FAILURE,
+  DELETE_USER
 } from './actionTypes';
 
 
@@ -20,6 +21,10 @@ const deleteUserSuccess = (id, message) => ({
   message
 });
 
+const deleteUser = id => ({
+  type: DELETE_USER,
+  id
+});
 
 const deleteUserError = error => ({
   type: DELETE_USER_FAILURE,
@@ -40,6 +45,7 @@ const deleteUserRequest = id => (
       .then((response) => {
         toastr.success(response.data.message);
         dispatch(deleteUserSuccess(id, response.data.message));
+        dispatch(deleteUser(id));
         dispatch(isUserDeleting(false));
       }).catch((error) => {
         swal({

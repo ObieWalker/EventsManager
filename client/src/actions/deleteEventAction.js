@@ -4,7 +4,8 @@ import swal from 'sweetalert';
 import {
   IS_EVENT_DELETING,
   DELETE_EVENT_SUCCESS,
-  DELETE_EVENT_FAILURE
+  DELETE_EVENT_FAILURE,
+  DELETE_EVENT
 } from './actionTypes';
 
 const isEventDeleting = bool => ({
@@ -16,6 +17,11 @@ const deleteEventSuccess = (eventId, message) => ({
   type: DELETE_EVENT_SUCCESS,
   payload: eventId,
   message
+});
+
+const deleteEvent = id => ({
+  type: DELETE_EVENT,
+  id,
 });
 
 const deleteEventFailure = error => ({
@@ -37,13 +43,15 @@ const deleteAnEvent = event => (dispatch) => {
     }
   })
     .then((response) => {
+      const { eventId, message } = response.data;
       swal({
         title: 'Congratulations',
-        text: response.data.message,
+        text: message,
         icon: 'success',
         dangerMode: false
       });
-      dispatch(deleteEventSuccess(response.data.eventId, response.data.message));
+      dispatch(deleteEventSuccess(eventId, message));
+      dispatch(deleteEvent(eventId));
       dispatch(isEventDeleting(false));
     })
     .catch((error) => {

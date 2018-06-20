@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import {
   IS_CENTER_CREATING,
   CREATE_CENTER_SUCCESS,
-  CREATE_CENTER_FAILURE
+  CREATE_CENTER_FAILURE,
 } from './actionTypes';
 
 const isCenterCreating = bool => ({
@@ -36,8 +36,8 @@ const addCenter = centerDetails => (dispatch) => {
     data: centerDetails
   })
     .then((response) => {
-      const { message } = response.data;
-      dispatch(createCenterSuccess(response.data.center, message));
+      const { center, message } = response.data;
+      dispatch(createCenterSuccess(center, message));
       dispatch(isCenterCreating(false));
     })
     .catch((error) => {

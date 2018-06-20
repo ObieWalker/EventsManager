@@ -188,12 +188,14 @@ describe('edit a center actions', () => {
   it('handles UPDATE_CENTER_SUCCESS after editing a center', () => {
     const message = 'The center has been modified';
     const center = centers.center2;
+    const updated = center;
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
         response: {
           center,
+          updated,
           message: 'The center has been modified'
         }
       });
@@ -201,6 +203,7 @@ describe('edit a center actions', () => {
     const expectedActions = [
       { type: types.IS_CENTER_UPDATING, bool: true },
       { type: types.UPDATE_CENTER_SUCCESS, message, updatedCenter: center },
+      { type: types.EDIT_CENTER, center },
       { type: types.IS_CENTER_UPDATING, bool: false }
     ];
     const store = mockStore({ center: [] });

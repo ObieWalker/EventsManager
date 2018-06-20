@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
   IS_CENTER_UPDATING,
   UPDATE_CENTER_SUCCESS,
-  UPDATE_CENTER_FAILURE
+  UPDATE_CENTER_FAILURE,
+  EDIT_CENTER
 } from './actionTypes';
 
 const isCenterUpdating = bool => ({
@@ -14,6 +15,11 @@ const updateCenterSuccess = (updatedCenter, message) => ({
   type: UPDATE_CENTER_SUCCESS,
   updatedCenter,
   message
+});
+
+const editCenter = center => ({
+  type: EDIT_CENTER,
+  center
 });
 
 const updateCenterFailure = error => ({
@@ -36,8 +42,9 @@ const updateCenter = (newCenterDetails, id) => (
       data: newCenterDetails
     }).then((response) => {
       if (response) {
-        const { message } = response.data;
-        dispatch(updateCenterSuccess(response.data.center, message));
+        const { updated, message } = response.data;
+        dispatch(updateCenterSuccess(updated, message));
+        dispatch(editCenter(updated));
         dispatch(isCenterUpdating(false));
       }
     }).catch((error) => {

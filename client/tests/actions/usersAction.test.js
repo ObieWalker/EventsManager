@@ -86,6 +86,7 @@ describe('delete user actions', () => {
     const expectedActions = [
       { type: types.IS_USER_DELETING, bool: true },
       { type: types.DELETE_USER_SUCCESS, id, message },
+      { type: types.DELETE_USER, id },
       { type: types.IS_USER_DELETING, bool: false }
     ];
     const store = mockStore({ user: [] });
@@ -125,6 +126,7 @@ describe('set user role actions', () => {
   });
   it('handles SET_USER_SUCCESS after modifying a user role', () => {
     const user = users.user1;
+
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
@@ -137,6 +139,7 @@ describe('set user role actions', () => {
     const expectedActions = [
       { type: types.IS_USER_SETTING, bool: true },
       { type: types.SET_USER_SUCCESS, user },
+      { type: types.MODIFY_USER_ROLE, user },
       { type: types.IS_USER_SETTING, bool: false }
     ];
     const store = mockStore({ user: [] });

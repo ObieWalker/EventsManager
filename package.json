@@ -2,28 +2,41 @@
   "name": "event-manager",
   "version": "1.0.0",
   "scripts": {
-    "start": "node --optimize_for_size --max_old_space_size=500000 --gc_interval=100 ./dist/app.js",
-    "build:prod:client": "rm -rf build && webpack --progress --config webpack.config.prod.js",
+    "start":
+      "node --optimize_for_size --max_old_space_size=500000 --gc_interval=100 ./dist/app.js",
+    "build:prod:client":
+      "rm -rf build && webpack --progress --config webpack.config.prod.js",
     "build:prod:server": "babel -d ./dist --copy-files ./server -s",
     "build:dev": "webpack --progress --config webpack.config.dev.js",
-    "start:dev": "export NODE_ENV=development && npm run build:dev && nodemon server/entry.js",
+    "start:dev":
+      "export NODE_ENV=development && npm run build:dev && nodemon server/entry.js",
+    "start:server": "nodemon server/entry.js",
     "build:dev:client": "webpack --progress --config webpack.config.dev.js",
-    "start:dev2": "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
-    "dev": "webpack-dev-server --progress --colors --content-base=./client/public",
+    "start:dev2":
+      "export NODE_ENV=development && nodemon --watch server --exec babel-node -- server/app.js",
+    "dev":
+      "webpack-dev-server --progress --colors --content-base=./client/public",
     "build": "babel src -d dist",
-    "heroku-postbuild": "npm run build:prod:client && npm run build:prod:server",
+    "heroku-postbuild":
+      "npm run build:prod:client && npm run build:prod:server",
     "mocha": "mocha --compilers js:babel-core/register",
     "pretest": "npm run db:migration && NODE_ENV=development",
     "seq:create": "sequelize db:create events_test",
-    "test": "NODE_ENV=development nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
-    "test:dev": "export NODE_ENV=test && npm run db:migration:test && nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec && codecov",
+    "test":
+      "NODE_ENV=development nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec",
+    "test:dev":
+      "export NODE_ENV=test && npm run db:migration:test && nyc --reporter=html --reporter=text mocha --timeout 20000 ./server/tests/index.js --exit --require babel-register --reporter spec && codecov",
     "test:client": "jest -u && codecov",
+    "test:client:dev":
+      "jest --watch --coverage --collectCoverageFrom=client/src/**/*.{js,jsx}",
     "db:migration": "sequelize db:migrate && sequelize db:seed:all",
-    "db:migration:test": "export NODE_ENV=test && sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+    "db:migration:test":
+      "export NODE_ENV=test && sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
     "lint": "./node_modules/.bin/eslint",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test:dev",
-    "e2e-presetup": "export NODE_ENV=test && npm run db:migration:test && nodemon --watch server --exec babel-node -- server/app.js",
+    "e2e-presetup":
+      "export NODE_ENV=test && npm run db:migration:test && nodemon --watch server --exec babel-node -- server/app.js",
     "e2e-setup": "npm run e2e-presetup && npm run build:dev:client",
     "e2e-test": "NODE_ENV=test ./node_modules/.bin/nightwatch"
   },
@@ -34,24 +47,22 @@
       "<rootDir>./test-env.js"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/assetsTransformer.js",
       "\\.(css|less)$": "<rootDir>/assetsTransformer.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>./client/tests/setups/setupTests.js",
+    "setupTestFrameworkScriptFile":
+      "<rootDir>./client/tests/setups/setupTests.js",
     "testRegex": "client/tests/.*\\.test\\.(js|jsx)$",
     "collectCoverage": true,
     "collectCoverageFrom": [
       "client/src/**",
-      "!client/src/index.jsx"
+      "!client/src/index.jsx",
+      "!client/src/styles/models/index.js",
+      "!client/src/store/configureStore.js"
     ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/server/",
-      "/build/"
-    ],
-    "testPathIgnorePatterns": [
-      "/client/tests/__mocks__/"
-    ]
+    "coveragePathIgnorePatterns": ["/node_modules/", "/server/", "/build/"],
+    "testPathIgnorePatterns": ["/client/tests/__mocks__/"]
   },
   "dependencies": {
     "@material-ui/core": "^1.2.0",
@@ -176,9 +187,7 @@
     "test": "tests"
   },
   "nodemonConfig": {
-    "ignore": [
-      "client/*"
-    ]
+    "ignore": ["client/*"]
   },
   "proxy": "http://localhost:3000/",
   "author": "Obi Walker",
