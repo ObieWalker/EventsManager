@@ -91,9 +91,6 @@ export class EditModal extends Component {
   handleDateChange(e) {
     this.setState({
       date: moment(e.select).format('l')
-      // date: Object.assign({}, this.state, {
-      //   date: moment(e.select).format('l')
-      // })
     });
   }
 
@@ -121,6 +118,7 @@ export class EditModal extends Component {
     if (this.formIsValid()) {
       this.setState({ errors: {} });
       const modifiedEvent = {
+        centerName: this.props.event.Center.name,
         centerId: this.props.event.centerId,
         eventId: this.props.event.id,
         eventType: this.state.eventType,

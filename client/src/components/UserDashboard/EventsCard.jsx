@@ -41,7 +41,7 @@ const EventCard = (props) => {
                 <hr className="hr-light" />
                 {event.isCancelled || !event.Center ? (
                   <h6 className="red-text">
-                    Apologies!!! This event has been cancelled.
+                    This event has been canceled. Please make another booking.
                   </h6>
                 ) : (
                   <div>

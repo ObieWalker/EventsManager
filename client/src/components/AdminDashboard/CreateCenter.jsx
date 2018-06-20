@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import CenterForm from '../CenterForm.jsx';
 import validateImage from '../../../helpers/validators/validateImage';
 import validateForm from '../../../helpers/validators/centerValidator';
+import clearForm from '../../../helpers/clearForm';
 
 import createCenterRequest from '../../actions/addCenterAction';
 // import success from '../../actions/'
@@ -154,7 +155,7 @@ export class CreateCenter extends Component {
           toastr.remove();
           this.setState({ isLoading: false });
           toastr.success(createSuccess);
-          this.clear();
+          clearForm(['name', 'address', 'city', 'capacity', 'facility']);
         } else {
           toastr.remove();
           toastr.error(createError);

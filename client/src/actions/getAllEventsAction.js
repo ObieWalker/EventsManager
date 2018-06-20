@@ -17,7 +17,6 @@ const fetchEventsSuccess = events => ({
   events
 });
 
-
 const fetchEventsFailure = error => ({
   type: FETCH_EVENTS_FAILURE,
   error

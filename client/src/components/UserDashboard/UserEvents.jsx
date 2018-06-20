@@ -180,33 +180,33 @@ export class UserEvents extends Component {
                   )}
                 />
               ))}
+              {this.state.isLoading === true && (
+                <div>
+                  <p>Loading...</p> <Loading />
+                </div>
+              )}
+              <ScrollUp showUnder={100}>
+                <button
+                  type="button"
+                  className="btn btn-floating btn-rounded waves-effect"
+                >
+                  TOP
+                </button>
+              </ScrollUp>
+              {this.props.moreEvents && (
+                <button
+                  onClick={this.loadMoreContent}
+                  className="btn btn-primary active"
+                  id="loadMore"
+                  disabled={!this.props.moreEvents}
+                  style={{ margin: 'auto' }}
+                >
+                  Load More
+                </button>
+              )}
             </Row>
           ) : (
             'You have no booked events'
-          )}
-          {this.state.isLoading === true && (
-            <div>
-              <p>Loading...</p> <Loading />
-            </div>
-          )}
-          <ScrollUp showUnder={100}>
-            <button
-              type="button"
-              className="btn btn-floating btn-rounded waves-effect"
-            >
-              TOP
-            </button>
-          </ScrollUp>
-          {this.props.moreEvents && (
-            <button
-              onClick={this.loadMoreContent}
-              className="btn btn-primary active"
-              id="loadMore"
-              disabled={!this.props.moreEvents}
-              style={{ margin: 'auto' }}
-            >
-              Load More
-            </button>
           )}
           <br />
           <br />

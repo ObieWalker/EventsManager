@@ -2,7 +2,8 @@ import {
   IS_CENTERS_FETCHING,
   FETCH_CENTERS_SUCCESS,
   FETCH_CENTERS_FAILURE,
-  CLEAR_CENTER_STATE
+  CLEAR_CENTER_STATE,
+  EDIT_CENTER
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -27,6 +28,13 @@ export default (state = initialState, action = {}) => {
       allCentersError: action.error,
       moreCenters: false
     });
+  case EDIT_CENTER:
+    newState = Object.assign({}, state);
+    newState.fetchedCenters = newState.fetchedCenters.map((center) => {
+      if (center.id === action.center.id) return action.center;
+      return center;
+    });
+    return newState;
   case CLEAR_CENTER_STATE:
     newState = Object.assign({}, state);
     newState.fetchedCenters = action.empty;

@@ -25,7 +25,7 @@ export class ModifyCenter extends Component {
       address: '',
       city: '',
       capacity: '',
-      facility: '',
+      modifyFacility: '',
       uploadedImage: {},
       defaultImageUrl: 'http://i68.tinypic.com/dh5vk.jpg',
       errors: {}
@@ -48,7 +48,7 @@ export class ModifyCenter extends Component {
       address: center.address,
       city: center.city,
       capacity: center.capacity,
-      facility: center.facility,
+      modifyFacility: center.facility,
       uploadedImage: center.image
     });
   }
@@ -65,7 +65,7 @@ export class ModifyCenter extends Component {
       address: center.address,
       city: center.city,
       capacity: center.capacity,
-      facility: center.facility,
+      modifyFacility: center.facility,
       uploadedImage: center.image
     });
   }
@@ -77,10 +77,22 @@ export class ModifyCenter extends Component {
    * @memberof ModifyCenter
    */
   handleChange(event) {
+    const { name, value } = event.target;
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     });
   }
+  // handleChange(event) {
+  //   console.log('inside handle change');
+  //   this.setState({
+  //     name: event.target.value,
+  //     address: '',
+  //     city: '',
+  //     capacity: '',
+  //     facility: ''
+  //   });
+  //   console.log('event.target.value', event.target.value);
+  // }
 
   /**
    * @returns {object} boolean
@@ -105,13 +117,20 @@ export class ModifyCenter extends Component {
     e.preventDefault();
     if (this.isValid()) {
       this.setState({ errors: {} });
-      const newCenterDetails = this.state;
+      const newCenterDetails = {
+        name: this.state.name,
+        address: this.state.address,
+        city: this.state.city,
+        capacity: this.state.capacity,
+        facility: this.state.modifyFacility,
+        uploadedImage: this.state.image
+      };
+      console.log('update center==', newCenterDetails);
       this.props
         .modifyCenter(newCenterDetails, this.props.center.id)
         .then(() => {
           const { updateSuccess, updateError } = this.props;
           if (updateError === '') {
-            // clear toasts before showing new
             toastr.remove();
             toastr.success(updateSuccess);
             this.props.onHide();
@@ -149,7 +168,7 @@ export class ModifyCenter extends Component {
           capacityValue={this.state.capacity.value}
           defaultCapacityValue={center.capacity}
           defaultFacilityValue={center.facility}
-          facilityValue={this.state.facility.value}
+          facilityValue={this.state.modifyFacility.value}
           modifyOnClick={this.updateCenter}
           // defaultImage={this.state.uploadedImage || defaultImageUrl}
         />
