@@ -6,7 +6,7 @@ import deleteCenterReducer from '../../src/reducers/deleteCenterReducer';
 import updateCenterReducer from '../../src/reducers/updateCenterReducer';
 import getACenterReducer from '../../src/reducers/getACenterReducer';
 import * as types from '../../src/actions/actionTypes';
-import { centers } from '../__mocks__/centersData';
+import { fetched, centers } from '../__mocks__/centersData';
 
 describe('Get Centers', () => {
   const initialState = {
@@ -40,6 +40,18 @@ describe('Get Centers', () => {
     };
     expect(getCentersReducer(state, getCentersSuccess)).toEqual({
       fetchedCenters: [centers],
+      moreCenters: true
+    });
+  });
+  const center = centers.center3;
+  it('should handle EDIT_CENTER', () => {
+    state.fetchedCenters = fetched;
+    const getCentersSuccess = {
+      type: types.EDIT_CENTER,
+      center
+    };
+    expect(getCentersReducer(state, getCentersSuccess)).toEqual({
+      fetchedCenters: fetched,
       moreCenters: true
     });
   });

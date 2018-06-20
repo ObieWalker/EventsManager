@@ -58,7 +58,7 @@ ShallowWrapper {
               "display": "inline-block",
               "margin": "5%",
               "padding": "5%",
-              "width": "80%",
+              "width": "90%",
             }
           }
         >
@@ -76,6 +76,7 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
+                defaultValue=""
                 error={Object {}}
                 id="name"
                 name="name"
@@ -83,7 +84,6 @@ ShallowWrapper {
                 onFocus={[MockFunction]}
                 required={true}
                 type="text"
-                value=""
               />
             </div>
             <div
@@ -96,13 +96,13 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
+                defaultValue=""
                 id="address"
                 name="address"
                 onChange={[MockFunction]}
                 onFocus={[MockFunction]}
                 required={true}
                 type="text"
-                value=""
               />
             </div>
             <div
@@ -118,13 +118,13 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   id="city"
                   name="city"
                   onChange={[MockFunction]}
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -137,6 +137,7 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   id="capacity"
                   name="capacity"
                   onChange={[MockFunction]}
@@ -154,11 +155,11 @@ ShallowWrapper {
               >
                 <textarea
                   className="materialize-textarea"
+                  defaultValue=""
                   id="facility"
                   name="facility"
                   onChange={[MockFunction]}
                   onFocus={[MockFunction]}
-                  value=""
                 />
                 <label
                   className="active"
@@ -179,6 +180,7 @@ ShallowWrapper {
                 </span>
                 <input
                   defaultValue=""
+                  id="image"
                   name="image"
                   type="file"
                 />
@@ -247,6 +249,7 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
+                defaultValue=""
                 error={Object {}}
                 id="name"
                 name="name"
@@ -254,7 +257,6 @@ ShallowWrapper {
                 onFocus={[MockFunction]}
                 required={true}
                 type="text"
-                value=""
               />
             </div>
             <div
@@ -267,13 +269,13 @@ ShallowWrapper {
               </label>
               <input
                 className="form-control"
+                defaultValue=""
                 id="address"
                 name="address"
                 onChange={[MockFunction]}
                 onFocus={[MockFunction]}
                 required={true}
                 type="text"
-                value=""
               />
             </div>
             <div
@@ -289,13 +291,13 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   id="city"
                   name="city"
                   onChange={[MockFunction]}
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -308,6 +310,7 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   id="capacity"
                   name="capacity"
                   onChange={[MockFunction]}
@@ -325,11 +328,11 @@ ShallowWrapper {
               >
                 <textarea
                   className="materialize-textarea"
+                  defaultValue=""
                   id="facility"
                   name="facility"
                   onChange={[MockFunction]}
                   onFocus={[MockFunction]}
-                  value=""
                 />
                 <label
                   className="active"
@@ -350,6 +353,7 @@ ShallowWrapper {
                 </span>
                 <input
                   defaultValue=""
+                  id="image"
                   name="image"
                   type="file"
                 />
@@ -386,7 +390,7 @@ ShallowWrapper {
             "display": "inline-block",
             "margin": "5%",
             "padding": "5%",
-            "width": "80%",
+            "width": "90%",
           },
         },
         "ref": null,
@@ -407,6 +411,7 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   error={Object {}}
                   id="name"
                   name="name"
@@ -414,7 +419,6 @@ ShallowWrapper {
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>,
               <div
@@ -427,13 +431,13 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   id="address"
                   name="address"
                   onChange={[MockFunction]}
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>,
               <div
@@ -449,13 +453,13 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="city"
                     name="city"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
                     required={true}
                     type="text"
-                    value=""
                   />
                 </div>
                 <div
@@ -468,6 +472,7 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="capacity"
                     name="capacity"
                     onChange={[MockFunction]}
@@ -485,11 +490,11 @@ ShallowWrapper {
                 >
                   <textarea
                     className="materialize-textarea"
+                    defaultValue=""
                     id="facility"
                     name="facility"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
-                    value=""
                   />
                   <label
                     className="active"
@@ -510,6 +515,7 @@ ShallowWrapper {
                   </span>
                   <input
                     defaultValue=""
+                    id="image"
                     name="image"
                     type="file"
                   />
@@ -558,6 +564,7 @@ ShallowWrapper {
                   </label>,
                   <input
                     className="form-control"
+                    defaultValue=""
                     error={Object {}}
                     id="name"
                     name="name"
@@ -565,7 +572,6 @@ ShallowWrapper {
                     onFocus={[MockFunction]}
                     required={true}
                     type="text"
-                    value=""
                   />,
                   undefined,
                 ],
@@ -592,6 +598,7 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "className": "form-control",
+                    "defaultValue": "",
                     "error": Object {},
                     "id": "name",
                     "name": "name",
@@ -599,7 +606,6 @@ ShallowWrapper {
                     "onFocus": [MockFunction],
                     "required": true,
                     "type": "text",
-                    "value": "",
                   },
                   "ref": null,
                   "rendered": null,
@@ -622,13 +628,13 @@ ShallowWrapper {
                   </label>,
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="address"
                     name="address"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
                     required={true}
                     type="text"
-                    value=""
                   />,
                 ],
                 "className": "input-field col s12",
@@ -653,13 +659,13 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "className": "form-control",
+                    "defaultValue": "",
                     "id": "address",
                     "name": "address",
                     "onChange": [MockFunction],
                     "onFocus": [MockFunction],
                     "required": true,
                     "type": "text",
-                    "value": "",
                   },
                   "ref": null,
                   "rendered": null,
@@ -684,13 +690,13 @@ ShallowWrapper {
                     </label>
                     <input
                       className="form-control"
+                      defaultValue=""
                       id="city"
                       name="city"
                       onChange={[MockFunction]}
                       onFocus={[MockFunction]}
                       required={true}
                       type="text"
-                      value=""
                     />
                   </div>,
                   <div
@@ -703,6 +709,7 @@ ShallowWrapper {
                     </label>
                     <input
                       className="form-control"
+                      defaultValue=""
                       id="capacity"
                       name="capacity"
                       onChange={[MockFunction]}
@@ -729,13 +736,13 @@ ShallowWrapper {
                       </label>,
                       <input
                         className="form-control"
+                        defaultValue=""
                         id="city"
                         name="city"
                         onChange={[MockFunction]}
                         onFocus={[MockFunction]}
                         required={true}
                         type="text"
-                        value=""
                       />,
                     ],
                     "className": "input-field col s8",
@@ -760,13 +767,13 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "className": "form-control",
+                        "defaultValue": "",
                         "id": "city",
                         "name": "city",
                         "onChange": [MockFunction],
                         "onFocus": [MockFunction],
                         "required": true,
                         "type": "text",
-                        "value": "",
                       },
                       "ref": null,
                       "rendered": null,
@@ -788,6 +795,7 @@ ShallowWrapper {
                       </label>,
                       <input
                         className="form-control"
+                        defaultValue=""
                         id="capacity"
                         name="capacity"
                         onChange={[MockFunction]}
@@ -818,13 +826,13 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "className": "form-control",
+                        "defaultValue": "",
                         "id": "capacity",
                         "name": "capacity",
                         "onChange": [MockFunction],
                         "onFocus": [MockFunction],
                         "required": true,
                         "type": "number",
-                        "value": undefined,
                       },
                       "ref": null,
                       "rendered": null,
@@ -846,11 +854,11 @@ ShallowWrapper {
                 >
                   <textarea
                     className="materialize-textarea"
+                    defaultValue=""
                     id="facility"
                     name="facility"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
-                    value=""
                   />
                   <label
                     className="active"
@@ -870,11 +878,11 @@ ShallowWrapper {
                   "children": Array [
                     <textarea
                       className="materialize-textarea"
+                      defaultValue=""
                       id="facility"
                       name="facility"
                       onChange={[MockFunction]}
                       onFocus={[MockFunction]}
-                      value=""
                     />,
                     <label
                       className="active"
@@ -893,11 +901,11 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "className": "materialize-textarea",
+                      "defaultValue": "",
                       "id": "facility",
                       "name": "facility",
                       "onChange": [MockFunction],
                       "onFocus": [MockFunction],
-                      "value": "",
                     },
                     "ref": null,
                     "rendered": null,
@@ -935,6 +943,7 @@ ShallowWrapper {
                     </span>
                     <input
                       defaultValue=""
+                      id="image"
                       name="image"
                       type="file"
                     />
@@ -964,6 +973,7 @@ ShallowWrapper {
                       </span>,
                       <input
                         defaultValue=""
+                        id="image"
                         name="image"
                         type="file"
                       />,
@@ -989,6 +999,7 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "defaultValue": "",
+                        "id": "image",
                         "name": "image",
                         "onChange": undefined,
                         "type": "file",
@@ -1104,7 +1115,7 @@ ShallowWrapper {
                 "display": "inline-block",
                 "margin": "5%",
                 "padding": "5%",
-                "width": "80%",
+                "width": "90%",
               }
             }
           >
@@ -1122,6 +1133,7 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   error={Object {}}
                   id="name"
                   name="name"
@@ -1129,7 +1141,6 @@ ShallowWrapper {
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -1142,13 +1153,13 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   id="address"
                   name="address"
                   onChange={[MockFunction]}
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -1164,13 +1175,13 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="city"
                     name="city"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
                     required={true}
                     type="text"
-                    value=""
                   />
                 </div>
                 <div
@@ -1183,6 +1194,7 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="capacity"
                     name="capacity"
                     onChange={[MockFunction]}
@@ -1200,11 +1212,11 @@ ShallowWrapper {
                 >
                   <textarea
                     className="materialize-textarea"
+                    defaultValue=""
                     id="facility"
                     name="facility"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
-                    value=""
                   />
                   <label
                     className="active"
@@ -1225,6 +1237,7 @@ ShallowWrapper {
                   </span>
                   <input
                     defaultValue=""
+                    id="image"
                     name="image"
                     type="file"
                   />
@@ -1293,6 +1306,7 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   error={Object {}}
                   id="name"
                   name="name"
@@ -1300,7 +1314,6 @@ ShallowWrapper {
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -1313,13 +1326,13 @@ ShallowWrapper {
                 </label>
                 <input
                   className="form-control"
+                  defaultValue=""
                   id="address"
                   name="address"
                   onChange={[MockFunction]}
                   onFocus={[MockFunction]}
                   required={true}
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -1335,13 +1348,13 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="city"
                     name="city"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
                     required={true}
                     type="text"
-                    value=""
                   />
                 </div>
                 <div
@@ -1354,6 +1367,7 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="capacity"
                     name="capacity"
                     onChange={[MockFunction]}
@@ -1371,11 +1385,11 @@ ShallowWrapper {
                 >
                   <textarea
                     className="materialize-textarea"
+                    defaultValue=""
                     id="facility"
                     name="facility"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
-                    value=""
                   />
                   <label
                     className="active"
@@ -1396,6 +1410,7 @@ ShallowWrapper {
                   </span>
                   <input
                     defaultValue=""
+                    id="image"
                     name="image"
                     type="file"
                   />
@@ -1432,7 +1447,7 @@ ShallowWrapper {
               "display": "inline-block",
               "margin": "5%",
               "padding": "5%",
-              "width": "80%",
+              "width": "90%",
             },
           },
           "ref": null,
@@ -1453,6 +1468,7 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     error={Object {}}
                     id="name"
                     name="name"
@@ -1460,7 +1476,6 @@ ShallowWrapper {
                     onFocus={[MockFunction]}
                     required={true}
                     type="text"
-                    value=""
                   />
                 </div>,
                 <div
@@ -1473,13 +1488,13 @@ ShallowWrapper {
                   </label>
                   <input
                     className="form-control"
+                    defaultValue=""
                     id="address"
                     name="address"
                     onChange={[MockFunction]}
                     onFocus={[MockFunction]}
                     required={true}
                     type="text"
-                    value=""
                   />
                 </div>,
                 <div
@@ -1495,13 +1510,13 @@ ShallowWrapper {
                     </label>
                     <input
                       className="form-control"
+                      defaultValue=""
                       id="city"
                       name="city"
                       onChange={[MockFunction]}
                       onFocus={[MockFunction]}
                       required={true}
                       type="text"
-                      value=""
                     />
                   </div>
                   <div
@@ -1514,6 +1529,7 @@ ShallowWrapper {
                     </label>
                     <input
                       className="form-control"
+                      defaultValue=""
                       id="capacity"
                       name="capacity"
                       onChange={[MockFunction]}
@@ -1531,11 +1547,11 @@ ShallowWrapper {
                   >
                     <textarea
                       className="materialize-textarea"
+                      defaultValue=""
                       id="facility"
                       name="facility"
                       onChange={[MockFunction]}
                       onFocus={[MockFunction]}
-                      value=""
                     />
                     <label
                       className="active"
@@ -1556,6 +1572,7 @@ ShallowWrapper {
                     </span>
                     <input
                       defaultValue=""
+                      id="image"
                       name="image"
                       type="file"
                     />
@@ -1604,6 +1621,7 @@ ShallowWrapper {
                     </label>,
                     <input
                       className="form-control"
+                      defaultValue=""
                       error={Object {}}
                       id="name"
                       name="name"
@@ -1611,7 +1629,6 @@ ShallowWrapper {
                       onFocus={[MockFunction]}
                       required={true}
                       type="text"
-                      value=""
                     />,
                     undefined,
                   ],
@@ -1638,6 +1655,7 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "className": "form-control",
+                      "defaultValue": "",
                       "error": Object {},
                       "id": "name",
                       "name": "name",
@@ -1645,7 +1663,6 @@ ShallowWrapper {
                       "onFocus": [MockFunction],
                       "required": true,
                       "type": "text",
-                      "value": "",
                     },
                     "ref": null,
                     "rendered": null,
@@ -1668,13 +1685,13 @@ ShallowWrapper {
                     </label>,
                     <input
                       className="form-control"
+                      defaultValue=""
                       id="address"
                       name="address"
                       onChange={[MockFunction]}
                       onFocus={[MockFunction]}
                       required={true}
                       type="text"
-                      value=""
                     />,
                   ],
                   "className": "input-field col s12",
@@ -1699,13 +1716,13 @@ ShallowWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "className": "form-control",
+                      "defaultValue": "",
                       "id": "address",
                       "name": "address",
                       "onChange": [MockFunction],
                       "onFocus": [MockFunction],
                       "required": true,
                       "type": "text",
-                      "value": "",
                     },
                     "ref": null,
                     "rendered": null,
@@ -1730,13 +1747,13 @@ ShallowWrapper {
                       </label>
                       <input
                         className="form-control"
+                        defaultValue=""
                         id="city"
                         name="city"
                         onChange={[MockFunction]}
                         onFocus={[MockFunction]}
                         required={true}
                         type="text"
-                        value=""
                       />
                     </div>,
                     <div
@@ -1749,6 +1766,7 @@ ShallowWrapper {
                       </label>
                       <input
                         className="form-control"
+                        defaultValue=""
                         id="capacity"
                         name="capacity"
                         onChange={[MockFunction]}
@@ -1775,13 +1793,13 @@ ShallowWrapper {
                         </label>,
                         <input
                           className="form-control"
+                          defaultValue=""
                           id="city"
                           name="city"
                           onChange={[MockFunction]}
                           onFocus={[MockFunction]}
                           required={true}
                           type="text"
-                          value=""
                         />,
                       ],
                       "className": "input-field col s8",
@@ -1806,13 +1824,13 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "className": "form-control",
+                          "defaultValue": "",
                           "id": "city",
                           "name": "city",
                           "onChange": [MockFunction],
                           "onFocus": [MockFunction],
                           "required": true,
                           "type": "text",
-                          "value": "",
                         },
                         "ref": null,
                         "rendered": null,
@@ -1834,6 +1852,7 @@ ShallowWrapper {
                         </label>,
                         <input
                           className="form-control"
+                          defaultValue=""
                           id="capacity"
                           name="capacity"
                           onChange={[MockFunction]}
@@ -1864,13 +1883,13 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "className": "form-control",
+                          "defaultValue": "",
                           "id": "capacity",
                           "name": "capacity",
                           "onChange": [MockFunction],
                           "onFocus": [MockFunction],
                           "required": true,
                           "type": "number",
-                          "value": undefined,
                         },
                         "ref": null,
                         "rendered": null,
@@ -1892,11 +1911,11 @@ ShallowWrapper {
                   >
                     <textarea
                       className="materialize-textarea"
+                      defaultValue=""
                       id="facility"
                       name="facility"
                       onChange={[MockFunction]}
                       onFocus={[MockFunction]}
-                      value=""
                     />
                     <label
                       className="active"
@@ -1916,11 +1935,11 @@ ShallowWrapper {
                     "children": Array [
                       <textarea
                         className="materialize-textarea"
+                        defaultValue=""
                         id="facility"
                         name="facility"
                         onChange={[MockFunction]}
                         onFocus={[MockFunction]}
-                        value=""
                       />,
                       <label
                         className="active"
@@ -1939,11 +1958,11 @@ ShallowWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "className": "materialize-textarea",
+                        "defaultValue": "",
                         "id": "facility",
                         "name": "facility",
                         "onChange": [MockFunction],
                         "onFocus": [MockFunction],
-                        "value": "",
                       },
                       "ref": null,
                       "rendered": null,
@@ -1981,6 +2000,7 @@ ShallowWrapper {
                       </span>
                       <input
                         defaultValue=""
+                        id="image"
                         name="image"
                         type="file"
                       />
@@ -2010,6 +2030,7 @@ ShallowWrapper {
                         </span>,
                         <input
                           defaultValue=""
+                          id="image"
                           name="image"
                           type="file"
                         />,
@@ -2035,6 +2056,7 @@ ShallowWrapper {
                         "nodeType": "host",
                         "props": Object {
                           "defaultValue": "",
+                          "id": "image",
                           "name": "image",
                           "onChange": undefined,
                           "type": "file",

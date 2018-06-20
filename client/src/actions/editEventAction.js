@@ -51,6 +51,7 @@ const updateEventRequest = event => (dispatch) => {
         icon: 'success',
         dangerMode: false
       });
+
       response.data.updated.Center = { name: event.centerName };
       dispatch(updateEventSuccess(response.data.newEvent, message));
       dispatch(modifyEvent(response.data.updated));

@@ -9,8 +9,7 @@ import deleteEvent from '../../src/actions/deleteEventAction';
 import cancelEvent from '../../src/actions/cancelEventAction';
 import userEvents from '../../src/actions/getUserEventsAction';
 import userHistory from '../../src/actions/getUserHistoryAction';
-import centerEvents, { clearCenterEvents }
-  from '../../src/actions/getCenterEventsAction';
+import centerEvents, { clearCenterEvents } from '../../src/actions/getCenterEventsAction';
 import * as types from '../../src/actions/actionTypes';
 import { events } from '../__mocks__/eventsData';
 
@@ -130,7 +129,7 @@ describe('edit an event actions', () => {
   });
   it('handles UPDATE_EVENT_SUCCESS after editing an event', () => {
     const message = 'Your event has been updated';
-    const event = events.event2;
+    const event = { ...events.event2, centerName: 'Now here' };
     const newEvent = event;
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -138,6 +137,10 @@ describe('edit an event actions', () => {
         status: 200,
         response: {
           message: 'Your event has been updated',
+          updated: {
+            Center: {},
+            event
+          },
           newEvent
         }
       });
@@ -145,6 +148,10 @@ describe('edit an event actions', () => {
     const expectedActions = [
       { type: types.IS_EVENT_UPDATING, bool: true },
       { type: types.UPDATE_EVENT_SUCCESS, event, message },
+      {
+        type: types.MODIFY_EVENT,
+        event: { Center: { name: 'Now here' }, event }
+      },
       { type: types.IS_EVENT_UPDATING, bool: false }
     ];
     const store = mockStore({ event: [] });
@@ -152,7 +159,7 @@ describe('edit an event actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
-  it('handles UPDATE_CENTER_FAILURE when failing to edit a center', () => {
+  it('handles UPDATE_EVENT_FAILURE when failing to edit a center', () => {
     const error = 'Event does not exist within our records';
     const event = events.event2;
     moxios.wait(() => {
@@ -184,6 +191,7 @@ describe('delete event actions', () => {
   });
   it('handles DELETE_EVENT_SUCCESS after deleting an event', () => {
     const payload = 6;
+    const id = payload;
     const message = 'This wedding has been cancelled';
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
@@ -198,6 +206,7 @@ describe('delete event actions', () => {
     const expectedActions = [
       { type: types.IS_EVENT_DELETING, bool: true },
       { type: types.DELETE_EVENT_SUCCESS, payload, message },
+      { type: types.DELETE_EVENT, id },
       { type: types.IS_EVENT_DELETING, bool: false }
     ];
     const store = mockStore({ event: [] });
