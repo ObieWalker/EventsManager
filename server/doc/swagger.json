@@ -5,7 +5,7 @@
       "title": "Events Manager",
       "description": " API documetationn for an event manager"
     },
-    "host": "obievents.herokuapp.com/docs",
+    "host": "localhost:3000",
     "basePath": "/api/v1",
     "schemes": [
       "http",
