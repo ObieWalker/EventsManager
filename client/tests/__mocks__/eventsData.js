@@ -51,3 +51,23 @@ export const events = {
     }
   }
 };
+
+export const fetched = [
+  {
+    id: 9,
+    userId: 8,
+    centerId: 9,
+    eventType: 'Party',
+    date: '2018-06-09',
+    guestNo: 200,
+    isCancelled: null,
+    createdAt: '2018-05-20T16:16:11.648Z',
+    updatedAt: '2018-05-21T16:16:11.648Z',
+    Center: {
+      name: 'No Chill',
+      address: '34, Admiralty way',
+      city: 'Lekki',
+      image: ''
+    }
+  }
+];

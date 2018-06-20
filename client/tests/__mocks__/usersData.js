@@ -37,6 +37,21 @@ export const users = {
   },
   user4: {}
 };
+export const fetched = [
+  {
+    id: 15,
+    firstName: 'oluwalomosho',
+    lastName: 'oshamoo',
+    username: 'oloshoasha',
+    password: 'password',
+    email: 'oluwao@gmail.com',
+    loginTime: '2018-05-26T16:15:47.142Z',
+    isAdmin: false,
+    updatedAt: '2018-05-25T18:04:41.552Z',
+    createdAt: '2018-05-25T18:04:41.552Z'
+  }
+];
+
 export const response = {
   success: true,
   message: 'Login Successful!',

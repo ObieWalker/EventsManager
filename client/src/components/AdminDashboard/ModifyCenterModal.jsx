@@ -125,7 +125,6 @@ export class ModifyCenter extends Component {
         facility: this.state.modifyFacility,
         uploadedImage: this.state.image
       };
-      console.log('update center==', newCenterDetails);
       this.props
         .modifyCenter(newCenterDetails, this.props.center.id)
         .then(() => {

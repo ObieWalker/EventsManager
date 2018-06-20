@@ -110,13 +110,11 @@ const CenterForm = (props) => {
           <div className="row">
             <div className="input-field col s12">
               <textarea
-                id={ defaultCityValue ? 'modifyFacility' : 'facility'}
+                id={defaultCityValue ? 'modifyFacility' : 'facility'}
                 className="materialize-textarea"
                 // value={facilityValue}
                 defaultValue={defaultFacilityValue || ''}
-                name={
-                  defaultCityValue ? 'modifyFacility' : 'facility'
-                }
+                name={defaultCityValue ? 'modifyFacility' : 'facility'}
                 onFocus={onFocus}
                 onChange={onChange}
               />
@@ -131,6 +129,7 @@ const CenterForm = (props) => {
               <input
                 type="file"
                 name="image"
+                id="image"
                 defaultValue={defaultImage || ''}
                 onChange={uploadImage}
               />
@@ -193,7 +192,7 @@ CenterForm.propTypes = {
   defaultAddressValue: PropTypes.string,
   cityValue: PropTypes.string,
   defaultCityValue: PropTypes.string,
-  capacityValue: PropTypes.string,
+  capacityValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultCapacityValue: PropTypes.number,
   facilityValue: PropTypes.string,
   defaultFacilityValue: PropTypes.string,

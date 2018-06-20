@@ -26,8 +26,7 @@ export default (state = initialState, action = {}) => {
     return newState;
   case MODIFY_USER_ROLE:
     newState = Object.assign({}, state);
-    userIndex = newState.fetchedUsers.findIndex(user =>
-      user.id === action.user.id);
+    userIndex = newState.fetchedUsers.findIndex(user => user.id === action.user.id);
     editUser = newState.fetchedUsers[userIndex];
     editUser.isAdmin = !editUser.isAdmin;
     newState.fetchedUsers = [
@@ -41,8 +40,7 @@ export default (state = initialState, action = {}) => {
     return newState;
   case DELETE_USER:
     newState = Object.assign({}, state);
-    userIndex = newState.fetchedUsers.findIndex(user =>
-      user.id === action.id);
+    userIndex = newState.fetchedUsers.findIndex(user => user.id === action.id);
     newState.fetchedUsers = [
       ...newState.fetchedUsers.splice(0, userIndex),
       ...newState.fetchedUsers.splice(

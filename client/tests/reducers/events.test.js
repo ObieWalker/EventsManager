@@ -9,6 +9,7 @@ import getUsersHistoryReducer from '../../src/reducers/userHistoryReducer';
 import getCenterEventsReducer from '../../src/reducers/centerEventsReducer';
 import * as types from '../../src/actions/actionTypes';
 import { events } from '../__mocks__/eventsData';
+import { fetched } from '../__mocks__/eventsData';
 
 describe('Get Events', () => {
   const initialState = {
@@ -213,6 +214,30 @@ describe('Get User Events', () => {
       moreEvents: true
     });
   });
+  const event = events.event1;
+  it('should handle MODIFY_EVENT', () => {
+    state.fetchedUserEvents = fetched;
+    const fetchEventsSuccess = {
+      type: types.MODIFY_EVENT,
+      event
+    };
+    expect(getUserEventsReducer(state, fetchEventsSuccess)).toEqual({
+      fetchedUserEvents: fetched,
+      moreEvents: true
+    });
+  });
+  it('should handle DELETE_EVENT', () => {
+    const id = 9;
+    state.fetchedUserEvents = fetched;
+    const fetchEventsSuccess = {
+      type: types.DELETE_EVENT,
+      id
+    };
+    expect(getUserEventsReducer(state, fetchEventsSuccess)).toEqual({
+      fetchedUserEvents: [],
+      moreEvents: true
+    });
+  });
   it('should handle FETCH_USER_EVENTS_FAILURE', () => {
     const fetchEventsFailure = {
       type: types.FETCH_USER_EVENTS_FAILURE,
@@ -250,7 +275,7 @@ describe('Get Users History', () => {
     });
   });
   it('should handle FETCH_USER_HISTORY_SUCCESS', () => {
-    const history = events
+    const history = events;
     const fetchHistorySuccess = {
       type: types.FETCH_USER_HISTORY_SUCCESS,
       history

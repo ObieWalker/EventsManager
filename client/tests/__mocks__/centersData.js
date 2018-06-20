@@ -36,3 +36,17 @@ export const centers = {
     createdAt: '2018-04-25T18:04:41.552Z'
   }
 };
+export const fetched = [
+  {
+    id: 15,
+    userId: 2,
+    name: 'Center three',
+    address: '7, Ikoyi Road, Lekki',
+    facility: 'Wonderful mezanine',
+    capacity: 3000,
+    city: 'Lagos',
+    image: null,
+    updatedAt: '2018-04-25T18:04:41.552Z',
+    createdAt: '2018-04-25T18:04:41.552Z'
+  }
+];
