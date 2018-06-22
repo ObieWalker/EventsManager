@@ -10,3 +10,4 @@ build
 client/bundle
 client/hot
 dist
+.vscode
