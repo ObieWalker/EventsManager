@@ -1,4 +1,5 @@
 # EventsManager
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/215078ce2fd0ee631fc5/maintainability)](https://codeclimate.com/github/ObieWalker/EventsManager/maintainability)
 
 [![Build Status](https://travis-ci.org/ObieWalker/EventsManager.svg?branch=develop)](https://travis-ci.org/ObieWalker/EventsManager)
@@ -12,33 +13,38 @@ https://obievents.herokuapp.com/
 https://obiewalker.github.io/EventsManager/
 
 ### What the project does
-  - This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with appropriate venues.
-  - Features
+
+- This is an events manager application that will be used to connect users that could be event planners or customers wanting to hold an event with appropriate venues.
+- Features
 
 ### Why the project is useful
-  - This project intends to handle the barriers associated with a user having to physically go to venues to enquire or call up the few venues  they might be aware of. A user can sit in the comfort of their houses with their requirements and make the best possible decision with respect to their limiting factors. 
 
+- This project intends to handle the barriers associated with a user having to physically go to venues to enquire or call up the few venues they might be aware of. A user can sit in the comfort of their houses with their requirements and make the best possible decision with respect to their limiting factors.
 
 ### Contributing to the project
-  - This was intended to be a personal project but I have gotten help and feedback from colleagues and learning facilitators which were duly implemented.
+
+- This was intended to be a personal project but I have gotten help and feedback from colleagues and learning facilitators which were duly implemented.
 
 ## TECHNOLOGIES USED
 
-  * Front-end: React/Redux and Materialize (Templates available on my gh-pages).
-  * Back-end: Node/Expressjs + Sequelize/Postgres
-  * Libraries: nodemon, Babel, eslint, etc.
-  * Backend Test: Mocha/Chai
-  * Frontend Test: Enzyme and Jest
+- Front-end: React/Redux and Materialize (Templates available on my gh-pages).
+- Back-end: Node/Expressjs + Sequelize/Postgres
+- Libraries: nodemon, Babel, eslint, etc.
+- Backend Test: Mocha/Chai
+- Frontend Test: Enzyme, Jest and Nightwatch
 
 ### How users can get started with the project
-  - Ensure you have a system with atleast 8GB RAM and follow the instructions below
+
+- Ensure you have a system with atleast 8GB RAM and follow the instructions below
 
 ## For installation
-* Install Node JS and Postgresql
-* Clone the repo.
-* [cd] into the root of the project directory.
-* Run `npm install` to install all 
-* Create a .env file with values for the following keys:
+
+- Install Node JS and Postgresql
+- Clone the repo.
+- [cd] into the root of the project directory.
+- Run `npm install` to install all
+- Create a .env file with values for the following keys:
+
 ```
 SECRET=
 PORT=
@@ -48,18 +54,20 @@ CLOUDINARY_URL=
 MAILER_EMAIL=
 MAILER_PASSWORD=
 ```
-* To run on **development** environment, Run `npm run start:dev` to start the server
- and`npm run build:dev` for the client side.
- * To run on **Production** environment, Run `npm start` to start the application.
-* Open your browser on localhost:3000
 
+- To run on **development** environment, Run `npm run start:dev` to start the server
+  and`npm run build:dev` for the client side.
+- To run on **Production** environment, Run `npm start` to start the application.
+- Open your browser on localhost:3000
 
 ## Tests
-  - To run tests, use `npm test`
+
+- To run tests, use `npm test`
 
 ### ACTORS
 
 Regular users can:
+
 - Register and sign in.
 - Add events.
 - Modify their own events.
@@ -68,6 +76,7 @@ Regular users can:
 - View all centers.
 
 Admin Users can:
+
 - Add a center.
 - Modify a center.
 - Delete a center.
@@ -79,57 +88,72 @@ Admin Users can:
 ## The API Endpoints
 
 **User**
-***Register***
-* `POST` https://obievents.herokuapp.com/api/v1/users
+**_Register_**
 
-***Login***
-* `POST` https://obievents.herokuapp.com/api/v1/users/login
+- `POST` https://obievents.herokuapp.com/api/v1/users
 
-***All Users***
-* `GET` https://obievents.herokuapp.com/api/v1/users
+**_Login_**
 
-***Make user admin***
-* `PUT` https://obievents.herokuapp.com/api/v1/users/:id
+- `POST` https://obievents.herokuapp.com/api/v1/users/login
 
-***Delete a user***
-* `DELETE` https://obievents.herokuapp.com/api/v1/users/:id
+**_All Users_**
 
+- `GET` https://obievents.herokuapp.com/api/v1/users
+
+**_Make user admin_**
+
+- `PUT` https://obievents.herokuapp.com/api/v1/users/:id
+
+**_Delete a user_**
+
+- `DELETE` https://obievents.herokuapp.com/api/v1/users/:id
 
 **Center**
-***Create a center***
-* `POST` https://obievents.herokuapp.com/api/v1/centers
+**_Create a center_**
 
-***Get all centers***
-* `GET`  https://obievents.herokuapp.com/api/v1/centers
+- `POST` https://obievents.herokuapp.com/api/v1/centers
 
-***Get a center***
-* `GET`  https://obievents.herokuapp.com/api/v1/centers/:id
+**_Get all centers_**
 
-***Modify a center***
-* `PUT`  https://obievents.herokuapp.com/api/v1/centers/:id
+- `GET` https://obievents.herokuapp.com/api/v1/centers
 
-***Delete a center***
-* `DEL`  https://obievents.herokuapp.com/api/v1/centers/:id
+**_Get a center_**
 
+- `GET` https://obievents.herokuapp.com/api/v1/centers/:id
+
+**_Modify a center_**
+
+- `PUT` https://obievents.herokuapp.com/api/v1/centers/:id
+
+**_Delete a center_**
+
+- `DEL` https://obievents.herokuapp.com/api/v1/centers/:id
 
 **Events**
-***Create an Event***
-* `POST` https://obievents.herokuapp.com/api/v1/events
+**_Create an Event_**
 
-***Get a users Events***
-* `GET`  https://obievents.herokuapp.com/api/v1/user/events/
+- `POST` https://obievents.herokuapp.com/api/v1/events
 
-***Get all Events***
-* `GET`  https://obievents.herokuapp.com/api/v1/events/
+**_Get a users Events_**
 
-***Modify an Event***
-* `PUT`  https://obievents.herokuapp.com/api/v1/events/:id
+- `GET` https://obievents.herokuapp.com/api/v1/user/events/
 
-***Delete an Event***
-* `DEL`  https://obievents.herokuapp.com/api/v1/events/:id
+**_Get all Events_**
 
-***Get all center Events***
-* `DEL`  https://obievents.herokuapp.com/api/v1/center/events/:centerId
+- `GET` https://obievents.herokuapp.com/api/v1/events/
 
-***Cancel an Event***
-* `DEL`  https://obievents.herokuapp.com/api/v1/admin/events/:id
+**_Modify an Event_**
+
+- `PUT` https://obievents.herokuapp.com/api/v1/events/:id
+
+**_Delete an Event_**
+
+- `DEL` https://obievents.herokuapp.com/api/v1/events/:id
+
+**_Get all center Events_**
+
+- `DEL` https://obievents.herokuapp.com/api/v1/center/events/:centerId
+
+**_Cancel an Event_**
+
+- `DEL` https://obievents.herokuapp.com/api/v1/admin/events/:id
